@@ -6,6 +6,8 @@ import 'package:uni_fit/main.dart';
 import 'pushed_pageA.dart';
 import 'pushed_pageY.dart';
 
+
+// add live monitoring
 class LiveMonitoring extends StatelessWidget {
   final List<CameraDescription> cameras;
 
