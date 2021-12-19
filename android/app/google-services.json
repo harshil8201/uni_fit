@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "464503923356",
+    "firebase_url": "https://uni-fit-app-default-rtdb.firebaseio.com",
+    "project_id": "uni-fit-app",
+    "storage_bucket": "uni-fit-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464503923356:android:96d3670300ac5c497e8359",
+        "android_client_info": {
+          "package_name": "com.unionsoftwareit.uni_fit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "464503923356-jd0kuk55mqmmkie78etcv8risan4c089.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.unionsoftwareit.uni_fit",
+            "certificate_hash": "a7fddd9af546e393dd365b62c77e2e2eb54fc3d7"
+          }
+        },
+        {
+          "client_id": "464503923356-44u92j7f8u2ipuagkpa8ta22jiqh9s4i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdNX9TM3TBLZFoMnckSpUff7oe0gLXjSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "464503923356-44u92j7f8u2ipuagkpa8ta22jiqh9s4i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

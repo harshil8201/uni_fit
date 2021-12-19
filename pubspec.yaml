@@ -1,0 +1,60 @@
+name: uni_fit
+description: A new Flutter project.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  provider: ^5.0.0
+  get: ^4.1.4
+  firebase_auth:
+  firebase_core:
+  cloud_firestore:
+  path:
+  path_provider:
+  google_sign_in:
+  font_awesome_flutter: ^9.1.0
+  pedometer: ^3.0.0
+  tflite: ^1.1.1
+  camera: ^0.5.8+11
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^1.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - assets/posenet_mv1_075_float_from_checkpoints.tflite
+    - assets/images/
+    - assets/images/diet/
+    - assets/exercises/
+    - assets/images/1.png
+    - assets/images/advance/
+    - assets/images/beginner/
+    - assets/images/intermediate/
+
+  fonts:
+    - family: popBold
+      fonts:
+        - asset: assets/font/poppins_bold.otf
+
+    - family: popLight
+      fonts:
+        - asset: assets/font/poppins_light.otf
+
+    - family: popMedium
+      fonts:
+        - asset: assets/font/poppins_medium.otf
