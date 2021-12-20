@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/live_monitoring.dart';
+import 'package:uni_fit/play.dart';
 import 'route_class.dart';
 import 'SignIn-SignUp/Google SignIn/google_sign_in_provider.dart';
 // ignore_for_file: prefer_const_constructors
@@ -40,9 +41,9 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Uni Fit',
         debugShowCheckedModeBanner: false,
-        //home: MainScreen(cameras),
-        initialRoute: '/',
-        routes: routeClass,
+        home: PlayPage(),
+        // initialRoute: '/',
+        // routes: routeClass,
       ),
     );
   }
