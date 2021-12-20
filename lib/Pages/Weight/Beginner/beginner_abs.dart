@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/play.dart';
 
 class BeginnerAbs extends StatefulWidget {
   const BeginnerAbs({Key key}) : super(key: key);
@@ -293,35 +294,40 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 40),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 100),
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: primaryGreen,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowBlack,
-                        offset: const Offset(0, 0),
-                        blurRadius: 20.0,
-                      ), //BoxShadow
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Start'.toUpperCase(),
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        fontFamily: 'popBold',
-                        fontSize: 23,
-                        letterSpacing: 2,
-                        color: Colors.white,
+          InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>PlayPage()));
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 40),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Container(
+                    height: 50,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: primaryGreen,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Start'.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: 23,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
