@@ -17,7 +17,7 @@ class RenderData extends StatefulWidget {
 class _RenderDataState extends State<RenderData> {
   Map<String, List<double>> inputArr;
 
-  String excercise = 'squat';
+  String exercise = 'squat';
   double upperRange = 300;
   double lowerRange = 500;
   bool midCount, isCorrectPosture;
@@ -28,7 +28,7 @@ class _RenderDataState extends State<RenderData> {
   double kneeRY;
   double kneeLY;
   bool squatUp;
-  String whatToDo = 'Finding Posture';
+  String whatToDo = 'Finding Pose';
 
   var leftEyePos = Vector(0, 0);
   var rightEyePos = Vector(0, 0);
@@ -67,7 +67,7 @@ class _RenderDataState extends State<RenderData> {
       kneeLY = poses['leftKnee'][1];
       kneeRY = poses['rightKnee'][1];
     });
-    if (excercise == 'squat') {
+    if (exercise == 'squat') {
       if (squatUp) {
         return poses['leftShoulder'][1] < 320 &&
             poses['leftShoulder'][1] > 280 &&
@@ -107,7 +107,7 @@ class _RenderDataState extends State<RenderData> {
       if (isCorrectPosture && squatUp && midCount == false) {
         //in correct initial posture
         setState(() {
-          whatToDo = 'Squat Down';
+          whatToDo = 'go Down';
           //correctColor = Colors.green;
         });
         squatUp = !squatUp;
@@ -256,14 +256,14 @@ class _RenderDataState extends State<RenderData> {
             width: 100,
             height: 15,
             child: Container(
-                // child: Text(
-                //   "● ${k["part"]}",
-                //   style: TextStyle(
-                //     color: Color.fromRGBO(37, 213, 253, 1.0),
-                //     fontSize: 12.0,
-                //   ),
-                // ),
-                ),
+              // child: Text(
+              //   "● ${k["part"]}",
+              //   style: TextStyle(
+              //     color: Color.fromRGBO(37, 213, 253, 1.0),
+              //     fontSize: 12.0,
+              //   ),
+              // ),
+            ),
           );
         }).toList();
 
@@ -283,7 +283,7 @@ class _RenderDataState extends State<RenderData> {
           children: [
             CustomPaint(
               painter:
-                  MyPainter(left: leftShoulderPos, right: rightShoulderPos),
+              MyPainter(left: leftShoulderPos, right: rightShoulderPos),
             ),
             CustomPaint(
               painter: MyPainter(left: leftElbowPos, right: leftShoulderPos),
@@ -324,20 +324,25 @@ class _RenderDataState extends State<RenderData> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 50,
+            height: 80,
             width: widget.screenW,
             decoration: BoxDecoration(
               color: correctColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25.0),
                   topRight: Radius.circular(25)),
             ),
             child: Column(
               children: [
                 Text(
-                  '$whatToDo\nArm Presses: ${_counter.toString()}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  whatToDo,
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
+                const SizedBox(height: 10,),
+                Text(
+                  'Squat: ${_counter.toString()}'.toUpperCase(),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                )
               ],
             ),
           ),
@@ -371,75 +376,3 @@ class MyPainter extends CustomPainter {
     return false;
   }
 }
-
-// class MyPainter extends CustomPainter {
-//   Vector leftShoulderPos;
-//   Vector rightShoulderPos;
-//   Vector leftHipPos;
-//   Vector rightHipPos;
-//   Vector leftElbowPos;
-//   Vector rightElbowPos;
-//   Vector leftWristPos;
-//   Vector rightWristPos;
-//   Vector leftKneePos;
-//   Vector rightKneePos;
-//   Vector leftAnklePos;
-//   Vector rightAnklePos;
-//   MyPainter(
-//       {this.leftShoulderPos,
-//       this.leftAnklePos,
-//       this.leftElbowPos,
-//       this.leftHipPos,
-//       this.leftKneePos,
-//       this.leftWristPos,
-//       this.rightAnklePos,
-//       this.rightElbowPos,
-//       this.rightHipPos,
-//       this.rightKneePos,
-//       this.rightShoulderPos,
-//       this.rightWristPos});
-//   @override
-//   void paint(Canvas canvas, Size size) {
-//     final pointMode = ui.PointMode.polygon;
-//     final points = [
-//       Offset(leftWristPos.x, leftWristPos.y),
-//       Offset(leftElbowPos.x, leftElbowPos.y),
-//       Offset(leftShoulderPos.x, leftShoulderPos.y),
-//       Offset(leftHipPos.x, leftHipPos.y),
-//       Offset(leftKneePos.x, leftKneePos.y),
-//       Offset(leftAnklePos.x, leftAnklePos.y),
-//       Offset(rightHipPos.x, rightHipPos.y),
-//       Offset(rightKneePos.x, rightKneePos.y),
-//       Offset(rightAnklePos.x, rightAnklePos.y),
-//       Offset(rightShoulderPos.x, rightShoulderPos.y),
-//       Offset(rightElbowPos.x, rightElbowPos.y),
-//       Offset(rightWristPos.x, rightWristPos.y),
-//     ];
-//     final paint = Paint()
-//       ..color = Colors.black
-//       ..strokeWidth = 4
-//       ..strokeCap = StrokeCap.round;
-//     canvas.drawPoints(pointMode, points, paint);
-//   }
-
-//   @override
-//   bool shouldRepaint(CustomPainter old) {
-//     return false;
-//   }
-// }
-
-// CustomPaint(
-//               painter: MyPainter(
-//                   leftShoulderPos: leftShoulderPos,
-//                   leftElbowPos: leftElbowPos,
-//                   leftWristPos: leftWristPos,
-//                   leftHipPos: leftHipPos,
-//                   leftKneePos: leftKneePos,
-//                   leftAnklePos: leftAnklePos,
-//                   rightHipPos: rightHipPos,
-//                   rightKneePos: rightKneePos,
-//                   rightAnklePos: rightAnklePos,
-//                   rightShoulderPos: rightShoulderPos,
-//                   rightElbowPos: rightElbowPos,
-//                   rightWristPos: rightWristPos),
-//             ),

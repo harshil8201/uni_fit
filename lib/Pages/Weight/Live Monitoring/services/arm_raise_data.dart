@@ -9,6 +9,7 @@ class RenderDataArmPress extends StatefulWidget {
 
   RenderDataArmPress(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
+
   @override
   _RenderDataArmPressState createState() => _RenderDataArmPressState();
 }
@@ -16,7 +17,7 @@ class RenderDataArmPress extends StatefulWidget {
 class _RenderDataArmPressState extends State<RenderDataArmPress> {
   Map<String, List<double>> inputArr;
 
-  String excercise = 'arm_press';
+  String exercise = 'arm_press';
   double upperRange = 300;
   double lowerRange = 500;
   bool midCount, isCorrectPosture;
@@ -29,7 +30,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
   double kneeRY;
   double kneeLY;
   bool squatUp;
-  String whatToDo = 'Finding Posture';
+  String whatToDo = 'Stand Proper, Finding Pose';
 
   var leftEyePos = Vector(0, 0);
   var rightEyePos = Vector(0, 0);
@@ -75,7 +76,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
       kneeLY = poses['leftKnee'][1];
       kneeRY = poses['rightKnee'][1];
     });
-    if (excercise == 'arm_press') {
+    if (exercise == 'arm_press') {
       if (squatUp) {
         return wristLX > 280 &&
             elbowLX > 280 &&
@@ -329,19 +330,26 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 50,
+            height: 80,
             width: widget.screenW,
             decoration: BoxDecoration(
               color: correctColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25.0),
                   topRight: Radius.circular(25)),
             ),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  '$whatToDo\nArm Presses: ${_counter.toString()}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  whatToDo,
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 10,),
+                Text(
+                  'Arm Presses: ${_counter.toString()}'.toUpperCase(),
+                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -354,13 +362,16 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
 
 class Vector {
   double x, y;
+
   Vector(this.x, this.y);
 }
 
 class MyPainter extends CustomPainter {
   Vector left;
   Vector right;
+
   MyPainter({this.left, this.right});
+
   @override
   void paint(Canvas canvas, Size size) {
     final p1 = Offset(left.x, left.y);

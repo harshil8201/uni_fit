@@ -1,19 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:uni_fit/Pages/Weight/Live%20Monitoring/pushed_pageS.dart';
+import 'package:uni_fit/Pages/Weight/Live%20Monitoring/squat.dart';
 import 'package:uni_fit/color_class.dart';
 import 'package:uni_fit/main.dart';
-import 'pushed_pageA.dart';
-import 'pushed_pageY.dart';
-
+import 'arm_raise.dart';
+import 'warrior_pose.dart';
 
 // add live monitoring
 class LiveMonitoring extends StatelessWidget {
   final List<CameraDescription> cameras;
 
   LiveMonitoring(this.cameras);
-
-  static const String id = 'main_screen';
 
   @override
   Widget build(BuildContext context) {
@@ -67,16 +64,22 @@ class LiveMonitoring extends StatelessWidget {
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () => onSelectA(context: context, modelName: 'posenet'),
-                      child: liveErContainer(),
+                      onTap: () =>
+                          onSelectA(context: context, modelName: 'posenet'),
+                      child: liveErContainer(
+                          'assets/images/arm_raise.jpg', 'Arm Raise'),
                     ),
                     InkWell(
-                      onTap: () => onSelectS(context: context, modelName: 'posenet'),
-                      child: liveErContainer(),
+                      onTap: () =>
+                          onSelectS(context: context, modelName: 'posenet'),
+                      child: liveErContainer(
+                          'assets/images/squat.jpg', 'Squat'),
                     ),
                     InkWell(
-                      onTap: () => onSelectY(context: context, modelName: 'posenet'),
-                      child: liveErContainer(),
+                      onTap: () =>
+                          onSelectY(context: context, modelName: 'posenet'),
+                      child: liveErContainer(
+                          'assets/images/warrior_pose.jpg', 'Warrior pose'),
                     ),
                   ],
                 ),
@@ -125,12 +128,12 @@ void onSelectY({BuildContext context, String modelName}) async {
   );
 }
 
-Widget liveErContainer() {
+Widget liveErContainer(String erImage, String erName) {
   return Padding(
-    padding: const EdgeInsets.only(top: 20, bottom: 20, left: 20, right: 20),
+    padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
     child: Container(
       width: 350,
-      height: 350,
+      height: 280,
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -143,8 +146,34 @@ Widget liveErContainer() {
         borderRadius: BorderRadius.circular(20),
       ),
       child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Image.asset('assets/images/1.png')),
+        padding: const EdgeInsets.all(10.0),
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  erImage,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(5),
+              child: Text(
+                erName.toUpperCase(),
+                style: TextStyle(
+                  color: primaryGreen,
+                  fontSize: 30,
+                  fontFamily: 'popBold',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     ),
   );
 }

@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
+import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/SignIn-SignUp/Google%20SignIn/google_sign_in_provider.dart';
 import 'package:uni_fit/SignIn-SignUp/signIn_login_page.dart';
 import 'package:uni_fit/color_class.dart';
@@ -105,19 +107,38 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             Column(
               children: [
-                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator'),
-                drawerItems(FontAwesomeIcons.fire, 'Calories burner'),
-                drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder'),
-                drawerItems(FontAwesomeIcons.clock, 'Daily reminder'),
-                drawerItems(FontAwesomeIcons.cog, 'Setting'),
-                drawerItems(FontAwesomeIcons.infoCircle, 'About us'),
+                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',const BMIPage()),
+                // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
+                drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder',null),
+                drawerItems(FontAwesomeIcons.clock, 'Daily reminder',null),
+                // drawerItems(FontAwesomeIcons.cog, 'Setting',null),
+                drawerItems(FontAwesomeIcons.infoCircle, 'About us',null),
               ],
             ),
             InkWell(
               onTap: () {
                 showAlertDialog(context);
               },
-              child: drawerItems(Icons.logout, 'Log out'),
+              child: Row(
+                children: [
+                  FaIcon(
+                    Icons.logout,
+                    color: primaryWhite,
+                    size: 25,
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    'Logout',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: primaryWhite,
+                      fontFamily: 'popMedium',
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -128,7 +149,7 @@ class _DrawerPageState extends State<DrawerPage> {
   showAlertDialog(BuildContext context) {
     // set up the buttons
     Widget cancelButton = TextButton(
-      child: Text(
+      child: const Text(
         "Cancel",
         style: TextStyle(
           color: Colors.blue,
@@ -140,7 +161,7 @@ class _DrawerPageState extends State<DrawerPage> {
       },
     );
     Widget continueButton = TextButton(
-      child: Text(
+      child: const Text(
         "Continue",
         style: TextStyle(
           color: Colors.red,
@@ -170,17 +191,17 @@ class _DrawerPageState extends State<DrawerPage> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(15)),
       ),
-      title: Text(
+      title: const Text(
         "Want to Logout?",
         style: TextStyle(
           color: Colors.red,
           fontFamily: 'popBold',
         ),
       ),
-      content: Text(
+      content: const Text(
         "Are you sure ?",
         style: TextStyle(
           color: Colors.black,
@@ -202,28 +223,35 @@ class _DrawerPageState extends State<DrawerPage> {
     );
   }
 
-  Widget drawerItems(IconData icons, String listName) {
+  Widget drawerItems(IconData icons, String listName, dynamic routeName) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: Row(
-        children: [
-          FaIcon(
-            icons,
-            color: primaryWhite,
-            size: 25,
-          ),
-          SizedBox(
-            width: 15,
-          ),
-          Text(
-            listName,
-            style: TextStyle(
-              fontSize: 15,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, PageTransition(
+              type: PageTransitionType.leftToRightWithFade,
+              child: routeName),);
+        },
+        child: Row(
+          children: [
+            FaIcon(
+              icons,
               color: primaryWhite,
-              fontFamily: 'popMedium',
+              size: 25,
             ),
-          ),
-        ],
+            const SizedBox(
+              width: 15,
+            ),
+            Text(
+              listName,
+              style: TextStyle(
+                fontSize: 15,
+                color: primaryWhite,
+                fontFamily: 'popMedium',
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

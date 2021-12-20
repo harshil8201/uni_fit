@@ -34,39 +34,37 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
             //-------appbar--------
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        height: 45,
-                        width: 45,
-                        child: Icon(
-                          Icons.arrow_back_rounded,
-                          color: superDarkGreen,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'BEGINNER',
-                      style: TextStyle(
-                        color: superDarkGreen,
-                        fontSize: 30,
-                        fontFamily: 'popBold',
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: Container(
                       height: 45,
                       width: 45,
+                      child: Icon(
+                        Icons.arrow_back_rounded,
+                        color: superDarkGreen,
+                        size: 30,
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    'BEGINNER',
+                    style: TextStyle(
+                      color: superDarkGreen,
+                      fontSize: 30,
+                      fontFamily: 'popBold',
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Container(
+                    height: 45,
+                    width: 45,
+                  ),
+                ],
               ),
             ),
 

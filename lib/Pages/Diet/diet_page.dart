@@ -1,6 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/Pages/Diet/high_calories.dart';
+import 'package:uni_fit/Pages/Diet/low_calories.dart';
+import 'package:uni_fit/Pages/Diet/muscle_gain.dart';
+import 'package:uni_fit/Pages/Diet/normal_diet.dart';
+import 'package:uni_fit/Pages/Diet/weight_loss.dart';
 import 'package:uni_fit/color_class.dart';
 // ignore_for_file: prefer_const_constructors
 
@@ -179,35 +185,35 @@ class _DietPageState extends State<DietPage> {
                         ),
                       ),
                       const SizedBox(height: 15),
-                      dietByTimeContainer(
+                      dietContainer(
                         '300-722 cal',
                         'Muscle\nGain',
                         'assets/images/diet/diet1.jpg',
-                        '/MuscleGainDiet',
+                        MuscleGainDiet(),
                       ),
-                      dietByTimeContainer(
+                      dietContainer(
                         '150-276 cal',
                         'Weight\nloss',
                         'assets/images/diet/diet2.jpg',
-                        '/WeightLoss',
+                        WeightLoss(),
                       ),
-                      dietByTimeContainer(
+                      dietContainer(
                         '120-500 cal',
                         'High\ncalories',
                         'assets/images/diet/diet3.jpg',
-                        '/HighCalories',
+                        HighCalories(),
                       ),
-                      dietByTimeContainer(
+                      dietContainer(
                         '120-500 cal',
                         'Low\ncalories',
                         'assets/images/diet/diet4.jpg',
-                        '/LowCalories',
+                        LowCalories(),
                       ),
-                      dietByTimeContainer(
+                      dietContainer(
                         '150-276 cal',
                         'Normal\ndiet',
                         'assets/images/diet/diet5.jpg',
-                        '/NormalDiet',
+                        NormalDiet(),
                       ),
                       const SizedBox(
                         height: 20,
@@ -223,18 +229,20 @@ class _DietPageState extends State<DietPage> {
     );
   }
 
-  Widget dietByTimeContainer(
+  Widget dietContainer(
     String dietCalories,
     String dietType,
     String dietImage,
-    String routeName,
+    dynamic routeName,
   ) {
     return Padding(
       padding: const EdgeInsets.only(right: 20, top: 15, left: 20),
       child: InkWell(
         onTap: () {
           // Navigate to the second screen using a named route.
-          Navigator.pushNamed(context, routeName);
+          Navigator.push(context, PageTransition(
+              type: PageTransitionType.bottomToTop,
+              child: routeName),);
         },
         child: Container(
           height: 110,

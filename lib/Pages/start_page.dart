@@ -16,7 +16,7 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  int currentIndex = 1;
+  int currentIndex = 2;
 
   setBottomBarIndex(index) {
     setState(() {
@@ -26,11 +26,11 @@ class _StartPageState extends State<StartPage> {
 
   // Number of tabs
   final tabs = [
-    RunningPage(),
-    WeightPage(),
-    HomePage(),
-    DietPage(),
-    ProgressPage(),
+    const RunningPage(),
+    const WeightPage(),
+    const HomePage(),
+    const DietPage(),
+    const ProgressPage(),
   ];
 
   @override
@@ -224,7 +224,7 @@ class _StartPageState extends State<StartPage> {
       ),
       body: Stack(
         children: [
-          DrawerPage(),
+          const DrawerPage(),
           tabs[currentIndex],
         ],
       ),

@@ -25,6 +25,9 @@ dependencies:
   pedometer: ^3.0.0
   tflite: ^1.1.1
   camera: ^0.5.8+11
+  numberpicker: ^2.0.1
+  flutter_number_picker: ^0.0.8
+  page_transition: ^1.1.7+6
 
 dev_dependencies:
   flutter_test:

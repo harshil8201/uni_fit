@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/live_monitoring.dart';
 import 'package:uni_fit/main.dart';
 import 'Advance/advance_exercise.dart';
@@ -149,7 +150,7 @@ class _WeightPageState extends State<WeightPage> {
                   child: Column(
                     children: [
                       //----------live monitoring-----
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Padding(
@@ -157,12 +158,9 @@ class _WeightPageState extends State<WeightPage> {
                         child: InkWell(
                           onTap: () {
                             // want to add navigation here-----------------
-                            Navigator.push(
-                              navigatorKey.currentState.context,
-                              MaterialPageRoute(
-                                builder: (context) => LiveMonitoring(cameras),
-                              ),
-                            );
+                            Navigator.push(context, PageTransition(
+                                type: PageTransitionType.bottomToTop,
+                                child: LiveMonitoring(cameras)),);
                           },
                           child: Container(
                             height: 130,
@@ -217,69 +215,34 @@ class _WeightPageState extends State<WeightPage> {
                       ),
 
                       //----------beginner---------
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: InkWell(
-                          onTap: () {
-                            // want to add navigation here-----------------
-                            Navigator.push(
-                              navigatorKey.currentState.context,
-                              MaterialPageRoute(
-                                builder: (context) => BeginnerExercise(),
-                              ),
-                            );
-                          },
-                          child: exerciseCategoriesContainer(
-                            'beginner',
-                            Icons.offline_bolt,
-                            Icons.offline_bolt_outlined,
-                            Icons.offline_bolt_outlined,
-                          ),
+                      InkWell(
+                        child: exerciseCategoriesContainer(
+                          'beginner',
+                          Icons.offline_bolt,
+                          Icons.offline_bolt_outlined,
+                          Icons.offline_bolt_outlined,
+                          BeginnerExercise()
                         ),
                       ),
 
                       //---------intermediate---------
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: InkWell(
-                          onTap: () {
-                            // want to add navigation here-----------------
-                            Navigator.push(
-                              navigatorKey.currentState.context,
-                              MaterialPageRoute(
-                                builder: (context) => IntermediateExercise(),
-                              ),
-                            );
-                          },
-                          child: exerciseCategoriesContainer(
-                            'intermediate',
-                            Icons.offline_bolt,
-                            Icons.offline_bolt,
-                            Icons.offline_bolt_outlined,
-                          ),
+                      InkWell(
+                        child: exerciseCategoriesContainer(
+                          'intermediate',
+                          Icons.offline_bolt,
+                          Icons.offline_bolt,
+                          Icons.offline_bolt_outlined,
+                          IntermediateExercise()
                         ),
                       ),
 
                       //--------advance-------------
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: InkWell(
-                          onTap: () {
-                            // want to add navigation here-----------------
-                            Navigator.push(
-                              navigatorKey.currentState.context,
-                              MaterialPageRoute(
-                                builder: (context) => AdvanceExercise(),
-                              ),
-                            );
-                          },
-                          child: exerciseCategoriesContainer(
-                            'advance',
-                            Icons.offline_bolt,
-                            Icons.offline_bolt,
-                            Icons.offline_bolt,
-                          ),
-                        ),
+                      exerciseCategoriesContainer(
+                        'advance',
+                        Icons.offline_bolt,
+                        Icons.offline_bolt,
+                        Icons.offline_bolt,
+                        AdvanceExercise()
                       ),
 
                       SizedBox(
@@ -301,55 +264,63 @@ class _WeightPageState extends State<WeightPage> {
     IconData firstIcon,
     IconData secondIcon,
     IconData thirdIcon,
+      dynamic routeName
   ) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20),
-      child: Container(
-        height: 130,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          color: primaryWhite,
-          boxShadow: [
-            BoxShadow(
-              color: shadowBlack,
-              offset: const Offset(0.5, 0.10),
-              blurRadius: 20.0,
-            ), //BoxShadow
-          ],
-          borderRadius: BorderRadius.circular(20),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              erName.toUpperCase(),
-              style: TextStyle(
-                fontSize: 32,
-                fontFamily: 'popBold',
-                color: primaryGreen,
+      padding: const EdgeInsets.only(top: 20,right: 20, left: 20),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(context, PageTransition(
+              type: PageTransitionType.bottomToTop,
+              child: routeName),);
+        },
+        child: Container(
+          height: 130,
+          width: double.infinity,
+          decoration: BoxDecoration(
+            color: primaryWhite,
+            boxShadow: [
+              BoxShadow(
+                color: shadowBlack,
+                offset: const Offset(0.5, 0.10),
+                blurRadius: 20.0,
+              ), //BoxShadow
+            ],
+            borderRadius: BorderRadius.circular(20),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                erName.toUpperCase(),
+                style: TextStyle(
+                  fontSize: 32,
+                  fontFamily: 'popBold',
+                  color: primaryGreen,
+                ),
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  firstIcon,
-                  color: primaryGreen,
-                  size: 40,
-                ),
-                Icon(
-                  secondIcon,
-                  color: primaryGreen,
-                  size: 40,
-                ),
-                Icon(
-                  thirdIcon,
-                  color: primaryGreen,
-                  size: 40,
-                ),
-              ],
-            ),
-          ],
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    firstIcon,
+                    color: primaryGreen,
+                    size: 40,
+                  ),
+                  Icon(
+                    secondIcon,
+                    color: primaryGreen,
+                    size: 40,
+                  ),
+                  Icon(
+                    thirdIcon,
+                    color: primaryGreen,
+                    size: 40,
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

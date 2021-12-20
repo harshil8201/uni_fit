@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math';
-
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/camera.dart';
-import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/render_data.dart';
-
+import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/squat_data.dart';
 
 class PushedPageS extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -49,7 +47,7 @@ class _PushedPageSState extends State<PushedPageS> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('AlignAI Squat'),
+        title: const Text('SQUAT'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),

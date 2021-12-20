@@ -3,18 +3,17 @@ import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
 import 'dart:math';
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/camera.dart';
-import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/render_data_yoga.dart';
+import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/arm_raise_data.dart';
 
-
-class PushedPageY extends StatefulWidget {
+class PushedPageA extends StatefulWidget {
   final List<CameraDescription> cameras;
   final String title;
-  const PushedPageY({this.cameras, this.title});
+  const PushedPageA({this.cameras, this.title});
   @override
-  _PushedPageYState createState() => _PushedPageYState();
+  _PushedPageAState createState() => _PushedPageAState();
 }
 
-class _PushedPageYState extends State<PushedPageY> {
+class _PushedPageAState extends State<PushedPageA> {
   List<dynamic> _data;
   int _imageHeight = 0;
   int _imageWidth = 0;
@@ -48,7 +47,7 @@ class _PushedPageYState extends State<PushedPageY> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('AlignAI Warrior Pose'),
+        title: const Text('ARM RAISE'),
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
@@ -58,7 +57,7 @@ class _PushedPageYState extends State<PushedPageY> {
             cameras: widget.cameras,
             setRecognitions: _setRecognitions,
           ),
-          RenderDataYoga(
+          RenderDataArmPress(
             data: _data == null ? [] : _data,
             previewH: max(_imageHeight, _imageWidth),
             previewW: min(_imageHeight, _imageWidth),

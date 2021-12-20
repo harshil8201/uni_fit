@@ -239,14 +239,14 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
             width: 100,
             height: 15,
             child: Container(
-                // child: Text(
-                //   "● ${k["part"]}",
-                //   style: TextStyle(
-                //     color: Color.fromRGBO(37, 213, 253, 1.0),
-                //     fontSize: 12.0,
-                //   ),
-                // ),
-                ),
+              // child: Text(
+              //   "● ${k["part"]}",
+              //   style: TextStyle(
+              //     color: Color.fromRGBO(37, 213, 253, 1.0),
+              //     fontSize: 12.0,
+              //   ),
+              // ),
+            ),
           );
         }).toList();
 
@@ -326,11 +326,11 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
-            height: 50,
+            height: 80,
             width: widget.screenW,
             decoration: BoxDecoration(
               color: correctColor,
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(25.0),
                   topRight: Radius.circular(25)),
             ),
@@ -338,8 +338,8 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
               children: [
                 Text(
                   //'$whatToDo\nArm Presses: ${_counter.toString()}',
-                  '$memo',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  memo,
+                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

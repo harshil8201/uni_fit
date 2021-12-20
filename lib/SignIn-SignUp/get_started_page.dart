@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/SignIn-SignUp/Google%20SignIn/google_page_controller.dart';
 import 'package:uni_fit/color_class.dart';
 
 class GetStartedPage extends StatefulWidget {
@@ -81,7 +83,9 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 alignment: Alignment.bottomCenter,
                 child: InkWell(
                   onTap: () {
-                    Navigator.pushNamed(context, '/GooglePageController');
+                    Navigator.push(context, PageTransition(
+                        type: PageTransitionType.rightToLeftWithFade,
+                        child: GooglePageController()),);
                     print(MediaQuery.of(context).size);
                   },
                   child: Container(
