@@ -33,10 +33,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //---------input field-------
@@ -58,7 +55,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Align(
                                     alignment: Alignment.topRight,
-                                    child: Container(
+                                    child: SizedBox(
                                       height: 250,
                                       width: 250,
                                       child: Image.asset(
@@ -102,7 +99,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(height: 5),
+                                  const SizedBox(height: 5),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: shadeWhite.withOpacity(0.60),
@@ -111,7 +108,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 15, right: 10),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 50,
                                         width: double.infinity,
                                         child: TextFormField(
@@ -136,12 +133,16 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                 color: darkWhite),
                                             floatingLabelBehavior:
                                                 FloatingLabelBehavior.never,
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
-                                            focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
+                                            enabledBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            focusedBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
                                             labelText: 'Enter your email',
                                             labelStyle:
                                                 TextStyle(color: darkWhite),
@@ -172,8 +173,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     ),
                                   ),
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 5, right: 10),
+                                    padding: const EdgeInsets.only(
+                                        top: 5, right: 10),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: shadeWhite.withOpacity(0.60),
@@ -182,7 +183,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             right: 8, left: 15),
-                                        child: Container(
+                                        child: SizedBox(
                                           height: 50,
                                           width: double.infinity,
                                           child: TextFormField(
@@ -198,7 +199,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                               return null;
                                             },
                                             obscureText: _isObscure,
-                                            textInputAction: TextInputAction.done,
+                                            textInputAction:
+                                                TextInputAction.done,
                                             decoration: InputDecoration(
                                               icon: Icon(Icons.vpn_key_rounded,
                                                   color: darkWhite),
@@ -263,7 +265,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Align(
                                     alignment: Alignment.topRight,
-                                    child: Container(
+                                    child: SizedBox(
                                       //color: Colors.blue,
                                       height: 250,
                                       width: 250,
@@ -290,7 +292,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
+                            const SizedBox(
                               height: 20,
                             ),
                             //---------- name ------------
@@ -313,12 +315,13 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       Container(
                                         decoration: BoxDecoration(
                                           color: shadeWhite.withOpacity(0.60),
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
                                               left: 15, right: 10),
-                                          child: Container(
+                                          child: SizedBox(
                                             height: 50,
                                             width: double.infinity,
                                             child: TextFormField(
@@ -338,15 +341,16 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                 floatingLabelBehavior:
                                                     FloatingLabelBehavior.never,
                                                 icon: Icon(
-                                                    Icons.account_circle_outlined,
+                                                    Icons
+                                                        .account_circle_outlined,
                                                     color: darkWhite),
                                                 enabledBorder:
-                                                    UnderlineInputBorder(
+                                                    const UnderlineInputBorder(
                                                         borderSide: BorderSide(
                                                             color: Colors
                                                                 .transparent)),
                                                 focusedBorder:
-                                                    UnderlineInputBorder(
+                                                    const UnderlineInputBorder(
                                                         borderSide: BorderSide(
                                                             color: Colors
                                                                 .transparent)),
@@ -381,7 +385,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       ),
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 5,
                                   ),
                                   Container(
@@ -392,7 +396,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     child: Padding(
                                       padding: const EdgeInsets.only(
                                           left: 15, right: 10),
-                                      child: Container(
+                                      child: SizedBox(
                                         height: 50,
                                         width: double.infinity,
                                         child: TextFormField(
@@ -417,12 +421,16 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                 color: darkWhite),
                                             floatingLabelBehavior:
                                                 FloatingLabelBehavior.never,
-                                            enabledBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
-                                            focusedBorder: UnderlineInputBorder(
-                                                borderSide: BorderSide(
-                                                    color: Colors.transparent)),
+                                            enabledBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            focusedBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
                                             labelText: 'Create your email',
                                             labelStyle:
                                                 TextStyle(color: darkWhite),
@@ -442,8 +450,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding:
-                                        const EdgeInsets.only(top: 5, right: 10),
+                                    padding: const EdgeInsets.only(
+                                        top: 5, right: 10),
                                     child: Container(
                                       decoration: BoxDecoration(
                                         color: shadeWhite.withOpacity(0.60),
@@ -452,7 +460,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       child: Padding(
                                         padding: const EdgeInsets.only(
                                             right: 8, left: 15),
-                                        child: Container(
+                                        child: SizedBox(
                                           height: 50,
                                           width: double.infinity,
                                           child: TextFormField(
@@ -469,18 +477,23 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                             },
                                             controller: _newPasswordController,
                                             obscureText: _isObscure,
-                                            textInputAction: TextInputAction.next,
+                                            textInputAction:
+                                                TextInputAction.next,
                                             decoration: InputDecoration(
                                               icon: Icon(Icons.vpn_key_rounded,
                                                   color: darkWhite),
                                               floatingLabelBehavior:
                                                   FloatingLabelBehavior.never,
-                                              enabledBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors.transparent)),
-                                              focusedBorder: UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors.transparent)),
+                                              enabledBorder:
+                                                  const UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent)),
+                                              focusedBorder:
+                                                  const UnderlineInputBorder(
+                                                      borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent)),
                                               labelText: 'Create new password',
                                               labelStyle:
                                                   TextStyle(color: darkWhite),
@@ -541,7 +554,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     .then((_) {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                          builder: (context) => StartPage()));
+                                          builder: (context) =>
+                                              const StartPage()));
                                 });
                               },
                               child: Container(
@@ -604,7 +618,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     .then((_) {
                                   Navigator.of(context).pushReplacement(
                                       MaterialPageRoute(
-                                          builder: (context) => StartPage()));
+                                          builder: (context) =>
+                                              const StartPage()));
                                 });
                               },
                               child: Container(
@@ -645,89 +660,87 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
 
             Align(
               alignment: Alignment.bottomCenter,
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      //----------google----------
-                      GoogleSignInButton(),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    //----------google----------
+                    const GoogleSignInButton(),
 
-                      isVisible
-                          //----------already have account / Sign Up--------
-                          ? Visibility(
-                              visible: isVisible,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(bottom: 10, top: 15),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isVisible = !isVisible;
-                                      isVisible = isVisible;
-                                    });
-                                  },
-                                  child: Text.rich(
-                                    TextSpan(
-                                      text: 'Don’t have account? ',
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.blue,
-                                        fontFamily: 'popLight',
-                                      ),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: 'Sign Up',
-                                          style: TextStyle(
-                                            color: Colors.red,
-                                            fontFamily: 'popLight',
-                                            decoration: TextDecoration.underline,
-                                          ),
-                                        ),
-                                      ],
+                    isVisible
+                        //----------already have account / Sign Up--------
+                        ? Visibility(
+                            visible: isVisible,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 10, top: 15),
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    isVisible = !isVisible;
+                                    isVisible = isVisible;
+                                  });
+                                },
+                                child: const Text.rich(
+                                  TextSpan(
+                                    text: 'Don’t have account? ',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blue,
+                                      fontFamily: 'popLight',
                                     ),
-                                  ),
-                                ),
-                              ),
-                            )
-                          //----------don't have account / Login----------
-                          : Visibility(
-                              visible: !isVisible,
-                              child: Padding(
-                                padding:
-                                    const EdgeInsets.only(bottom: 10, top: 15),
-                                child: InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      isVisible = !isVisible;
-                                    });
-                                  },
-                                  child: Text.rich(
-                                    TextSpan(
-                                      text: 'Already have an account? ',
-                                      style: TextStyle(
-                                        fontSize: 13,
-                                        color: Colors.blue,
-                                        fontFamily: 'popLight',
-                                      ),
-                                      children: <TextSpan>[
-                                        TextSpan(
-                                          text: 'Login In',
-                                          style: TextStyle(
-                                            color: Colors.red,
-                                            fontFamily: 'popLight',
-                                            decoration: TextDecoration.underline,
-                                          ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: 'Sign Up',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontFamily: 'popLight',
+                                          decoration: TextDecoration.underline,
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
                             ),
-                    ],
-                  ),
+                          )
+                        //----------don't have account / Login----------
+                        : Visibility(
+                            visible: !isVisible,
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.only(bottom: 10, top: 15),
+                              child: InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    isVisible = !isVisible;
+                                  });
+                                },
+                                child: const Text.rich(
+                                  TextSpan(
+                                    text: 'Already have an account? ',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      color: Colors.blue,
+                                      fontFamily: 'popLight',
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: 'Login In',
+                                        style: TextStyle(
+                                          color: Colors.red,
+                                          fontFamily: 'popLight',
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                  ],
                 ),
               ),
             ),

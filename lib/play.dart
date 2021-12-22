@@ -13,11 +13,11 @@ class _PlayPageState extends State<PlayPage> {
   static const maxSecound = 40;
   int sec = maxSecound;
   Timer timer;
-  int erSecond = 20 ;
-  int erMaxSecond = 20;
+  int erSecond = 21;
+  static const erMaxSecond = 19;
 
   void resetTime() => setState(() {
-        sec = maxSecound;
+        erSecond = erMaxSecond;
         stopTimer();
       });
 
@@ -40,12 +40,14 @@ class _PlayPageState extends State<PlayPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
+        color: backgroundColor,
+        // decoration: const BoxDecoration(
+        //     image: DecorationImage(
+        //         image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //-------appbar--------
@@ -58,7 +60,7 @@ class _PlayPageState extends State<PlayPage> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 45,
                       width: 45,
                       child: Icon(
@@ -69,7 +71,7 @@ class _PlayPageState extends State<PlayPage> {
                     ),
                   ),
                   Text(
-                    'Exercise',
+                    'ABS',
                     style: TextStyle(
                       color: superDarkGreen,
                       fontSize: 30,
@@ -77,7 +79,7 @@ class _PlayPageState extends State<PlayPage> {
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
+                  const SizedBox(
                     height: 45,
                     width: 45,
                   ),
@@ -102,12 +104,12 @@ class _PlayPageState extends State<PlayPage> {
             //     ),
             //   ),
             // ),
-            if (21 <= sec && sec <= 40) ...[
+            if (22 <= sec && sec <= 40) ...[
               jumpingJacks()
-            ] else if (0 <= sec && sec <= 20) ...[
+            ] else if (0 <= sec && sec <= 21) ...[
               abdominalCrunches()
             ],
-
+            //
             Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: Align(
@@ -134,40 +136,64 @@ class _PlayPageState extends State<PlayPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const FadeInImage(
-              image: NetworkImage(
-                'https://firebasestorage.googleapis.com/v0/b/uni-fit-app.appspot.com/o/Beginner%20Abs%2Fjumping%20jacks.gif?alt=media&token=9180ed98-4eb8-44da-9191-a3a90152cb55',
+            const ClipRRect(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
-              placeholder: AssetImage(
-                'assets/images/loading.gif',
+              child: FadeInImage(
+                width: 300,
+                height: 300,
+                image: NetworkImage(
+                  'https://firebasestorage.googleapis.com/v0/b/uni-fit-app.appspot.com/o/Beginner%20Abs%2Fjumping%20jacks.gif?alt=media&token=9180ed98-4eb8-44da-9191-a3a90152cb55',
+                ),
+                placeholder: AssetImage(
+                  'assets/images/loading.gif',
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Text(
-              'Jumping Jacks',
+              'Jumping Jacks'.toUpperCase(),
               style: TextStyle(
-                color: superDarkGreen,
-                fontSize: 30,
+                color: primaryBlack,
+                fontSize: 25,
                 fontFamily: 'popBold',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              '${erSecond--}',
-              style: const TextStyle(fontSize: 30),
+            const SizedBox(
+              height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                height: 100,
-                width: 100,
-                child: CircularProgressIndicator(
-                  value: 1 - erSecond / erMaxSecond,
-                  valueColor: const AlwaysStoppedAnimation(Colors.white),
-                  backgroundColor: Colors.green,
-                  strokeWidth: 12,
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Text(
+                  '${erSecond--}',
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: SizedBox(
+                    height: 130,
+                    width: 130,
+                    child: CircularProgressIndicator(
+                      value: 1 - erSecond / erMaxSecond,
+                      valueColor: const AlwaysStoppedAnimation(Colors.white),
+                      backgroundColor: Colors.green,
+                      strokeWidth: 12,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -188,40 +214,64 @@ class _PlayPageState extends State<PlayPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            const FadeInImage(
-              image: NetworkImage(
-                'https://firebasestorage.googleapis.com/v0/b/uni-fit-app.appspot.com/o/Beginner%20Abs%2Fabdominals%20crunch.gif?alt=media&token=7117622a-915c-4ead-91f8-c55abbb945a5',
+            const ClipRRect(
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topLeft: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
-              placeholder: AssetImage(
-                'assets/images/loading.gif',
+              child: FadeInImage(
+                width: 300,
+                height: 300,
+                image: NetworkImage(
+                  'https://firebasestorage.googleapis.com/v0/b/uni-fit-app.appspot.com/o/Beginner%20Abs%2Fabdominals%20crunch.gif?alt=media&token=7117622a-915c-4ead-91f8-c55abbb945a5',
+                ),
+                placeholder: AssetImage(
+                  'assets/images/loading.gif',
+                ),
+                fit: BoxFit.cover,
               ),
-              fit: BoxFit.cover,
+            ),
+            const SizedBox(
+              height: 20,
             ),
             Text(
-              'Abdominal crunches',
+              'abdominal crunches'.toUpperCase(),
               style: TextStyle(
-                color: superDarkGreen,
-                fontSize: 30,
+                color: primaryBlack,
+                fontSize: 25,
                 fontFamily: 'popBold',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Text(
-              '${erSecond--}',
-              style: const TextStyle(fontSize: 30),
+            const SizedBox(
+              height: 20,
             ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                height: 100,
-                width: 100,
-                child: CircularProgressIndicator(
-                  value: 1 - erSecond / erMaxSecond,
-                  valueColor: const AlwaysStoppedAnimation(Colors.white),
-                  backgroundColor: Colors.green,
-                  strokeWidth: 12,
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                Text(
+                  '${erSecond--}',
+                  style: const TextStyle(
+                    fontSize: 40,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              ),
+                Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: SizedBox(
+                    height: 130,
+                    width: 130,
+                    child: CircularProgressIndicator(
+                      value: 1 - erSecond / erMaxSecond,
+                      valueColor: const AlwaysStoppedAnimation(Colors.white),
+                      backgroundColor: Colors.green,
+                      strokeWidth: 12,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -300,7 +350,7 @@ class _PlayPageState extends State<PlayPage> {
                           child: Text(
                             'Cancel'.toUpperCase(),
                             textAlign: TextAlign.left,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontFamily: 'popBold',
                               fontSize: 23,
                               letterSpacing: 2,
@@ -341,7 +391,7 @@ class _PlayPageState extends State<PlayPage> {
                       child: Text(
                         'Start'.toUpperCase(),
                         textAlign: TextAlign.left,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontFamily: 'popBold',
                           fontSize: 23,
                           letterSpacing: 2,

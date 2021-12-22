@@ -18,13 +18,10 @@ class _HighCaloriesState extends State<HighCalories> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
-             //-------appbar--------
+            //-------appbar--------
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
               child: Row(
@@ -65,8 +62,8 @@ class _HighCaloriesState extends State<HighCalories> {
                   .collection('highCalories')
                   .orderBy("no", descending: false)
                   .snapshots(),
-              builder:
-                  (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (!snapshot.hasData) {
                   return const Center(
                     child: CircularProgressIndicator(),
@@ -205,7 +202,8 @@ class _HighCaloriesState extends State<HighCalories> {
                                                     color: primaryBlack,
                                                     fontSize: 15,
                                                     fontFamily: 'popLight',
-                                                    fontWeight: FontWeight.normal,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
                                                 const SizedBox(
@@ -229,7 +227,8 @@ class _HighCaloriesState extends State<HighCalories> {
                                                     color: primaryBlack,
                                                     fontSize: 15,
                                                     fontFamily: 'popLight',
-                                                    fontWeight: FontWeight.normal,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
                                                 const SizedBox(
@@ -283,7 +282,8 @@ class _HighCaloriesState extends State<HighCalories> {
                                     height: 20,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Calories : " + data['cal'] + " cal",
@@ -296,7 +296,9 @@ class _HighCaloriesState extends State<HighCalories> {
                                       ),
                                       Text(
                                         "Type : " +
-                                            data['type'].toString().toUpperCase(),
+                                            data['type']
+                                                .toString()
+                                                .toUpperCase(),
                                         style: TextStyle(
                                           color: primaryWhite,
                                           fontSize: 15,

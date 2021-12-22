@@ -23,48 +23,43 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //-------appbar--------
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
-              child: Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                      child: Container(
-                        height: 45,
-                        width: 45,
-                        child: Icon(
-                          Icons.arrow_back_rounded,
-                          color: superDarkGreen,
-                          size: 30,
-                        ),
-                      ),
-                    ),
-                    Text(
-                      'ADVANCE',
-                      style: TextStyle(
-                        color: superDarkGreen,
-                        fontSize: 30,
-                        fontFamily: 'popBold',
-                        //fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: SizedBox(
                       height: 45,
                       width: 45,
+                      child: Icon(
+                        Icons.arrow_back_rounded,
+                        color: superDarkGreen,
+                        size: 30,
+                      ),
                     ),
-                  ],
-                ),
+                  ),
+                  Text(
+                    'ADVANCE',
+                    style: TextStyle(
+                      color: superDarkGreen,
+                      fontSize: 30,
+                      fontFamily: 'popBold',
+                      //fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 45,
+                    width: 45,
+                  ),
+                ],
               ),
             ),
 
@@ -74,7 +69,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       child: Text(
                         '" Your Bod can stand almost anything\n its your mind that you have to convince. "',
@@ -102,7 +97,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'keep in mind that abdominal exercises alone are unlikely to decrease belly fat',
                       'assets/images/advance/absA.jpg',
                       1,
-                      AdvanceAbs(),
+                      const AdvanceAbs(),
                     ),
 
                     //-------shoulder--------
@@ -111,7 +106,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'Shoulder strength training can reduce your risk of injury by strengthening your core muscles',
                       'assets/images/advance/shoulderA.jpg',
                       2,
-                      AdvanceShoulder(),
+                      const AdvanceShoulder(),
                     ),
 
                     //---------chest--------
@@ -120,7 +115,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'Working out the chest means working out the pectoral muscles, better known as the “pecs.”',
                       'assets/images/advance/chestA.jpg',
                       3,
-                      AdvanceChest(),
+                      const AdvanceChest(),
                     ),
 
                     //-----------arms-------
@@ -129,7 +124,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'Strong biceps play an important role in an overall strong and functional upper body',
                       'assets/images/advance/armsA.jpg',
                       4,
-                      AdvanceArms(),
+                      const AdvanceArms(),
                     ),
 
                     //---------legs--------
@@ -138,7 +133,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'legs is one of our biggest muscles, regularly training legs helps us reduce the risk of injury.',
                       'assets/images/advance/legsA.jpg',
                       5,
-                      AdvanceLegs(),
+                      const AdvanceLegs(),
                     ),
 
                     //-----------back-------
@@ -147,10 +142,10 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                       'strengthening your back muscles, you are building up the main support structure for your entire body.',
                       'assets/images/advance/backA.jpg',
                       6,
-                      AdvanceBack(),
+                      const AdvanceBack(),
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
                   ],
@@ -178,7 +173,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
           Navigator.push(
             context,
             PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 700),
+              transitionDuration: const Duration(milliseconds: 700),
               pageBuilder: (_, __, ___) => routeName,
             ),
           );
@@ -232,7 +227,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 120,
                 width: 120,
                 child: ClipRRect(

@@ -24,7 +24,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => StartPage(),
+                    builder: (context) => const StartPage(),
                   ),
                 ),
               );
@@ -43,7 +43,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
               ),
             ],
           ),
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,

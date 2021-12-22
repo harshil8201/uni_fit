@@ -72,8 +72,8 @@ class LiveMonitoring extends StatelessWidget {
                     InkWell(
                       onTap: () =>
                           onSelectS(context: context, modelName: 'posenet'),
-                      child: liveErContainer(
-                          'assets/images/squat.jpg', 'Squat'),
+                      child:
+                          liveErContainer('assets/images/squat.jpg', 'Squat'),
                     ),
                     InkWell(
                       onTap: () =>

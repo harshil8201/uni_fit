@@ -8,7 +8,9 @@ import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/warrior_pose_dat
 class PushedPageY extends StatefulWidget {
   final List<CameraDescription> cameras;
   final String title;
+
   const PushedPageY({this.cameras, this.title});
+
   @override
   _PushedPageYState createState() => _PushedPageYState();
 }

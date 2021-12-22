@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/result_screen.dart';
-import 'package:uni_fit/Pages/Drawer/drawer_page.dart';
 import 'package:uni_fit/color_class.dart';
 import 'bmi_model.dart';
 
@@ -28,10 +26,7 @@ class _BMIPageState extends State<BMIPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //-------appbar--------
@@ -91,7 +86,7 @@ class _BMIPageState extends State<BMIPage> {
                           ),
                           borderRadius: BorderRadius.circular(20),
                         ),
-                        padding: EdgeInsets.all(20),
+                        padding: const EdgeInsets.all(20),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -123,9 +118,16 @@ class _BMIPageState extends State<BMIPage> {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 10,),
-                            const Divider(color: Colors.black,thickness: 2,),
-                            const SizedBox(height: 10,),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            const Divider(
+                              color: Colors.black,
+                              thickness: 2,
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
                             const Text(
                               "WEIGHT (Kg):",
                               style: TextStyle(
@@ -160,7 +162,9 @@ class _BMIPageState extends State<BMIPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: 20,),
+                      const SizedBox(
+                        height: 20,
+                      ),
                       Container(
                         decoration: BoxDecoration(
                           gradient: const LinearGradient(
@@ -174,14 +178,16 @@ class _BMIPageState extends State<BMIPage> {
                           borderRadius: BorderRadius.circular(10),
                         ),
                         width: 200,
-                        padding: EdgeInsets.only(left: 16, right: 16),
+                        padding: const EdgeInsets.only(left: 16, right: 16),
                         // ignore: deprecated_member_use
                         child: FlatButton.icon(
                           onPressed: () {
                             setState(() {
                               if ((_heightOfUser == 0 && _weightOfUser == 0) ||
-                                  (_heightOfUser == null && _weightOfUser == 0) ||
-                                  (_heightOfUser == 0 && _weightOfUser == null)) {
+                                  (_heightOfUser == null &&
+                                      _weightOfUser == 0) ||
+                                  (_heightOfUser == 0 &&
+                                      _weightOfUser == null)) {
                                 _bmiModel = BMIModel(
                                     bmi: _bmi,
                                     isNormal: false,
@@ -254,9 +260,8 @@ class _BMIPageState extends State<BMIPage> {
   }
 }
 
-
 class RadiantGradientMask extends StatelessWidget {
-  RadiantGradientMask({this.child});
+  const RadiantGradientMask({this.child});
 
   final Widget child;
 

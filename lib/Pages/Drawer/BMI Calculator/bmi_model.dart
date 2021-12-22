@@ -1,4 +1,4 @@
-class BMIModel{
+class BMIModel {
   double bmi;
   bool isNormal;
   String comments;

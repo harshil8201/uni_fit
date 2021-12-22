@@ -8,7 +8,9 @@ import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/squat_data.dart'
 class PushedPageS extends StatefulWidget {
   final List<CameraDescription> cameras;
   final String title;
+
   const PushedPageS({this.cameras, this.title});
+
   @override
   _PushedPageSState createState() => _PushedPageSState();
 }

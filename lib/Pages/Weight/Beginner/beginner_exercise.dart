@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/beginner_abs.dart';
 import 'package:uni_fit/color_class.dart';
-
 import 'beginner_arms.dart';
 import 'beginner_back.dart';
 import 'beginner_chest.dart';
@@ -25,10 +23,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //-------appbar--------
@@ -41,7 +36,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Container(
+                    child: SizedBox(
                       height: 45,
                       width: 45,
                       child: Icon(
@@ -60,7 +55,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
+                  const SizedBox(
                     height: 45,
                     width: 45,
                   ),
@@ -74,7 +69,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                 children: [
                   Padding(
                     padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: Container(
+                    child: SizedBox(
                       width: double.infinity,
                       child: Text(
                         '" Your Bod can stand almost anything\n its your mind that you have to convince. "',
@@ -102,7 +97,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'keep in mind that abdominal exercises alone are unlikely to decrease belly fat',
                       'assets/images/beginner/absB.jpg',
                       1,
-                      BeginnerAbs(),
+                      const BeginnerAbs(),
                     ),
 
                     //-------shoulder--------
@@ -111,7 +106,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'Shoulder strength training can reduce your risk of injury by strengthening your core muscles',
                       'assets/images/beginner/shoulderB.jpg',
                       2,
-                      BeginnerShoulder(),
+                      const BeginnerShoulder(),
                     ),
 
                     //---------chest--------
@@ -120,7 +115,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'Working out the chest means working out the pectoral muscles, better known as the “pecs.”',
                       'assets/images/beginner/chestB.jpg',
                       3,
-                      BeginnerChest(),
+                      const BeginnerChest(),
                     ),
 
                     //-----------arms-------
@@ -129,7 +124,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'Strong biceps play an important role in an overall strong and functional upper body',
                       'assets/images/beginner/armsB.jpg',
                       4,
-                      BeginnerArms(),
+                      const BeginnerArms(),
                     ),
 
                     //---------legs--------
@@ -138,7 +133,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'legs is one of our biggest muscles, regularly training legs helps us reduce the risk of injury.',
                       'assets/images/beginner/legsB.jpg',
                       5,
-                      BeginnerLegs(),
+                      const BeginnerLegs(),
                     ),
 
                     //-----------back-------
@@ -147,10 +142,10 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       'strengthening your back muscles, you are building up the main support structure for your entire body.',
                       'assets/images/beginner/backB.jpg',
                       6,
-                      BeginnerBack(),
+                      const BeginnerBack(),
                     ),
 
-                    SizedBox(
+                    const SizedBox(
                       height: 25,
                     ),
                   ],
@@ -178,7 +173,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
           Navigator.push(
             context,
             PageRouteBuilder(
-              transitionDuration: Duration(milliseconds: 700),
+              transitionDuration: const Duration(milliseconds: 700),
               pageBuilder: (_, __, ___) => routeName,
             ),
           );
@@ -232,7 +227,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                   ),
                 ),
               ),
-              Container(
+              SizedBox(
                 height: 120,
                 width: 120,
                 child: ClipRRect(

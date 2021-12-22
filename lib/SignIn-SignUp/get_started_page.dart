@@ -20,10 +20,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //----------image-------------
@@ -83,9 +80,12 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 alignment: Alignment.bottomCenter,
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(context, PageTransition(
-                        type: PageTransitionType.rightToLeftWithFade,
-                        child: GooglePageController()),);
+                    Navigator.push(
+                      context,
+                      PageTransition(
+                          type: PageTransitionType.rightToLeftWithFade,
+                          child: const GooglePageController()),
+                    );
                     print(MediaQuery.of(context).size);
                   },
                   child: Container(

@@ -49,7 +49,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
 
   @override
   void initState() {
-    inputArr = new Map();
+    inputArr = Map();
     midCount = false;
     isCorrectPosture = false;
     _counter = 0;
@@ -344,12 +344,16 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
               children: [
                 Text(
                   whatToDo,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Arm Presses: ${_counter.toString()}'.toUpperCase(),
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

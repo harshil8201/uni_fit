@@ -32,7 +32,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
           Padding(
             padding: const EdgeInsets.only(top: 200),
             child: Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(30),
@@ -48,7 +48,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                   builder: (BuildContext context,
                       AsyncSnapshot<QuerySnapshot> snapshot) {
                     if (!snapshot.hasData) {
-                      return Center(
+                      return const Center(
                         child: CircularProgressIndicator(),
                       );
                     }
@@ -84,7 +84,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                                 crossAxisAlignment:
                                                     CrossAxisAlignment.center,
                                                 children: [
-                                                  SizedBox(
+                                                  const SizedBox(
                                                     height: 20,
                                                   ),
                                                   Container(
@@ -96,7 +96,8 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                                       image: NetworkImage(
                                                         data['img'],
                                                       ),
-                                                      placeholder: AssetImage(
+                                                      placeholder:
+                                                          const AssetImage(
                                                         'assets/images/loading.gif',
                                                       ),
                                                       fit: BoxFit.cover,
@@ -110,7 +111,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                                       data['name']
                                                           .toString()
                                                           .toUpperCase(),
-                                                      style: TextStyle(
+                                                      style: const TextStyle(
                                                         fontSize: 20,
                                                         fontFamily: 'popBold',
                                                         color: Colors.black,
@@ -143,7 +144,8 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                                                   "\n\n- "),
                                                           textAlign:
                                                               TextAlign.start,
-                                                          style: TextStyle(
+                                                          style:
+                                                              const TextStyle(
                                                             fontSize: 15,
                                                             fontFamily:
                                                                 'popLight',
@@ -216,7 +218,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                         image: NetworkImage(
                                           data['img'],
                                         ),
-                                        placeholder: AssetImage(
+                                        placeholder: const AssetImage(
                                           'assets/images/loading.gif',
                                         ),
                                         fit: BoxFit.cover,
@@ -234,13 +236,13 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                                               .toString()
                                               .toUpperCase()
                                               .replaceAll(" ", '\n'),
-                                          style: TextStyle(
+                                          style: const TextStyle(
                                             fontSize: 17,
                                             fontFamily: 'popBold',
                                             color: Colors.black,
                                           ),
                                         ),
-                                        SizedBox(
+                                        const SizedBox(
                                           height: 5,
                                         ),
                                         Text(
@@ -268,17 +270,15 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 40, left: 20),
-            child: Container(
-              child: IconButton(
-                icon: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
-                  size: 30,
-                ),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
+            child: IconButton(
+              icon: const Icon(
+                Icons.arrow_back,
+                color: Colors.white,
+                size: 30,
               ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
           ),
           Padding(
@@ -286,7 +286,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
             child: Text(
               'advance\nLegs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
-              style: TextStyle(
+              style: const TextStyle(
                 fontFamily: 'popBold',
                 fontSize: 25,
                 color: Colors.white,
@@ -317,7 +317,7 @@ class _AdvanceLegsState extends State<AdvanceLegs> {
                     child: Text(
                       'Start'.toUpperCase(),
                       textAlign: TextAlign.left,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'popBold',
                         fontSize: 23,
                         letterSpacing: 2,

@@ -18,10 +18,7 @@ class _LowCaloriesState extends State<LowCalories> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             //-------appbar--------
@@ -53,7 +50,7 @@ class _LowCaloriesState extends State<LowCalories> {
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 45,
                     width: 45,
                   ),
@@ -65,10 +62,10 @@ class _LowCaloriesState extends State<LowCalories> {
                   .collection('lowCalories')
                   .orderBy("no", descending: false)
                   .snapshots(),
-              builder:
-                  (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (!snapshot.hasData) {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }
@@ -99,7 +96,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                         image: NetworkImage(
                                           data['img'],
                                         ),
-                                        placeholder: AssetImage(
+                                        placeholder: const AssetImage(
                                           'assets/images/loading.gif',
                                         ),
                                         fit: BoxFit.cover,
@@ -129,7 +126,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                         width: double.infinity,
                                         decoration: BoxDecoration(
                                           color: primaryWhite,
-                                          borderRadius: BorderRadius.only(
+                                          borderRadius: const BorderRadius.only(
                                             bottomLeft: Radius.circular(0),
                                             bottomRight: Radius.circular(0),
                                             topLeft: Radius.circular(40),
@@ -158,7 +155,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 10,
                                                 ),
                                                 Text(
@@ -184,7 +181,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 20,
                                                 ),
                                                 Text(
@@ -205,10 +202,11 @@ class _LowCaloriesState extends State<LowCalories> {
                                                     color: primaryBlack,
                                                     fontSize: 15,
                                                     fontFamily: 'popLight',
-                                                    fontWeight: FontWeight.normal,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 30,
                                                 ),
                                                 Text(
@@ -229,10 +227,11 @@ class _LowCaloriesState extends State<LowCalories> {
                                                     color: primaryBlack,
                                                     fontSize: 15,
                                                     fontFamily: 'popLight',
-                                                    fontWeight: FontWeight.normal,
+                                                    fontWeight:
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
-                                                SizedBox(
+                                                const SizedBox(
                                                   height: 30,
                                                 ),
                                               ],
@@ -279,11 +278,12 @@ class _LowCaloriesState extends State<LowCalories> {
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 20,
                                   ),
                                   Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Calories : " + data['cal'] + " cal",
@@ -296,7 +296,9 @@ class _LowCaloriesState extends State<LowCalories> {
                                       ),
                                       Text(
                                         "Type : " +
-                                            data['type'].toString().toUpperCase(),
+                                            data['type']
+                                                .toString()
+                                                .toUpperCase(),
                                         style: TextStyle(
                                           color: primaryWhite,
                                           fontSize: 15,

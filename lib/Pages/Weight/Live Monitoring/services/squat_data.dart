@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 
 class RenderData extends StatefulWidget {
   final List<dynamic> data;
@@ -10,6 +9,7 @@ class RenderData extends StatefulWidget {
 
   RenderData(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
+
   @override
   _RenderDataState createState() => _RenderDataState();
 }
@@ -47,7 +47,7 @@ class _RenderDataState extends State<RenderData> {
 
   @override
   void initState() {
-    inputArr = new Map();
+    inputArr = Map();
     midCount = false;
     isCorrectPosture = false;
     _counter = 0;
@@ -256,14 +256,14 @@ class _RenderDataState extends State<RenderData> {
             width: 100,
             height: 15,
             child: Container(
-              // child: Text(
-              //   "● ${k["part"]}",
-              //   style: TextStyle(
-              //     color: Color.fromRGBO(37, 213, 253, 1.0),
-              //     fontSize: 12.0,
-              //   ),
-              // ),
-            ),
+                // child: Text(
+                //   "● ${k["part"]}",
+                //   style: TextStyle(
+                //     color: Color.fromRGBO(37, 213, 253, 1.0),
+                //     fontSize: 12.0,
+                //   ),
+                // ),
+                ),
           );
         }).toList();
 
@@ -283,7 +283,7 @@ class _RenderDataState extends State<RenderData> {
           children: [
             CustomPaint(
               painter:
-              MyPainter(left: leftShoulderPos, right: rightShoulderPos),
+                  MyPainter(left: leftShoulderPos, right: rightShoulderPos),
             ),
             CustomPaint(
               painter: MyPainter(left: leftElbowPos, right: leftShoulderPos),
@@ -336,12 +336,16 @@ class _RenderDataState extends State<RenderData> {
               children: [
                 Text(
                   whatToDo,
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
                 ),
-                const SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'Squat: ${_counter.toString()}'.toUpperCase(),
-                  style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.bold),
                 )
               ],
             ),
@@ -354,13 +358,16 @@ class _RenderDataState extends State<RenderData> {
 
 class Vector {
   double x, y;
+
   Vector(this.x, this.y);
 }
 
 class MyPainter extends CustomPainter {
   Vector left;
   Vector right;
+
   MyPainter({this.left, this.right});
+
   @override
   void paint(Canvas canvas, Size size) {
     final p1 = Offset(left.x, left.y);

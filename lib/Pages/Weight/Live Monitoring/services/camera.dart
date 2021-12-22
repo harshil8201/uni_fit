@@ -26,7 +26,7 @@ class _CameraState extends State<Camera> {
     if (widget.cameras == null || widget.cameras.length < 1) {
       print('No camera is found');
     } else {
-      controller = new CameraController(
+      controller = CameraController(
         widget.cameras[1],
         ResolutionPreset.high,
       );
@@ -40,7 +40,7 @@ class _CameraState extends State<Camera> {
           if (!isDetecting) {
             isDetecting = true;
 
-            int startTime = new DateTime.now().millisecondsSinceEpoch;
+            int startTime = DateTime.now().millisecondsSinceEpoch;
 
             Tflite.runPoseNetOnFrame(
               bytesList: img.planes.map((plane) {
@@ -54,7 +54,7 @@ class _CameraState extends State<Camera> {
               threshold: 0.1,
               nmsRadius: 10,
             ).then((recognitions) {
-              int endTime = new DateTime.now().millisecondsSinceEpoch;
+              int endTime = DateTime.now().millisecondsSinceEpoch;
               print("Detection took ${endTime - startTime}");
 
               widget.setRecognitions(recognitions, img.height, img.width);

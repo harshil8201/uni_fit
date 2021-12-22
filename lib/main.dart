@@ -7,7 +7,6 @@ import 'package:uni_fit/Pages/Weight/Live%20Monitoring/live_monitoring.dart';
 import 'package:uni_fit/play.dart';
 import 'route_class.dart';
 import 'SignIn-SignUp/Google SignIn/google_sign_in_provider.dart';
-// ignore_for_file: prefer_const_constructors
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -21,7 +20,7 @@ Future<Null> main() async {
     print('Error: $e.code\nError Message: $e.message');
   }
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -41,7 +40,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Uni Fit',
         debugShowCheckedModeBanner: false,
-        home: PlayPage(),
+        home: const PlayPage(),
         // initialRoute: '/',
         // routes: routeClass,
       ),

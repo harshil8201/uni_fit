@@ -31,117 +31,113 @@ class _WeightPageState extends State<WeightPage> {
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-      duration: Duration(milliseconds: 250),
+      duration: const Duration(milliseconds: 250),
       child: Scaffold(
         body: Container(
           height: double.infinity,
           width: double.infinity,
           decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/bg.png'),
-              fit: BoxFit.cover
-            )
-          ),
+              image: DecorationImage(
+                  image: AssetImage('assets/images/bg.png'),
+                  fit: BoxFit.cover)),
           child: Stack(
             children: [
               //--------appbar-------
               Padding(
                 padding: const EdgeInsets.only(top: 50, right: 20, left: 20),
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: shadowBlack,
-                              offset: const Offset(0.5, 0.10),
-                              blurRadius: 20.0,
-                            ), //BoxShadow
-                          ],
-                          shape: BoxShape.circle,
-                          color: primaryGreen,
-                        ),
-                        height: 45,
-                        width: 45,
-                        child: Center(
-                          child: isDrawerOpen
-                              ? InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      xOffset = 0;
-                                      yOffset = 0;
-                                      scaleFactor = 1;
-                                      isDrawerOpen = false;
-                                    });
-                                  },
-                                  child: Icon(
-                                    Icons.arrow_back,
-                                    color: primaryWhite,
-                                    size: 30,
-                                  ),
-                                )
-                              : InkWell(
-                                  onTap: () {
-                                    setState(() {
-                                      xOffset = 280;
-                                      yOffset = 100;
-                                      scaleFactor = 0.7;
-                                      isDrawerOpen = true;
-                                    });
-                                  },
-                                  child: FaIcon(
-                                    FontAwesomeIcons.listUl,
-                                    color: primaryWhite,
-                                    size: 22,
-                                  ),
-                                ),
-                        ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0.5, 0.10),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                        shape: BoxShape.circle,
+                        color: primaryGreen,
                       ),
-                      Text(
-                        'WEIGHT',
-                        style: TextStyle(
-                          color: superDarkGreen,
-                          fontSize: 30,
-                          fontFamily: 'popBold',
-                          //fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: shadowBlack,
-                              offset: const Offset(0.5, 0.10),
-                              blurRadius: 20.0,
-                            ), //BoxShadow
-                          ],
-                          shape: BoxShape.circle,
-                          color: primaryGreen,
-                        ),
-                        height: 45,
-                        width: 45,
-                        child: user.emailVerified
-                            ? ClipOval(
-                                child: Image.network(
-                                  user.photoURL,
-                                  fit: BoxFit.cover,
-                                  height: 120,
-                                  width: 120,
+                      height: 45,
+                      width: 45,
+                      child: Center(
+                        child: isDrawerOpen
+                            ? InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    xOffset = 0;
+                                    yOffset = 0;
+                                    scaleFactor = 1;
+                                    isDrawerOpen = false;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: primaryWhite,
+                                  size: 30,
                                 ),
                               )
-                            : ClipOval(
-                                child: Image.asset(
-                                  'assets/images/user.jpg',
-                                  fit: BoxFit.cover,
-                                  height: 120,
-                                  width: 120,
+                            : InkWell(
+                                onTap: () {
+                                  setState(() {
+                                    xOffset = 280;
+                                    yOffset = 100;
+                                    scaleFactor = 0.7;
+                                    isDrawerOpen = true;
+                                  });
+                                },
+                                child: FaIcon(
+                                  FontAwesomeIcons.listUl,
+                                  color: primaryWhite,
+                                  size: 22,
                                 ),
                               ),
                       ),
-                    ],
-                  ),
+                    ),
+                    Text(
+                      'WEIGHT',
+                      style: TextStyle(
+                        color: superDarkGreen,
+                        fontSize: 30,
+                        fontFamily: 'popBold',
+                        //fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0.5, 0.10),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                        shape: BoxShape.circle,
+                        color: primaryGreen,
+                      ),
+                      height: 45,
+                      width: 45,
+                      child: user.emailVerified
+                          ? ClipOval(
+                              child: Image.network(
+                                user.photoURL,
+                                fit: BoxFit.cover,
+                                height: 120,
+                                width: 120,
+                              ),
+                            )
+                          : ClipOval(
+                              child: Image.asset(
+                                'assets/images/user.jpg',
+                                fit: BoxFit.cover,
+                                height: 120,
+                                width: 120,
+                              ),
+                            ),
+                    ),
+                  ],
                 ),
               ),
               Padding(
@@ -158,9 +154,12 @@ class _WeightPageState extends State<WeightPage> {
                         child: InkWell(
                           onTap: () {
                             // want to add navigation here-----------------
-                            Navigator.push(context, PageTransition(
-                                type: PageTransitionType.bottomToTop,
-                                child: LiveMonitoring(cameras)),);
+                            Navigator.push(
+                              context,
+                              PageTransition(
+                                  type: PageTransitionType.bottomToTop,
+                                  child: LiveMonitoring(cameras)),
+                            );
                           },
                           child: Container(
                             height: 130,
@@ -200,7 +199,7 @@ class _WeightPageState extends State<WeightPage> {
                                     ),
                                   ],
                                 ),
-                                SizedBox(
+                                const SizedBox(
                                   width: 20,
                                 ),
                                 Icon(
@@ -217,35 +216,32 @@ class _WeightPageState extends State<WeightPage> {
                       //----------beginner---------
                       InkWell(
                         child: exerciseCategoriesContainer(
-                          'beginner',
-                          Icons.offline_bolt,
-                          Icons.offline_bolt_outlined,
-                          Icons.offline_bolt_outlined,
-                          BeginnerExercise()
-                        ),
+                            'beginner',
+                            Icons.offline_bolt,
+                            Icons.offline_bolt_outlined,
+                            Icons.offline_bolt_outlined,
+                            const BeginnerExercise()),
                       ),
 
                       //---------intermediate---------
                       InkWell(
                         child: exerciseCategoriesContainer(
-                          'intermediate',
-                          Icons.offline_bolt,
-                          Icons.offline_bolt,
-                          Icons.offline_bolt_outlined,
-                          IntermediateExercise()
-                        ),
+                            'intermediate',
+                            Icons.offline_bolt,
+                            Icons.offline_bolt,
+                            Icons.offline_bolt_outlined,
+                            const IntermediateExercise()),
                       ),
 
                       //--------advance-------------
                       exerciseCategoriesContainer(
-                        'advance',
-                        Icons.offline_bolt,
-                        Icons.offline_bolt,
-                        Icons.offline_bolt,
-                        AdvanceExercise()
-                      ),
+                          'advance',
+                          Icons.offline_bolt,
+                          Icons.offline_bolt,
+                          Icons.offline_bolt,
+                          const AdvanceExercise()),
 
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                     ],
@@ -259,20 +255,17 @@ class _WeightPageState extends State<WeightPage> {
     );
   }
 
-  Widget exerciseCategoriesContainer(
-    String erName,
-    IconData firstIcon,
-    IconData secondIcon,
-    IconData thirdIcon,
-      dynamic routeName
-  ) {
+  Widget exerciseCategoriesContainer(String erName, IconData firstIcon,
+      IconData secondIcon, IconData thirdIcon, dynamic routeName) {
     return Padding(
-      padding: const EdgeInsets.only(top: 20,right: 20, left: 20),
+      padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
       child: InkWell(
         onTap: () {
-          Navigator.push(context, PageTransition(
-              type: PageTransitionType.bottomToTop,
-              child: routeName),);
+          Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.bottomToTop, child: routeName),
+          );
         },
         child: Container(
           height: 130,

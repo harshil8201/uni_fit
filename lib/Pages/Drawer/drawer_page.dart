@@ -107,12 +107,14 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             Column(
               children: [
-                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',const BMIPage()),
+                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',
+                    const BMIPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
-                drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder',null),
-                drawerItems(FontAwesomeIcons.clock, 'Daily reminder',null),
+                drawerItems(
+                    FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
+                drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
                 // drawerItems(FontAwesomeIcons.cog, 'Setting',null),
-                drawerItems(FontAwesomeIcons.infoCircle, 'About us',null),
+                drawerItems(FontAwesomeIcons.infoCircle, 'About us', null),
               ],
             ),
             InkWell(
@@ -176,14 +178,15 @@ class _DrawerPageState extends State<DrawerPage> {
               Navigator.pop(context);
               Navigator.pushAndRemoveUntil(
                   context,
-                  MaterialPageRoute(builder: (context) => SignInLoginPage()),
+                  MaterialPageRoute(
+                      builder: (context) => const SignInLoginPage()),
                   (Route<dynamic> route) => false);
               print('------------we are sign out using gmail------------');
             }
           : () {
               auth.signOut();
-              Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(builder: (context) => SignInLoginPage()));
+              Navigator.of(context).pushReplacement(MaterialPageRoute(
+                  builder: (context) => const SignInLoginPage()));
               print(
                   '-----------we are sign out using email / password----------');
             },
@@ -228,9 +231,11 @@ class _DrawerPageState extends State<DrawerPage> {
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
         onTap: () {
-          Navigator.push(context, PageTransition(
-              type: PageTransitionType.leftToRightWithFade,
-              child: routeName),);
+          Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.leftToRightWithFade, child: routeName),
+          );
         },
         child: Row(
           children: [

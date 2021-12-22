@@ -40,9 +40,7 @@ class _DietPageState extends State<DietPage> {
           decoration: const BoxDecoration(
               image: DecorationImage(
                   image: AssetImage('assets/images/bg.png'),
-                  fit: BoxFit.cover
-              )
-          ),
+                  fit: BoxFit.cover)),
           child: Stack(
             children: [
               //---------appbar----------
@@ -240,9 +238,11 @@ class _DietPageState extends State<DietPage> {
       child: InkWell(
         onTap: () {
           // Navigate to the second screen using a named route.
-          Navigator.push(context, PageTransition(
-              type: PageTransitionType.bottomToTop,
-              child: routeName),);
+          Navigator.push(
+            context,
+            PageTransition(
+                type: PageTransitionType.bottomToTop, child: routeName),
+          );
         },
         child: Container(
           height: 110,

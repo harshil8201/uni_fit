@@ -1,18 +1,16 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/color_class.dart';
 
 class ResultScreen extends StatefulWidget {
   final bmiModel;
 
-  ResultScreen({this.bmiModel});
+  const ResultScreen({this.bmiModel});
 
   @override
   _ResultScreenState createState() => _ResultScreenState();
 }
 
 class _ResultScreenState extends State<ResultScreen> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,10 +19,7 @@ class _ResultScreenState extends State<ResultScreen> {
         width: double.infinity,
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'),
-                fit: BoxFit.cover
-            )
-        ),
+                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
         child: Stack(
           children: [
             Padding(
@@ -75,7 +70,6 @@ class _ResultScreenState extends State<ResultScreen> {
                           style: TextStyle(
                             color: Colors.black,
                             fontSize: 30,
-
                             fontWeight: FontWeight.w700,
                           ),
                         )
@@ -144,23 +138,21 @@ class _ResultScreenState extends State<ResultScreen> {
                     child: FlatButton(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          const Icon(
+                        children: const [
+                          Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             width: 2,
                           ),
-                          Container(
-                            child: const Text(
-                              "LET CALCULATE AGAIN",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w900,
-                                letterSpacing: 2,
-                              ),
+                          Text(
+                            "LET CALCULATE AGAIN",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w900,
+                              letterSpacing: 2,
                             ),
                           ),
                         ],

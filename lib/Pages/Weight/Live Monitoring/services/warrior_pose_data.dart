@@ -9,6 +9,7 @@ class RenderDataYoga extends StatefulWidget {
 
   RenderDataYoga(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
+
   @override
   _RenderDataYogaState createState() => _RenderDataYogaState();
 }
@@ -239,14 +240,14 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
             width: 100,
             height: 15,
             child: Container(
-              // child: Text(
-              //   "● ${k["part"]}",
-              //   style: TextStyle(
-              //     color: Color.fromRGBO(37, 213, 253, 1.0),
-              //     fontSize: 12.0,
-              //   ),
-              // ),
-            ),
+                // child: Text(
+                //   "● ${k["part"]}",
+                //   style: TextStyle(
+                //     color: Color.fromRGBO(37, 213, 253, 1.0),
+                //     fontSize: 12.0,
+                //   ),
+                // ),
+                ),
           );
         }).toList();
 
@@ -339,7 +340,8 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
                 Text(
                   //'$whatToDo\nArm Presses: ${_counter.toString()}',
                   memo,
-                  style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: const TextStyle(
+                      fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
@@ -352,6 +354,7 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
 
 class Vector {
   double x, y;
+
   Vector(this.x, this.y);
 }
 
@@ -359,7 +362,9 @@ class MyPainter extends CustomPainter {
   Vector left;
   Vector right;
   Color color;
+
   MyPainter({this.left, this.right, this.color});
+
   @override
   void paint(Canvas canvas, Size size) {
     final p1 = Offset(left.x, left.y);

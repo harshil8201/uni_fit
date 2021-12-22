@@ -8,7 +8,9 @@ import 'package:uni_fit/Pages/Weight/Live%20Monitoring/services/arm_raise_data.d
 class PushedPageA extends StatefulWidget {
   final List<CameraDescription> cameras;
   final String title;
+
   const PushedPageA({this.cameras, this.title});
+
   @override
   _PushedPageAState createState() => _PushedPageAState();
 }
