@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:uni_fit/Pages/Weight/Live%20Monitoring/live_monitoring.dart';
 import 'package:uni_fit/play.dart';
 import 'route_class.dart';
 import 'SignIn-SignUp/Google SignIn/google_sign_in_provider.dart';
@@ -12,13 +11,9 @@ final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 List<CameraDescription> cameras;
 
-Future<Null> main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  try {
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    print('Error: $e.code\nError Message: $e.message');
-  }
+  cameras = await availableCameras();
   await Firebase.initializeApp();
   runApp(const MyApp());
 }
