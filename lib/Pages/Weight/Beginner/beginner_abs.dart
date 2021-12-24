@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/color_class.dart';
-import 'package:uni_fit/play.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/b_abs_start.dart';
 
 class BeginnerAbs extends StatefulWidget {
   const BeginnerAbs({Key key}) : super(key: key);
@@ -289,8 +290,12 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const PlayPage()));
+              Navigator.push(
+                  context,
+                  PageTransition(
+                    type: PageTransitionType.bottomToTop,
+                    child: const BeginnerAbsStart(),
+                  ));
             },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 40),
@@ -314,7 +319,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                     ),
                     child: Center(
                       child: Text(
-                        'Start'.toUpperCase(),
+                        'Ready'.toUpperCase(),
                         textAlign: TextAlign.left,
                         style: const TextStyle(
                           fontFamily: 'popBold',

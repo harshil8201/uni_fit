@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:uni_fit/play.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/b_abs_start.dart';
 import 'route_class.dart';
 import 'SignIn-SignUp/Google SignIn/google_sign_in_provider.dart';
 
@@ -35,9 +35,9 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Uni Fit',
         debugShowCheckedModeBanner: false,
-        home: const PlayPage(),
-        // initialRoute: '/',
-        // routes: routeClass,
+        // home: const BeginnerAbsStart(),
+        initialRoute: '/',
+        routes: routeClass,
       ),
     );
   }

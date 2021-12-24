@@ -8,7 +8,6 @@ import 'package:uni_fit/Pages/Diet/muscle_gain.dart';
 import 'package:uni_fit/Pages/Diet/normal_diet.dart';
 import 'package:uni_fit/Pages/Diet/weight_loss.dart';
 import 'package:uni_fit/color_class.dart';
-// ignore_for_file: prefer_const_constructors
 
 class DietPage extends StatefulWidget {
   const DietPage({Key key}) : super(key: key);
@@ -187,31 +186,31 @@ class _DietPageState extends State<DietPage> {
                         '300-722 cal',
                         'Muscle\nGain',
                         'assets/images/diet/diet1.jpg',
-                        MuscleGainDiet(),
+                        const MuscleGainDiet(),
                       ),
                       dietContainer(
                         '150-276 cal',
                         'Weight\nloss',
                         'assets/images/diet/diet2.jpg',
-                        WeightLoss(),
+                        const WeightLoss(),
                       ),
                       dietContainer(
                         '120-500 cal',
                         'High\ncalories',
                         'assets/images/diet/diet3.jpg',
-                        HighCalories(),
+                        const HighCalories(),
                       ),
                       dietContainer(
                         '120-500 cal',
                         'Low\ncalories',
                         'assets/images/diet/diet4.jpg',
-                        LowCalories(),
+                        const LowCalories(),
                       ),
                       dietContainer(
                         '150-276 cal',
                         'Normal\ndiet',
                         'assets/images/diet/diet5.jpg',
-                        NormalDiet(),
+                        const NormalDiet(),
                       ),
                       const SizedBox(
                         height: 20,
@@ -342,7 +341,7 @@ class _DietPageState extends State<DietPage> {
               height: 150,
               width: 130,
               child: ClipRRect(
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(0),
                   bottomRight: Radius.circular(0),
                   topLeft: Radius.circular(15),
@@ -357,7 +356,7 @@ class _DietPageState extends State<DietPage> {
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
                 Text(

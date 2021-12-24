@@ -48,6 +48,7 @@ flutter:
     - assets/images/advance/
     - assets/images/beginner/
     - assets/images/intermediate/
+    - assets/images/gif/
 
   fonts:
     - family: popBold
