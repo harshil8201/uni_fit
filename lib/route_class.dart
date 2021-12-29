@@ -31,16 +31,15 @@ import 'Pages/Weight/Intermediate/intermediate_exercise.dart';
 import 'Pages/Weight/Intermediate/intermediate_legs.dart';
 import 'Pages/Weight/Intermediate/intermediate_shoulder.dart';
 import 'Pages/Weight/weight_page.dart';
-import 'SignIn-SignUp/Google SignIn/google_page_controller.dart';
-import 'SignIn-SignUp/Google SignIn/google_signIn_button.dart';
-import 'SignIn-SignUp/get_started_page.dart';
-import 'SignIn-SignUp/signIn_login_page.dart';
+import 'System Login/Google SignIn/google_page_controller.dart';
+import 'System Login/Google SignIn/google_signIn_button.dart';
+import 'System Login/get_started_page.dart';
+import 'System Login/Login Signin/signIn_login_page.dart';
 import 'new.dart';
 
 var routeClass = <String, WidgetBuilder>{
   '/': (context) => const GetStartedPage(),
   '/New': (context) => New(),
-  // '/MainScreen': (context) => MainScreen(cameras),
   '/GooglePageController': (context) => const GooglePageController(),
   '/SignInLoginPage': (context) => const SignInLoginPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),

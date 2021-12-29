@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/SignIn-SignUp/Google%20SignIn/google_page_controller.dart';
 import 'package:uni_fit/color_class.dart';
+
+import 'Google SignIn/google_page_controller.dart';
 
 class GetStartedPage extends StatefulWidget {
   const GetStartedPage({Key key}) : super(key: key);

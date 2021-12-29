@@ -4,9 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
-import 'package:uni_fit/SignIn-SignUp/Google%20SignIn/google_sign_in_provider.dart';
-import 'package:uni_fit/SignIn-SignUp/authentication.dart';
-import 'package:uni_fit/SignIn-SignUp/signIn_login_page.dart';
+import 'package:uni_fit/System%20Login/Google%20SignIn/google_sign_in_provider.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/signIn_login_page.dart';
 import 'package:uni_fit/color_class.dart';
 
 class DrawerPage extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-import 'package:uni_fit/SignIn-SignUp/signIn_login_page.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/signIn_login_page.dart';
 // ignore_for_file: prefer_const_constructors
 
 class GooglePageController extends StatefulWidget {
