@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/beginner_abs.dart';
 import 'package:uni_fit/color_class.dart';
 import 'dart:math' as math;
 
@@ -19,17 +20,20 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   static const erMaxSecond = 20;
   int brSecond = 20;
 
-  void resetTime() => setState(() {
+  void resetTimer() => setState(() {
         second = maxSecond;
-        stopTimer();
+        // stopTimer();
       });
 
-  void startTime() {
+  void startTime({bool reset = true}) {
+    if (reset) {
+      resetTimer();
+    }
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
-      } else if (second > 101) {
-        stopTimer();
+      } else if (second > 441) {
+        stopTimer(reset: false);
       }
     });
   }
@@ -54,9 +58,12 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     });
   }
 
-  void stopTimer() {
+  void stopTimer({bool reset = true}) {
+    if (reset) {
+      resetTimer();
+    }
     setState(() {
-      timer.cancel();
+      timer?.cancel();
     });
   }
 
@@ -117,10 +124,38 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
             ] else if (61 <= second && second <= 80) ...[
               erContainer('abdominals crunch')
             ] else if (81 <= second && second <= 100) ...[
-              breakTime('jumping jacks')
-            ] else if (second > 100) ...[
-              endWorkout()
-            ],
+              breakTime('russin twist')
+            ] else if (101 <= second && second <= 120) ...[
+              erContainer('russin twist')
+            ] else if (121 <= second && second <= 140) ...[
+              breakTime('mountain climber')
+            ] else if (141 <= second && second <= 160) ...[
+              erContainer('mountain climber')
+            ] else if (161 <= second && second <= 180) ...[
+              breakTime('leg raises')
+            ] else if (181 <= second && second <= 200) ...[
+              erContainer('leg raises')
+            ] else if (201 <= second && second <= 220) ...[
+              breakTime('plank')
+            ] else if (212 <= second && second <= 240) ...[
+              erContainer('plank')
+            ] else if (241 <= second && second <= 260) ...[
+              breakTime('heel touch')
+            ] else if (261 <= second && second <= 280) ...[
+              erContainer('heel touch')
+            ] else if (281 <= second && second <= 300) ...[
+              breakTime('cobra stretch')
+            ] else if (301 <= second && second <= 320) ...[
+              erContainer('cobra stretch')
+            ] else if (321 <= second && second <= 340) ...[
+              breakTime('side lying floor stretch left')
+            ] else if (341 <= second && second <= 360) ...[
+              erContainer('side lying floor stretch left')
+            ] else if (361 <= second && second <= 380) ...[
+              breakTime('side lying floor stretch right')
+            ] else if (381 <= second && second <= 400) ...[
+              erContainer('side lying floor stretch right')
+            ] else endWorkout(),
             Padding(
               padding: const EdgeInsets.only(bottom: 50),
               child: Align(
@@ -249,7 +284,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                   height: 20,
                 ),
                 Text(
-                  'Start in : $brSecond',
+                  'Start in : $brSecond sec',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                     fontSize: 22,
@@ -384,77 +419,83 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
 
   Widget realButton() {
     final isRunning = timer == null ? false : timer.isActive;
+
     return isRunning
         ? Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            InkWell(
-              onTap: () {
-                setState(() {
-                  resetTime();
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: shadowBlack,
-                      offset: const Offset(0.5, 0.10),
-                      blurRadius: 20.0,
-                    ), //BoxShadow
-                  ],
-                  shape: BoxShape.circle,
-                  color: Colors.white,
-                ),
-                height: 50,
-                width: 50,
-                child: const Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(left: 5),
-                    child: FaIcon(
-                      FontAwesomeIcons.play,
-                      color: Colors.blue,
-                      size: 25,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //---------Pause----------
+              // InkWell(
+              //   onTap: () {
+              //     setState(() {
+              //       stopTimer(reset: false);
+              //     });
+              //   },
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: shadowBlack,
+              //           offset: const Offset(0.5, 0.10),
+              //           blurRadius: 20.0,
+              //         ), //BoxShadow
+              //       ],
+              //       shape: BoxShape.circle,
+              //       color: Colors.white,
+              //     ),
+              //     height: 50,
+              //     width: 50,
+              //     child: const Center(
+              //       child: Padding(
+              //         padding: EdgeInsets.only(left: 5),
+              //         child: FaIcon(
+              //           FontAwesomeIcons.play,
+              //           color: Colors.blue,
+              //           size: 25,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   width: 50,
+              // ),
+
+              //----------cancel-------
+              InkWell(
+                onTap: () {
+                  showAlertDialog(context);
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: shadowBlack,
+                        offset: const Offset(0.5, 0.10),
+                        blurRadius: 20.0,
+                      ), //BoxShadow
+                    ],
+                    shape: BoxShape.circle,
+                    color: Colors.redAccent,
+                  ),
+                  height: 50,
+                  width: 50,
+                  child: Center(
+                    child: Transform.rotate(
+                      angle: -math.pi / 4,
+                      child: const FaIcon(
+                        FontAwesomeIcons.plus,
+                        color: Colors.white,
+                        size: 25,
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-            const SizedBox(
-              width: 50,
-            ),
-            InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: shadowBlack,
-                      offset: const Offset(0.5, 0.10),
-                      blurRadius: 20.0,
-                    ), //BoxShadow
-                  ],
-                  shape: BoxShape.circle,
-                  color: Colors.redAccent,
-                ),
-                height: 50,
-                width: 50,
-                child: Center(
-                  child: Transform.rotate(
-                    angle: -math.pi / 4,
-                    child: const FaIcon(
-                      FontAwesomeIcons.plus,
-                      color: Colors.white,
-                      size: 25,
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        )
+            ],
+          )
+
+        //----------- start -------------
         : InkWell(
             onTap: () {
               startTime();
@@ -516,7 +557,9 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
         ),
       ),
       onPressed: () {
-        Navigator.pop(context);
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const BeginnerAbs()));
+        stopTimer();
       },
     );
 
@@ -550,5 +593,4 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
       },
     );
   }
-
 }

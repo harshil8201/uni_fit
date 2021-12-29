@@ -288,21 +288,21 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
               ),
             ),
           ),
-          InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  PageTransition(
-                    type: PageTransitionType.bottomToTop,
-                    child: const BeginnerAbsStart(),
-                  ));
-            },
-            child: Padding(
-              padding: const EdgeInsets.only(bottom: 40),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 100),
+                child: InkWell(
+                  onTap: () {
+                      Navigator.push(
+                          context,
+                          PageTransition(
+                            type: PageTransitionType.bottomToTop,
+                            child: const BeginnerAbsStart(),
+                          ));
+                  },
                   child: Container(
                     height: 50,
                     width: double.infinity,
