@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/start_page.dart';
+import 'package:uni_fit/System%20Login/Google%20SignIn/google_signIn_button.dart';
 import 'package:uni_fit/color_class.dart';
-import '../Google SignIn/google_signIn_button.dart';
 import 'authentication.dart';
 
 class SignInLoginPage extends StatefulWidget {
@@ -15,7 +13,7 @@ class SignInLoginPage extends StatefulWidget {
 }
 
 class _SignInLoginPageState extends State<SignInLoginPage> {
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final _newPasswordController = TextEditingController();
 
@@ -48,7 +46,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Form(
-                        key: _formkey,
+                        key: formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -258,7 +256,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Form(
-                        key: _formkey,
+                        key: formKey,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
