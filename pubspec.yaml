@@ -28,6 +28,7 @@ dependencies:
   numberpicker: ^2.0.1
   flutter_number_picker: ^0.0.8
   page_transition: ^1.1.7+6
+  form_field_validator:
 
 dev_dependencies:
   flutter_test:

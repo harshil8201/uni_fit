@@ -5,10 +5,12 @@ import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/SignIn-SignUp/Google%20SignIn/google_sign_in_provider.dart';
+import 'package:uni_fit/SignIn-SignUp/authentication.dart';
 import 'package:uni_fit/SignIn-SignUp/signIn_login_page.dart';
 import 'package:uni_fit/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
+
   const DrawerPage({Key key}) : super(key: key);
 
   @override
@@ -17,7 +19,7 @@ class DrawerPage extends StatefulWidget {
 
 class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
-  final auth = FirebaseAuth.instance;
+  // final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -184,9 +186,13 @@ class _DrawerPageState extends State<DrawerPage> {
               print('------------we are sign out using gmail------------');
             }
           : () {
-              auth.signOut();
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                  builder: (context) => const SignInLoginPage()));
+              AuthenticationHelper().signOut();
+              Navigator.pop(context);
+              Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const SignInLoginPage()),
+                      (Route<dynamic> route) => false);
               print(
                   '-----------we are sign out using email / password----------');
             },

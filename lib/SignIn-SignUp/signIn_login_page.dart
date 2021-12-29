@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'package:uni_fit/color_class.dart';
 import 'Google SignIn/google_signIn_button.dart';
+import 'authentication.dart';
 
 class SignInLoginPage extends StatefulWidget {
   const SignInLoginPage({Key key}) : super(key: key);
@@ -21,6 +24,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
   String lastname = "Name";
 
   final auth = FirebaseAuth.instance;
+
   bool isVisible = true;
   bool _isObscure = true;
 
@@ -143,8 +147,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                     borderSide: BorderSide(
                                                         color: Colors
                                                             .transparent)),
-                                            labelText: 'Enter your email',
-                                            labelStyle:
+                                            hintText: 'Enter your email',
+                                            hintStyle:
                                                 TextStyle(color: darkWhite),
                                           ),
                                         ),
@@ -216,8 +220,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                       borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent)),
-                                              labelText: 'Enter password',
-                                              labelStyle:
+                                              hintText: 'Enter your password',
+                                              hintStyle:
                                                   TextStyle(color: darkWhite),
                                               suffixIcon: IconButton(
                                                 color: darkWhite,
@@ -354,8 +358,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                         borderSide: BorderSide(
                                                             color: Colors
                                                                 .transparent)),
-                                                labelText: 'First name',
-                                                labelStyle:
+                                                hintText: 'First name',
+                                                hintStyle:
                                                     TextStyle(color: darkWhite),
                                               ),
                                             ),
@@ -431,9 +435,10 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                                     borderSide: BorderSide(
                                                         color: Colors
                                                             .transparent)),
-                                            labelText: 'Create your email',
-                                            labelStyle:
-                                                TextStyle(color: darkWhite),
+                                            hintText: 'Create your email',
+                                            hintStyle: TextStyle(
+                                              color: darkWhite,
+                                            ),
                                           ),
                                         ),
                                       ),
@@ -444,82 +449,90 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                             ),
 
                             //-----------password-----------
+
                             Padding(
                               padding: const EdgeInsets.only(top: 5),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 5, right: 10),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: shadeWhite.withOpacity(0.60),
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 8, left: 15),
-                                        child: SizedBox(
-                                          height: 50,
-                                          width: double.infinity,
-                                          child: TextFormField(
-                                            onChanged: (value) {
-                                              setState(() {
-                                                _password = value.trim();
-                                              });
-                                            },
-                                            validator: (value) {
-                                              if (value.isEmpty) {
-                                                return "Please enter password";
-                                              }
-                                              return null;
-                                            },
-                                            controller: _newPasswordController,
-                                            obscureText: _isObscure,
-                                            textInputAction:
-                                                TextInputAction.next,
-                                            decoration: InputDecoration(
-                                              icon: Icon(Icons.vpn_key_rounded,
-                                                  color: darkWhite),
-                                              floatingLabelBehavior:
-                                                  FloatingLabelBehavior.never,
-                                              enabledBorder:
-                                                  const UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent)),
-                                              focusedBorder:
-                                                  const UnderlineInputBorder(
-                                                      borderSide: BorderSide(
-                                                          color: Colors
-                                                              .transparent)),
-                                              labelText: 'Create new password',
-                                              labelStyle:
-                                                  TextStyle(color: darkWhite),
-                                              suffixIcon: IconButton(
-                                                color: darkWhite,
-                                                icon: Icon(
-                                                  _isObscure
-                                                      ? Icons.visibility
-                                                      : Icons.visibility_off,
-                                                ),
-                                                onPressed: () {
-                                                  setState(
-                                                    () {
-                                                      _isObscure = !_isObscure;
-                                                    },
-                                                  );
-                                                },
+                              child: Text(
+                                'Password :',
+                                style: TextStyle(
+                                  color: superDarkGreen,
+                                  fontSize: 15,
+                                  fontFamily: 'popBold',
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 5, right: 10),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                      color: shadeWhite.withOpacity(0.60),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          right: 8, left: 15),
+                                      child: SizedBox(
+                                        height: 50,
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _password = value.trim();
+                                            });
+                                          },
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              return "Please enter password";
+                                            }
+                                            return null;
+                                          },
+                                          controller: _newPasswordController,
+                                          obscureText: _isObscure,
+                                          textInputAction: TextInputAction.next,
+                                          decoration: InputDecoration(
+                                            icon: Icon(Icons.vpn_key_rounded,
+                                                color: darkWhite),
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.never,
+                                            enabledBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            focusedBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            hintText: 'Create new password',
+                                            hintStyle:
+                                                TextStyle(color: darkWhite),
+                                            suffixIcon: IconButton(
+                                              color: darkWhite,
+                                              icon: Icon(
+                                                _isObscure
+                                                    ? Icons.visibility
+                                                    : Icons.visibility_off,
                                               ),
+                                              onPressed: () {
+                                                setState(
+                                                  () {
+                                                    _isObscure = !_isObscure;
+                                                  },
+                                                );
+                                              },
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ],
-                              ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
@@ -543,19 +556,25 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                 bottom: 130, left: 70, right: 70),
                             child: InkWell(
                               onTap: () {
-                                if (_formkey.currentState.validate()) {
-                                  return;
-                                } else {
-                                  print(" login data not entered");
-                                }
-                                auth
-                                    .signInWithEmailAndPassword(
-                                        email: _email, password: _password)
-                                    .then((_) {
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const StartPage()));
+                                // if (_formkey.currentState.validate()) {
+                                //   return;
+                                // } else {
+                                //   print(" login data not entered");
+                                // }
+                                AuthenticationHelper()
+                                    .signIn(email: _email, password: _password)
+                                    .then((result) {
+                                  if (result == null) {
+                                    Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder: (context) => const StartPage()));
+                                  } else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text(
+                                        result,
+                                        style: const TextStyle(fontSize: 16),
+                                      ),
+                                    ));
+                                  }
                                 });
                               },
                               child: Container(
@@ -605,21 +624,27 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                           Padding(
                             padding: const EdgeInsets.only(
                                 bottom: 130, left: 70, right: 70),
-                            child: InkWell(
+                            child: GestureDetector(
                               onTap: () {
-                                if (_formkey.currentState.validate()) {
-                                  return;
-                                } else {
-                                  print(" sign-up data not entered");
-                                }
-                                auth
-                                    .createUserWithEmailAndPassword(
-                                        email: _email, password: _password)
-                                    .then((_) {
-                                  Navigator.of(context).pushReplacement(
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              const StartPage()));
+                                // if (_formkey.currentState.validate()) {
+                                //   return;
+                                // } else {
+                                //   print(" sign-up data not entered");
+                                // }
+                                AuthenticationHelper()
+                                    .signUp(email: _email, password: _password)
+                                    .then((result) {
+                                  if (result == null) {
+                                    Navigator.pushReplacement(context,
+                                        MaterialPageRoute(builder: (context) => const StartPage()));
+                                  } else {
+                                    Scaffold.of(context).showSnackBar(SnackBar(
+                                      content: Text(
+                                        result,
+                                        style: const TextStyle(fontSize: 16),
+                                      ),
+                                    ));
+                                  }
                                 });
                               },
                               child: Container(
@@ -666,7 +691,16 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     //----------google----------
-                    const GoogleSignInButton(),
+
+                    isVisible
+                        ? Visibility(
+                            visible: isVisible,
+                            child: const GoogleSignInButton(),
+                          )
+                        : Visibility(
+                            visible: isVisible,
+                            child: Container(),
+                          ),
 
                     isVisible
                         //----------already have account / Sign Up--------
