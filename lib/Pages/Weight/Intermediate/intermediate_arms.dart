@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/color_class.dart';
+import 'package:page_transition/page_transition.dart';
 
 class IntermediateArms extends StatefulWidget {
   const IntermediateArms({Key key}) : super(key: key);
@@ -17,7 +18,7 @@ class _IntermediateArmsState extends State<IntermediateArms> {
       body: Stack(
         children: [
           Container(
-            height: 230,
+            height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
               tag: 'intermediate-image-4',
@@ -25,7 +26,7 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                 'assets/images/intermediate/armsI.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: 230,
+                height: MediaQuery.of(context).size.height * 0.29,
               ),
             ),
           ),
@@ -78,14 +79,14 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                           child: Center(
                                             child: Column(
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.center,
+                                              CrossAxisAlignment.center,
                                               children: [
-                                                const SizedBox(
-                                                  height: 20,
+                                                SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.025,
                                                 ),
                                                 Container(
-                                                  height: 230,
-                                                  width: 230,
+                                                  height: MediaQuery.of(context).size.height * 0.29,
+                                                  width: MediaQuery.of(context).size.width * 0.639,
                                                   color: shadeWhite
                                                       .withOpacity(0.25),
                                                   child: FadeInImage(
@@ -93,7 +94,7 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                                       data['img'],
                                                     ),
                                                     placeholder:
-                                                        const AssetImage(
+                                                    const AssetImage(
                                                       'assets/images/loading.gif',
                                                     ),
                                                     fit: BoxFit.cover,
@@ -106,8 +107,8 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                                     data['name']
                                                         .toString()
                                                         .toUpperCase(),
-                                                    style: const TextStyle(
-                                                      fontSize: 20,
+                                                    style: TextStyle(
+                                                      fontSize: MediaQuery.of(context).size.height * 0.025,
                                                       fontFamily: 'popBold',
                                                       color: Colors.black,
                                                     ),
@@ -116,33 +117,33 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                                 Text(
                                                   "Sets : " + data['seti'],
                                                   style: TextStyle(
-                                                    fontSize: 18,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
                                                     fontFamily: 'popMedium',
                                                     color: primaryGreen,
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding:
-                                                      const EdgeInsets.only(
-                                                          right: 25,
-                                                          left: 25,
-                                                          bottom: 30),
+                                                  const EdgeInsets.only(
+                                                      right: 25,
+                                                      left: 25,
+                                                      bottom: 30),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                                    CrossAxisAlignment
+                                                        .start,
                                                     children: [
                                                       Text(
                                                         data['step']
                                                             .toString()
                                                             .replaceAll(
-                                                                "-", "\n\n- "),
+                                                            "-", "\n\n- "),
                                                         textAlign:
-                                                            TextAlign.start,
-                                                        style: const TextStyle(
-                                                          fontSize: 15,
+                                                        TextAlign.start,
+                                                        style: TextStyle(
+                                                          fontSize: MediaQuery.of(context).size.height * 0.019,
                                                           fontFamily:
-                                                              'popLight',
+                                                          'popLight',
                                                           color: Colors.black,
                                                         ),
                                                       ),
@@ -160,14 +161,14 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                               Navigator.pop(context);
                                             },
                                             child: Container(
-                                              height: 50,
+                                              height: MediaQuery.of(context).size.height * 0.0625,
                                               width: double.infinity,
                                               color: primaryWhite,
                                               child: Center(
                                                 child: Text(
                                                   'Okay',
                                                   style: TextStyle(
-                                                    fontSize: 20,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.025,
                                                     fontFamily: 'popBold',
                                                     color: primaryGreen,
                                                   ),
@@ -184,7 +185,7 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                             );
                           },
                           child: Container(
-                            height: 120,
+                            height: MediaQuery.of(context).size.height * 0.15,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: primaryWhite,
@@ -202,8 +203,8 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: 110,
-                                    width: 110,
+                                    height: MediaQuery.of(context).size.height * 0.14,
+                                    width: MediaQuery.of(context).size.width * 0.306,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: shadeWhite.withOpacity(0.25),
@@ -223,26 +224,26 @@ class _IntermediateArmsState extends State<IntermediateArms> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         data['name']
                                             .toString()
                                             .toUpperCase()
                                             .replaceAll(" ", '\n'),
-                                        style: const TextStyle(
-                                          fontSize: 17,
+                                        style: TextStyle(
+                                          fontSize: MediaQuery.of(context).size.height * 0.021,
                                           fontFamily: 'popBold',
                                           color: Colors.black,
                                         ),
                                       ),
-                                      const SizedBox(
-                                        height: 5,
+                                      SizedBox(
+                                        height: MediaQuery.of(context).size.height * 0.00625,
                                       ),
                                       Text(
                                         "Sets : " + data['seti'],
                                         style: TextStyle(
-                                          fontSize: 15,
+                                          fontSize: MediaQuery.of(context).size.height * 0.019,
                                           fontFamily: 'popMedium',
                                           color: primaryGreen,
                                         ),
@@ -264,10 +265,10 @@ class _IntermediateArmsState extends State<IntermediateArms> {
           Padding(
             padding: const EdgeInsets.only(top: 40, left: 20),
             child: IconButton(
-              icon: const Icon(
+              icon: Icon(
                 Icons.arrow_back,
                 color: Colors.white,
-                size: 30,
+                size: MediaQuery.of(context).size.height * 0.0375,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -277,11 +278,11 @@ class _IntermediateArmsState extends State<IntermediateArms> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'intermediate\nArms WorkOut'.toUpperCase(),
+              'intermediate\narms WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
-              style: const TextStyle(
+              style:TextStyle(
                 fontFamily: 'popBold',
-                fontSize: 25,
+                fontSize: MediaQuery.of(context).size.height * 0.03125,
                 color: Colors.white,
               ),
             ),
@@ -292,29 +293,39 @@ class _IntermediateArmsState extends State<IntermediateArms> {
               alignment: Alignment.bottomCenter,
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 100),
-                child: Container(
-                  height: 50,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                    color: primaryGreen,
-                    borderRadius: BorderRadius.circular(30),
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowBlack,
-                        offset: const Offset(0, 0),
-                        blurRadius: 20.0,
-                      ), //BoxShadow
-                    ],
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Start'.toUpperCase(),
-                      textAlign: TextAlign.left,
-                      style: const TextStyle(
-                        fontFamily: 'popBold',
-                        fontSize: 23,
-                        letterSpacing: 2,
-                        color: Colors.white,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.bottomToTop,
+                          child: const IntermediateArms(),
+                        ));
+                  },
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.0625,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: primaryGreen,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Ready'.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: MediaQuery.of(context).size.height * 0.0288,
+                          letterSpacing: 2,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),

@@ -41,7 +41,7 @@ class _StartPageState extends State<StartPage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
         child: Container(
-          height: 65,
+          height: MediaQuery.of(context).size.height * 0.081,
           decoration: BoxDecoration(
             boxShadow: [
               BoxShadow(
@@ -61,8 +61,8 @@ class _StartPageState extends State<StartPage> {
                 //-------Running--------
                 currentIndex == 0
                     ? Container(
-                        height: 40,
-                        width: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
                         decoration: BoxDecoration(
                             color: shadeWhite,
                             borderRadius: BorderRadius.circular(10)),
@@ -71,7 +71,7 @@ class _StartPageState extends State<StartPage> {
                           icon: FaIcon(
                             FontAwesomeIcons.mapMarkedAlt,
                             color: primaryGreen,
-                            size: 19,
+                            size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
                             setBottomBarIndex(0);
@@ -83,7 +83,7 @@ class _StartPageState extends State<StartPage> {
                         icon: FaIcon(
                           FontAwesomeIcons.mapMarkedAlt,
                           color: primaryGreen,
-                          size: 19,
+                          size: MediaQuery.of(context).size.height * 0.023,
                         ),
                         onPressed: () {
                           setBottomBarIndex(0);
@@ -93,8 +93,8 @@ class _StartPageState extends State<StartPage> {
                 //-------WeightPage--------
                 currentIndex == 1
                     ? Container(
-                        height: 40,
-                        width: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
                         decoration: BoxDecoration(
                             color: shadeWhite,
                             borderRadius: BorderRadius.circular(10)),
@@ -103,7 +103,7 @@ class _StartPageState extends State<StartPage> {
                           icon: FaIcon(
                             FontAwesomeIcons.dumbbell,
                             color: primaryGreen,
-                            size: 19,
+                            size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
                             setBottomBarIndex(1);
@@ -115,7 +115,7 @@ class _StartPageState extends State<StartPage> {
                         icon: FaIcon(
                           FontAwesomeIcons.dumbbell,
                           color: primaryGreen,
-                          size: 19,
+                          size: MediaQuery.of(context).size.height * 0.023,
                         ),
                         onPressed: () {
                           setBottomBarIndex(1);
@@ -125,8 +125,8 @@ class _StartPageState extends State<StartPage> {
                 //-------HomePage--------
                 currentIndex == 2
                     ? Container(
-                        height: 40,
-                        width: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
                         decoration: BoxDecoration(
                             color: shadeWhite,
                             borderRadius: BorderRadius.circular(10)),
@@ -135,7 +135,7 @@ class _StartPageState extends State<StartPage> {
                           icon: FaIcon(
                             FontAwesomeIcons.home,
                             color: primaryGreen,
-                            size: 19,
+                            size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
                             setBottomBarIndex(2);
@@ -147,7 +147,7 @@ class _StartPageState extends State<StartPage> {
                         icon: FaIcon(
                           FontAwesomeIcons.home,
                           color: primaryGreen,
-                          size: 19,
+                          size: MediaQuery.of(context).size.height * 0.023,
                         ),
                         onPressed: () {
                           setBottomBarIndex(2);
@@ -157,8 +157,8 @@ class _StartPageState extends State<StartPage> {
                 //-------DietPage--------
                 currentIndex == 3
                     ? Container(
-                        height: 40,
-                        width: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
                         decoration: BoxDecoration(
                             color: shadeWhite,
                             borderRadius: BorderRadius.circular(10)),
@@ -167,7 +167,7 @@ class _StartPageState extends State<StartPage> {
                           icon: FaIcon(
                             FontAwesomeIcons.utensilSpoon,
                             color: primaryGreen,
-                            size: 20,
+                            size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
                             setBottomBarIndex(3);
@@ -179,7 +179,7 @@ class _StartPageState extends State<StartPage> {
                         icon: FaIcon(
                           FontAwesomeIcons.utensilSpoon,
                           color: primaryGreen,
-                          size: 20,
+                          size: MediaQuery.of(context).size.height * 0.023,
                         ),
                         onPressed: () {
                           setBottomBarIndex(3);
@@ -189,8 +189,8 @@ class _StartPageState extends State<StartPage> {
                 //-------Progression--------
                 currentIndex == 4
                     ? Container(
-                        height: 40,
-                        width: 40,
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
                         decoration: BoxDecoration(
                             color: shadeWhite,
                             borderRadius: BorderRadius.circular(10)),
@@ -199,7 +199,7 @@ class _StartPageState extends State<StartPage> {
                           icon: FaIcon(
                             FontAwesomeIcons.chartLine,
                             color: primaryGreen,
-                            size: 20,
+                            size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
                             setBottomBarIndex(4);
@@ -211,7 +211,7 @@ class _StartPageState extends State<StartPage> {
                         icon: FaIcon(
                           FontAwesomeIcons.chartLine,
                           color: primaryGreen,
-                          size: 20,
+                          size: MediaQuery.of(context).size.height * 0.023,
                         ),
                         onPressed: () {
                           setBottomBarIndex(4);

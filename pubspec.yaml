@@ -29,6 +29,7 @@ dependencies:
   flutter_number_picker: ^0.0.8
   page_transition: ^1.1.7+6
   form_field_validator:
+  confetti:
 
 dev_dependencies:
   flutter_test:

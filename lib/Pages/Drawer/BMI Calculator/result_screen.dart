@@ -32,12 +32,12 @@ class _ResultScreenState extends State<ResultScreen> {
                       Navigator.pop(context);
                     },
                     child: SizedBox(
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: 30,
+                        size: MediaQuery.of(context).size.height * 0.0375,
                       ),
                     ),
                   ),
@@ -45,14 +45,14 @@ class _ResultScreenState extends State<ResultScreen> {
                     'BMI Result',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: 30,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 45,
-                    width: 45,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.0563,
+                    width: MediaQuery.of(context).size.height * 0.125,
                   ),
                 ],
               ),
@@ -65,63 +65,63 @@ class _ResultScreenState extends State<ResultScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   widget.bmiModel.bmi == null || widget.bmiModel.bmi == 0
-                      ? const Text(
+                      ? Text(
                           "You Entered Nothing.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: 30,
+                            fontSize: MediaQuery.of(context).size.height * 0.0375,
                             fontWeight: FontWeight.w700,
                           ),
                         )
                       : Text(
                           "YOUR BMI IS ${widget.bmiModel.bmi.round()}.",
-                          style: const TextStyle(
+                          style: TextStyle(
                             color: Colors.black,
-                            fontSize: 34,
+                            fontSize: MediaQuery.of(context).size.height * 0.0425,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                  const SizedBox(
-                    height: 20,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.025,
                   ),
                   Text(
                     "${widget.bmiModel.comments}.",
                     style: TextStyle(
                       color: Colors.greenAccent[700],
-                      fontSize: 25,
+                      fontSize: MediaQuery.of(context).size.height * 0.0312,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  const SizedBox(
-                    height: 30,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.0375,
                   ),
                   widget.bmiModel.isNormal
-                      ? const Text(
+                      ? Text(
                           "YOUR BMI IS NORMAL.",
                           style: TextStyle(
                             color: Colors.amberAccent,
-                            fontSize: 20,
+                            fontSize: MediaQuery.of(context).size.height * 0.025,
                             wordSpacing: 3,
                             letterSpacing: 2,
                             fontWeight: FontWeight.w700,
                           ),
                         )
-                      : const Text(
+                      : Text(
                           "YOUR BMI IS NOT NORMAL.",
                           style: TextStyle(
                             color: Colors.red,
-                            fontSize: 20,
+                            fontSize: MediaQuery.of(context).size.height * 0.025,
                             wordSpacing: 4,
                             letterSpacing: 2,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
-                  const SizedBox(
-                    height: 40,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Container(
                     width: double.infinity,
-                    height: 50,
+                    height: MediaQuery.of(context).size.height * 0.0625,
                     padding: const EdgeInsets.only(left: 10, right: 10),
                     decoration: BoxDecoration(
                       gradient: const LinearGradient(
@@ -138,19 +138,19 @@ class _ResultScreenState extends State<ResultScreen> {
                     child: FlatButton(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Icon(
+                        children: [
+                          const Icon(
                             Icons.arrow_back_ios,
                             color: Colors.white,
                           ),
                           SizedBox(
-                            width: 2,
+                            width: MediaQuery.of(context).size.height * 0.005,
                           ),
                           Text(
                             "LET CALCULATE AGAIN",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 16,
+                              fontSize: MediaQuery.of(context).size.height * 0.02,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 2,
                             ),

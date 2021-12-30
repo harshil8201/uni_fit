@@ -60,8 +60,8 @@ class _WeightPageState extends State<WeightPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -76,7 +76,8 @@ class _WeightPageState extends State<WeightPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: 30,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.038,
                                 ),
                               )
                             : InkWell(
@@ -91,7 +92,8 @@ class _WeightPageState extends State<WeightPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: 22,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.028,
                                 ),
                               ),
                       ),
@@ -100,9 +102,8 @@ class _WeightPageState extends State<WeightPage> {
                       'WEIGHT',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: 30,
+                        fontSize: MediaQuery.of(context).size.height * 0.038,
                         fontFamily: 'popBold',
-                        //fontWeight: FontWeight.bold,
                       ),
                     ),
                     Container(
@@ -117,23 +118,27 @@ class _WeightPageState extends State<WeightPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                MediaQuery.of(context).size.height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                MediaQuery.of(context).size.height * 0.15,
                               ),
                             ),
                     ),
@@ -146,8 +151,8 @@ class _WeightPageState extends State<WeightPage> {
                   child: Column(
                     children: [
                       //----------live monitoring-----
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.025,
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -162,7 +167,7 @@ class _WeightPageState extends State<WeightPage> {
                             );
                           },
                           child: Container(
-                            height: 130,
+                            height: MediaQuery.of(context).size.height * 0.162,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: primaryWhite,
@@ -184,7 +189,7 @@ class _WeightPageState extends State<WeightPage> {
                                     Text(
                                       'LIVE',
                                       style: TextStyle(
-                                        fontSize: 32,
+                                        fontSize: MediaQuery.of(context).size.height * 0.04,
                                         fontFamily: 'popBold',
                                         color: primaryGreen,
                                       ),
@@ -192,20 +197,20 @@ class _WeightPageState extends State<WeightPage> {
                                     Text(
                                       'WARM UP',
                                       style: TextStyle(
-                                        fontSize: 32,
+                                        fontSize: MediaQuery.of(context).size.height * 0.04,
                                         fontFamily: 'popBold',
                                         color: primaryGreen,
                                       ),
                                     ),
                                   ],
                                 ),
-                                const SizedBox(
-                                  width: 20,
+                                SizedBox(
+                                  width: MediaQuery.of(context).size.height * 0.025,
                                 ),
                                 Icon(
                                   Icons.camera_alt,
                                   color: primaryGreen,
-                                  size: 50,
+                                  size: MediaQuery.of(context).size.height * 0.0625,
                                 )
                               ],
                             ),
@@ -241,8 +246,8 @@ class _WeightPageState extends State<WeightPage> {
                           Icons.offline_bolt,
                           const AdvanceExercise()),
 
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.025,
                       ),
                     ],
                   ),
@@ -268,7 +273,7 @@ class _WeightPageState extends State<WeightPage> {
           );
         },
         child: Container(
-          height: 130,
+          height: MediaQuery.of(context).size.height * 0.162,
           width: double.infinity,
           decoration: BoxDecoration(
             color: primaryWhite,
@@ -287,7 +292,7 @@ class _WeightPageState extends State<WeightPage> {
               Text(
                 erName.toUpperCase(),
                 style: TextStyle(
-                  fontSize: 32,
+                  fontSize: MediaQuery.of(context).size.height * 0.04,
                   fontFamily: 'popBold',
                   color: primaryGreen,
                 ),
@@ -298,17 +303,17 @@ class _WeightPageState extends State<WeightPage> {
                   Icon(
                     firstIcon,
                     color: primaryGreen,
-                    size: 40,
+                    size: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Icon(
                     secondIcon,
                     color: primaryGreen,
-                    size: 40,
+                    size: MediaQuery.of(context).size.height * 0.05,
                   ),
                   Icon(
                     thirdIcon,
                     color: primaryGreen,
-                    size: 40,
+                    size: MediaQuery.of(context).size.height * 0.05,
                   ),
                 ],
               ),

@@ -32,12 +32,12 @@ class _LowCaloriesState extends State<LowCalories> {
                       Navigator.pop(context);
                     },
                     child: SizedBox(
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.0562,
+                      width: MediaQuery.of(context).size.width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: 30,
+                        size: MediaQuery.of(context).size.height * 0.0375,
                       ),
                     ),
                   ),
@@ -45,14 +45,14 @@ class _LowCaloriesState extends State<LowCalories> {
                     'LOW CALORIES',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: 30,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 45,
-                    width: 45,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.0562,
+                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -89,7 +89,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                 child: Stack(
                                   children: [
                                     SizedBox(
-                                      height: 300,
+                                      height: MediaQuery.of(context).size.height * 0.375,
                                       width: double.infinity,
                                       // color: Colors.blue,
                                       child: FadeInImage(
@@ -110,12 +110,12 @@ class _LowCaloriesState extends State<LowCalories> {
                                           Navigator.pop(context);
                                         },
                                         child: SizedBox(
-                                          height: 45,
-                                          width: 45,
+                                          height: MediaQuery.of(context).size.height * 0.0562,
+                                          width: MediaQuery.of(context).size.width * 0.125,
                                           child: Icon(
                                             Icons.arrow_back_rounded,
                                             color: primaryWhite,
-                                            size: 35,
+                                            size: MediaQuery.of(context).size.height * 0.0437,
                                           ),
                                         ),
                                       ),
@@ -142,21 +142,21 @@ class _LowCaloriesState extends State<LowCalories> {
                                           child: SingleChildScrollView(
                                             child: Column(
                                               mainAxisAlignment:
-                                                  MainAxisAlignment.start,
+                                              MainAxisAlignment.start,
                                               crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
+                                              CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   data['name'].toUpperCase(),
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: 25,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0312,
                                                     fontFamily: 'popBold',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 10,
+                                                SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.0125,
                                                 ),
                                                 Text(
                                                   "Calories : " +
@@ -164,7 +164,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                                       "Cal",
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: 15,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -176,19 +176,19 @@ class _LowCaloriesState extends State<LowCalories> {
                                                           .toLowerCase(),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: 15,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 20,
+                                                SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.025,
                                                 ),
                                                 Text(
                                                   'Ingredients: ',
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: 18,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -200,20 +200,20 @@ class _LowCaloriesState extends State<LowCalories> {
                                                       .replaceAll("-", "\n- "),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: 15,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight:
-                                                        FontWeight.normal,
+                                                    FontWeight.normal,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 30,
+                                                SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.0375,
                                                 ),
                                                 Text(
                                                   'Making Process: ',
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: 18,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -225,14 +225,14 @@ class _LowCaloriesState extends State<LowCalories> {
                                                       .replaceAll("-", "\n- "),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: 15,
+                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight:
-                                                        FontWeight.normal,
+                                                    FontWeight.normal,
                                                   ),
                                                 ),
-                                                const SizedBox(
-                                                  height: 30,
+                                                SizedBox(
+                                                  height: MediaQuery.of(context).size.height * 0.0375,
                                                 ),
                                               ],
                                             ),
@@ -246,7 +246,7 @@ class _LowCaloriesState extends State<LowCalories> {
                             );
                           },
                           child: Container(
-                            height: 150,
+                            height: MediaQuery.of(context).size.height * 0.187,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: primaryGreen,
@@ -273,23 +273,23 @@ class _LowCaloriesState extends State<LowCalories> {
                                     data['name'].toUpperCase(),
                                     style: TextStyle(
                                       color: primaryWhite,
-                                      fontSize: 25,
+                                      fontSize: MediaQuery.of(context).size.height * 0.0313,
                                       fontFamily: 'popBold',
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 20,
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height * 0.025,
                                   ),
                                   Column(
                                     crossAxisAlignment:
-                                        CrossAxisAlignment.start,
+                                    CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Calories : " + data['cal'] + " cal",
                                         style: TextStyle(
                                           color: primaryWhite,
-                                          fontSize: 15,
+                                          fontSize: MediaQuery.of(context).size.height * 0.0188,
                                           fontFamily: 'popLight',
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -301,7 +301,7 @@ class _LowCaloriesState extends State<LowCalories> {
                                                 .toUpperCase(),
                                         style: TextStyle(
                                           color: primaryWhite,
-                                          fontSize: 15,
+                                          fontSize: MediaQuery.of(context).size.height * 0.0188,
                                           fontFamily: 'popLight',
                                           fontWeight: FontWeight.bold,
                                         ),

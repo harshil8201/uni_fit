@@ -54,47 +54,47 @@ class _HomePageState extends State<HomePage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    xOffset = 0;
-                                    yOffset = 0;
-                                    scaleFactor = 1;
-                                    isDrawerOpen = false;
-                                  });
-                                },
-                                child: Icon(
-                                  Icons.arrow_back,
-                                  color: primaryWhite,
-                                  size: 30,
-                                ),
-                              )
+                          onTap: () {
+                            setState(() {
+                              xOffset = 0;
+                              yOffset = 0;
+                              scaleFactor = 1;
+                              isDrawerOpen = false;
+                            });
+                          },
+                          child: Icon(
+                            Icons.arrow_back,
+                            color: primaryWhite,
+                            size: MediaQuery.of(context).size.height * 0.038,
+                          ),
+                        )
                             : InkWell(
-                                onTap: () {
-                                  setState(() {
-                                    xOffset = 280;
-                                    yOffset = 100;
-                                    scaleFactor = 0.7;
-                                    isDrawerOpen = true;
-                                  });
-                                },
-                                child: FaIcon(
-                                  FontAwesomeIcons.listUl,
-                                  color: primaryWhite,
-                                  size: 22,
-                                ),
-                              ),
+                          onTap: () {
+                            setState(() {
+                              xOffset = 280;
+                              yOffset = 100;
+                              scaleFactor = 0.7;
+                              isDrawerOpen = true;
+                            });
+                          },
+                          child: FaIcon(
+                            FontAwesomeIcons.listUl,
+                            color: primaryWhite,
+                            size: MediaQuery.of(context).size.height * 0.028,
+                          ),
+                        ),
                       ),
                     ),
                     Text(
                       'UNI FIT',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: 30,
+                        fontSize: MediaQuery.of(context).size.height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -110,29 +110,30 @@ class _HomePageState extends State<HomePage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
-                              child: Image.network(
-                                user.photoURL,
-                                fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
-                              ),
-                            )
+                        child: Image.network(
+                          user.photoURL,
+                          fit: BoxFit.cover,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.height * 0.15,
+                        ),
+                      )
                           : ClipOval(
-                              child: Image.asset(
-                                'assets/images/user.jpg',
-                                fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
-                              ),
-                            ),
+                        child: Image.asset(
+                          'assets/images/user.jpg',
+                          fit: BoxFit.cover,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.height * 0.15,
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
+
               const Padding(
                   padding: EdgeInsets.only(top: 100, bottom: 90),
                   child: SizedBox(

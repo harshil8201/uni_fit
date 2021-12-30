@@ -40,12 +40,12 @@ class _BMIPageState extends State<BMIPage> {
                       Navigator.pop(context);
                     },
                     child: SizedBox(
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: 30,
+                        size: MediaQuery.of(context).size.height * 0.0375,
                       ),
                     ),
                   ),
@@ -53,14 +53,14 @@ class _BMIPageState extends State<BMIPage> {
                     'BMI Calculator',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: 30,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 45,
-                    width: 45,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.0562,
+                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -90,15 +90,15 @@ class _BMIPageState extends State<BMIPage> {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               "HEIGHT (Cm):",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 30,
+                                  fontSize: MediaQuery.of(context).size.height * 0.0375,
                                   fontWeight: FontWeight.w900),
                             ),
-                            const SizedBox(
-                              height: 15,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -118,26 +118,26 @@ class _BMIPageState extends State<BMIPage> {
                                 ),
                               ),
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.0125,
                             ),
                             const Divider(
                               color: Colors.black,
                               thickness: 2,
                             ),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.0125,
                             ),
-                            const Text(
+                            Text(
                               "WEIGHT (Kg):",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: 30,
+                                fontSize: MediaQuery.of(context).size.height * 0.0375,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
-                            const SizedBox(
-                              height: 15,
+                            SizedBox(
+                              height: MediaQuery.of(context).size.height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -162,8 +162,8 @@ class _BMIPageState extends State<BMIPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(
-                        height: 20,
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.025,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -177,7 +177,7 @@ class _BMIPageState extends State<BMIPage> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        width: 200,
+                        width: MediaQuery.of(context).size.width * 0.555,
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         // ignore: deprecated_member_use
                         child: FlatButton.icon(
@@ -238,10 +238,10 @@ class _BMIPageState extends State<BMIPage> {
                             Icons.whatshot,
                             color: Colors.white,
                           ),
-                          label: const Text(
+                          label: Text(
                             "CALCULATE",
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: MediaQuery.of(context).size.height * 0.02,
                               letterSpacing: 2,
                             ),
                           ),

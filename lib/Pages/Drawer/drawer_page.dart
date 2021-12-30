@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
@@ -33,49 +34,31 @@ class _DrawerPageState extends State<DrawerPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
+              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(
-                  children: [
-                    user.emailVerified
-                        ? ClipOval(
-                            child: Image.network(
-                              user.photoURL,
-                              fit: BoxFit.cover,
-                              height: 120,
-                              width: 120,
-                            ),
-                          )
-                        : ClipOval(
-                            child: Image.asset(
-                              'assets/images/user.jpg',
-                              fit: BoxFit.cover,
-                              height: 120,
-                              width: 120,
-                            ),
-                          ),
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: primaryWhite,
-                        shape: BoxShape.circle,
-                      ),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: FaIcon(
-                          FontAwesomeIcons.pen,
-                          size: 20,
-                          color: primaryGreen,
+                user.emailVerified
+                    ? ClipOval(
+                        child: Image.network(
+                          user.photoURL,
+                          fit: BoxFit.cover,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.height * 0.15,
+                        ),
+                      )
+                    : ClipOval(
+                        child: Image.asset(
+                          'assets/images/user.jpg',
+                          fit: BoxFit.cover,
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: MediaQuery.of(context).size.height * 0.15,
                         ),
                       ),
-                    ),
-                  ],
-                ),
+                const SizedBox(height: 5,),
                 user.emailVerified
                     ? Text(
                         user.displayName,
                         style: TextStyle(
-                          fontSize: 23,
+                          fontSize: MediaQuery.of(context).size.height * 0.0287,
                           color: primaryWhite,
                           fontFamily: 'popBold',
                         ),
@@ -83,7 +66,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Text(
                         "First Name",
                         style: TextStyle(
-                          fontSize: 23,
+                          fontSize: MediaQuery.of(context).size.height * 0.0287,
                           color: primaryWhite,
                           fontFamily: 'popBold',
                         ),
@@ -92,7 +75,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     ? Text(
                         user.email,
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: MediaQuery.of(context).size.height * 0.015,
                           color: primaryWhite,
                           fontFamily: 'popLight',
                         ),
@@ -100,7 +83,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Text(
                         "example@gmail.com",
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: MediaQuery.of(context).size.height * 0.015,
                           color: primaryWhite,
                           fontFamily: 'popLight',
                         ),
@@ -128,15 +111,15 @@ class _DrawerPageState extends State<DrawerPage> {
                   FaIcon(
                     Icons.logout,
                     color: primaryWhite,
-                    size: 25,
+                    size: MediaQuery.of(context).size.height * 0.0313,
                   ),
-                  const SizedBox(
-                    width: 15,
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.042,
                   ),
                   Text(
                     'Logout',
                     style: TextStyle(
-                      fontSize: 15,
+                      fontSize: MediaQuery.of(context).size.height * 0.018,
                       color: primaryWhite,
                       fontFamily: 'popMedium',
                     ),
@@ -248,15 +231,15 @@ class _DrawerPageState extends State<DrawerPage> {
             FaIcon(
               icons,
               color: primaryWhite,
-              size: 25,
+              size: MediaQuery.of(context).size.height * 0.0313,
             ),
-            const SizedBox(
-              width: 15,
+            SizedBox(
+              width: MediaQuery.of(context).size.width * 0.042,
             ),
             Text(
               listName,
               style: TextStyle(
-                fontSize: 15,
+                fontSize: MediaQuery.of(context).size.height * 0.019,
                 color: primaryWhite,
                 fontFamily: 'popMedium',
               ),

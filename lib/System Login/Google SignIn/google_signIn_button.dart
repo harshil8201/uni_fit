@@ -31,7 +31,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
         },
         child: Container(
           width: double.infinity,
-          height: 45,
+          height: MediaQuery.of(context).size.height * 0.057,
           decoration: BoxDecoration(
             color: primaryWhite,
             borderRadius: BorderRadius.circular(25),
@@ -50,14 +50,14 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
               children: [
                 Image.asset(
                   'assets/images/google.png',
-                  height: 30,
-                  width: 30,
+                  height: MediaQuery.of(context).size.height * 0.0375,
+                  width: MediaQuery.of(context).size.width * 0.1071,
                 ),
                 Text(
                   'Google',
                   style: TextStyle(
                     color: primaryBlack,
-                    fontSize: 15,
+                    fontSize: MediaQuery.of(context).size.height * 0.0187,
                     fontFamily: 'popMedium',
                     letterSpacing: 2,
                   ),

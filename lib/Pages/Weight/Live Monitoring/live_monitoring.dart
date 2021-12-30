@@ -1,17 +1,21 @@
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/squat.dart';
 import 'package:uni_fit/color_class.dart';
-import 'package:uni_fit/main.dart';
 import 'arm_raise.dart';
 import 'warrior_pose.dart';
 
-// add live monitoring
-class LiveMonitoring extends StatelessWidget {
+class LiveMonitoring extends StatefulWidget {
   final List<CameraDescription> cameras;
 
   LiveMonitoring(this.cameras);
 
+  @override
+  State<LiveMonitoring> createState() => _LiveMonitoringState();
+}
+
+class _LiveMonitoringState extends State<LiveMonitoring> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,13 +36,13 @@ class LiveMonitoring extends StatelessWidget {
                     onTap: () {
                       Navigator.pop(context);
                     },
-                    child: Container(
-                      height: 45,
-                      width: 45,
+                    child: SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.0563,
+                      width: MediaQuery.of(context).size.width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: 30,
+                        size: MediaQuery.of(context).size.height * 0.0375,
                       ),
                     ),
                   ),
@@ -46,14 +50,14 @@ class LiveMonitoring extends StatelessWidget {
                     'LIVE EXERCISE',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: 30,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Container(
-                    height: 45,
-                    width: 45,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.0563,
+                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -67,19 +71,19 @@ class LiveMonitoring extends StatelessWidget {
                       onTap: () =>
                           onSelectA(context: context, modelName: 'posenet'),
                       child: liveErContainer(
-                          'assets/images/arm_raise.jpg', 'Arm Raise'),
+                          erImage: 'assets/images/arm_raise.jpg', erName: 'Arm Raise', context: context),
                     ),
                     InkWell(
                       onTap: () =>
                           onSelectS(context: context, modelName: 'posenet'),
                       child:
-                          liveErContainer('assets/images/squat.jpg', 'Squat'),
+                          liveErContainer(erImage: 'assets/images/squat.jpg', erName: 'Squat', context: context),
                     ),
                     InkWell(
                       onTap: () =>
                           onSelectY(context: context, modelName: 'posenet'),
                       child: liveErContainer(
-                          'assets/images/warrior_pose.jpg', 'Warrior pose'),
+                          erImage: 'assets/images/warrior_pose.jpg', erName: 'Warrior pose', context: context),
                     ),
                   ],
                 ),
@@ -90,90 +94,94 @@ class LiveMonitoring extends StatelessWidget {
       ),
     );
   }
-}
 
-void onSelectA({BuildContext context, String modelName}) async {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => PushedPageA(
-        cameras: cameras,
-        title: modelName,
-      ),
-    ),
-  );
-}
-
-void onSelectS({BuildContext context, String modelName}) async {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => PushedPageS(
-        cameras: cameras,
-        title: modelName,
-      ),
-    ),
-  );
-}
-
-void onSelectY({BuildContext context, String modelName}) async {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => PushedPageY(
-        cameras: cameras,
-        title: modelName,
-      ),
-    ),
-  );
-}
-
-Widget liveErContainer(String erImage, String erName) {
-  return Padding(
-    padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
-    child: Container(
-      width: 350,
-      height: 280,
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: shadowBlack,
-            offset: const Offset(0, 0),
-            blurRadius: 20.0,
-          ), //BoxShadow
-        ],
-        color: primaryWhite,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Container(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image.asset(
-                  erImage,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(5),
-              child: Text(
-                erName.toUpperCase(),
-                style: TextStyle(
-                  color: primaryGreen,
-                  fontSize: 30,
-                  fontFamily: 'popBold',
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
+  void onSelectA({BuildContext context, String modelName}) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PushedPageA(
+          cameras: widget.cameras,
+          title: modelName,
         ),
       ),
-    ),
-  );
+    );
+  }
+
+  void onSelectS({BuildContext context, String modelName}) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PushedPageS(
+          cameras: widget.cameras,
+          title: modelName,
+        ),
+      ),
+    );
+  }
+
+  void onSelectY({BuildContext context, String modelName}) async {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => PushedPageY(
+          cameras: widget.cameras,
+          title: modelName,
+        ),
+      ),
+    );
+  }
+
+  Widget liveErContainer(
+      {BuildContext context, String erImage, String erName}) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
+      child: Container(
+        width: double.infinity,
+        height: MediaQuery.of(context).size.height * 0.375,
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: shadowBlack,
+              offset: const Offset(0, 0),
+              blurRadius: 20.0,
+            ), //BoxShadow
+          ],
+          color: primaryWhite,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Container(
+          padding: const EdgeInsets.all(10.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.asset(
+                    erImage,
+                    fit: BoxFit.cover,
+                    height: MediaQuery.of(context).size.height * 0.2625,
+                    width: double.infinity,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(5),
+                child: Text(
+                  erName.toUpperCase(),
+                  style: TextStyle(
+                    color: primaryGreen,
+                    fontSize: MediaQuery.of(context).size.height * 0.0375,
+                    fontFamily: 'popBold',
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
+

@@ -55,8 +55,8 @@ class _RunningPageState extends State<RunningPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -71,7 +71,7 @@ class _RunningPageState extends State<RunningPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: 30,
+                                  size: MediaQuery.of(context).size.height * 0.038,
                                 ),
                               )
                             : InkWell(
@@ -86,7 +86,7 @@ class _RunningPageState extends State<RunningPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: 22,
+                                  size: MediaQuery.of(context).size.height * 0.028,
                                 ),
                               ),
                       ),
@@ -95,7 +95,7 @@ class _RunningPageState extends State<RunningPage> {
                       'RUNNING',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: 30,
+                        fontSize: MediaQuery.of(context).size.height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -111,29 +111,30 @@ class _RunningPageState extends State<RunningPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
+                                height: MediaQuery.of(context).size.height * 0.15,
+                                width: MediaQuery.of(context).size.height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height: 120,
-                                width: 120,
+                                height: MediaQuery.of(context).size.height * 0.15,
+                                width: MediaQuery.of(context).size.height * 0.15,
                               ),
                             ),
                     ),
                   ],
                 ),
               ),
+
               Center(
                 child: Container(
                   height: 100,

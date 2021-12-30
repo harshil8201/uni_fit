@@ -1,7 +1,10 @@
 import 'dart:async';
+import 'dart:math';
+import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/beginner_abs.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/beginner_exercise.dart';
 import 'package:uni_fit/color_class.dart';
 import 'dart:math' as math;
 
@@ -67,6 +70,22 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     });
   }
 
+  ConfettiController _celebrationAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _celebrationAnimation =
+        ConfettiController(duration: const Duration(seconds: 100));
+  }
+
+  @override
+  void dispose() {
+    _celebrationAnimation.dispose();
+    super.dispose();
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,7 +93,19 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
       body: Container(
         height: double.infinity,
         width: double.infinity,
-        color: backgroundColor,
+        // color: backgroundColor,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.bottomCenter,
+            end: Alignment.topCenter,
+            colors: [
+              Color(0xFF50FF98),
+              Color(0xff25A359),
+              // Color(0xff25824B),
+            ],
+          ),
+        ),
+
         child: Stack(
           children: [
             //-------appbar--------
@@ -88,81 +119,96 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                       Navigator.pop(context);
                     },
                     child: SizedBox(
-                      height: 45,
-                      width: 45,
+                      height: MediaQuery.of(context).size.height * 0.056,
+                      width: MediaQuery.of(context).size.width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
-                        color: primaryGreen,
-                        size: 30,
+                        color: primaryWhite,
+                        size: MediaQuery.of(context).size.height * 0.0375,
                       ),
                     ),
                   ),
                   Text(
                     'ABS',
                     style: TextStyle(
-                      color: primaryGreen,
-                      fontSize: 30,
+                      color: primaryWhite,
+                      fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(
-                    height: 45,
-                    width: 45,
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * 0.056,
+                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
             ),
             if (second < 1) ...[
-              readyContainer()
+              readyContainer(),
+              realButton(),
             ] else if (1 <= second && second <= 20) ...[
-              breakTime('jumping jacks')
+              breakTime('jumping jacks'),
+              realButton(),
             ] else if (21 <= second && second <= 40) ...[
-              erContainer('jumping jacks')
+              erContainer('jumping jacks', '16 sec'),
+              realButton(),
             ] else if (41 <= second && second <= 60) ...[
-              breakTime('abdominals crunch')
+              breakTime('abdominals crunch'),
+              realButton(),
             ] else if (61 <= second && second <= 80) ...[
-              erContainer('abdominals crunch')
+              erContainer('abdominals crunch', 'sets : X16'),
+              realButton(),
             ] else if (81 <= second && second <= 100) ...[
-              breakTime('russin twist')
+              breakTime('russin twist'),
+              realButton(),
             ] else if (101 <= second && second <= 120) ...[
-              erContainer('russin twist')
+              erContainer('russin twist', 'sets: X20'),
+              realButton(),
             ] else if (121 <= second && second <= 140) ...[
-              breakTime('mountain climber')
+              breakTime('mountain climber'),
+              realButton(),
             ] else if (141 <= second && second <= 160) ...[
-              erContainer('mountain climber')
+              erContainer('mountain climber', 'sets: X16'),
+              realButton(),
             ] else if (161 <= second && second <= 180) ...[
-              breakTime('leg raises')
+              breakTime('leg raises'),
+              realButton(),
             ] else if (181 <= second && second <= 200) ...[
-              erContainer('leg raises')
+              erContainer('leg raises', "sets: X16"),
+              realButton(),
             ] else if (201 <= second && second <= 220) ...[
-              breakTime('plank')
+              breakTime('plank'),
+              realButton(),
             ] else if (212 <= second && second <= 240) ...[
-              erContainer('plank')
+              erContainer('plank', '20 sec'),
+              realButton(),
             ] else if (241 <= second && second <= 260) ...[
-              breakTime('heel touch')
+              breakTime('heel touch'),
+              realButton(),
             ] else if (261 <= second && second <= 280) ...[
-              erContainer('heel touch')
+              erContainer('heel touch', 'sets: X20'),
+              realButton(),
             ] else if (281 <= second && second <= 300) ...[
-              breakTime('cobra stretch')
+              breakTime('cobra stretch'),
+              realButton(),
             ] else if (301 <= second && second <= 320) ...[
-              erContainer('cobra stretch')
+              erContainer('cobra stretch', '20 sec'),
+              realButton(),
             ] else if (321 <= second && second <= 340) ...[
-              breakTime('side lying floor stretch left')
+              breakTime('side lying floor stretch left'),
+              realButton(),
             ] else if (341 <= second && second <= 360) ...[
-              erContainer('side lying floor stretch left')
+              erContainer('side lying floor stretch left', '20 sec'),
+              realButton(),
             ] else if (361 <= second && second <= 380) ...[
-              breakTime('side lying floor stretch right')
+              breakTime('side lying floor stretch right'),
+              realButton(),
             ] else if (381 <= second && second <= 400) ...[
-              erContainer('side lying floor stretch right')
-            ] else endWorkout(),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 50),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: realButton(),
-              ),
-            ),
+              erContainer('side lying floor stretch right', '20 sec'),
+              realButton(),
+            ] else
+              endWorkout(),
           ],
         ),
       ),
@@ -170,50 +216,75 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   Widget readyContainer() {
-    return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 130),
-      child: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: BoxDecoration(
-          color: Colors.transparent,
-          borderRadius: BorderRadius.circular(20),
+    return Container(
+      width: double.infinity,
+      height: double.infinity,
+      decoration: BoxDecoration(
+        color: Colors.transparent,
+        image: DecorationImage(
+          image: const AssetImage('assets/images/beginner/absB.jpg'),
+          fit: BoxFit.cover,
+          colorFilter: ColorFilter.mode(
+            Colors.black.withOpacity(0.3),
+            BlendMode.darken,
+          ),
         ),
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Text(
-              "Are you ready for today's workout??",
+      ),
+      child: Stack(
+        alignment: Alignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 40, left: 10),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(
+                    Icons.arrow_back_rounded,
+                    color: primaryWhite,
+                    size: MediaQuery.of(context).size.height * 0.0438,
+                  )),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+            child: Text(
+              "Are you ready for today's Abs workout??",
               textAlign: TextAlign.center,
               style: TextStyle(
-                color: superDarkGreen,
-                fontSize: 32,
+                color: primaryWhite,
+                fontSize: MediaQuery.of(context).size.height * 0.04,
                 fontFamily: 'popMedium',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            Align(
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
                 'press "start" for exercise',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  color: primaryGreen,
-                  fontSize: 15,
+                  color: Colors.grey.shade700,
+                  fontSize: MediaQuery.of(context).size.height * 0.0187,
                   fontFamily: 'popMedium',
                   fontWeight: FontWeight.bold,
                 ),
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
 
   Widget breakTime(String erName) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 130),
+      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 120),
       child: Container(
         width: double.infinity,
         height: double.infinity,
@@ -225,17 +296,17 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              'Break time !!'.toUpperCase(),
+              'Next Exercise',
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: superDarkGreen,
-                fontSize: 30,
+                fontSize: MediaQuery.of(context).size.height * 0.0375,
                 fontFamily: 'popMedium',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.025,
             ),
             Column(
               children: [
@@ -257,8 +328,8 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                       topRight: Radius.circular(20),
                     ),
                     child: FadeInImage(
-                      width: 300,
-                      height: 300,
+                      width: MediaQuery.of(context).size.width * 0.833,
+                      height: MediaQuery.of(context).size.height * 0.375,
                       image: AssetImage(
                         'assets/images/gif/$erName.gif',
                       ),
@@ -269,8 +340,8 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.025,
                 ),
                 Text(
                   erName.toUpperCase(),
@@ -280,18 +351,36 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                       fontWeight: FontWeight.bold,
                       fontFamily: 'popBold'),
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.025,
                 ),
-                Text(
-                  'Start in : $brSecond sec',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 22,
-                    color: Colors.teal,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Start in ',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.0275,
+                        color: primaryWhite,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Icon(
+                      Icons.access_alarm,
+                      color: primaryWhite,
+                    ),
+                    Text(
+                      ' : $brSecond sec',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.height * 0.0275,
+                        color: primaryWhite,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                )
               ],
             ),
           ],
@@ -310,23 +399,93 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
           color: Colors.transparent,
           borderRadius: BorderRadius.circular(20),
         ),
-        child: Center(
-          child: Text(
-            "Congratulation !!\n\nYou completed\ntoday's workout",
-            textAlign: TextAlign.center,
-            style: TextStyle(
-              color: superDarkGreen,
-              fontSize: 27,
-              fontFamily: 'popBold',
-              fontWeight: FontWeight.bold,
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.topCenter,
+              child: ConfettiWidget(
+                confettiController: _celebrationAnimation,
+                blastDirection: pi / 2, // radial value - LEFT
+                particleDrag: 0.05, // apply drag to the confetti
+                emissionFrequency: 0.05, // how often it should emit
+                numberOfParticles: 20, // number of particles to emit
+                gravity: 0.09, // gravity - or fall speed
+                shouldLoop: false,
+                colors: const [
+                  Colors.red,
+                  Colors.orange,
+                  Colors.yellow,
+                  Colors.green,
+                  Colors.blue,
+                  Colors.indigo,
+                  Colors.deepPurpleAccent,
+                ], // manually specify the colors to be used
+              ),
             ),
-          ),
+            Center(
+              child: Text(
+                "Congratulation !!\n\nYou completed\ntoday's workout",
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: superDarkGreen,
+                  fontSize: MediaQuery.of(context).size.height * 0.033,
+                  fontFamily: 'popBold',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 10),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const BeginnerExercise()));
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 60),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.0625,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(30),
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0, 0),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                      ),
+                      child: Center(
+                        child: Text(
+                          'DONE'.toUpperCase(),
+                          textAlign: TextAlign.left,
+                          style: TextStyle(
+                            fontFamily: 'popBold',
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.0287,
+                            letterSpacing: 2,
+                            color: primaryGreen,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
         ),
       ),
     );
   }
 
-  Widget erContainer(String erName) {
+  Widget erContainer(String erName, String erSet) {
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 120),
       child: Container(
@@ -339,6 +498,19 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            Text(
+              'Exercise',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: superDarkGreen,
+                fontSize: MediaQuery.of(context).size.height * 0.0375,
+                fontFamily: 'popMedium',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.025,
+            ),
             Container(
               decoration: BoxDecoration(
                 boxShadow: [
@@ -357,8 +529,8 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                   topRight: Radius.circular(20),
                 ),
                 child: FadeInImage(
-                  width: 300,
-                  height: 300,
+                  width: MediaQuery.of(context).size.width * 0.833,
+                  height: MediaQuery.of(context).size.height * 0.375,
                   image: AssetImage(
                     'assets/images/gif/$erName.gif',
                   ),
@@ -369,21 +541,34 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 30,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.0125,
             ),
             Text(
               erName.toUpperCase(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: superDarkGreen,
-                fontSize: 27,
+                fontSize: MediaQuery.of(context).size.height * 0.0313,
                 fontFamily: 'popBold',
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(
-              height: 20,
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.00625,
+            ),
+            Text(
+              erSet,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: primaryWhite,
+                fontSize: MediaQuery.of(context).size.height * 0.0225,
+                fontFamily: 'popBold',
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.00625,
             ),
             Stack(
               alignment: Alignment.center,
@@ -391,20 +576,20 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                 Text(
                   '$erSecond',
                   textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    fontSize: 40,
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.0375,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: SizedBox(
-                    height: 130,
-                    width: 130,
+                    height: MediaQuery.of(context).size.height * 0.11875,
+                    width: MediaQuery.of(context).size.height * 0.11875,
                     child: CircularProgressIndicator(
                       value: 1 - erSecond / erMaxSecond,
-                      valueColor: const AlwaysStoppedAnimation(Colors.white),
-                      backgroundColor: Colors.green,
+                      valueColor: AlwaysStoppedAnimation(semiWhite),
+                      backgroundColor: primaryGreen,
                       strokeWidth: 12,
                     ),
                   ),
@@ -413,6 +598,31 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget celebrationContainer() {
+    return Align(
+      alignment: Alignment.topCenter,
+      child: ConfettiWidget(
+        confettiController: _celebrationAnimation,
+        blastDirection: pi / 2,
+        // radial value - LEFT
+        particleDrag: 0.05,
+        // apply drag to the confetti
+        emissionFrequency: 0.05,
+        // how often it should emit
+        numberOfParticles: 20,
+        // number of particles to emit
+        gravity: 0.05,
+        // gravity - or fall speed
+        shouldLoop: false,
+        colors: const [
+          Colors.green,
+          Colors.blue,
+          Colors.pink
+        ], // manually specify the colors to be used
       ),
     );
   }
@@ -462,31 +672,37 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
               // ),
 
               //----------cancel-------
-              InkWell(
-                onTap: () {
-                  showAlertDialog(context);
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    boxShadow: [
-                      BoxShadow(
-                        color: shadowBlack,
-                        offset: const Offset(0.5, 0.10),
-                        blurRadius: 20.0,
-                      ), //BoxShadow
-                    ],
-                    shape: BoxShape.circle,
-                    color: Colors.redAccent,
-                  ),
-                  height: 50,
-                  width: 50,
-                  child: Center(
-                    child: Transform.rotate(
-                      angle: -math.pi / 4,
-                      child: const FaIcon(
-                        FontAwesomeIcons.plus,
-                        color: Colors.white,
-                        size: 25,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: InkWell(
+                    onTap: () {
+                      showAlertDialog(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0.5, 0.10),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.redAccent,
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.0625,
+                      width: MediaQuery.of(context).size.height * 0.139,
+                      child: Center(
+                        child: Transform.rotate(
+                          angle: -math.pi / 4,
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.0313,
+                          ),
+                        ),
                       ),
                     ),
                   ),
@@ -494,45 +710,51 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
               ),
             ],
           )
-
         //----------- start -------------
-        : InkWell(
-            onTap: () {
-              startTime();
-              exerciseSecond();
-              breakSecond();
-            },
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 100),
-              child: Container(
-                height: 50,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                      color: shadowBlack,
-                      offset: const Offset(0, 0),
-                      blurRadius: 20.0,
-                    ), //BoxShadow
-                  ],
-                ),
-                child: Center(
-                  child: Text(
-                    'Start'.toUpperCase(),
-                    textAlign: TextAlign.left,
-                    style: TextStyle(
-                      fontFamily: 'popBold',
-                      fontSize: 23,
-                      letterSpacing: 2,
-                      color: primaryGreen,
+        : Padding(
+          padding: const EdgeInsets.only(bottom: 40),
+          child: Align(
+      alignment: Alignment.bottomCenter,
+            child: InkWell(
+                onTap: () {
+                  startTime();
+                  exerciseSecond();
+                  breakSecond();
+                  _celebrationAnimation.play();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.0625,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Start'.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: MediaQuery.of(context).size.height * 0.0287,
+                          letterSpacing: 2,
+                          color: primaryGreen,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
-            ),
-          );
+          ),
+        );
   }
 
   showAlertDialog(BuildContext context) {

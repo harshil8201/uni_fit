@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Uni Fit',
         debugShowCheckedModeBanner: false,
-        // home: const BeginnerAbsStart(),
+        // home: const Config(),
         initialRoute: '/',
         routes: routeClass,
       ),

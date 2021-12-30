@@ -34,8 +34,11 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
         height: double.infinity,
         width: double.infinity,
         decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
+          image: DecorationImage(
+            image: AssetImage('assets/images/bg.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         child: Stack(
           children: [
             //---------input field-------
@@ -58,8 +61,11 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                   child: Align(
                                     alignment: Alignment.topRight,
                                     child: SizedBox(
-                                      height: 250,
-                                      width: 250,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.3125,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6944,
                                       child: Image.asset(
                                         'assets/images/1.png',
                                         fit: BoxFit.contain,
@@ -75,7 +81,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       'Hey,\nWelcome!',
                                       style: TextStyle(
                                         color: primaryGreen,
-                                        fontSize: 40,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.05,
                                         fontFamily: 'popBold',
                                       ),
                                     ),
@@ -96,12 +104,17 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       'Email :',
                                       style: TextStyle(
                                         color: superDarkGreen,
-                                        fontSize: 15,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.0187,
                                         fontFamily: 'popBold',
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(height: 5),
+                                  SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.00625),
                                   Container(
                                     decoration: BoxDecoration(
                                       color: shadeWhite.withOpacity(0.60),
@@ -111,7 +124,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       padding: const EdgeInsets.only(
                                           left: 15, right: 10),
                                       child: SizedBox(
-                                        height: 50,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.0625,
                                         width: double.infinity,
                                         child: TextFormField(
                                           onChanged: (value) {
@@ -169,7 +184,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       'Password :',
                                       style: TextStyle(
                                         color: superDarkGreen,
-                                        fontSize: 15,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.01875,
                                         fontFamily: 'popBold',
                                       ),
                                     ),
@@ -186,7 +203,10 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                         padding: const EdgeInsets.only(
                                             right: 8, left: 15),
                                         child: SizedBox(
-                                          height: 50,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0625,
                                           width: double.infinity,
                                           child: TextFormField(
                                             onChanged: (value) {
@@ -269,8 +289,11 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     alignment: Alignment.topRight,
                                     child: SizedBox(
                                       //color: Colors.blue,
-                                      height: 250,
-                                      width: 250,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.3125,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.6944,
                                       child: Image.asset(
                                         'assets/images/2.png',
                                         fit: BoxFit.contain,
@@ -286,7 +309,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       'Hello,\nSign up!',
                                       style: TextStyle(
                                         color: primaryGreen,
-                                        fontSize: 40,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.05,
                                         fontFamily: 'popBold',
                                       ),
                                     ),
@@ -294,8 +319,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                 ),
                               ],
                             ),
-                            const SizedBox(
-                              height: 20,
+                            SizedBox(
+                              height:
+                                  MediaQuery.of(context).size.height * 0.025,
                             ),
                             //---------- name ------------
                             Column(
@@ -305,7 +331,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                   'Name :',
                                   style: TextStyle(
                                     color: superDarkGreen,
-                                    fontSize: 15,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.01875,
                                     fontFamily: 'popBold',
                                   ),
                                 ),
@@ -324,7 +352,10 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                           padding: const EdgeInsets.only(
                                               left: 15, right: 10),
                                           child: SizedBox(
-                                            height: 50,
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0625,
                                             width: double.infinity,
                                             child: TextFormField(
                                               onChanged: (value) {
@@ -382,13 +413,16 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       'Email :',
                                       style: TextStyle(
                                         color: superDarkGreen,
-                                        fontSize: 15,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.01875,
                                         fontFamily: 'popBold',
                                       ),
                                     ),
                                   ),
-                                  const SizedBox(
-                                    height: 5,
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.00625,
                                   ),
                                   Container(
                                     decoration: BoxDecoration(
@@ -399,7 +433,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       padding: const EdgeInsets.only(
                                           left: 15, right: 10),
                                       child: SizedBox(
-                                        height: 50,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.0625,
                                         width: double.infinity,
                                         child: TextFormField(
                                           onChanged: (value) {
@@ -454,7 +490,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                 'Password :',
                                 style: TextStyle(
                                   color: superDarkGreen,
-                                  fontSize: 15,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.01875,
                                   fontFamily: 'popBold',
                                 ),
                               ),
@@ -474,7 +511,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       padding: const EdgeInsets.only(
                                           right: 8, left: 15),
                                       child: SizedBox(
-                                        height: 50,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.0625,
                                         width: double.infinity,
                                         child: TextFormField(
                                           onChanged: (value) {
@@ -563,26 +602,20 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     .signIn(email: _email, password: _password)
                                     .then((result) {
                                   if (result == null) {
-                                    Navigator.pushReplacement(context,
-                                        MaterialPageRoute(builder: (context) => const StartPage()));
-                                  } else {
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                        result,
-                                        style: const TextStyle(fontSize: 16),
-                                      ),
-                                    ));
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const StartPage()));
                                   }
                                 });
                               },
                               child: Container(
-                                height: 50,
                                 width: double.infinity,
+                                height: MediaQuery.of(context).size.height * 0.057,
                                 decoration: BoxDecoration(
                                   color: primaryWhite,
-                                  borderRadius: BorderRadius.circular(30),
-                                  border:
-                                      Border.all(color: primaryGreen, width: 4),
+                                  borderRadius: BorderRadius.circular(25),
                                   boxShadow: [
                                     BoxShadow(
                                       color: shadowBlack,
@@ -591,16 +624,27 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     ),
                                   ],
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    'LOGIN',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: primaryGreen,
-                                      fontSize: 20,
-                                      fontFamily: 'popMedium',
-                                      letterSpacing: 3,
-                                    ),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Login with',
+                                        style: TextStyle(
+                                          color: primaryBlack,
+                                          fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                          fontFamily: 'popMedium',
+                                          letterSpacing: 2,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10,),
+                                      Image.asset(
+                                        'assets/images/gmail.png',
+                                        height: MediaQuery.of(context).size.height * 0.03125,
+                                        width: MediaQuery.of(context).size.width * 0.06944,
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -621,7 +665,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                           //----------signup button----------
                           Padding(
                             padding: const EdgeInsets.only(
-                                bottom: 130, left: 70, right: 70),
+                                bottom: 90, left: 70, right: 70),
                             child: GestureDetector(
                               onTap: () {
                                 // if (_formkey.currentState.validate()) {
@@ -633,26 +677,20 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     .signUp(email: _email, password: _password)
                                     .then((result) {
                                   if (result == null) {
-                                    Navigator.pushReplacement(context,
-                                        MaterialPageRoute(builder: (context) => const StartPage()));
-                                  } else {
-                                    Scaffold.of(context).showSnackBar(SnackBar(
-                                      content: Text(
-                                        result,
-                                        style: const TextStyle(fontSize: 16),
-                                      ),
-                                    ));
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) =>
+                                                const StartPage()));
                                   }
                                 });
                               },
                               child: Container(
-                                height: 50,
                                 width: double.infinity,
+                                height: MediaQuery.of(context).size.height * 0.057,
                                 decoration: BoxDecoration(
                                   color: primaryWhite,
-                                  borderRadius: BorderRadius.circular(30),
-                                  border:
-                                      Border.all(color: primaryGreen, width: 4),
+                                  borderRadius: BorderRadius.circular(25),
                                   boxShadow: [
                                     BoxShadow(
                                       color: shadowBlack,
@@ -661,16 +699,27 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     ),
                                   ],
                                 ),
-                                child: Center(
-                                  child: Text(
-                                    'SIGN UP',
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      color: primaryGreen,
-                                      fontSize: 20,
-                                      fontFamily: 'popMedium',
-                                      letterSpacing: 3,
-                                    ),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'Signup with',
+                                        style: TextStyle(
+                                          color: primaryBlack,
+                                          fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                          fontFamily: 'popMedium',
+                                          letterSpacing: 2,
+                                        ),
+                                      ),
+                                      const SizedBox(width: 10,),
+                                      Image.asset(
+                                        'assets/images/gmail.png',
+                                        height: MediaQuery.of(context).size.height * 0.03125,
+                                        width: MediaQuery.of(context).size.width * 0.06944,
+                                      ),
+                                    ],
                                   ),
                                 ),
                               ),
@@ -714,15 +763,17 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     isVisible = isVisible;
                                   });
                                 },
-                                child: const Text.rich(
+                                child: Text.rich(
                                   TextSpan(
                                     text: 'Don’t have account? ',
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.01625,
                                       color: Colors.blue,
                                       fontFamily: 'popLight',
                                     ),
-                                    children: <TextSpan>[
+                                    children: const <TextSpan>[
                                       TextSpan(
                                         text: 'Sign Up',
                                         style: TextStyle(
@@ -749,15 +800,17 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                     isVisible = !isVisible;
                                   });
                                 },
-                                child: const Text.rich(
+                                child: Text.rich(
                                   TextSpan(
                                     text: 'Already have an account? ',
                                     style: TextStyle(
-                                      fontSize: 13,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.01625,
                                       color: Colors.blue,
                                       fontFamily: 'popLight',
                                     ),
-                                    children: <TextSpan>[
+                                    children: const <TextSpan>[
                                       TextSpan(
                                         text: 'Login In',
                                         style: TextStyle(
