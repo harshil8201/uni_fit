@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:uni_fit/Pages/Weight/Live%20Monitoring/squat.dart';
@@ -71,19 +70,25 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
                       onTap: () =>
                           onSelectA(context: context, modelName: 'posenet'),
                       child: liveErContainer(
-                          erImage: 'assets/images/arm_raise.jpg', erName: 'Arm Raise', context: context),
+                          erImage: 'assets/images/arm_raise.jpg',
+                          erName: 'Arm Raise',
+                          context: context),
                     ),
                     InkWell(
                       onTap: () =>
                           onSelectS(context: context, modelName: 'posenet'),
-                      child:
-                          liveErContainer(erImage: 'assets/images/squat.jpg', erName: 'Squat', context: context),
+                      child: liveErContainer(
+                          erImage: 'assets/images/squat.jpg',
+                          erName: 'Squat',
+                          context: context),
                     ),
                     InkWell(
                       onTap: () =>
                           onSelectY(context: context, modelName: 'posenet'),
                       child: liveErContainer(
-                          erImage: 'assets/images/warrior_pose.jpg', erName: 'Warrior pose', context: context),
+                          erImage: 'assets/images/warrior_pose.jpg',
+                          erName: 'Warrior pose',
+                          context: context),
                     ),
                   ],
                 ),
@@ -184,4 +189,3 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
     );
   }
 }
-

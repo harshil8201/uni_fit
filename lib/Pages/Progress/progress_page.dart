@@ -59,35 +59,37 @@ class _ProgressPageState extends State<ProgressPage> {
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
-                          onTap: () {
-                            setState(() {
-                              xOffset = 0;
-                              yOffset = 0;
-                              scaleFactor = 1;
-                              isDrawerOpen = false;
-                            });
-                          },
-                          child: Icon(
-                            Icons.arrow_back,
-                            color: primaryWhite,
-                            size: MediaQuery.of(context).size.height * 0.038,
-                          ),
-                        )
+                                onTap: () {
+                                  setState(() {
+                                    xOffset = 0;
+                                    yOffset = 0;
+                                    scaleFactor = 1;
+                                    isDrawerOpen = false;
+                                  });
+                                },
+                                child: Icon(
+                                  Icons.arrow_back,
+                                  color: primaryWhite,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.038,
+                                ),
+                              )
                             : InkWell(
-                          onTap: () {
-                            setState(() {
-                              xOffset = 280;
-                              yOffset = 100;
-                              scaleFactor = 0.7;
-                              isDrawerOpen = true;
-                            });
-                          },
-                          child: FaIcon(
-                            FontAwesomeIcons.listUl,
-                            color: primaryWhite,
-                            size: MediaQuery.of(context).size.height * 0.028,
-                          ),
-                        ),
+                                onTap: () {
+                                  setState(() {
+                                    xOffset = 280;
+                                    yOffset = 100;
+                                    scaleFactor = 0.7;
+                                    isDrawerOpen = true;
+                                  });
+                                },
+                                child: FaIcon(
+                                  FontAwesomeIcons.listUl,
+                                  color: primaryWhite,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.028,
+                                ),
+                              ),
                       ),
                     ),
                     Text(
@@ -114,21 +116,25 @@ class _ProgressPageState extends State<ProgressPage> {
                       width: MediaQuery.of(context).size.height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
-                        child: Image.network(
-                          user.photoURL,
-                          fit: BoxFit.cover,
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: MediaQuery.of(context).size.height * 0.15,
-                        ),
-                      )
+                              child: Image.network(
+                                user.photoURL,
+                                fit: BoxFit.cover,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                    MediaQuery.of(context).size.height * 0.15,
+                              ),
+                            )
                           : ClipOval(
-                        child: Image.asset(
-                          'assets/images/user.jpg',
-                          fit: BoxFit.cover,
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: MediaQuery.of(context).size.height * 0.15,
-                        ),
-                      ),
+                              child: Image.asset(
+                                'assets/images/user.jpg',
+                                fit: BoxFit.cover,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                    MediaQuery.of(context).size.height * 0.15,
+                              ),
+                            ),
                     ),
                   ],
                 ),

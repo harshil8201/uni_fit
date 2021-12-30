@@ -87,7 +87,8 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
             ),
 
             Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.188),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.188),
               child: SingleChildScrollView(
                 child: Column(
                   children: [

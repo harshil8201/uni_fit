@@ -88,7 +88,8 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
             ),
 
             Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.188),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.188),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -160,12 +161,12 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
   }
 
   Widget exerciseContainer(
-      String erName,
-      String erDescription,
-      String erImage,
-      int listImage,
-      dynamic routeName,
-      ) {
+    String erName,
+    String erDescription,
+    String erImage,
+    int listImage,
+    dynamic routeName,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, top: 15),
       child: InkWell(

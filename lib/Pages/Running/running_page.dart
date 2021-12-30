@@ -71,7 +71,8 @@ class _RunningPageState extends State<RunningPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height * 0.038,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.038,
                                 ),
                               )
                             : InkWell(
@@ -86,7 +87,8 @@ class _RunningPageState extends State<RunningPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height * 0.028,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.028,
                                 ),
                               ),
                       ),
@@ -118,16 +120,20 @@ class _RunningPageState extends State<RunningPage> {
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height: MediaQuery.of(context).size.height * 0.15,
-                                width: MediaQuery.of(context).size.height * 0.15,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height: MediaQuery.of(context).size.height * 0.15,
-                                width: MediaQuery.of(context).size.height * 0.15,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.15,
+                                width:
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             ),
                     ),

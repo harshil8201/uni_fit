@@ -31,7 +31,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                 alignment: Alignment.topCenter,
                 child: SizedBox(
                   //color: Colors.blue,
-                  height: MediaQuery.of(context).size.height*0.46,
+                  height: MediaQuery.of(context).size.height * 0.46,
                   width: double.infinity,
                   child: Image.asset(
                     'assets/images/1.png',
@@ -53,7 +53,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                       'Uni Fit',
                       style: TextStyle(
                         color: primaryGreen,
-                        fontSize: MediaQuery.of(context).size.height*0.05,
+                        fontSize: MediaQuery.of(context).size.height * 0.05,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -65,7 +65,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         color: primaryGreen,
-                        fontSize: MediaQuery.of(context).size.height* 0.021,
+                        fontSize: MediaQuery.of(context).size.height * 0.021,
                         fontFamily: 'popLight',
                       ),
                     ),
@@ -87,8 +87,10 @@ class _GetStartedPageState extends State<GetStartedPage> {
                           type: PageTransitionType.rightToLeftWithFade,
                           child: const GooglePageController()),
                     );
-                    print("----------- height of device : ${MediaQuery.of(context).size.height} -----------");
-                    print("----------- width of device : ${MediaQuery.of(context).size.width} -----------");
+                    print(
+                        "----------- height of device : ${MediaQuery.of(context).size.height} -----------");
+                    print(
+                        "----------- width of device : ${MediaQuery.of(context).size.width} -----------");
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.06,
@@ -109,7 +111,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
                         'Get Started',
                         style: TextStyle(
                           color: primaryGreen,
-                          fontSize: MediaQuery.of(context).size.height*0.02,
+                          fontSize: MediaQuery.of(context).size.height * 0.02,
                           fontFamily: 'popBold',
                         ),
                       ),

@@ -83,11 +83,20 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.025,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.025,
                                                 ),
                                                 Container(
-                                                  height: MediaQuery.of(context).size.height * 0.29,
-                                                  width: MediaQuery.of(context).size.width * 0.639,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.29,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.639,
                                                   color: shadeWhite
                                                       .withOpacity(0.25),
                                                   child: FadeInImage(
@@ -109,7 +118,11 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                         .toString()
                                                         .toUpperCase(),
                                                     style: TextStyle(
-                                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                                      fontSize:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.025,
                                                       fontFamily: 'popBold',
                                                       color: Colors.black,
                                                     ),
@@ -118,7 +131,11 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                 Text(
                                                   "Sets : " + data['set'],
                                                   style: TextStyle(
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0225,
                                                     fontFamily: 'popMedium',
                                                     color: primaryGreen,
                                                   ),
@@ -142,7 +159,11 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                         textAlign:
                                                             TextAlign.start,
                                                         style: TextStyle(
-                                                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.019,
                                                           fontFamily:
                                                               'popLight',
                                                           color: Colors.black,
@@ -162,14 +183,21 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                               Navigator.pop(context);
                                             },
                                             child: Container(
-                                              height: MediaQuery.of(context).size.height * 0.0625,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.0625,
                                               width: double.infinity,
                                               color: primaryWhite,
                                               child: Center(
                                                 child: Text(
                                                   'Okay',
                                                   style: TextStyle(
-                                                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                     fontFamily: 'popBold',
                                                     color: primaryGreen,
                                                   ),
@@ -204,8 +232,10 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height * 0.14,
-                                    width: MediaQuery.of(context).size.width * 0.306,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.14,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.306,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: shadeWhite.withOpacity(0.25),
@@ -233,18 +263,26 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                             .toUpperCase()
                                             .replaceAll(" ", '\n'),
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.021,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.021,
                                           fontFamily: 'popBold',
                                           color: Colors.black,
                                         ),
                                       ),
                                       SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.00625,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.00625,
                                       ),
                                       Text(
                                         "Sets : " + data['set'],
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.019,
                                           fontFamily: 'popMedium',
                                           color: primaryGreen,
                                         ),
@@ -281,7 +319,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
             child: Text(
               'beginner\nAbs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
-              style:TextStyle(
+              style: TextStyle(
                 fontFamily: 'popBold',
                 fontSize: MediaQuery.of(context).size.height * 0.03125,
                 color: Colors.white,
@@ -296,12 +334,12 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                 padding: const EdgeInsets.symmetric(horizontal: 100),
                 child: InkWell(
                   onTap: () {
-                      Navigator.push(
-                          context,
-                          PageTransition(
-                            type: PageTransitionType.bottomToTop,
-                            child: const BeginnerAbsStart(),
-                          ));
+                    Navigator.push(
+                        context,
+                        PageTransition(
+                          type: PageTransitionType.bottomToTop,
+                          child: const BeginnerAbsStart(),
+                        ));
                   },
                   child: Container(
                     height: MediaQuery.of(context).size.height * 0.0625,

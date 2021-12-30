@@ -89,7 +89,9 @@ class _NormalDietState extends State<NormalDiet> {
                                 child: Stack(
                                   children: [
                                     SizedBox(
-                                      height: MediaQuery.of(context).size.height * 0.375,
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.375,
                                       width: double.infinity,
                                       // color: Colors.blue,
                                       child: FadeInImage(
@@ -110,12 +112,21 @@ class _NormalDietState extends State<NormalDiet> {
                                           Navigator.pop(context);
                                         },
                                         child: SizedBox(
-                                          height: MediaQuery.of(context).size.height * 0.0562,
-                                          width: MediaQuery.of(context).size.width * 0.125,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0562,
+                                          width: MediaQuery.of(context)
+                                                  .size
+                                                  .width *
+                                              0.125,
                                           child: Icon(
                                             Icons.arrow_back_rounded,
                                             color: primaryWhite,
-                                            size: MediaQuery.of(context).size.height * 0.0437,
+                                            size: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0437,
                                           ),
                                         ),
                                       ),
@@ -142,21 +153,28 @@ class _NormalDietState extends State<NormalDiet> {
                                           child: SingleChildScrollView(
                                             child: Column(
                                               mainAxisAlignment:
-                                              MainAxisAlignment.start,
+                                                  MainAxisAlignment.start,
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.start,
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
                                                   data['name'].toUpperCase(),
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0312,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0312,
                                                     fontFamily: 'popBold',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.0125,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.0125,
                                                 ),
                                                 Text(
                                                   "Calories : " +
@@ -164,7 +182,11 @@ class _NormalDietState extends State<NormalDiet> {
                                                       "Cal",
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -176,19 +198,30 @@ class _NormalDietState extends State<NormalDiet> {
                                                           .toLowerCase(),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.025,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.025,
                                                 ),
                                                 Text(
                                                   'Ingredients: ',
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0225,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -200,20 +233,31 @@ class _NormalDietState extends State<NormalDiet> {
                                                       .replaceAll("-", "\n- "),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight:
-                                                    FontWeight.normal,
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.0375,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.0375,
                                                 ),
                                                 Text(
                                                   'Making Process: ',
                                                   style: TextStyle(
                                                     color: darkGreen,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0225,
                                                     fontFamily: 'popLight',
                                                     fontWeight: FontWeight.bold,
                                                   ),
@@ -225,14 +269,21 @@ class _NormalDietState extends State<NormalDiet> {
                                                       .replaceAll("-", "\n- "),
                                                   style: TextStyle(
                                                     color: primaryBlack,
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0187,
                                                     fontFamily: 'popLight',
                                                     fontWeight:
-                                                    FontWeight.normal,
+                                                        FontWeight.normal,
                                                   ),
                                                 ),
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.0375,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.0375,
                                                 ),
                                               ],
                                             ),
@@ -273,23 +324,29 @@ class _NormalDietState extends State<NormalDiet> {
                                     data['name'].toUpperCase(),
                                     style: TextStyle(
                                       color: primaryWhite,
-                                      fontSize: MediaQuery.of(context).size.height * 0.0313,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.0313,
                                       fontFamily: 'popBold',
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                   SizedBox(
-                                    height: MediaQuery.of(context).size.height * 0.025,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.025,
                                   ),
                                   Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         "Calories : " + data['cal'] + " cal",
                                         style: TextStyle(
                                           color: primaryWhite,
-                                          fontSize: MediaQuery.of(context).size.height * 0.0188,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0188,
                                           fontFamily: 'popLight',
                                           fontWeight: FontWeight.bold,
                                         ),
@@ -301,7 +358,10 @@ class _NormalDietState extends State<NormalDiet> {
                                                 .toUpperCase(),
                                         style: TextStyle(
                                           color: primaryWhite,
-                                          fontSize: MediaQuery.of(context).size.height * 0.0188,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0188,
                                           fontFamily: 'popLight',
                                           fontWeight: FontWeight.bold,
                                         ),

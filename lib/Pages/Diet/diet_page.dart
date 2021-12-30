@@ -128,7 +128,7 @@ class _DietPageState extends State<DietPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.15,
                                 width:
-                                MediaQuery.of(context).size.height * 0.15,
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             )
                           : ClipOval(
@@ -138,7 +138,7 @@ class _DietPageState extends State<DietPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.15,
                                 width:
-                                MediaQuery.of(context).size.height * 0.15,
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             ),
                     ),
@@ -164,7 +164,9 @@ class _DietPageState extends State<DietPage> {
                                       style: TextStyle(
                                         color: primaryBlack,
                                         fontFamily: 'popMedium',
-                                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.038,
                                       ),
                                     )
                                   : Text(
@@ -172,7 +174,9 @@ class _DietPageState extends State<DietPage> {
                                       style: TextStyle(
                                         color: primaryBlack,
                                         fontFamily: 'popMedium',
-                                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.038,
                                       ),
                                     ),
                               Text(
@@ -180,14 +184,16 @@ class _DietPageState extends State<DietPage> {
                                 style: TextStyle(
                                   color: primaryBlack,
                                   fontFamily: 'popLight',
-                                  fontSize: MediaQuery.of(context).size.height * 0.015,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.015,
                                 ),
                               ),
                             ],
                           ),
                         ),
                       ),
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.018),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.018),
                       dietContainer(
                         '300-722 cal',
                         'Muscle\nGain',

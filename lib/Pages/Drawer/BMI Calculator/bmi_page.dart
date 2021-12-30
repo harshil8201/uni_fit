@@ -94,11 +94,13 @@ class _BMIPageState extends State<BMIPage> {
                               "HEIGHT (Cm):",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: MediaQuery.of(context).size.height * 0.0375,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.0375,
                                   fontWeight: FontWeight.w900),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.0187,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -119,25 +121,29 @@ class _BMIPageState extends State<BMIPage> {
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.0125,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.0125,
                             ),
                             const Divider(
                               color: Colors.black,
                               thickness: 2,
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.0125,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.0125,
                             ),
                             Text(
                               "WEIGHT (Kg):",
                               style: TextStyle(
                                 color: Colors.white,
-                                fontSize: MediaQuery.of(context).size.height * 0.0375,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.0375,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
                             SizedBox(
-                              height: MediaQuery.of(context).size.height * 0.0187,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -241,7 +247,8 @@ class _BMIPageState extends State<BMIPage> {
                           label: Text(
                             "CALCULATE",
                             style: TextStyle(
-                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
                               letterSpacing: 2,
                             ),
                           ),

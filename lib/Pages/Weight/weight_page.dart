@@ -128,7 +128,7 @@ class _WeightPageState extends State<WeightPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.15,
                                 width:
-                                MediaQuery.of(context).size.height * 0.15,
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             )
                           : ClipOval(
@@ -138,7 +138,7 @@ class _WeightPageState extends State<WeightPage> {
                                 height:
                                     MediaQuery.of(context).size.height * 0.15,
                                 width:
-                                MediaQuery.of(context).size.height * 0.15,
+                                    MediaQuery.of(context).size.height * 0.15,
                               ),
                             ),
                     ),
@@ -189,7 +189,9 @@ class _WeightPageState extends State<WeightPage> {
                                     Text(
                                       'LIVE',
                                       style: TextStyle(
-                                        fontSize: MediaQuery.of(context).size.height * 0.04,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
                                         fontFamily: 'popBold',
                                         color: primaryGreen,
                                       ),
@@ -197,7 +199,9 @@ class _WeightPageState extends State<WeightPage> {
                                     Text(
                                       'WARM UP',
                                       style: TextStyle(
-                                        fontSize: MediaQuery.of(context).size.height * 0.04,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.04,
                                         fontFamily: 'popBold',
                                         color: primaryGreen,
                                       ),
@@ -205,12 +209,14 @@ class _WeightPageState extends State<WeightPage> {
                                   ],
                                 ),
                                 SizedBox(
-                                  width: MediaQuery.of(context).size.height * 0.025,
+                                  width: MediaQuery.of(context).size.height *
+                                      0.025,
                                 ),
                                 Icon(
                                   Icons.camera_alt,
                                   color: primaryGreen,
-                                  size: MediaQuery.of(context).size.height * 0.0625,
+                                  size: MediaQuery.of(context).size.height *
+                                      0.0625,
                                 )
                               ],
                             ),

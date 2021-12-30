@@ -79,14 +79,23 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                           child: Center(
                                             child: Column(
                                               crossAxisAlignment:
-                                              CrossAxisAlignment.center,
+                                                  CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  height: MediaQuery.of(context).size.height * 0.025,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.025,
                                                 ),
                                                 Container(
-                                                  height: MediaQuery.of(context).size.height * 0.29,
-                                                  width: MediaQuery.of(context).size.width * 0.639,
+                                                  height: MediaQuery.of(context)
+                                                          .size
+                                                          .height *
+                                                      0.29,
+                                                  width: MediaQuery.of(context)
+                                                          .size
+                                                          .width *
+                                                      0.639,
                                                   color: shadeWhite
                                                       .withOpacity(0.25),
                                                   child: FadeInImage(
@@ -94,7 +103,7 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                                       data['img'],
                                                     ),
                                                     placeholder:
-                                                    const AssetImage(
+                                                        const AssetImage(
                                                       'assets/images/loading.gif',
                                                     ),
                                                     fit: BoxFit.cover,
@@ -108,7 +117,11 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                                         .toString()
                                                         .toUpperCase(),
                                                     style: TextStyle(
-                                                      fontSize: MediaQuery.of(context).size.height * 0.025,
+                                                      fontSize:
+                                                          MediaQuery.of(context)
+                                                                  .size
+                                                                  .height *
+                                                              0.025,
                                                       fontFamily: 'popBold',
                                                       color: Colors.black,
                                                     ),
@@ -117,33 +130,41 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                                 Text(
                                                   "Sets : " + data['setb'],
                                                   style: TextStyle(
-                                                    fontSize: MediaQuery.of(context).size.height * 0.0225,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.0225,
                                                     fontFamily: 'popMedium',
                                                     color: primaryGreen,
                                                   ),
                                                 ),
                                                 Padding(
                                                   padding:
-                                                  const EdgeInsets.only(
-                                                      right: 25,
-                                                      left: 25,
-                                                      bottom: 30),
+                                                      const EdgeInsets.only(
+                                                          right: 25,
+                                                          left: 25,
+                                                          bottom: 30),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                    CrossAxisAlignment
-                                                        .start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         data['step']
                                                             .toString()
                                                             .replaceAll(
-                                                            "-", "\n\n- "),
+                                                                "-", "\n\n- "),
                                                         textAlign:
-                                                        TextAlign.start,
+                                                            TextAlign.start,
                                                         style: TextStyle(
-                                                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                                                          fontSize: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .height *
+                                                              0.019,
                                                           fontFamily:
-                                                          'popLight',
+                                                              'popLight',
                                                           color: Colors.black,
                                                         ),
                                                       ),
@@ -161,14 +182,21 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                               Navigator.pop(context);
                                             },
                                             child: Container(
-                                              height: MediaQuery.of(context).size.height * 0.0625,
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  0.0625,
                                               width: double.infinity,
                                               color: primaryWhite,
                                               child: Center(
                                                 child: Text(
                                                   'Okay',
                                                   style: TextStyle(
-                                                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                     fontFamily: 'popBold',
                                                     color: primaryGreen,
                                                   ),
@@ -203,8 +231,10 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height * 0.14,
-                                    width: MediaQuery.of(context).size.width * 0.306,
+                                    height: MediaQuery.of(context).size.height *
+                                        0.14,
+                                    width: MediaQuery.of(context).size.width *
+                                        0.306,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
                                       color: shadeWhite.withOpacity(0.25),
@@ -224,7 +254,7 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                   padding: const EdgeInsets.only(top: 10),
                                   child: Column(
                                     crossAxisAlignment:
-                                    CrossAxisAlignment.start,
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         data['name']
@@ -232,18 +262,26 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
                                             .toUpperCase()
                                             .replaceAll(" ", '\n'),
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.021,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.021,
                                           fontFamily: 'popBold',
                                           color: Colors.black,
                                         ),
                                       ),
                                       SizedBox(
-                                        height: MediaQuery.of(context).size.height * 0.00625,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.00625,
                                       ),
                                       Text(
                                         "Sets : " + data['setb'],
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context).size.height * 0.019,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.019,
                                           fontFamily: 'popMedium',
                                           color: primaryGreen,
                                         ),
@@ -280,7 +318,7 @@ class _BeginnerLegsState extends State<BeginnerLegs> {
             child: Text(
               'beginner\nLegs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
-              style:TextStyle(
+              style: TextStyle(
                 fontFamily: 'popBold',
                 fontSize: MediaQuery.of(context).size.height * 0.03125,
                 color: Colors.white,

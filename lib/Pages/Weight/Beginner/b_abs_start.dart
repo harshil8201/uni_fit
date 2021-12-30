@@ -85,7 +85,6 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -405,11 +404,16 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
               alignment: Alignment.topCenter,
               child: ConfettiWidget(
                 confettiController: _celebrationAnimation,
-                blastDirection: pi / 2, // radial value - LEFT
-                particleDrag: 0.05, // apply drag to the confetti
-                emissionFrequency: 0.05, // how often it should emit
-                numberOfParticles: 20, // number of particles to emit
-                gravity: 0.09, // gravity - or fall speed
+                blastDirection: pi / 2,
+                // radial value - LEFT
+                particleDrag: 0.05,
+                // apply drag to the confetti
+                emissionFrequency: 0.05,
+                // how often it should emit
+                numberOfParticles: 20,
+                // number of particles to emit
+                gravity: 0.09,
+                // gravity - or fall speed
                 shouldLoop: false,
                 colors: const [
                   Colors.red,
@@ -712,10 +716,10 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
           )
         //----------- start -------------
         : Padding(
-          padding: const EdgeInsets.only(bottom: 40),
-          child: Align(
-      alignment: Alignment.bottomCenter,
-            child: InkWell(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
                 onTap: () {
                   startTime();
                   exerciseSecond();
@@ -753,8 +757,8 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                   ),
                 ),
               ),
-          ),
-        );
+            ),
+          );
   }
 
   showAlertDialog(BuildContext context) {

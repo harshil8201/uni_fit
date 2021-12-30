@@ -77,17 +77,18 @@ class _ConfigState extends State<Config> {
             alignment: Alignment.center,
             child: ConfettiWidget(
               confettiController: _controllerCenter,
-              blastDirectionality: BlastDirectionality
-                  .explosive, // don't specify a direction, blast randomly
-              shouldLoop:
-              true, // start again as soon as the animation is finished
+              blastDirectionality: BlastDirectionality.explosive,
+              // don't specify a direction, blast randomly
+              shouldLoop: true,
+              // start again as soon as the animation is finished
               colors: const [
                 Colors.green,
                 Colors.blue,
                 Colors.pink,
                 Colors.orange,
                 Colors.purple
-              ], // manually specify the colors to be used
+              ],
+              // manually specify the colors to be used
               createParticlePath: drawStar, // define a custom shape/path.
             ),
           ),
@@ -105,11 +106,16 @@ class _ConfigState extends State<Config> {
             alignment: Alignment.topCenter,
             child: ConfettiWidget(
               confettiController: _controllerCenterRight,
-              blastDirection: pi / 2, // radial value - LEFT
-              particleDrag: 0.05, // apply drag to the confetti
-              emissionFrequency: 0.05, // how often it should emit
-              numberOfParticles: 20, // number of particles to emit
-              gravity: 0.05, // gravity - or fall speed
+              blastDirection: pi / 2,
+              // radial value - LEFT
+              particleDrag: 0.05,
+              // apply drag to the confetti
+              emissionFrequency: 0.05,
+              // how often it should emit
+              numberOfParticles: 20,
+              // number of particles to emit
+              gravity: 0.05,
+              // gravity - or fall speed
               shouldLoop: false,
               colors: const [
                 Colors.green,

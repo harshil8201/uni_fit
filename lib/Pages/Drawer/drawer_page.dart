@@ -11,7 +11,6 @@ import 'package:uni_fit/System%20Login/Login%20Signin/signIn_login_page.dart';
 import 'package:uni_fit/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
-
   const DrawerPage({Key key}) : super(key: key);
 
   @override
@@ -20,6 +19,7 @@ class DrawerPage extends StatefulWidget {
 
 class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
+
   // final auth = FirebaseAuth.instance;
 
   @override
@@ -53,7 +53,9 @@ class _DrawerPageState extends State<DrawerPage> {
                           width: MediaQuery.of(context).size.height * 0.15,
                         ),
                       ),
-                const SizedBox(height: 5,),
+                const SizedBox(
+                  height: 5,
+                ),
                 user.emailVerified
                     ? Text(
                         user.displayName,
@@ -175,7 +177,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const SignInLoginPage()),
-                      (Route<dynamic> route) => false);
+                  (Route<dynamic> route) => false);
               print(
                   '-----------we are sign out using email / password----------');
             },

@@ -69,7 +69,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           "You Entered Nothing.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: MediaQuery.of(context).size.height * 0.0375,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.0375,
                             fontWeight: FontWeight.w700,
                           ),
                         )
@@ -77,7 +78,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           "YOUR BMI IS ${widget.bmiModel.bmi.round()}.",
                           style: TextStyle(
                             color: Colors.black,
-                            fontSize: MediaQuery.of(context).size.height * 0.0425,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.0425,
                             fontWeight: FontWeight.w700,
                           ),
                         ),
@@ -100,7 +102,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           "YOUR BMI IS NORMAL.",
                           style: TextStyle(
                             color: Colors.amberAccent,
-                            fontSize: MediaQuery.of(context).size.height * 0.025,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.025,
                             wordSpacing: 3,
                             letterSpacing: 2,
                             fontWeight: FontWeight.w700,
@@ -110,7 +113,8 @@ class _ResultScreenState extends State<ResultScreen> {
                           "YOUR BMI IS NOT NORMAL.",
                           style: TextStyle(
                             color: Colors.red,
-                            fontSize: MediaQuery.of(context).size.height * 0.025,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.025,
                             wordSpacing: 4,
                             letterSpacing: 2,
                             fontWeight: FontWeight.w700,
@@ -150,7 +154,8 @@ class _ResultScreenState extends State<ResultScreen> {
                             "LET CALCULATE AGAIN",
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: MediaQuery.of(context).size.height * 0.02,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.02,
                               fontWeight: FontWeight.w900,
                               letterSpacing: 2,
                             ),

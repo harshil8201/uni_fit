@@ -612,7 +612,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: MediaQuery.of(context).size.height * 0.057,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.057,
                                 decoration: BoxDecoration(
                                   color: primaryWhite,
                                   borderRadius: BorderRadius.circular(25),
@@ -633,16 +634,25 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                         'Login with',
                                         style: TextStyle(
                                           color: primaryBlack,
-                                          fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0187,
                                           fontFamily: 'popMedium',
                                           letterSpacing: 2,
                                         ),
                                       ),
-                                      const SizedBox(width: 10,),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
                                       Image.asset(
                                         'assets/images/gmail.png',
-                                        height: MediaQuery.of(context).size.height * 0.03125,
-                                        width: MediaQuery.of(context).size.width * 0.06944,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.03125,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.06944,
                                       ),
                                     ],
                                   ),
@@ -687,7 +697,8 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                               },
                               child: Container(
                                 width: double.infinity,
-                                height: MediaQuery.of(context).size.height * 0.057,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.057,
                                 decoration: BoxDecoration(
                                   color: primaryWhite,
                                   borderRadius: BorderRadius.circular(25),
@@ -708,16 +719,25 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                         'Signup with',
                                         style: TextStyle(
                                           color: primaryBlack,
-                                          fontSize: MediaQuery.of(context).size.height * 0.0187,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0187,
                                           fontFamily: 'popMedium',
                                           letterSpacing: 2,
                                         ),
                                       ),
-                                      const SizedBox(width: 10,),
+                                      const SizedBox(
+                                        width: 10,
+                                      ),
                                       Image.asset(
                                         'assets/images/gmail.png',
-                                        height: MediaQuery.of(context).size.height * 0.03125,
-                                        width: MediaQuery.of(context).size.width * 0.06944,
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.03125,
+                                        width:
+                                            MediaQuery.of(context).size.width *
+                                                0.06944,
                                       ),
                                     ],
                                   ),
