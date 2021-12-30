@@ -3,60 +3,59 @@ import 'dart:math';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_abs.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/beginner_exercise.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'dart:math' as math;
+import 'package:uni_fit/Pages/Weight/Intermediate/intermediate_exercise.dart';
 
-class BeginnerAbsStart extends StatefulWidget {
-  const BeginnerAbsStart({Key key}) : super(key: key);
+class IntermediateShoulderStart extends StatefulWidget {
+  const IntermediateShoulderStart({Key key}) : super(key: key);
 
   @override
-  _BeginnerAbsStartState createState() => _BeginnerAbsStartState();
+  _IntermediateShoulderStartState createState() => _IntermediateShoulderStartState();
 }
 
-class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
+class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
   static const maxSecond = 0;
   int second = maxSecond;
   Timer timer;
   int erSecond = erMaxSecond;
-  static const erMaxSecond = 20;
-  int brSecond = 20;
+  static const erMaxSecond = 25;
+  int brSecond = 25;
 
   void resetTimer() => setState(() {
-        second = maxSecond;
-        // stopTimer();
-      });
+    second = maxSecond;
+    // stopTimer();
+  });
 
   void startTime({bool reset = true}) {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (second >= 0) {
         setState(() => second++);
-      } else if (second > 441) {
+      } else if (second > 475) {
         stopTimer(reset: false);
       }
     });
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
-        setState(() => erSecond = 19);
+        setState(() => erSecond = 24);
       }
     });
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
-        setState(() => brSecond = 19);
+        setState(() => brSecond = 24);
       }
     });
   }
@@ -128,7 +127,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                     ),
                   ),
                   Text(
-                    'ABS'.toUpperCase(),
+                    'SHOULDER'.toUpperCase(),
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
@@ -146,65 +145,59 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
             if (second < 1) ...[
               readyContainer(),
               realButton(),
-            ] else if (1 <= second && second <= 20) ...[
+            ] else if (1 <= second && second <= 25) ...[
               breakTime('jumping jacks'),
               realButton(),
-            ] else if (21 <= second && second <= 40) ...[
-              erContainer('jumping jacks', '16 sec'),
+            ] else if (26 <= second && second <= 50) ...[
+              erContainer('jumping jacks', '20 sec'),
               realButton(),
-            ] else if (41 <= second && second <= 60) ...[
-              breakTime('abdominals crunch'),
+            ] else if (51 <= second && second <= 75) ...[
+              breakTime('arm raise'),
               realButton(),
-            ] else if (61 <= second && second <= 80) ...[
-              erContainer('abdominals crunch', 'sets : X16'),
+            ] else if (76 <= second && second <= 100) ...[
+              erContainer('arm raise', 'sets : X16'),
               realButton(),
-            ] else if (81 <= second && second <= 100) ...[
-              breakTime('russin twist'),
+            ] else if (101 <= second && second <= 125) ...[
+              breakTime('side arm raise'),
               realButton(),
-            ] else if (101 <= second && second <= 120) ...[
-              erContainer('russin twist', 'sets: X20'),
+            ] else if (126 <= second && second <= 150) ...[
+              erContainer('side arm raise', 'sets: X16'),
               realButton(),
-            ] else if (121 <= second && second <= 140) ...[
-              breakTime('mountain climber'),
+            ] else if (151 <= second && second <= 175) ...[
+              breakTime('knee push ups'),
               realButton(),
-            ] else if (141 <= second && second <= 160) ...[
-              erContainer('mountain climber', 'sets: X16'),
+            ] else if (176 <= second && second <= 200) ...[
+              erContainer('knee push ups', 'sets: X16'),
               realButton(),
-            ] else if (161 <= second && second <= 180) ...[
-              breakTime('leg raises'),
-              realButton(),
-            ] else if (181 <= second && second <= 200) ...[
-              erContainer('leg raises', "sets: X16"),
-              realButton(),
-            ] else if (201 <= second && second <= 220) ...[
-              breakTime('plank'),
-              realButton(),
-            ] else if (212 <= second && second <= 240) ...[
-              erContainer('plank', '20 sec'),
-              realButton(),
-            ] else if (241 <= second && second <= 260) ...[
-              breakTime('heel touch'),
-              realButton(),
-            ] else if (261 <= second && second <= 280) ...[
-              erContainer('heel touch', 'sets: X20'),
-              realButton(),
-            ] else if (281 <= second && second <= 300) ...[
-              breakTime('cobra stretch'),
-              realButton(),
-            ] else if (301 <= second && second <= 320) ...[
-              erContainer('cobra stretch', '20 sec'),
-              realButton(),
-            ] else if (321 <= second && second <= 340) ...[
+            ] else if (201 <= second && second <= 225) ...[
               breakTime('side lying floor stretch left'),
               realButton(),
-            ] else if (341 <= second && second <= 360) ...[
-              erContainer('side lying floor stretch left', '20 sec'),
+            ] else if (226 <= second && second <= 250) ...[
+              erContainer('side lying floor stretch left', "25 sec"),
               realButton(),
-            ] else if (361 <= second && second <= 380) ...[
+            ] else if (251 <= second && second <= 300) ...[
               breakTime('side lying floor stretch right'),
               realButton(),
-            ] else if (381 <= second && second <= 400) ...[
-              erContainer('side lying floor stretch right', '20 sec'),
+            ] else if (301 <= second && second <= 325) ...[
+              erContainer('side lying floor stretch right', '25 sec'),
+              realButton(),
+            ] else if (326 <= second && second <= 350) ...[
+              breakTime('arm scissor'),
+              realButton(),
+            ] else if (351 <= second && second <= 375) ...[
+              erContainer('arm scissor', 'sets: X20'),
+              realButton(),
+            ] else if (376 <= second && second <= 400) ...[
+              breakTime('cat cow pose'),
+              realButton(),
+            ] else if (401 <= second && second <= 425) ...[
+              erContainer('cat cow pose', '25 sec'),
+              realButton(),
+            ] else if (426 <= second && second <= 450) ...[
+              breakTime('child pose'),
+              realButton(),
+            ] else if (451 <= second && second <= 475) ...[
+              erContainer('child pose', '25 sec'),
               realButton(),
             ] else
               endWorkout(),
@@ -221,7 +214,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
       decoration: BoxDecoration(
         color: Colors.transparent,
         image: DecorationImage(
-          image: const AssetImage('assets/images/beginner/absB.jpg'),
+          image: const AssetImage('assets/images/intermediate/shoulderI.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
@@ -250,7 +243,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              "Are you ready for today's Abs workout?",
+              "Are you ready for today's Shoulder workout?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,
@@ -447,7 +440,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const BeginnerExercise()));
+                            builder: (context) => const IntermediateExercise()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -472,7 +465,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                           style: TextStyle(
                             fontFamily: 'popBold',
                             fontSize:
-                                MediaQuery.of(context).size.height * 0.0287,
+                            MediaQuery.of(context).size.height * 0.0287,
                             letterSpacing: 2,
                             color: primaryGreen,
                           ),
@@ -611,129 +604,129 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
 
     return isRunning
         ? Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //---------Pause----------
-              // InkWell(
-              //   onTap: () {
-              //     setState(() {
-              //       stopTimer(reset: false);
-              //     });
-              //   },
-              //   child: Container(
-              //     decoration: BoxDecoration(
-              //       boxShadow: [
-              //         BoxShadow(
-              //           color: shadowBlack,
-              //           offset: const Offset(0.5, 0.10),
-              //           blurRadius: 20.0,
-              //         ), //BoxShadow
-              //       ],
-              //       shape: BoxShape.circle,
-              //       color: Colors.white,
-              //     ),
-              //     height: 50,
-              //     width: 50,
-              //     child: const Center(
-              //       child: Padding(
-              //         padding: EdgeInsets.only(left: 5),
-              //         child: FaIcon(
-              //           FontAwesomeIcons.play,
-              //           color: Colors.blue,
-              //           size: 25,
-              //         ),
-              //       ),
-              //     ),
-              //   ),
-              // ),
-              // const SizedBox(
-              //   width: 50,
-              // ),
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        //---------Pause----------
+        // InkWell(
+        //   onTap: () {
+        //     setState(() {
+        //       stopTimer(reset: false);
+        //     });
+        //   },
+        //   child: Container(
+        //     decoration: BoxDecoration(
+        //       boxShadow: [
+        //         BoxShadow(
+        //           color: shadowBlack,
+        //           offset: const Offset(0.5, 0.10),
+        //           blurRadius: 20.0,
+        //         ), //BoxShadow
+        //       ],
+        //       shape: BoxShape.circle,
+        //       color: Colors.white,
+        //     ),
+        //     height: 50,
+        //     width: 50,
+        //     child: const Center(
+        //       child: Padding(
+        //         padding: EdgeInsets.only(left: 5),
+        //         child: FaIcon(
+        //           FontAwesomeIcons.play,
+        //           color: Colors.blue,
+        //           size: 25,
+        //         ),
+        //       ),
+        //     ),
+        //   ),
+        // ),
+        // const SizedBox(
+        //   width: 50,
+        // ),
 
-              //----------cancel-------
-              Padding(
-                padding: const EdgeInsets.only(bottom: 30),
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: InkWell(
-                    onTap: () {
-                      showAlertDialog(context);
-                    },
-                    child: Container(
-                      decoration: BoxDecoration(
-                        boxShadow: [
-                          BoxShadow(
-                            color: shadowBlack,
-                            offset: const Offset(0.5, 0.10),
-                            blurRadius: 20.0,
-                          ), //BoxShadow
-                        ],
-                        shape: BoxShape.circle,
-                        color: Colors.redAccent,
-                      ),
-                      height: MediaQuery.of(context).size.height * 0.0625,
-                      width: MediaQuery.of(context).size.height * 0.139,
-                      child: Center(
-                        child: Transform.rotate(
-                          angle: -math.pi / 4,
-                          child: FaIcon(
-                            FontAwesomeIcons.plus,
-                            color: Colors.white,
-                            size: MediaQuery.of(context).size.height * 0.0313,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
+        //----------cancel-------
+        Padding(
+          padding: const EdgeInsets.only(bottom: 30),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: InkWell(
+              onTap: () {
+                showAlertDialog(context);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: shadowBlack,
+                      offset: const Offset(0.5, 0.10),
+                      blurRadius: 20.0,
+                    ), //BoxShadow
+                  ],
+                  shape: BoxShape.circle,
+                  color: Colors.redAccent,
                 ),
-              ),
-            ],
-          )
-        //----------- start -------------
-        : Padding(
-            padding: const EdgeInsets.only(bottom: 40),
-            child: Align(
-              alignment: Alignment.bottomCenter,
-              child: InkWell(
-                onTap: () {
-                  startTime();
-                  exerciseSecond();
-                  breakSecond();
-                  _celebrationAnimation.play();
-                },
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 100),
-                  child: Container(
-                    height: MediaQuery.of(context).size.height * 0.0625,
-                    width: double.infinity,
-                    decoration: BoxDecoration(
+                height: MediaQuery.of(context).size.height * 0.0625,
+                width: MediaQuery.of(context).size.height * 0.139,
+                child: Center(
+                  child: Transform.rotate(
+                    angle: -math.pi / 4,
+                    child: FaIcon(
+                      FontAwesomeIcons.plus,
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                      boxShadow: [
-                        BoxShadow(
-                          color: shadowBlack,
-                          offset: const Offset(0, 0),
-                          blurRadius: 20.0,
-                        ), //BoxShadow
-                      ],
-                    ),
-                    child: Center(
-                      child: Text(
-                        'Start'.toUpperCase(),
-                        textAlign: TextAlign.left,
-                        style: TextStyle(
-                          fontFamily: 'popBold',
-                          fontSize: MediaQuery.of(context).size.height * 0.0287,
-                          letterSpacing: 2,
-                          color: primaryGreen,
-                        ),
-                      ),
+                      size: MediaQuery.of(context).size.height * 0.0313,
                     ),
                   ),
                 ),
               ),
             ),
-          );
+          ),
+        ),
+      ],
+    )
+    //----------- start -------------
+        : Padding(
+      padding: const EdgeInsets.only(bottom: 40),
+      child: Align(
+        alignment: Alignment.bottomCenter,
+        child: InkWell(
+          onTap: () {
+            startTime();
+            exerciseSecond();
+            breakSecond();
+            _celebrationAnimation.play();
+          },
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 100),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.0625,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(30),
+                boxShadow: [
+                  BoxShadow(
+                    color: shadowBlack,
+                    offset: const Offset(0, 0),
+                    blurRadius: 20.0,
+                  ), //BoxShadow
+                ],
+              ),
+              child: Center(
+                child: Text(
+                  'Start'.toUpperCase(),
+                  textAlign: TextAlign.left,
+                  style: TextStyle(
+                    fontFamily: 'popBold',
+                    fontSize: MediaQuery.of(context).size.height * 0.0287,
+                    letterSpacing: 2,
+                    color: primaryGreen,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   showAlertDialog(BuildContext context) {
@@ -761,7 +754,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
         Navigator.pushReplacement(
             context,
             MaterialPageRoute(
-                builder: (context) => const BeginnerExercise()));
+                builder: (context) => const IntermediateExercise()));
         stopTimer();
       },
     );

@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/Start%20Exercise/b_shoulder_start.dart';
 
 class BeginnerShoulder extends StatefulWidget {
   const BeginnerShoulder({Key key}) : super(key: key);
@@ -337,7 +338,7 @@ class _BeginnerShoulderState extends State<BeginnerShoulder> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerShoulder(),
+                          child: const BeginnerShoulderStart(),
                         ));
                   },
                   child: Container(
