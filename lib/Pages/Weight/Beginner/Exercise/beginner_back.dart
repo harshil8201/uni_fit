@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class AdvanceArms extends StatefulWidget {
-  const AdvanceArms({Key key}) : super(key: key);
+class BeginnerBack extends StatefulWidget {
+  const BeginnerBack({Key key}) : super(key: key);
 
   @override
-  _AdvanceArmsState createState() => _AdvanceArmsState();
+  _BeginnerBackState createState() => _BeginnerBackState();
 }
 
-class _AdvanceArmsState extends State<AdvanceArms> {
+class _BeginnerBackState extends State<BeginnerBack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _AdvanceArmsState extends State<AdvanceArms> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'advance-image-4',
+              tag: 'beginner-image-6',
               child: Image.asset(
-                'assets/images/advance/armsA.jpg',
+                'assets/images/beginner/backB.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _AdvanceArmsState extends State<AdvanceArms> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('arms')
+                    .collection('back')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _AdvanceArmsState extends State<AdvanceArms> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['seta'],
+                                                  "Sets : " + data['setb'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _AdvanceArmsState extends State<AdvanceArms> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['seta'],
+                                        "Sets : " + data['setb'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _AdvanceArmsState extends State<AdvanceArms> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'advance\nArms WorkOut'.toUpperCase(),
+              'beginner\nBack WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _AdvanceArmsState extends State<AdvanceArms> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const AdvanceArms(),
+                          child: const BeginnerBack(),
                         ));
                   },
                   child: Container(

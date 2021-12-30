@@ -1,17 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/b_abs_start.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class BeginnerAbs extends StatefulWidget {
-  const BeginnerAbs({Key key}) : super(key: key);
+class IntermediateLegs extends StatefulWidget {
+  const IntermediateLegs({Key key}) : super(key: key);
 
   @override
-  _BeginnerAbsState createState() => _BeginnerAbsState();
+  _IntermediateLegsState createState() => _IntermediateLegsState();
 }
 
-class _BeginnerAbsState extends State<BeginnerAbs> {
+class _IntermediateLegsState extends State<IntermediateLegs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,9 +21,9 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'beginner-image-1',
+              tag: 'intermediate-image-5',
               child: Image.asset(
-                'assets/images/beginner/absB.jpg',
+                'assets/images/intermediate/legsI.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -43,7 +42,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('beginnerAbs')
+                    .collection('leg')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -129,7 +128,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['set'],
+                                                  "Sets : " + data['seti'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -277,7 +276,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['set'],
+                                        "Sets : " + data['seti'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -317,7 +316,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'beginner\nAbs WorkOut'.toUpperCase(),
+              'intermediate\nLegs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -338,7 +337,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerAbsStart(),
+                          child: const IntermediateLegs(),
                         ));
                   },
                   child: Container(

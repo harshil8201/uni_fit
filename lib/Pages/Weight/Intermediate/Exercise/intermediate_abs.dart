@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class IntermediateShoulder extends StatefulWidget {
-  const IntermediateShoulder({Key key}) : super(key: key);
+class IntermediateAbs extends StatefulWidget {
+  const IntermediateAbs({Key key}) : super(key: key);
 
   @override
-  _IntermediateShoulderState createState() => _IntermediateShoulderState();
+  _IntermediateAbsState createState() => _IntermediateAbsState();
 }
 
-class _IntermediateShoulderState extends State<IntermediateShoulder> {
+class _IntermediateAbsState extends State<IntermediateAbs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _IntermediateShoulderState extends State<IntermediateShoulder> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'intermediate-image-2',
+              tag: 'intermediate-image-1',
               child: Image.asset(
-                'assets/images/intermediate/shoulderI.jpg',
+                'assets/images/intermediate/absI.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _IntermediateShoulderState extends State<IntermediateShoulder> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('shoulder')
+                    .collection('beginnerAbs')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -316,7 +316,7 @@ class _IntermediateShoulderState extends State<IntermediateShoulder> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'intermediate\nShoulder WorkOut'.toUpperCase(),
+              'intermediate\nAbs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _IntermediateShoulderState extends State<IntermediateShoulder> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const IntermediateShoulder(),
+                          child: const IntermediateAbs(),
                         ));
                   },
                   child: Container(

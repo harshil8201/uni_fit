@@ -1,16 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uni_fit/Class/color_class.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
 
-class BeginnerArms extends StatefulWidget {
-  const BeginnerArms({Key key}) : super(key: key);
+class IntermediateBack extends StatefulWidget {
+  const IntermediateBack({Key key}) : super(key: key);
 
   @override
-  _BeginnerArmsState createState() => _BeginnerArmsState();
+  _IntermediateBackState createState() => _IntermediateBackState();
 }
 
-class _BeginnerArmsState extends State<BeginnerArms> {
+class _IntermediateBackState extends State<IntermediateBack> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _BeginnerArmsState extends State<BeginnerArms> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'beginner-image-4',
+              tag: 'intermediate-image-6',
               child: Image.asset(
-                'assets/images/beginner/armsB.jpg',
+                'assets/images/intermediate/backI.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _BeginnerArmsState extends State<BeginnerArms> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('arms')
+                    .collection('back')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _BeginnerArmsState extends State<BeginnerArms> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['setb'],
+                                                  "Sets : " + data['seti'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _BeginnerArmsState extends State<BeginnerArms> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['setb'],
+                                        "Sets : " + data['seti'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _BeginnerArmsState extends State<BeginnerArms> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'beginner\nArms WorkOut'.toUpperCase(),
+              'intermediate\nback WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _BeginnerArmsState extends State<BeginnerArms> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerArms(),
+                          child: const IntermediateBack(),
                         ));
                   },
                   child: Container(

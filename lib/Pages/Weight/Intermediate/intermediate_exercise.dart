@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:uni_fit/color_class.dart';
-import 'intermediate_abs.dart';
-import 'intermediate_arms.dart';
-import 'intermediate_back.dart';
-import 'intermediate_chest.dart';
-import 'intermediate_legs.dart';
-import 'intermediate_shoulder.dart';
+import 'package:uni_fit/Class/color_class.dart';
+import 'Exercise/intermediate_abs.dart';
+import 'Exercise/intermediate_arms.dart';
+import 'Exercise/intermediate_back.dart';
+import 'Exercise/intermediate_chest.dart';
+import 'Exercise/intermediate_legs.dart';
+import 'Exercise/intermediate_shoulder.dart';
 
 class IntermediateExercise extends StatefulWidget {
   const IntermediateExercise({Key key}) : super(key: key);

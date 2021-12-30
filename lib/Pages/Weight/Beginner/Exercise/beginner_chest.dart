@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class AdvanceShoulder extends StatefulWidget {
-  const AdvanceShoulder({Key key}) : super(key: key);
+class BeginnerChest extends StatefulWidget {
+  const BeginnerChest({Key key}) : super(key: key);
 
   @override
-  _AdvanceShoulderState createState() => _AdvanceShoulderState();
+  _BeginnerChestState createState() => _BeginnerChestState();
 }
 
-class _AdvanceShoulderState extends State<AdvanceShoulder> {
+class _BeginnerChestState extends State<BeginnerChest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'advance-image-2',
+              tag: 'beginner-image-3',
               child: Image.asset(
-                'assets/images/advance/shoulderA.jpg',
+                'assets/images/beginner/chestB.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('shoulder')
+                    .collection('chest')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['seta'],
+                                                  "Sets : " + data['setb'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['seta'],
+                                        "Sets : " + data['setb'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'advance\nShoulder WorkOut'.toUpperCase(),
+              'beginner\nChest WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _AdvanceShoulderState extends State<AdvanceShoulder> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const AdvanceShoulder(),
+                          child: const BeginnerChest(),
                         ));
                   },
                   child: Container(

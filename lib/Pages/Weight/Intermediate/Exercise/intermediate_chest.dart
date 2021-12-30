@@ -1,16 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class BeginnerBack extends StatefulWidget {
-  const BeginnerBack({Key key}) : super(key: key);
+class IntermediateChest extends StatefulWidget {
+  const IntermediateChest({Key key}) : super(key: key);
 
   @override
-  _BeginnerBackState createState() => _BeginnerBackState();
+  _IntermediateChestState createState() => _IntermediateChestState();
 }
 
-class _BeginnerBackState extends State<BeginnerBack> {
+class _IntermediateChestState extends State<IntermediateChest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _BeginnerBackState extends State<BeginnerBack> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'beginner-image-6',
+              tag: 'intermediate-image-3',
               child: Image.asset(
-                'assets/images/beginner/backB.jpg',
+                'assets/images/intermediate/chestI.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _BeginnerBackState extends State<BeginnerBack> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('back')
+                    .collection('chest')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _BeginnerBackState extends State<BeginnerBack> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['setb'],
+                                                  "Sets : " + data['seti'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _BeginnerBackState extends State<BeginnerBack> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['setb'],
+                                        "Sets : " + data['seti'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _BeginnerBackState extends State<BeginnerBack> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'beginner\nBack WorkOut'.toUpperCase(),
+              'intermediate\nChest WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _BeginnerBackState extends State<BeginnerBack> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerBack(),
+                          child: const IntermediateChest(),
                         ));
                   },
                   child: Container(

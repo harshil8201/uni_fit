@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class BeginnerChest extends StatefulWidget {
-  const BeginnerChest({Key key}) : super(key: key);
+class AdvanceChest extends StatefulWidget {
+  const AdvanceChest({Key key}) : super(key: key);
 
   @override
-  _BeginnerChestState createState() => _BeginnerChestState();
+  _AdvanceChestState createState() => _AdvanceChestState();
 }
 
-class _BeginnerChestState extends State<BeginnerChest> {
+class _AdvanceChestState extends State<AdvanceChest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _BeginnerChestState extends State<BeginnerChest> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'beginner-image-3',
+              tag: 'advance-image-3',
               child: Image.asset(
-                'assets/images/beginner/chestB.jpg',
+                'assets/images/advance/chestA.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -128,7 +128,7 @@ class _BeginnerChestState extends State<BeginnerChest> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['setb'],
+                                                  "Sets : " + data['seta'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _BeginnerChestState extends State<BeginnerChest> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['setb'],
+                                        "Sets : " + data['seta'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _BeginnerChestState extends State<BeginnerChest> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'beginner\nChest WorkOut'.toUpperCase(),
+              'advance\nChest WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _BeginnerChestState extends State<BeginnerChest> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerChest(),
+                          child: const AdvanceChest(),
                         ));
                   },
                   child: Container(

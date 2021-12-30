@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:uni_fit/Pages/Weight/Live%20Monitoring/squat.dart';
-import 'package:uni_fit/color_class.dart';
-import 'arm_raise.dart';
-import 'warrior_pose.dart';
+import 'package:uni_fit/Class/color_class.dart';
+
+import 'Exercise/arm_raise.dart';
+import 'Exercise/squat.dart';
+import 'Exercise/warrior_pose.dart';
 
 class LiveMonitoring extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -142,7 +143,7 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
       padding: const EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 20),
       child: Container(
         width: double.infinity,
-        height: MediaQuery.of(context).size.height * 0.375,
+        height: MediaQuery.of(context).size.height * 0.38125,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(

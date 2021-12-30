@@ -1,16 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class AdvanceBack extends StatefulWidget {
-  const AdvanceBack({Key key}) : super(key: key);
+class BeginnerLegs extends StatefulWidget {
+  const BeginnerLegs({Key key}) : super(key: key);
 
   @override
-  _AdvanceBackState createState() => _AdvanceBackState();
+  _BeginnerLegsState createState() => _BeginnerLegsState();
 }
 
-class _AdvanceBackState extends State<AdvanceBack> {
+class _BeginnerLegsState extends State<BeginnerLegs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _AdvanceBackState extends State<AdvanceBack> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'advance-image-6',
+              tag: 'beginner-image-5',
               child: Image.asset(
-                'assets/images/advance/backA.jpg',
+                'assets/images/beginner/legsB.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('back')
+                    .collection('leg')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['seta'],
+                                                  "Sets : " + data['setb'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['seta'],
+                                        "Sets : " + data['setb'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'advance\nBack WorkOut'.toUpperCase(),
+              'beginner\nLegs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const AdvanceBack(),
+                          child: const BeginnerLegs(),
                         ));
                   },
                   child: Container(

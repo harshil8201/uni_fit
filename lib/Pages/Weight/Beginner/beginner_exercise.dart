@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/beginner_abs.dart';
-import 'package:uni_fit/color_class.dart';
-import 'beginner_arms.dart';
-import 'beginner_back.dart';
-import 'beginner_chest.dart';
-import 'beginner_legs.dart';
-import 'beginner_shoulder.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_abs.dart';
+import 'package:uni_fit/Class/color_class.dart';
+import 'Exercise/beginner_arms.dart';
+import 'Exercise/beginner_back.dart';
+import 'Exercise/beginner_chest.dart';
+import 'Exercise/beginner_legs.dart';
+import 'Exercise/beginner_shoulder.dart';
 
 class BeginnerExercise extends StatefulWidget {
   const BeginnerExercise({Key key}) : super(key: key);

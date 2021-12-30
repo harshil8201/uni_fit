@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_abs.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_arms.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_back.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_chest.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_leg.dart';
-import 'package:uni_fit/Pages/Weight/Advance/advance_shoulder.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_abs.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_arms.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_back.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_chest.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_leg.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_shoulder.dart';
 
 class AdvanceExercise extends StatefulWidget {
   const AdvanceExercise({Key key}) : super(key: key);

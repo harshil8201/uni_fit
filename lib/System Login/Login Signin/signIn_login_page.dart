@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_signIn_button.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 import 'authentication.dart';
 
 class SignInLoginPage extends StatefulWidget {
@@ -590,7 +590,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                           //----------login button----------
                           Padding(
                             padding: const EdgeInsets.only(
-                                bottom: 130, left: 70, right: 70),
+                                bottom: 140, left: 70, right: 70),
                             child: InkWell(
                               onTap: () {
                                 // if (_formkey.currentState.validate()) {

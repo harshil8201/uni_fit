@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
 import 'Home/home_page.dart';

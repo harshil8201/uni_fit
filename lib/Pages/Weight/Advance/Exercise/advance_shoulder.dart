@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class IntermediateBack extends StatefulWidget {
-  const IntermediateBack({Key key}) : super(key: key);
+class AdvanceShoulder extends StatefulWidget {
+  const AdvanceShoulder({Key key}) : super(key: key);
 
   @override
-  _IntermediateBackState createState() => _IntermediateBackState();
+  _AdvanceShoulderState createState() => _AdvanceShoulderState();
 }
 
-class _IntermediateBackState extends State<IntermediateBack> {
+class _AdvanceShoulderState extends State<AdvanceShoulder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _IntermediateBackState extends State<IntermediateBack> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'intermediate-image-6',
+              tag: 'advance-image-2',
               child: Image.asset(
-                'assets/images/intermediate/backI.jpg',
+                'assets/images/advance/shoulderA.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _IntermediateBackState extends State<IntermediateBack> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('back')
+                    .collection('shoulder')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _IntermediateBackState extends State<IntermediateBack> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['seti'],
+                                                  "Sets : " + data['seta'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _IntermediateBackState extends State<IntermediateBack> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['seti'],
+                                        "Sets : " + data['seta'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _IntermediateBackState extends State<IntermediateBack> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'intermediate\nback WorkOut'.toUpperCase(),
+              'advance\nShoulder WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _IntermediateBackState extends State<IntermediateBack> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const IntermediateBack(),
+                          child: const AdvanceShoulder(),
                         ));
                   },
                   child: Container(

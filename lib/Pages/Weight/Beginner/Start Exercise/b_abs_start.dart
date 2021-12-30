@@ -3,9 +3,9 @@ import 'dart:math';
 import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/beginner_abs.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_abs.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/beginner_exercise.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 import 'dart:math' as math;
 
 class BeginnerAbsStart extends StatefulWidget {

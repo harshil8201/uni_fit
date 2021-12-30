@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class AdvanceChest extends StatefulWidget {
-  const AdvanceChest({Key key}) : super(key: key);
+class AdvanceLegs extends StatefulWidget {
+  const AdvanceLegs({Key key}) : super(key: key);
 
   @override
-  _AdvanceChestState createState() => _AdvanceChestState();
+  _AdvanceLegsState createState() => _AdvanceLegsState();
 }
 
-class _AdvanceChestState extends State<AdvanceChest> {
+class _AdvanceLegsState extends State<AdvanceLegs> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _AdvanceChestState extends State<AdvanceChest> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'advance-image-3',
+              tag: 'advance-image-5',
               child: Image.asset(
-                'assets/images/advance/chestA.jpg',
+                'assets/images/advance/legsA.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _AdvanceChestState extends State<AdvanceChest> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('chest')
+                    .collection('leg')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -316,7 +316,7 @@ class _AdvanceChestState extends State<AdvanceChest> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'advance\nChest WorkOut'.toUpperCase(),
+              'advance\nLegs WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _AdvanceChestState extends State<AdvanceChest> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const AdvanceChest(),
+                          child: const AdvanceLegs(),
                         ));
                   },
                   child: Container(

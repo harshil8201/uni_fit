@@ -1,16 +1,16 @@
-import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
-class IntermediateChest extends StatefulWidget {
-  const IntermediateChest({Key key}) : super(key: key);
+class BeginnerShoulder extends StatefulWidget {
+  const BeginnerShoulder({Key key}) : super(key: key);
 
   @override
-  _IntermediateChestState createState() => _IntermediateChestState();
+  _BeginnerShoulderState createState() => _BeginnerShoulderState();
 }
 
-class _IntermediateChestState extends State<IntermediateChest> {
+class _BeginnerShoulderState extends State<BeginnerShoulder> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,9 +21,9 @@ class _IntermediateChestState extends State<IntermediateChest> {
             height: MediaQuery.of(context).size.height * 0.29,
             color: Colors.black12,
             child: Hero(
-              tag: 'intermediate-image-3',
+              tag: 'beginner-image-2',
               child: Image.asset(
-                'assets/images/intermediate/chestI.jpg',
+                'assets/images/beginner/shoulderB.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.29,
@@ -42,7 +42,7 @@ class _IntermediateChestState extends State<IntermediateChest> {
               ),
               child: StreamBuilder(
                 stream: FirebaseFirestore.instance
-                    .collection('chest')
+                    .collection('shoulder')
                     .orderBy("no", descending: false)
                     .snapshots(),
                 builder: (BuildContext context,
@@ -128,7 +128,7 @@ class _IntermediateChestState extends State<IntermediateChest> {
                                                   ),
                                                 ),
                                                 Text(
-                                                  "Sets : " + data['seti'],
+                                                  "Sets : " + data['setb'],
                                                   style: TextStyle(
                                                     fontSize:
                                                         MediaQuery.of(context)
@@ -276,7 +276,7 @@ class _IntermediateChestState extends State<IntermediateChest> {
                                                 0.00625,
                                       ),
                                       Text(
-                                        "Sets : " + data['seti'],
+                                        "Sets : " + data['setb'],
                                         style: TextStyle(
                                           fontSize: MediaQuery.of(context)
                                                   .size
@@ -316,7 +316,7 @@ class _IntermediateChestState extends State<IntermediateChest> {
           Padding(
             padding: const EdgeInsets.only(top: 110, left: 20),
             child: Text(
-              'intermediate\nChest WorkOut'.toUpperCase(),
+              'beginner\nShoulder WorkOut'.toUpperCase(),
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
@@ -337,7 +337,7 @@ class _IntermediateChestState extends State<IntermediateChest> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const IntermediateChest(),
+                          child: const BeginnerShoulder(),
                         ));
                   },
                   child: Container(

@@ -8,7 +8,7 @@ import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_sign_in_provider.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/signIn_login_page.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key key}) : super(key: key);

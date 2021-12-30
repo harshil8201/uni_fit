@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni_fit/color_class.dart';
+import 'package:uni_fit/Class/color_class.dart';
 
 class ResultScreen extends StatefulWidget {
   final bmiModel;
