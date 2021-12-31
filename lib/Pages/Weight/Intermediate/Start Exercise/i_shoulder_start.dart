@@ -31,7 +31,7 @@ class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
       } else if (second > 475) {
@@ -41,7 +41,7 @@ class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -51,7 +51,7 @@ class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
@@ -110,34 +110,16 @@ class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                      child: Icon(
-                        Icons.arrow_back_rounded,
-                        color: primaryWhite,
-                        size: MediaQuery.of(context).size.height * 0.0375,
-                      ),
-                    ),
-                  ),
                   Text(
-                    'SHOULDER'.toUpperCase(),
+                    'Shoulder Exercise',
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.056,
-                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -149,25 +131,25 @@ class _IntermediateShoulderStartState extends State<IntermediateShoulderStart> {
               breakTime('jumping jacks'),
               realButton(),
             ] else if (26 <= second && second <= 50) ...[
-              erContainer('jumping jacks', '20 sec'),
+              erContainer('jumping jacks', '25 sec'),
               realButton(),
             ] else if (51 <= second && second <= 75) ...[
               breakTime('arm raise'),
               realButton(),
             ] else if (76 <= second && second <= 100) ...[
-              erContainer('arm raise', 'sets : X16'),
+              erContainer('arm raise', 'sets : X20'),
               realButton(),
             ] else if (101 <= second && second <= 125) ...[
               breakTime('side arm raise'),
               realButton(),
             ] else if (126 <= second && second <= 150) ...[
-              erContainer('side arm raise', 'sets: X16'),
+              erContainer('side arm raise', 'sets: X20'),
               realButton(),
             ] else if (151 <= second && second <= 175) ...[
               breakTime('knee push ups'),
               realButton(),
             ] else if (176 <= second && second <= 200) ...[
-              erContainer('knee push ups', 'sets: X16'),
+              erContainer('knee push ups', 'sets: X20'),
               realButton(),
             ] else if (201 <= second && second <= 225) ...[
               breakTime('side lying floor stretch left'),

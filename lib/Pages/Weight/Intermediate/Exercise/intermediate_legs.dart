@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Weight/Intermediate/Start%20Exercise/i_legs_start.dart';
 
 class IntermediateLegs extends StatefulWidget {
   const IntermediateLegs({Key key}) : super(key: key);
@@ -337,7 +338,7 @@ class _IntermediateLegsState extends State<IntermediateLegs> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const IntermediateLegs(),
+                          child: const IntermediateLegsStart(),
                         ));
                   },
                   child: Container(

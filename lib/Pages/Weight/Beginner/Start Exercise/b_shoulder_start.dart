@@ -155,13 +155,13 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
               breakTime('side lying floor stretch left'),
               realButton(),
             ] else if (181 <= second && second <= 200) ...[
-              erContainer('side lying floor stretch left', "25 sec"),
+              erContainer('side lying floor stretch left', "20 sec"),
               realButton(),
             ] else if (201 <= second && second <= 220) ...[
               breakTime('side lying floor stretch right'),
               realButton(),
             ] else if (221 <= second && second <= 240) ...[
-              erContainer('side lying floor stretch right', '25 sec'),
+              erContainer('side lying floor stretch right', '20 sec'),
               realButton(),
             ] else if (241 <= second && second <= 260) ...[
               breakTime('arm scissor'),
@@ -173,13 +173,13 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
               breakTime('cat cow pose'),
               realButton(),
             ] else if (301 <= second && second <= 320) ...[
-              erContainer('cat cow pose', '25 sec'),
+              erContainer('cat cow pose', '20 sec'),
               realButton(),
             ] else if (321 <= second && second <= 340) ...[
               breakTime('child pose'),
               realButton(),
             ] else if (341 <= second && second <= 360) ...[
-              erContainer('child pose', '25 sec'),
+              erContainer('child pose', '20 sec'),
               realButton(),
             ] else
               endWorkout(),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Weight/Intermediate/Start%20Exercise/i_abs_start.dart';
 
 class IntermediateAbs extends StatefulWidget {
   const IntermediateAbs({Key key}) : super(key: key);
@@ -337,7 +338,7 @@ class _IntermediateAbsState extends State<IntermediateAbs> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const IntermediateAbs(),
+                          child: const IntermediateAbsStart(),
                         ));
                   },
                   child: Container(
