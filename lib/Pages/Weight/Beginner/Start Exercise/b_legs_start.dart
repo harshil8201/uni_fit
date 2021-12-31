@@ -7,14 +7,14 @@ import 'package:uni_fit/Pages/Weight/Beginner/beginner_exercise.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'dart:math' as math;
 
-class BeginnerAbsStart extends StatefulWidget {
-  const BeginnerAbsStart({Key key}) : super(key: key);
+class BeginnerLegsStart extends StatefulWidget {
+  const BeginnerLegsStart({Key key}) : super(key: key);
 
   @override
-  _BeginnerAbsStartState createState() => _BeginnerAbsStartState();
+  _BeginnerLegsStartState createState() => _BeginnerLegsStartState();
 }
 
-class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
+class _BeginnerLegsStartState extends State<BeginnerLegsStart> {
   static const maxSecond = 0;
   int second = maxSecond;
   Timer timer;
@@ -113,7 +113,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Abs Exercise',
+                    'Legs Exercise',
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
@@ -128,64 +128,64 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
               readyContainer(),
               realButton(),
             ] else if (1 <= second && second <= 20) ...[
-              breakTime('jumping jacks'),
+              breakTime('side hops'),
               realButton(),
             ] else if (21 <= second && second <= 40) ...[
-              erContainer('jumping jacks', '16 sec'),
+              erContainer('side hops', '16 sec'),
               realButton(),
             ] else if (41 <= second && second <= 60) ...[
-              breakTime('abdominals crunch'),
+              breakTime('squats'),
               realButton(),
             ] else if (61 <= second && second <= 80) ...[
-              erContainer('abdominals crunch', 'sets : X16'),
+              erContainer('squats', 'sets : X12'),
               realButton(),
             ] else if (81 <= second && second <= 100) ...[
-              breakTime('russin twist'),
+              breakTime('SIDE-LYING LIFT-LEFT'),
               realButton(),
             ] else if (101 <= second && second <= 120) ...[
-              erContainer('russin twist', 'sets: X20'),
+              erContainer('SIDE-LYING LIFT-LEFT', 'sets: X12'),
               realButton(),
             ] else if (121 <= second && second <= 140) ...[
-              breakTime('mountain climber'),
+              breakTime('SIDE-LYING LIFT-right'),
               realButton(),
             ] else if (141 <= second && second <= 160) ...[
-              erContainer('mountain climber', 'sets: X16'),
+              erContainer('SIDE-LYING LIFT-right', 'sets: X12'),
               realButton(),
             ] else if (161 <= second && second <= 180) ...[
-              breakTime('leg raises'),
+              breakTime('backward lunge'),
               realButton(),
             ] else if (181 <= second && second <= 200) ...[
-              erContainer('leg raises', "sets: X16"),
+              erContainer('backward lunge', 'sets: X7(each)'),
               realButton(),
             ] else if (201 <= second && second <= 220) ...[
-              breakTime('plank'),
+              breakTime('knee to chest'),
               realButton(),
             ] else if (212 <= second && second <= 240) ...[
-              erContainer('plank', '20 sec'),
+              erContainer('knee to chest', '20 sec'),
               realButton(),
             ] else if (241 <= second && second <= 260) ...[
-              breakTime('heel touch'),
+              breakTime('calf riase'),
               realButton(),
             ] else if (261 <= second && second <= 280) ...[
-              erContainer('heel touch', 'sets: X20'),
+              erContainer('calf riase', '20 sec'),
               realButton(),
             ] else if (281 <= second && second <= 300) ...[
-              breakTime('cobra stretch'),
+              breakTime('sumo squats'),
               realButton(),
             ] else if (301 <= second && second <= 320) ...[
-              erContainer('cobra stretch', '20 sec'),
+              erContainer('sumo squats', 'set: X10'),
               realButton(),
             ] else if (321 <= second && second <= 340) ...[
-              breakTime('side lying floor stretch left'),
+              breakTime('CALF STRETCH-LEFT'),
               realButton(),
             ] else if (341 <= second && second <= 360) ...[
-              erContainer('side lying floor stretch left', '20 sec'),
+              erContainer('CALF STRETCH-LEFT', '20 sec'),
               realButton(),
             ] else if (361 <= second && second <= 380) ...[
-              breakTime('side lying floor stretch right'),
+              breakTime('CALF STRETCH-RIGHT'),
               realButton(),
             ] else if (381 <= second && second <= 400) ...[
-              erContainer('side lying floor stretch right', '20 sec'),
+              erContainer('CALF STRETCH-RIGHT', '20 sec'),
               realButton(),
             ] else
               endWorkout(),
@@ -202,7 +202,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
       decoration: BoxDecoration(
         color: Colors.transparent,
         image: DecorationImage(
-          image: const AssetImage('assets/images/beginner/absB.jpg'),
+          image: const AssetImage('assets/images/beginner/legsB.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
@@ -231,7 +231,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              "Are you ready for today's Abs workout?",
+              "Are you ready for today's Legs workout?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,

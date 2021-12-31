@@ -31,7 +31,7 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
       } else if (second > 361) {
@@ -41,7 +41,7 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -51,7 +51,7 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
@@ -110,34 +110,16 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                      child: Icon(
-                        Icons.arrow_back_rounded,
-                        color: primaryWhite,
-                        size: MediaQuery.of(context).size.height * 0.0375,
-                      ),
-                    ),
-                  ),
                   Text(
-                    'SHOULDER'.toUpperCase(),
+                    'Shoulder Exercise',
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.056,
-                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -243,7 +225,7 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              "Are you ready for today's Chest workout?",
+              "Are you ready for today's Shoulder workout?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,
@@ -412,7 +394,7 @@ class _BeginnerShoulderStartState extends State<BeginnerShoulderStart> {
                   Colors.red,
                   Colors.orange,
                   Colors.yellow,
-                  Colors.green,
+                  Colors.pink,
                   Colors.blue,
                   Colors.indigo,
                   Colors.deepPurpleAccent,

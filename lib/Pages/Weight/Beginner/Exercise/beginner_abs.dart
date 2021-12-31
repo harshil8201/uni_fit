@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Weight/Beginner/Start%20Exercise/b_abs_start.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/Start%20Exercise/b_shoulder_start.dart';
 
 class BeginnerAbs extends StatefulWidget {
@@ -338,7 +339,7 @@ class _BeginnerAbsState extends State<BeginnerAbs> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const BeginnerShoulderStart(),
+                          child: const BeginnerAbsStart(),
                         ));
                   },
                   child: Container(

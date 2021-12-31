@@ -23,25 +23,24 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
   int brSecond = 20;
 
   void resetTimer() => setState(() {
-    second = maxSecond;
-    // stopTimer();
-  });
+        second = maxSecond;
+      });
 
   void startTime({bool reset = true}) {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
-      } else if (second > 361) {
+      } else if (second > 321) {
         stopTimer(reset: false);
       }
     });
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -51,7 +50,7 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
@@ -110,34 +109,16 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 10, left: 10),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                    child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.width * 0.125,
-                      child: Icon(
-                        Icons.arrow_back_rounded,
-                        color: primaryWhite,
-                        size: MediaQuery.of(context).size.height * 0.0375,
-                      ),
-                    ),
-                  ),
                   Text(
-                    'SHOULDER'.toUpperCase(),
+                    'Chest Exercise',
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
-                  ),
-                  SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.056,
-                    width: MediaQuery.of(context).size.width * 0.125,
                   ),
                 ],
               ),
@@ -152,52 +133,46 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
               erContainer('jumping jacks', '20 sec'),
               realButton(),
             ] else if (41 <= second && second <= 60) ...[
-              breakTime('arm raise'),
+              breakTime('incline push ups'),
               realButton(),
             ] else if (61 <= second && second <= 80) ...[
-              erContainer('arm raise', 'sets : X16'),
+              erContainer('incline push ups', 'sets: X15'),
               realButton(),
             ] else if (81 <= second && second <= 100) ...[
-              breakTime('side arm raise'),
+              breakTime('push ups'),
               realButton(),
             ] else if (101 <= second && second <= 120) ...[
-              erContainer('side arm raise', 'sets: X16'),
+              erContainer('push ups', 'sets: X10'),
               realButton(),
             ] else if (121 <= second && second <= 140) ...[
-              breakTime('knee push ups'),
+              breakTime('wide arms push ups'),
               realButton(),
             ] else if (141 <= second && second <= 160) ...[
-              erContainer('knee push ups', 'sets: X16'),
+              erContainer('wide arms push ups', 'sets: X10'),
               realButton(),
             ] else if (161 <= second && second <= 180) ...[
-              breakTime('side lying floor stretch left'),
+              breakTime('triceps dips'),
               realButton(),
             ] else if (181 <= second && second <= 200) ...[
-              erContainer('side lying floor stretch left', "25 sec"),
+              erContainer('triceps dips', 'set: X15'),
               realButton(),
             ] else if (201 <= second && second <= 220) ...[
-              breakTime('side lying floor stretch right'),
+              breakTime('knee push ups'),
               realButton(),
             ] else if (221 <= second && second <= 240) ...[
-              erContainer('side lying floor stretch right', '25 sec'),
+              erContainer('knee push ups', 'set: X15'),
               realButton(),
             ] else if (241 <= second && second <= 260) ...[
-              breakTime('arm scissor'),
+              breakTime('cobra stretch'),
               realButton(),
             ] else if (261 <= second && second <= 280) ...[
-              erContainer('arm scissor', 'sets: X20'),
+              erContainer('cobra stretch', '20 sec'),
               realButton(),
             ] else if (281 <= second && second <= 300) ...[
-              breakTime('cat cow pose'),
+              breakTime('chest stretch'),
               realButton(),
             ] else if (301 <= second && second <= 320) ...[
-              erContainer('cat cow pose', '25 sec'),
-              realButton(),
-            ] else if (321 <= second && second <= 340) ...[
-              breakTime('child pose'),
-              realButton(),
-            ] else if (341 <= second && second <= 360) ...[
-              erContainer('child pose', '25 sec'),
+              erContainer('chest stretch', '20 sec'),
               realButton(),
             ] else
               endWorkout(),
@@ -383,7 +358,11 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
 
   Widget endWorkout() {
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20,),
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        bottom: 20,
+      ),
       child: Container(
         width: double.infinity,
         height: double.infinity,
@@ -412,7 +391,7 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
                   Colors.red,
                   Colors.orange,
                   Colors.yellow,
-                  Colors.green,
+                  Colors.pink,
                   Colors.blue,
                   Colors.indigo,
                   Colors.deepPurpleAccent,
@@ -465,7 +444,7 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
                           style: TextStyle(
                             fontFamily: 'popBold',
                             fontSize:
-                            MediaQuery.of(context).size.height * 0.0287,
+                                MediaQuery.of(context).size.height * 0.0287,
                             letterSpacing: 2,
                             color: primaryGreen,
                           ),
@@ -604,129 +583,129 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
 
     return isRunning
         ? Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        //---------Pause----------
-        // InkWell(
-        //   onTap: () {
-        //     setState(() {
-        //       stopTimer(reset: false);
-        //     });
-        //   },
-        //   child: Container(
-        //     decoration: BoxDecoration(
-        //       boxShadow: [
-        //         BoxShadow(
-        //           color: shadowBlack,
-        //           offset: const Offset(0.5, 0.10),
-        //           blurRadius: 20.0,
-        //         ), //BoxShadow
-        //       ],
-        //       shape: BoxShape.circle,
-        //       color: Colors.white,
-        //     ),
-        //     height: 50,
-        //     width: 50,
-        //     child: const Center(
-        //       child: Padding(
-        //         padding: EdgeInsets.only(left: 5),
-        //         child: FaIcon(
-        //           FontAwesomeIcons.play,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // const SizedBox(
-        //   width: 50,
-        // ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //---------Pause----------
+              // InkWell(
+              //   onTap: () {
+              //     setState(() {
+              //       stopTimer(reset: false);
+              //     });
+              //   },
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: shadowBlack,
+              //           offset: const Offset(0.5, 0.10),
+              //           blurRadius: 20.0,
+              //         ), //BoxShadow
+              //       ],
+              //       shape: BoxShape.circle,
+              //       color: Colors.white,
+              //     ),
+              //     height: 50,
+              //     width: 50,
+              //     child: const Center(
+              //       child: Padding(
+              //         padding: EdgeInsets.only(left: 5),
+              //         child: FaIcon(
+              //           FontAwesomeIcons.play,
+              //           color: Colors.blue,
+              //           size: 25,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   width: 50,
+              // ),
 
-        //----------cancel-------
-        Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: shadowBlack,
-                      offset: const Offset(0.5, 0.10),
-                      blurRadius: 20.0,
-                    ), //BoxShadow
-                  ],
-                  shape: BoxShape.circle,
-                  color: Colors.redAccent,
+              //----------cancel-------
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: InkWell(
+                    onTap: () {
+                      showAlertDialog(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0.5, 0.10),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.redAccent,
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.0625,
+                      width: MediaQuery.of(context).size.height * 0.139,
+                      child: Center(
+                        child: Transform.rotate(
+                          angle: -math.pi / 4,
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.0313,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                height: MediaQuery.of(context).size.height * 0.0625,
-                width: MediaQuery.of(context).size.height * 0.139,
-                child: Center(
-                  child: Transform.rotate(
-                    angle: -math.pi / 4,
-                    child: FaIcon(
-                      FontAwesomeIcons.plus,
+              ),
+            ],
+          )
+        //----------- start -------------
+        : Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                onTap: () {
+                  startTime();
+                  exerciseSecond();
+                  breakSecond();
+                  _celebrationAnimation.play();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.0625,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
                       color: Colors.white,
-                      size: MediaQuery.of(context).size.height * 0.0313,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Start'.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: MediaQuery.of(context).size.height * 0.0287,
+                          letterSpacing: 2,
+                          color: primaryGreen,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-      ],
-    )
-    //----------- start -------------
-        : Padding(
-      padding: const EdgeInsets.only(bottom: 40),
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: InkWell(
-          onTap: () {
-            startTime();
-            exerciseSecond();
-            breakSecond();
-            _celebrationAnimation.play();
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.0625,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: shadowBlack,
-                    offset: const Offset(0, 0),
-                    blurRadius: 20.0,
-                  ), //BoxShadow
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  'Start'.toUpperCase(),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontFamily: 'popBold',
-                    fontSize: MediaQuery.of(context).size.height * 0.0287,
-                    letterSpacing: 2,
-                    color: primaryGreen,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+          );
   }
 
   showAlertDialog(BuildContext context) {
@@ -751,10 +730,8 @@ class _BeginnerChestStartState extends State<BeginnerChestStart> {
         ),
       ),
       onPressed: () {
-        Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(
-                builder: (context) => const BeginnerExercise()));
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const BeginnerExercise()));
         stopTimer();
       },
     );
