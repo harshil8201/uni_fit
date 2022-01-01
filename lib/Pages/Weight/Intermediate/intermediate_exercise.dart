@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/start_page.dart';
 import 'Exercise/intermediate_abs.dart';
 import 'Exercise/intermediate_arms.dart';
 import 'Exercise/intermediate_back.dart';
@@ -35,7 +36,10 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StartPage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.0563,
@@ -65,25 +69,18 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 100, bottom: 90),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        '" Your Body can stand almost anything\n its your mind that you have to convince. "',
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0188,
-                          fontFamily: 'popLight',
-                          color: darkGreen,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 90),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  '“Once you are exercising regularly, the hardest thing is to stop it.”',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.0188,
+                    fontFamily: 'popLight',
+                    color: darkGreen,
                   ),
-                ],
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
 
@@ -96,7 +93,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //-------abs----------
                     exerciseContainer(
                       'Abs',
-                      'keep in mind that abdominal exercises alone are unlikely to decrease belly fat',
+                      'Strength does not come from physical capacity. It comes from an indomitable will.',
                       'assets/images/intermediate/absI.jpg',
                       1,
                       const IntermediateAbs(),
@@ -105,7 +102,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //-------shoulder--------
                     exerciseContainer(
                       'Shoulder',
-                      'Shoulder strength training can reduce your risk of injury by strengthening your core muscles',
+                      'Success usually comes to those who are too busy to be looking for it.',
                       'assets/images/intermediate/shoulderI.jpg',
                       2,
                       const IntermediateShoulder(),
@@ -114,7 +111,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //---------chest--------
                     exerciseContainer(
                       'Chest',
-                      'Working out the chest means working out the pectoral muscles, better known as the “pecs.”',
+                      'If you want something you’ve never had, you must be willing to do something you’ve never done.',
                       'assets/images/intermediate/chestI.jpg',
                       3,
                       const IntermediateChest(),
@@ -123,7 +120,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //-----------arms-------
                     exerciseContainer(
                       'Arms',
-                      'Strong biceps play an important role in an overall strong and functional upper body',
+                      'Once you are exercising regularly, the hardest thing is to stop it.',
                       'assets/images/intermediate/armsI.jpg',
                       4,
                       const IntermediateArms(),
@@ -132,7 +129,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //---------legs--------
                     exerciseContainer(
                       'Legs',
-                      'legs is one of our biggest muscles, regularly training legs helps us reduce the risk of injury.',
+                      'If you don’t make time for exercise, you’ll probably have to make time for illness.',
                       'assets/images/intermediate/legsI.jpg',
                       5,
                       const IntermediateLegs(),
@@ -141,7 +138,7 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
                     //-----------back-------
                     exerciseContainer(
                       'Back',
-                      'strengthening your back muscles, you are building up the main support structure for your entire body.',
+                      'Dead last finish is greater than did not finish, which trumps did not start.',
                       'assets/images/intermediate/backI.jpg',
                       6,
                       const IntermediateBack(),

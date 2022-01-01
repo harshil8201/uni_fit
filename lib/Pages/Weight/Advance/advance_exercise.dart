@@ -6,6 +6,7 @@ import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_back.dart';
 import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_chest.dart';
 import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_leg.dart';
 import 'package:uni_fit/Pages/Weight/Advance/Exercise/advance_shoulder.dart';
+import 'package:uni_fit/Pages/start_page.dart';
 
 class AdvanceExercise extends StatefulWidget {
   const AdvanceExercise({Key key}) : super(key: key);
@@ -34,7 +35,10 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StartPage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.0563,
@@ -64,25 +68,18 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 100, bottom: 90),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        '" Your Body can stand almost anything\n its your mind that you have to convince. "',
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0188,
-                          fontFamily: 'popLight',
-                          color: darkGreen,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 90),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  '“If you change the way you look at things, the things you look at change.”',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.0188,
+                    fontFamily: 'popLight',
+                    color: darkGreen,
                   ),
-                ],
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
 
@@ -95,7 +92,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //-------abs----------
                     exerciseContainer(
                       'Abs',
-                      'keep in mind that abdominal exercises alone are unlikely to decrease belly fat',
+                      'Never give up on a dream just because of the time it will take to accomplish it. The time will pass anyway.',
                       'assets/images/advance/absA.jpg',
                       1,
                       const AdvanceAbs(),
@@ -104,7 +101,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //-------shoulder--------
                     exerciseContainer(
                       'Shoulder',
-                      'Shoulder strength training can reduce your risk of injury by strengthening your core muscles',
+                      'I don’t count my sit-ups. I only start counting when it starts hurting because they’re the only ones that count.',
                       'assets/images/advance/shoulderA.jpg',
                       2,
                       const AdvanceShoulder(),
@@ -113,7 +110,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //---------chest--------
                     exerciseContainer(
                       'Chest',
-                      'Working out the chest means working out the pectoral muscles, better known as the “pecs.”',
+                      'If you change the way you look at things, the things you look at change.”',
                       'assets/images/advance/chestA.jpg',
                       3,
                       const AdvanceChest(),
@@ -122,7 +119,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //-----------arms-------
                     exerciseContainer(
                       'Arms',
-                      'Strong biceps play an important role in an overall strong and functional upper body',
+                      'Your health account, your bank account, they’re the same thing. The more you put in, the more you can take out.',
                       'assets/images/advance/armsA.jpg',
                       4,
                       const AdvanceArms(),
@@ -131,7 +128,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //---------legs--------
                     exerciseContainer(
                       'Legs',
-                      'legs is one of our biggest muscles, regularly training legs helps us reduce the risk of injury.',
+                      'There are two types of pain in this world: pain that hurts you, and pain that changes you.',
                       'assets/images/advance/legsA.jpg',
                       5,
                       const AdvanceLegs(),
@@ -140,7 +137,7 @@ class _AdvanceExerciseState extends State<AdvanceExercise> {
                     //-----------back-------
                     exerciseContainer(
                       'Back',
-                      'strengthening your back muscles, you are building up the main support structure for your entire body.',
+                      'To keep the body in good health is a duty… otherwise we shall not be able to keep our mind strong and clear',
                       'assets/images/advance/backA.jpg',
                       6,
                       const AdvanceBack(),

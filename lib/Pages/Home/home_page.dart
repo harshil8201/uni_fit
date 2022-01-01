@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -140,12 +141,136 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              const Padding(
-                  padding: EdgeInsets.only(top: 100, bottom: 90),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: double.infinity,
-                  )),
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: CarouselSlider(
+                  items: [
+                    erContainer(
+                      'Push Ups',
+                      '15 X 3',
+                      'push ups',
+                      'Literally every major\nmuscle in your body\nis called upon\nto execute the\nmovement.',
+                    ),
+                    erContainer(
+                      'Jumping Jacks',
+                      '30 Sec',
+                      'jumping jacks',
+                      'It increases your\nheart rate,which\npromotes the flow\nof blood and oxygen\nto your brain.',
+                    ),
+                    erContainer(
+                      'Squats',
+                      '10 X 3',
+                      'squats',
+                      'It is help to \nStrengthens core,\nreduces risk of\ninjury, Strengthens\nmuscles of lower\nbody',
+                    ),
+                    erContainer(
+                      'Abdominal Crunch',
+                      '30 X 2',
+                      'abdominals crunch',
+                      'Helps people\nsuffering from\nregular constipation\nby inducing\ntriggering the\nbowel movement.',
+                    ),
+                    erContainer(
+                      'Plank',
+                      '30 sec X 2',
+                      'plank',
+                      'The plank position\nhelps target core\nmuscles & give \nthem a good burn\nto build muscle\nstrength.',
+                    ),
+                  ],
+                  options: CarouselOptions(
+                    autoPlay: true,
+                    height: MediaQuery.of(context).size.height * 0.29375,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget erContainer(
+    String erName,
+    String erSet,
+    String erImage,
+    String erDescription,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(top: 15, bottom: 15, right: 7, left: 7),
+      child: Container(
+        height: MediaQuery.of(context).size.height * 0.25,
+        width: MediaQuery.of(context).size.width * 0.8333,
+        decoration: BoxDecoration(
+          color: primaryWhite,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: shadowBlack,
+              offset: const Offset(0.0, 0.10),
+              blurRadius: 10.0,
+            ), //BoxShadow
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(15),
+                    child: Image.asset(
+                      'assets/images/gif/$erImage.gif',
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      width: MediaQuery.of(context).size.width * 0.3333,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          erDescription,
+                          style: TextStyle(
+                              color: primaryGreen,
+                              fontSize:
+                                  MediaQuery.of(context).size.height * 0.015,
+                              fontFamily: 'popLight'),
+                        ),
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.00625,
+                        ),
+                        Text(
+                          'Set: $erSet',
+                          style: TextStyle(
+                            color: primaryGreen,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.02125,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'popLight',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 8.0),
+                child: Text(
+                  erName,
+                  style: TextStyle(
+                    color: primaryBlack,
+                    fontSize: MediaQuery.of(context).size.height * 0.03125,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'popBold',
+                  ),
+                ),
+              ),
             ],
           ),
         ),

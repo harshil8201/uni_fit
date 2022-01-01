@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:uni_fit/Pages/Weight/Advance/Start%20Exercise/a_back_start.dart';
 
 class AdvanceBack extends StatefulWidget {
   const AdvanceBack({Key key}) : super(key: key);
@@ -337,7 +338,7 @@ class _AdvanceBackState extends State<AdvanceBack> {
                         context,
                         PageTransition(
                           type: PageTransitionType.bottomToTop,
-                          child: const AdvanceBack(),
+                          child: const AdvanceBackStart(),
                         ));
                   },
                   child: Container(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/start_page.dart';
 
 import 'Exercise/arm_raise.dart';
 import 'Exercise/squat.dart';
@@ -34,7 +35,10 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StartPage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.0563,
@@ -57,13 +61,28 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.0563,
-                    width: MediaQuery.of(context).size.width * 0.125,
+                    width: MediaQuery.of(context).size.height * 0.0563,
                   ),
                 ],
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 100),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 90),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  '“Push harder than yesterday if you want a different tomorrow.”',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.0188,
+                    fontFamily: 'popLight',
+                    color: darkGreen,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 150),
               child: SingleChildScrollView(
                 child: Column(
                   children: [

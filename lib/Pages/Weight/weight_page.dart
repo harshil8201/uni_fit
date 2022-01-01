@@ -167,7 +167,7 @@ class _WeightPageState extends State<WeightPage> {
                             );
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.162,
+                            height: MediaQuery.of(context).size.height * 0.1875,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: primaryWhite,
@@ -231,6 +231,8 @@ class _WeightPageState extends State<WeightPage> {
                             Icons.offline_bolt,
                             Icons.offline_bolt_outlined,
                             Icons.offline_bolt_outlined,
+                            '10-13 min',
+                            '130-180 cal',
                             const BeginnerExercise()),
                       ),
 
@@ -241,6 +243,8 @@ class _WeightPageState extends State<WeightPage> {
                             Icons.offline_bolt,
                             Icons.offline_bolt,
                             Icons.offline_bolt_outlined,
+                            '12-16 min',
+                            '210-250 cal',
                             const IntermediateExercise()),
                       ),
 
@@ -250,6 +254,8 @@ class _WeightPageState extends State<WeightPage> {
                           Icons.offline_bolt,
                           Icons.offline_bolt,
                           Icons.offline_bolt,
+                          '15-20 min',
+                          '330-380 cal',
                           const AdvanceExercise()),
 
                       SizedBox(
@@ -266,8 +272,15 @@ class _WeightPageState extends State<WeightPage> {
     );
   }
 
-  Widget exerciseCategoriesContainer(String erName, IconData firstIcon,
-      IconData secondIcon, IconData thirdIcon, dynamic routeName) {
+  Widget exerciseCategoriesContainer(
+    String erName,
+    IconData firstIcon,
+    IconData secondIcon,
+    IconData thirdIcon,
+    String erMinutes,
+    String erBurnCalories,
+    dynamic routeName,
+  ) {
     return Padding(
       padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
       child: InkWell(
@@ -279,7 +292,7 @@ class _WeightPageState extends State<WeightPage> {
           );
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.162,
+          height: MediaQuery.of(context).size.height * 0.1875,
           width: double.infinity,
           decoration: BoxDecoration(
             color: primaryWhite,
@@ -323,6 +336,43 @@ class _WeightPageState extends State<WeightPage> {
                   ),
                 ],
               ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.0125,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.clock,
+                    color: Colors.grey.shade400,
+                    size: MediaQuery.of(context).size.height * 0.015,
+                  ),
+                  Text(
+                    ' ($erMinutes)',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontFamily: 'popBold',
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.0277,
+                  ),
+                  FaIcon(
+                    FontAwesomeIcons.fire,
+                    color: Colors.grey.shade400,
+                    size: MediaQuery.of(context).size.height * 0.015,
+                  ),
+                  Text(
+                    ' ($erBurnCalories)',
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontFamily: 'popBold',
+                      color: Colors.grey.shade400,
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),

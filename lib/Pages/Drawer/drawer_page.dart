@@ -225,7 +225,9 @@ class _DrawerPageState extends State<DrawerPage> {
           Navigator.push(
             context,
             PageTransition(
-                type: PageTransitionType.leftToRightWithFade, child: routeName),
+              type: PageTransitionType.leftToRightWithFade,
+              child: routeName,
+            ),
           );
         },
         child: Row(

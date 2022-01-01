@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_abs.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/start_page.dart';
 import 'Exercise/beginner_arms.dart';
 import 'Exercise/beginner_back.dart';
 import 'Exercise/beginner_chest.dart';
@@ -34,7 +35,10 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.pop(context);
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const StartPage()));
                     },
                     child: SizedBox(
                       height: MediaQuery.of(context).size.height * 0.0563,
@@ -64,25 +68,18 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 100, bottom: 90),
-              child: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20, right: 20),
-                    child: SizedBox(
-                      width: double.infinity,
-                      child: Text(
-                        '" Your Body can stand almost anything\n its your mind that you have to convince. "',
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0188,
-                          fontFamily: 'popLight',
-                          color: darkGreen,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 90),
+              child: SizedBox(
+                width: double.infinity,
+                child: Text(
+                  '"Your Body can stand almost anything, its your mind that you have to convince."',
+                  style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.height * 0.0188,
+                    fontFamily: 'popLight',
+                    color: darkGreen,
                   ),
-                ],
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
 
@@ -95,7 +92,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     //-------abs----------
                     exerciseContainer(
                       'Abs',
-                      'keep in mind that abdominal exercises alone are unlikely to decrease belly fat',
+                      'keep in mind that abdominal exercises alone are unlikely to decrease belly fat.',
                       'assets/images/beginner/absB.jpg',
                       1,
                       const BeginnerAbs(),
@@ -104,7 +101,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     //-------shoulder--------
                     exerciseContainer(
                       'Shoulder',
-                      'Shoulder strength training can reduce your risk of injury by strengthening your core muscles',
+                      'Shoulder strength training can reduce your risk of injury by strengthening your core muscles.',
                       'assets/images/beginner/shoulderB.jpg',
                       2,
                       const BeginnerShoulder(),
@@ -122,7 +119,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     //-----------arms-------
                     exerciseContainer(
                       'Arms',
-                      'Strong biceps play an important role in an overall strong and functional upper body',
+                      'Strong arms play an important role in an overall strong and functional upper body.',
                       'assets/images/beginner/armsB.jpg',
                       4,
                       const BeginnerArms(),

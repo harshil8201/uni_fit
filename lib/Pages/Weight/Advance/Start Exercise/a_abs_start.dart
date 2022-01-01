@@ -5,25 +5,26 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'dart:math' as math;
-import 'package:uni_fit/Pages/Weight/Intermediate/intermediate_exercise.dart';
+import 'package:uni_fit/Pages/Weight/Advance/advance_exercise.dart';
 
-class IntermediateBackStart extends StatefulWidget {
-  const IntermediateBackStart({Key key}) : super(key: key);
+class AdvanceAbsStart extends StatefulWidget {
+  const AdvanceAbsStart({Key key}) : super(key: key);
 
   @override
-  _IntermediateBackStartState createState() => _IntermediateBackStartState();
+  _AdvanceAbsStartState createState() => _AdvanceAbsStartState();
 }
 
-class _IntermediateBackStartState extends State<IntermediateBackStart> {
+class _AdvanceAbsStartState extends State<AdvanceAbsStart> {
   static const maxSecond = 0;
   int second = maxSecond;
   Timer timer;
   int erSecond = erMaxSecond;
-  static const erMaxSecond = 25;
-  int brSecond = 25;
+  static const erMaxSecond = 30;
+  int brSecond = 30;
 
   void resetTimer() => setState(() {
     second = maxSecond;
+    // stopTimer();
   });
 
   void startTime({bool reset = true}) {
@@ -33,7 +34,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
     timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
-      } else if (second > 400) {
+      } else if (second > 600) {
         stopTimer(reset: false);
       }
     });
@@ -44,7 +45,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
-        setState(() => erSecond = 24);
+        setState(() => erSecond = 29);
       }
     });
   }
@@ -54,7 +55,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
-        setState(() => brSecond = 24);
+        setState(() => brSecond = 29);
       }
     });
   }
@@ -112,7 +113,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Back Exercise',
+                    'Abs Exercise',
                     style: TextStyle(
                       color: primaryWhite,
                       fontSize: MediaQuery.of(context).size.height * 0.0375,
@@ -126,53 +127,65 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
             if (second < 1) ...[
               readyContainer(),
               realButton(),
-            ] else if (1 <= second && second <= 25) ...[
+            ] else if (1 <= second && second <= 30) ...[
               breakTime('jumping jacks'),
               realButton(),
-            ] else if (26 <= second && second <= 50) ...[
-              erContainer('jumping jacks', '25 sec'),
+            ] else if (31 <= second && second <= 60) ...[
+              erContainer('jumping jacks', '30 sec'),
               realButton(),
-            ] else if (51 <= second && second <= 75) ...[
-              breakTime('rhomboid pulls'),
+            ] else if (61 <= second && second <= 90) ...[
+              breakTime('abdominals crunch'),
               realButton(),
-            ] else if (76 <= second && second <= 100) ...[
-              erContainer('rhomboid pulls', 'sets: X20'),
+            ] else if (91 <= second && second <= 120) ...[
+              erContainer('abdominals crunch', 'sets : X25'),
               realButton(),
-            ] else if (101 <= second && second <= 125) ...[
-              breakTime('knee push ups'),
+            ] else if (121 <= second && second <= 150) ...[
+              breakTime('russin twist'),
               realButton(),
-            ] else if (126 <= second && second <= 150) ...[
-              erContainer('knee push ups', 'sets: X20'),
+            ] else if (151 <= second && second <= 180) ...[
+              erContainer('russin twist', 'sets: X25'),
               realButton(),
-            ] else if (151 <= second && second <= 175) ...[
+            ] else if (181 <= second && second <= 210) ...[
+              breakTime('mountain climber'),
+              realButton(),
+            ] else if (211 <= second && second <= 240) ...[
+              erContainer('mountain climber', 'sets: X25'),
+              realButton(),
+            ] else if (241 <= second && second <= 270) ...[
+              breakTime('leg raises'),
+              realButton(),
+            ] else if (271 <= second && second <= 300) ...[
+              erContainer('leg raises', "sets: X25"),
+              realButton(),
+            ] else if (301 <= second && second <= 330) ...[
+              breakTime('plank'),
+              realButton(),
+            ] else if (331 <= second && second <= 360) ...[
+              erContainer('plank', '30 sec'),
+              realButton(),
+            ] else if (361 <= second && second <= 390) ...[
+              breakTime('heel touch'),
+              realButton(),
+            ] else if (391 <= second && second <= 420) ...[
+              erContainer('heel touch', 'sets: X25'),
+              realButton(),
+            ] else if (421 <= second && second <= 450) ...[
+              breakTime('cobra stretch'),
+              realButton(),
+            ] else if (451 <= second && second <= 480) ...[
+              erContainer('cobra stretch', '30 sec'),
+              realButton(),
+            ] else if (481 <= second && second <= 510) ...[
               breakTime('side lying floor stretch left'),
               realButton(),
-            ] else if (176 <= second && second <= 200) ...[
-              erContainer('side lying floor stretch left', 'sets: X20'),
+            ] else if (511 <= second && second <= 540) ...[
+              erContainer('side lying floor stretch left', '30 sec'),
               realButton(),
-            ] else if (201 <= second && second <= 225) ...[
+            ] else if (541 <= second && second <= 570) ...[
               breakTime('side lying floor stretch right'),
               realButton(),
-            ] else if (226 <= second && second <= 250) ...[
-              erContainer('side lying floor stretch right', 'set: X20'),
-              realButton(),
-            ] else if (251 <= second && second <= 275) ...[
-              breakTime('reclined rhomboid squeezes'),
-              realButton(),
-            ] else if (276 <= second && second <= 300) ...[
-              erContainer('reclined rhomboid squeezes', 'set: X20'),
-              realButton(),
-            ] else if (301 <= second && second <= 325) ...[
-              breakTime('cat cow pose'),
-              realButton(),
-            ] else if (326 <= second && second <= 350) ...[
-              erContainer('cat cow pose', '25 sec'),
-              realButton(),
-            ] else if (351 <= second && second <= 375) ...[
-              breakTime('child pose'),
-              realButton(),
-            ] else if (376 <= second && second <= 400) ...[
-              erContainer('child pose', '25 sec'),
+            ] else if (571 <= second && second <= 600) ...[
+              erContainer('side lying floor stretch right', '30 sec'),
               realButton(),
             ] else
               endWorkout(),
@@ -189,7 +202,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
       decoration: BoxDecoration(
         color: Colors.transparent,
         image: DecorationImage(
-          image: const AssetImage('assets/images/intermediate/backI.jpg'),
+          image: const AssetImage('assets/images/advance/absA.jpg'),
           fit: BoxFit.cover,
           colorFilter: ColorFilter.mode(
             Colors.black.withOpacity(0.3),
@@ -218,7 +231,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             child: Text(
-              "Are you ready for today's Back workout?",
+              "Are you ready for today's Abs workout?",
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,
@@ -419,7 +432,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const IntermediateExercise()));
+                            builder: (context) => const AdvanceExercise()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -731,7 +744,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
       ),
       onPressed: () {
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const IntermediateExercise()));
+            MaterialPageRoute(builder: (context) => const AdvanceExercise()));
         stopTimer();
       },
     );

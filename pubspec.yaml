@@ -30,6 +30,7 @@ dependencies:
   page_transition: ^1.1.7+6
   form_field_validator:
   confetti:
+  carousel_slider:
 
 dev_dependencies:
   flutter_test:
