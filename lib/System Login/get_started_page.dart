@@ -26,7 +26,7 @@ class _GetStartedPageState extends State<GetStartedPage> {
           children: [
             //----------image-------------
             Padding(
-              padding: const EdgeInsets.only(top: 70, right: 20, left: 20),
+              padding: const EdgeInsets.only(top: 50),
               child: Align(
                 alignment: Alignment.topCenter,
                 child: SizedBox(
@@ -34,8 +34,9 @@ class _GetStartedPageState extends State<GetStartedPage> {
                   height: MediaQuery.of(context).size.height * 0.46,
                   width: double.infinity,
                   child: Image.asset(
-                    'assets/images/1.png',
+                    'assets/images/2.png',
                     fit: BoxFit.contain,
+
                   ),
                 ),
               ),

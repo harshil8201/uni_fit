@@ -28,6 +28,7 @@ class GoogleSignInProvider extends ChangeNotifier {
     }
 
     notifyListeners();
+
   }
 
   Future logOut() async {

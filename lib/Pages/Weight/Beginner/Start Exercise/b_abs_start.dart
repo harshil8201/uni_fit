@@ -413,7 +413,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
             ),
             Center(
               child: Text(
-                "Congratulation !!\n\nYou completed\ntoday's workout",
+                "Congratulation !!\n\nYou completed\ntoday's workout.\n\nYou burn : 120 cal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: superDarkGreen,
@@ -430,9 +430,18 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                 child: InkWell(
                   onTap: () {
                     Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const BeginnerExercise()));
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const BeginnerExercise(),
+                      ),
+                    );
+                    // Navigator.push(
+                    //   context,
+                    //   MaterialPageRoute(
+                    //     builder: (context) =>
+                    //         const StartPage(burnCalories: 120),
+                    //   ),
+                    // );
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60),

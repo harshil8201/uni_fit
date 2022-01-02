@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
@@ -11,7 +10,9 @@ import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
-  const DrawerPage({Key key}) : super(key: key);
+  final String name;
+
+  const DrawerPage({Key key, this.name}) : super(key: key);
 
   @override
   _DrawerPageState createState() => _DrawerPageState();
@@ -20,7 +21,16 @@ class DrawerPage extends StatefulWidget {
 class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
 
-  // final auth = FirebaseAuth.instance;
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning';
+    }
+    if (hour < 17) {
+      return 'Good Afternoon';
+    }
+    return 'Good Evening';
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +76,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         ),
                       )
                     : Text(
-                        "First Name",
+                        greeting(),
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height * 0.0287,
                           color: primaryWhite,
@@ -94,14 +104,12 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             Column(
               children: [
-                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',
-                    const BMIPage()),
+                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator', const BMIPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
-                drawerItems(
-                    FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
+                drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
                 drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
-                // drawerItems(FontAwesomeIcons.cog, 'Setting',null),
                 drawerItems(FontAwesomeIcons.infoCircle, 'About us', null),
+                drawerItems(FontAwesomeIcons.cog, 'Help', null),
               ],
             ),
             InkWell(

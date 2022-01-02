@@ -1,9 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'google_sign_in_provider.dart';
-import 'package:uni_fit/Class/color_class.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({Key key}) : super(key: key);
@@ -28,7 +29,12 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                     builder: (context) => const StartPage(),
                   ),
                 ),
-              );
+              ).then((value) {
+            // FirebaseFirestore.instance
+            //     .collection('UserData')
+            //     .doc(value)
+            //     .set({"email": provider, "uid": FirebaseAuth.instance.currentUser.uid});
+          });
         },
         child: Container(
           width: double.infinity,

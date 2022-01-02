@@ -1,4 +1,6 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/start_page.dart';
@@ -17,16 +19,28 @@ class LoginSignupPage extends StatefulWidget {
 class _LoginSignupPageState extends State<LoginSignupPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final _newPasswordController = TextEditingController();
-
-  String firstname = "First";
+  String _age;
   String _email, _password;
-  String lastname = "Name";
 
   final auth = FirebaseAuth.instance;
 
   bool isVisible = true;
   bool _isObscure = true;
+
+  // DatabaseReference _ref;
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   _ref = FirebaseDatabase.instance.ref().child(FirebaseAuth.instance.currentUser.uid);
+  // }
+  //
+  // void saveInfo(){
+  //   Map<String, String> data ={
+  //     'email': _email
+  //   };
+  //   _ref.push().set(data);
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -351,82 +365,84 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                               height:
                                   MediaQuery.of(context).size.height * 0.025,
                             ),
-                            //---------- name ------------
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Name :',
-                                  style: TextStyle(
-                                    color: superDarkGreen,
-                                    fontSize:
-                                        MediaQuery.of(context).size.height *
-                                            0.01875,
-                                    fontFamily: 'popBold',
+
+                            //------------age-------------
+                            Padding(
+                              padding: const EdgeInsets.only(top: 5, right: 10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 15),
+                                    child: Text(
+                                      'Age :',
+                                      style: TextStyle(
+                                        color: superDarkGreen,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.01875,
+                                        fontFamily: 'popBold',
+                                      ),
+                                    ),
                                   ),
-                                ),
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(right: 10, top: 5),
-                                  child: Column(
-                                    children: [
-                                      Container(
-                                        decoration: BoxDecoration(
-                                          color: shadeWhite.withOpacity(0.60),
-                                          borderRadius:
-                                              BorderRadius.circular(30),
-                                        ),
-                                        child: Padding(
-                                          padding: const EdgeInsets.only(
-                                              left: 15, right: 10),
-                                          child: SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
+                                  SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.00625,
+                                  ),
+                                  Container(
+                                    decoration: BoxDecoration(
+                                      color: shadeWhite.withOpacity(0.60),
+                                      borderRadius: BorderRadius.circular(30),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                          left: 15, right: 10),
+                                      child: SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height *
                                                 0.0625,
-                                            width: double.infinity,
-                                            child: TextFormField(
-                                              onChanged: (value) {
-                                                firstname = value;
-                                              },
-                                              validator: (value) {
-                                                if (value.isEmpty) {
-                                                  return "Please enter your name";
-                                                }
-                                                return null;
-                                              },
-                                              obscureText: false,
-                                              textInputAction:
-                                                  TextInputAction.next,
-                                              decoration: InputDecoration(
-                                                floatingLabelBehavior:
-                                                    FloatingLabelBehavior.never,
-                                                icon: Icon(
-                                                    Icons
-                                                        .account_circle_outlined,
-                                                    color: darkWhite),
-                                                enabledBorder:
-                                                    const UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                            color: Colors
-                                                                .transparent)),
-                                                focusedBorder:
-                                                    const UnderlineInputBorder(
-                                                        borderSide: BorderSide(
-                                                            color: Colors
-                                                                .transparent)),
-                                                hintText: 'First name',
-                                                hintStyle:
-                                                    TextStyle(color: darkWhite),
-                                              ),
+                                        width: double.infinity,
+                                        child: TextFormField(
+                                          onChanged: (value) {
+                                            setState(() {
+                                              _age = value.trim();
+                                            });
+                                          },
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              return "Please enter your Age";
+                                            }
+                                            return null;
+                                          },
+                                          keyboardType: TextInputType.number,
+                                          textInputAction: TextInputAction.next,
+                                          obscureText: false,
+                                          decoration: InputDecoration(
+                                            icon: Icon(Icons.person,
+                                                color: darkWhite),
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.never,
+                                            enabledBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            focusedBorder:
+                                                const UnderlineInputBorder(
+                                                    borderSide: BorderSide(
+                                                        color: Colors
+                                                            .transparent)),
+                                            hintText: 'Enter your age',
+                                            hintStyle: TextStyle(
+                                              color: darkWhite,
                                             ),
                                           ),
                                         ),
                                       ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                ],
+                              ),
                             ),
 
                             //-----------email-------------
@@ -436,7 +452,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 15),
+                                    padding: const EdgeInsets.only(top: 10),
                                     child: Text(
                                       'Email :',
                                       style: TextStyle(
@@ -511,9 +527,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                             ),
 
                             //-----------password-----------
-
                             Padding(
-                              padding: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.only(top: 15),
                               child: Text(
                                 'Password :',
                                 style: TextStyle(
@@ -555,7 +570,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             }
                                             return null;
                                           },
-                                          controller: _newPasswordController,
                                           obscureText: _isObscure,
                                           textInputAction: TextInputAction.next,
                                           decoration: InputDecoration(
@@ -606,11 +620,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                   ),
 
             //----------buttons----------
-
             isVisible
 
                 //------------------------Login button-----------------------
-
                 ? Visibility(
                     visible: isVisible,
                     child: Align(
@@ -620,11 +632,14 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                         children: [
                           //----------login button----------
                           Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 140, left: 70, right: 70),
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).size.height * 0.175,
+                                left: 70,
+                                right: 70),
                             child: InkWell(
                               onTap: () {
-                                // if (_formkey.currentState.validate()) {
+                                // if (formKey.currentState.validate()) {
                                 //   return;
                                 // } else {
                                 //   print(" login data not entered");
@@ -639,6 +654,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             builder: (context) =>
                                                 const StartPage()));
                                   }
+                                  // FirebaseFirestore.instance
+                                  //     .collection('UserData')
+                                  //     .doc(result)
+                                  //     .set({"email": _email, "uid": FirebaseAuth.instance.currentUser.uid});
                                 });
                               },
                               child: Container(
@@ -697,7 +716,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                   )
 
                 //--------------------------Sign up button---------------------
-
                 : Visibility(
                     visible: !isVisible,
                     child: Align(
@@ -707,11 +725,14 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                         children: [
                           //----------signup button----------
                           Padding(
-                            padding: const EdgeInsets.only(
-                                bottom: 90, left: 70, right: 70),
+                            padding: EdgeInsets.only(
+                                bottom:
+                                    MediaQuery.of(context).size.height * 0.1125,
+                                left: 70,
+                                right: 70),
                             child: GestureDetector(
                               onTap: () {
-                                // if (_formkey.currentState.validate()) {
+                                // if (formKey.currentState.validate()) {
                                 //   return;
                                 // } else {
                                 //   print(" sign-up data not entered");
@@ -726,6 +747,12 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             builder: (context) =>
                                                 const StartPage()));
                                   }
+                                  FirebaseFirestore.instance
+                                      .collection('UserData')
+                                      .add({
+                                    "email": _email,
+                                    "uid": FirebaseAuth.instance.currentUser.uid
+                                  });
                                 });
                               },
                               child: Container(
@@ -786,12 +813,12 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.only(bottom: 20),
+                padding: EdgeInsets.only(
+                    bottom: MediaQuery.of(context).size.height * 0.025),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     //---------------------google button----------------------
-
                     isVisible
                         ? Visibility(
                             visible: isVisible,
@@ -803,7 +830,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                           ),
 
                     //--------------already have account / Sign Up--------------
-
                     isVisible
                         ? Visibility(
                             visible: isVisible,

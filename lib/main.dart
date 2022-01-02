@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:uni_fit/System%20Login/Google%20SignIn/google_page_controller.dart';
 import 'System Login/Google SignIn/google_sign_in_provider.dart';
 import 'Class/route_class.dart';
 
@@ -34,9 +35,9 @@ class MyApp extends StatelessWidget {
         navigatorKey: navigatorKey,
         title: 'Uni Fit',
         debugShowCheckedModeBanner: false,
-        // home: const Config(),
-        initialRoute: '/',
-        routes: routeClass,
+        home: const GooglePageController(),
+        // initialRoute: '/',
+        // routes: routeClass,
       ),
     );
   }

@@ -18,6 +18,7 @@ dependencies:
   firebase_auth:
   firebase_core:
   cloud_firestore:
+  firebase_database:
   path:
   path_provider:
   google_sign_in:

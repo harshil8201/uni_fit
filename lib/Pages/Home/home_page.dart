@@ -183,6 +183,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top:400,left: 20),
+              //   child: Text('{widget.burnCaloriesAmount}'),
+              // )
             ],
           ),
         ),

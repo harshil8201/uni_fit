@@ -39,7 +39,7 @@ import '../new.dart';
 
 var routeClass = <String, WidgetBuilder>{
   '/': (context) => const GetStartedPage(),
-  '/New': (context) => New(),
+  '/New': (context) => const New(),
   '/GooglePageController': (context) => const GooglePageController(),
   '/SignInLoginPage': (context) => const LoginSignupPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),
