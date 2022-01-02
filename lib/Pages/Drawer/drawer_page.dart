@@ -7,7 +7,7 @@ import 'package:provider/provider.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_sign_in_provider.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/signIn_login_page.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
@@ -166,7 +166,7 @@ class _DrawerPageState extends State<DrawerPage> {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const SignInLoginPage()),
+                      builder: (context) => const LoginSignupPage()),
                   (Route<dynamic> route) => false);
               print('------------we are sign out using gmail------------');
             }
@@ -176,7 +176,7 @@ class _DrawerPageState extends State<DrawerPage> {
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
-                      builder: (context) => const SignInLoginPage()),
+                      builder: (context) => const LoginSignupPage()),
                   (Route<dynamic> route) => false);
               print(
                   '-----------we are sign out using email / password----------');

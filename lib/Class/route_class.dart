@@ -34,14 +34,14 @@ import '../Pages/Weight/weight_page.dart';
 import '../System Login/Google SignIn/google_page_controller.dart';
 import '../System Login/Google SignIn/google_signIn_button.dart';
 import '../System Login/get_started_page.dart';
-import '../System Login/Login Signin/signIn_login_page.dart';
+import '../System Login/Login Signin/login_signup_page.dart';
 import '../new.dart';
 
 var routeClass = <String, WidgetBuilder>{
   '/': (context) => const GetStartedPage(),
   '/New': (context) => New(),
   '/GooglePageController': (context) => const GooglePageController(),
-  '/SignInLoginPage': (context) => const SignInLoginPage(),
+  '/SignInLoginPage': (context) => const LoginSignupPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),
   '/DrawerPage': (context) => const DrawerPage(),
   '/DietPage': (context) => const DietPage(),

@@ -151,75 +151,75 @@ class _DietPageState extends State<DietPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Align(
-                        alignment: Alignment.topLeft,
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              user.emailVerified
-                                  ? Text(
-                                      user.displayName,
-                                      style: TextStyle(
-                                        color: primaryBlack,
-                                        fontFamily: 'popMedium',
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.038,
-                                      ),
-                                    )
-                                  : Text(
-                                      "Hi Alen",
-                                      style: TextStyle(
-                                        color: primaryBlack,
-                                        fontFamily: 'popMedium',
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.038,
-                                      ),
-                                    ),
-                              Text(
-                                'Ready to loose some calories today!!',
-                                style: TextStyle(
-                                  color: primaryBlack,
-                                  fontFamily: 'popLight',
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.015,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
+                      // Align(
+                      //   alignment: Alignment.topLeft,
+                      //   child: Padding(
+                      //     padding: const EdgeInsets.symmetric(horizontal: 20),
+                      //     child: Column(
+                      //       crossAxisAlignment: CrossAxisAlignment.start,
+                      //       children: [
+                      //         user.emailVerified
+                      //             ? Text(
+                      //                 user.displayName,
+                      //                 style: TextStyle(
+                      //                   color: primaryBlack,
+                      //                   fontFamily: 'popMedium',
+                      //                   fontSize:
+                      //                       MediaQuery.of(context).size.height *
+                      //                           0.038,
+                      //                 ),
+                      //               )
+                      //             : Text(
+                      //                 "Hi Alen",
+                      //                 style: TextStyle(
+                      //                   color: primaryBlack,
+                      //                   fontFamily: 'popMedium',
+                      //                   fontSize:
+                      //                       MediaQuery.of(context).size.height *
+                      //                           0.038,
+                      //                 ),
+                      //               ),
+                      //         Text(
+                      //           'Ready to loose some calories today!!',
+                      //           style: TextStyle(
+                      //             color: primaryBlack,
+                      //             fontFamily: 'popLight',
+                      //             fontSize: MediaQuery.of(context).size.height *
+                      //                 0.015,
+                      //           ),
+                      //         ),
+                      //       ],
+                      //     ),
+                      //   ),
+                      // ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.018),
                       dietContainer(
-                        '300-722 cal',
+                        '500-722 cal',
                         'Muscle\nGain',
                         'assets/images/diet/diet1.jpg',
                         const MuscleGainDiet(),
                       ),
                       dietContainer(
-                        '150-276 cal',
+                        '180-300 cal',
                         'Weight\nloss',
                         'assets/images/diet/diet2.jpg',
                         const WeightLoss(),
                       ),
                       dietContainer(
-                        '120-500 cal',
+                        '500-800 cal',
                         'High\ncalories',
                         'assets/images/diet/diet3.jpg',
                         const HighCalories(),
                       ),
                       dietContainer(
-                        '120-500 cal',
+                        '80-200 cal',
                         'Low\ncalories',
                         'assets/images/diet/diet4.jpg',
                         const LowCalories(),
                       ),
                       dietContainer(
-                        '150-276 cal',
+                        '200-350 cal',
                         'Normal\ndiet',
                         'assets/images/diet/diet5.jpg',
                         const NormalDiet(),

@@ -1,18 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_signIn_button.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/forget_password.dart';
 import 'authentication.dart';
 
-class SignInLoginPage extends StatefulWidget {
-  const SignInLoginPage({Key key}) : super(key: key);
+class LoginSignupPage extends StatefulWidget {
+  const LoginSignupPage({Key key}) : super(key: key);
 
   @override
-  _SignInLoginPageState createState() => _SignInLoginPageState();
+  _LoginSignupPageState createState() => _LoginSignupPageState();
 }
 
-class _SignInLoginPageState extends State<SignInLoginPage> {
+class _LoginSignupPageState extends State<LoginSignupPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   final _newPasswordController = TextEditingController();
@@ -41,9 +43,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
         ),
         child: Stack(
           children: [
-            //---------input field-------
+            //--------------------------Login-------------------------
+
             isVisible
-                //------Login----------
                 ? Visibility(
                     visible: isVisible,
                     child: Padding(
@@ -262,6 +264,30 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                                       ),
                                     ),
                                   ),
+
+                                  //---------------forget button----------------
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 10),
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: TextButton(
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            PageTransition(
+                                              type: PageTransitionType
+                                                  .rightToLeftWithFade,
+                                              child: const ForgetPasswordPage(),
+                                            ),
+                                          );
+                                        },
+                                        child: const Text(
+                                          'Forget Password?',
+                                          style: TextStyle(color: Colors.blue),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
                                 ],
                               ),
                             ),
@@ -270,7 +296,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                       ),
                     ),
                   )
-                //-------Sign up---------
+
+                //----------------------Sign up-------------------------------
+
                 : Visibility(
                     visible: !isVisible,
                     child: Padding(
@@ -578,8 +606,11 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                   ),
 
             //----------buttons----------
+
             isVisible
-                //---------Login button----------
+
+                //------------------------Login button-----------------------
+
                 ? Visibility(
                     visible: isVisible,
                     child: Align(
@@ -664,7 +695,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                       ),
                     ),
                   )
-                //---------Sign up button----------
+
+                //--------------------------Sign up button---------------------
+
                 : Visibility(
                     visible: !isVisible,
                     child: Align(
@@ -757,7 +790,7 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    //----------google----------
+                    //---------------------google button----------------------
 
                     isVisible
                         ? Visibility(
@@ -769,8 +802,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                             child: Container(),
                           ),
 
+                    //--------------already have account / Sign Up--------------
+
                     isVisible
-                        //----------already have account / Sign Up--------
                         ? Visibility(
                             visible: isVisible,
                             child: Padding(
@@ -808,7 +842,9 @@ class _SignInLoginPageState extends State<SignInLoginPage> {
                               ),
                             ),
                           )
-                        //----------don't have account / Login----------
+
+                        //---------------don't have account / Login---------------
+
                         : Visibility(
                             visible: !isVisible,
                             child: Padding(
