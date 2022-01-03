@@ -9,8 +9,7 @@ import 'Running/running_page.dart';
 import 'Weight/weight_page.dart';
 
 class StartPage extends StatefulWidget {
-  final String name;
-  const StartPage({Key key, this.name}) : super(key: key);
+  const StartPage({Key key}) : super(key: key);
 
   @override
   _StartPageState createState() => _StartPageState();
@@ -225,7 +224,7 @@ class _StartPageState extends State<StartPage> {
       ),
       body: Stack(
         children: [
-          const DrawerPage(name: 'hello',),
+          const DrawerPage(),
           tabs[currentIndex],
         ],
       ),

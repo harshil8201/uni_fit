@@ -21,7 +21,9 @@ class _GooglePageControllerState extends State<GooglePageController> {
         builder: (context, snapshot) {
           print("----------We are in Connection State-----------");
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+              child: CircularProgressIndicator(),
+            );
           } else if (snapshot.hasData) {
             print("-----------We are in Start Page-----------");
             return StartPage();

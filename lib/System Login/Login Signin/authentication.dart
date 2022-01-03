@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/databse.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -10,6 +11,10 @@ class AuthenticationHelper {
         email: email,
         password: password,
       );
+
+      User user = _auth.currentUser;
+      await DatabaseService(uid: user.uid).upDateUserData(email, user.uid, 0);
+
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;

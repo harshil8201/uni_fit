@@ -19,7 +19,8 @@ class LoginSignupPage extends StatefulWidget {
 class _LoginSignupPageState extends State<LoginSignupPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String _age;
+  TextEditingController name = TextEditingController();
+  String _name;
   String _email, _password;
 
   final auth = FirebaseAuth.instance;
@@ -30,7 +31,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   // DatabaseReference _ref;
   // @override
   // void initState() {
-  //   // TODO: implement initState
   //   super.initState();
   //   _ref = FirebaseDatabase.instance.ref().child(FirebaseAuth.instance.currentUser.uid);
   // }
@@ -73,7 +73,12 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                             Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                  padding: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.height *
+                                        0.0625,
+                                    right: MediaQuery.of(context).size.width *
+                                        0.02778,
+                                  ),
                                   child: Align(
                                     alignment: Alignment.topRight,
                                     child: SizedBox(
@@ -366,7 +371,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   MediaQuery.of(context).size.height * 0.025,
                             ),
 
-                            //------------age-------------
+                            //------------Name-------------
                             Padding(
                               padding: const EdgeInsets.only(top: 5, right: 10),
                               child: Column(
@@ -375,7 +380,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 15),
                                     child: Text(
-                                      'Age :',
+                                      'Name :',
                                       style: TextStyle(
                                         color: superDarkGreen,
                                         fontSize:
@@ -403,18 +408,19 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                                 0.0625,
                                         width: double.infinity,
                                         child: TextFormField(
+                                          controller: name,
                                           onChanged: (value) {
                                             setState(() {
-                                              _age = value.trim();
+                                              _name = value.trim();
                                             });
                                           },
                                           validator: (value) {
                                             if (value.isEmpty) {
-                                              return "Please enter your Age";
+                                              return "Please enter your Name";
                                             }
                                             return null;
                                           },
-                                          keyboardType: TextInputType.number,
+                                          keyboardType: TextInputType.text,
                                           textInputAction: TextInputAction.next,
                                           obscureText: false,
                                           decoration: InputDecoration(
@@ -432,7 +438,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                                     borderSide: BorderSide(
                                                         color: Colors
                                                             .transparent)),
-                                            hintText: 'Enter your age',
+                                            hintText: 'Enter your Name',
                                             hintStyle: TextStyle(
                                               color: darkWhite,
                                             ),
@@ -657,7 +663,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   // FirebaseFirestore.instance
                                   //     .collection('UserData')
                                   //     .doc(result)
-                                  //     .set({"email": _email, "uid": FirebaseAuth.instance.currentUser.uid});
+                                  //     .set({
+                                  //   "cal": 0,
+                                  // });
                                 });
                               },
                               child: Container(
@@ -747,12 +755,13 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             builder: (context) =>
                                                 const StartPage()));
                                   }
-                                  FirebaseFirestore.instance
-                                      .collection('UserData')
-                                      .add({
-                                    "email": _email,
-                                    "uid": FirebaseAuth.instance.currentUser.uid
-                                  });
+                                  // FirebaseFirestore.instance
+                                  //     .collection('UserData')
+                                  //     .doc(result)
+                                  //     .set({
+                                  //   "email": _email,
+                                  //   "uid": FirebaseAuth.instance.currentUser.uid
+                                  // });
                                 });
                               },
                               child: Container(

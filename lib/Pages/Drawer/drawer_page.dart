@@ -10,9 +10,7 @@ import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
 class DrawerPage extends StatefulWidget {
-  final String name;
-
-  const DrawerPage({Key key, this.name}) : super(key: key);
+  const DrawerPage({Key key}) : super(key: key);
 
   @override
   _DrawerPageState createState() => _DrawerPageState();
@@ -93,7 +91,7 @@ class _DrawerPageState extends State<DrawerPage> {
                         ),
                       )
                     : Text(
-                        "example@gmail.com",
+                        user.email,
                         style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height * 0.015,
                           color: primaryWhite,

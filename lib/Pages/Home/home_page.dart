@@ -1,4 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -18,8 +20,19 @@ class _HomePageState extends State<HomePage> {
   bool isDrawerOpen = false;
 
   final user = FirebaseAuth.instance.currentUser;
-  final auth = FirebaseAuth.instance;
 
+  // @override
+  // void initState() {
+  //   var plus=FirebaseFirestore.instance
+  //       .collection('UserData')
+  //       .doc(user.uid)
+  //       .update({'cal': 30});
+  //   setState(() {
+  //     setState(() {
+  //       plus = plus + 30;
+  //     });
+  //   });
+  // }
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -183,10 +196,47 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
               ),
-              // Padding(
-              //   padding: const EdgeInsets.only(top:400,left: 20),
-              //   child: Text('{widget.burnCaloriesAmount}'),
-              // )
+              user.emailVerified
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 410, left: 20),
+                      child: Text('No data'))
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 350, left: 20),
+                      child:
+                          StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                        stream: FirebaseFirestore.instance
+                            .collection('UserData')
+                            .doc(user.uid) //ID OF DOCUMENT
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return new CircularProgressIndicator();
+                          }
+                          var document = snapshot.data;
+                          return Column(
+                            children: [
+                              Text(document["email"]),
+                              Text(document['cal'].toString()),
+                            ],
+                          );
+                        },
+                      ),
+                    ),
+              user.emailVerified
+                  ? Padding(
+                      padding: const EdgeInsets.only(top: 400, left: 20),
+                      child: Text('No data'))
+                  : Padding(
+                      padding: const EdgeInsets.only(top: 400, left: 20),
+                      child: ElevatedButton(
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection('UserData')
+                                .doc(user.uid)
+                                .update({'cal': 20});
+                          },
+                          child: Text('click')),
+                    ),
             ],
           ),
         ),

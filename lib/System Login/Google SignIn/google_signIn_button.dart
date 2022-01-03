@@ -22,18 +22,21 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
         onTap: () {
           final provider =
               Provider.of<GoogleSignInProvider>(context, listen: false);
-          provider.googleLogIn().whenComplete(
+          provider
+              .googleLogIn()
+              .whenComplete(
                 () => Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
                     builder: (context) => const StartPage(),
                   ),
                 ),
-              ).then((value) {
-            // FirebaseFirestore.instance
-            //     .collection('UserData')
-            //     .doc(value)
-            //     .set({"email": provider, "uid": FirebaseAuth.instance.currentUser.uid});
+              )
+              .then((value) {
+            // FirebaseFirestore.instance.collection('UserData').doc(value).set({
+            //   "email": provider,
+            //   "uid": FirebaseAuth.instance.currentUser.uid
+            // });
           });
         },
         child: Container(
