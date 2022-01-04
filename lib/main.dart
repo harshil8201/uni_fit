@@ -2,10 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:provider/provider.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_page_controller.dart';
-import 'System Login/Google SignIn/google_sign_in_provider.dart';
-import 'Class/route_class.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -29,16 +26,13 @@ class MyApp extends StatelessWidget {
         DeviceOrientation.portraitUp,
       ],
     );
-    return ChangeNotifierProvider(
-      create: (context) => GoogleSignInProvider(),
-      child: MaterialApp(
-        navigatorKey: navigatorKey,
-        title: 'Uni Fit',
-        debugShowCheckedModeBanner: false,
-        home: const GooglePageController(),
-        // initialRoute: '/',
-        // routes: routeClass,
-      ),
+    return MaterialApp(
+      navigatorKey: navigatorKey,
+      title: 'Uni Fit',
+      debugShowCheckedModeBanner: false,
+      home: const GooglePageController(),
+      // initialRoute: '/',
+      // routes: routeClass,
     );
   }
 }

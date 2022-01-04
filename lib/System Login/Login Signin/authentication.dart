@@ -1,8 +1,36 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/databse.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:uni_fit/System%20Login/databse.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn();
+
+  //sign up with google
+  Future<String> signInwithGoogle() async {
+    try {
+      final GoogleSignInAccount googleSignInAccount =
+          await _googleSignIn.signIn();
+      final GoogleSignInAuthentication googleSignInAuthentication =
+          await googleSignInAccount.authentication;
+      await DatabaseService(uid: _googleSignIn.currentUser.email).upDateUserData(_googleSignIn.currentUser.email, _googleSignIn.currentUser.id, 0);
+      final AuthCredential credential = GoogleAuthProvider.credential(
+        accessToken: googleSignInAuthentication.accessToken,
+        idToken: googleSignInAuthentication.idToken,
+      );
+      await _auth.signInWithCredential(credential);
+    } on FirebaseAuthException catch (e) {
+      print(e.message);
+      throw e;
+    }
+  }
+
+  //sign out with google
+  Future<void> signOutFromGoogle() async {
+    await _googleSignIn.signOut();
+    await _auth.signOut();
+  }
 
   //SIGN UP METHOD
   Future signUp({String email, String password}) async {
@@ -21,23 +49,13 @@ class AuthenticationHelper {
     }
   }
 
-  Future<String> currentUser() async {
-    User user = await _auth.currentUser;
-    return user.uid;
-  }
-
-
-  Future<String> getCurrentUserEmail() async {
-    User user = await _auth.currentUser;
-    final String email = user.email.toString();
-    //  print(email);
-    return email;
-  }
-
   //SIGN IN METHOD
   Future signIn({String email, String password}) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: password,);
+      await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
       return null;
     } on FirebaseAuthException catch (e) {
       return e.message;

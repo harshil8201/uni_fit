@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -21,18 +20,6 @@ class _HomePageState extends State<HomePage> {
 
   final user = FirebaseAuth.instance.currentUser;
 
-  // @override
-  // void initState() {
-  //   var plus=FirebaseFirestore.instance
-  //       .collection('UserData')
-  //       .doc(user.uid)
-  //       .update({'cal': 30});
-  //   setState(() {
-  //     setState(() {
-  //       plus = plus + 30;
-  //     });
-  //   });
-  // }
   @override
   Widget build(BuildContext context) {
     return AnimatedContainer(
@@ -198,15 +185,34 @@ class _HomePageState extends State<HomePage> {
               ),
               user.emailVerified
                   ? Padding(
-                      padding: const EdgeInsets.only(top: 410, left: 20),
-                      child: Text('No data'))
+                      padding: const EdgeInsets.only(top: 350, left: 20),
+                      child:
+                          StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                        stream: FirebaseFirestore.instance
+                            .collection('UserData')
+                            .doc(user.email)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return new CircularProgressIndicator();
+                          }
+                          var document = snapshot.data;
+                          return Column(
+                            children: [
+                              Text(document["email"]),
+                              Text(document['cal'].toString()),
+                            ],
+                          );
+                        },
+                      ),
+                    )
                   : Padding(
                       padding: const EdgeInsets.only(top: 350, left: 20),
                       child:
                           StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
                         stream: FirebaseFirestore.instance
                             .collection('UserData')
-                            .doc(user.uid) //ID OF DOCUMENT
+                            .doc(user.uid)
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (!snapshot.hasData) {
@@ -225,7 +231,14 @@ class _HomePageState extends State<HomePage> {
               user.emailVerified
                   ? Padding(
                       padding: const EdgeInsets.only(top: 400, left: 20),
-                      child: Text('No data'))
+                      child: ElevatedButton(
+                          onPressed: () {
+                            FirebaseFirestore.instance
+                                .collection('UserData')
+                                .doc(user.email)
+                                .update({'cal': 20});
+                          },
+                          child: Text('click')))
                   : Padding(
                       padding: const EdgeInsets.only(top: 400, left: 20),
                       child: ElevatedButton(

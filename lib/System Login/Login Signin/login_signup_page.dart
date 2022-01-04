@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/start_page.dart';
@@ -738,7 +736,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                     MediaQuery.of(context).size.height * 0.1125,
                                 left: 70,
                                 right: 70),
-                            child: GestureDetector(
+                            child: InkWell(
                               onTap: () {
                                 // if (formKey.currentState.validate()) {
                                 //   return;

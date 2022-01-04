@@ -2,9 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:provider/provider.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
-import 'package:uni_fit/System%20Login/Google%20SignIn/google_sign_in_provider.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -165,16 +163,15 @@ class _DrawerPageState extends State<DrawerPage> {
       ),
       onPressed: user.emailVerified
           ? () {
-              final provider =
-                  Provider.of<GoogleSignInProvider>(context, listen: false);
-              provider.logOut();
+              AuthenticationHelper().signInwithGoogle();
               Navigator.pop(context);
               Navigator.pushAndRemoveUntil(
                   context,
                   MaterialPageRoute(
                       builder: (context) => const LoginSignupPage()),
-                  (Route<dynamic> route) => false);
-              print('------------we are sign out using gmail------------');
+                      (Route<dynamic> route) => false);
+              print(
+                  '-----------we are sign out using google----------');
             }
           : () {
               AuthenticationHelper().signOut();
