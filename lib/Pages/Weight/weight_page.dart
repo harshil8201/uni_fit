@@ -23,7 +23,6 @@ class _WeightPageState extends State<WeightPage> {
   bool isDrawerOpen = false;
 
   final user = FirebaseAuth.instance.currentUser;
-  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -225,28 +224,24 @@ class _WeightPageState extends State<WeightPage> {
                       ),
 
                       //----------beginner---------
-                      InkWell(
-                        child: exerciseCategoriesContainer(
-                            'beginner',
-                            Icons.offline_bolt,
-                            Icons.offline_bolt_outlined,
-                            Icons.offline_bolt_outlined,
-                            '10-13 min',
-                            '130-180 cal',
-                            const BeginnerExercise()),
-                      ),
+                      exerciseCategoriesContainer(
+                          'beginner',
+                          Icons.offline_bolt,
+                          Icons.offline_bolt_outlined,
+                          Icons.offline_bolt_outlined,
+                          '10-13 min',
+                          '130-180 cal',
+                          const BeginnerExercise()),
 
                       //---------intermediate---------
-                      InkWell(
-                        child: exerciseCategoriesContainer(
-                            'intermediate',
-                            Icons.offline_bolt,
-                            Icons.offline_bolt,
-                            Icons.offline_bolt_outlined,
-                            '12-16 min',
-                            '210-250 cal',
-                            const IntermediateExercise()),
-                      ),
+                      exerciseCategoriesContainer(
+                          'intermediate',
+                          Icons.offline_bolt,
+                          Icons.offline_bolt,
+                          Icons.offline_bolt_outlined,
+                          '12-16 min',
+                          '210-250 cal',
+                          const IntermediateExercise()),
 
                       //--------advance-------------
                       exerciseCategoriesContainer(

@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (!snapshot.hasData) {
-                            return new CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           }
                           var document = snapshot.data;
                           return Column(
@@ -216,7 +216,7 @@ class _HomePageState extends State<HomePage> {
                             .snapshots(),
                         builder: (context, snapshot) {
                           if (!snapshot.hasData) {
-                            return new CircularProgressIndicator();
+                            return const CircularProgressIndicator();
                           }
                           var document = snapshot.data;
                           return Column(
@@ -238,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                                 .doc(user.email)
                                 .update({'cal': 20});
                           },
-                          child: Text('click')))
+                          child: const Text('click')))
                   : Padding(
                       padding: const EdgeInsets.only(top: 400, left: 20),
                       child: ElevatedButton(
@@ -248,7 +248,7 @@ class _HomePageState extends State<HomePage> {
                                 .doc(user.uid)
                                 .update({'cal': 20});
                           },
-                          child: Text('click')),
+                          child: const Text('click')),
                     ),
             ],
           ),

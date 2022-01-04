@@ -23,7 +23,6 @@ class _DietPageState extends State<DietPage> {
   bool isDrawerOpen = false;
 
   final user = FirebaseAuth.instance.currentUser;
-  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {

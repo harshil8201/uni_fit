@@ -18,7 +18,6 @@ class _RunningPageState extends State<RunningPage> {
   bool isDrawerOpen = false;
 
   final user = FirebaseAuth.instance.currentUser;
-  final auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {

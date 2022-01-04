@@ -14,7 +14,17 @@ class AuthenticationHelper {
           await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
-      await DatabaseService(uid: _googleSignIn.currentUser.email).upDateUserData(_googleSignIn.currentUser.email, _googleSignIn.currentUser.id, 0);
+      await DatabaseService(uid: _googleSignIn.currentUser.email)
+          .upDateUserData(
+        _googleSignIn.currentUser.email,
+        _googleSignIn.currentUser.id,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      );
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
@@ -41,7 +51,16 @@ class AuthenticationHelper {
       );
 
       User user = _auth.currentUser;
-      await DatabaseService(uid: user.uid).upDateUserData(email, user.uid, 0);
+      await DatabaseService(uid: user.uid).upDateUserData(
+        email,
+        user.uid,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+      );
 
       return null;
     } on FirebaseAuthException catch (e) {
