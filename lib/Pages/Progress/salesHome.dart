@@ -1,38 +1,36 @@
 /// Bar chart example
 import 'package:charts_flutter/flutter.dart' as charts;
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class SimpleBarChart extends StatelessWidget {
+class SimpleBarChart extends StatefulWidget {
+
   final List<charts.Series> seriesList;
   final bool animate;
 
+
   SimpleBarChart(this.seriesList, {this.animate});
 
-  /// Creates a [BarChart] with sample data and no transition.
   factory SimpleBarChart.withSampleData() {
     return SimpleBarChart(
       _createSampleData(),
-      // Disable animations for image tests.
-      animate: false,
+      animate: true,
     );
   }
 
 
   @override
-  Widget build(BuildContext context) {
-    return charts.BarChart(
-      seriesList,
-      animate: animate,
-    );
-  }
-
-  /// Create one series with sample hard coded data.
+  State<SimpleBarChart> createState() => _SimpleBarChartState();
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
+
+    // int b = FirebaseFirestore.instance.collection('UserData').doc('email').get({})
+
     final data = [
-      OrdinalSales('2014', 5),
-      OrdinalSales('2015', 25),
-      OrdinalSales('2016', 100),
-      OrdinalSales('2017', 75),
+      OrdinalSales('abs', 10),
+      OrdinalSales('shoulder', 25),
+      OrdinalSales('chest', 10),
+      OrdinalSales('back', 75),
     ];
 
     return [
@@ -47,7 +45,16 @@ class SimpleBarChart extends StatelessWidget {
   }
 }
 
-/// Sample ordinal data type.
+class _SimpleBarChartState extends State<SimpleBarChart> {
+  @override
+  Widget build(BuildContext context) {
+    return charts.BarChart(
+      widget.seriesList,
+      animate: widget.animate,
+    );
+  }
+}
+
 class OrdinalSales {
   final String year;
   final int sales;
