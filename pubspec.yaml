@@ -32,6 +32,7 @@ dependencies:
   form_field_validator:
   confetti:
   carousel_slider:
+  charts_flutter:
 
 dev_dependencies:
   flutter_test:

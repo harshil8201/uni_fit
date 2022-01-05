@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:confetti/confetti.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Pages/Weight/Beginner/beginner_exercise.dart';
@@ -15,6 +17,8 @@ class BeginnerAbsStart extends StatefulWidget {
 }
 
 class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
+  final user = FirebaseAuth.instance.currentUser;
+
   static const maxSecond = 0;
   int second = maxSecond;
   Timer timer;
@@ -31,7 +35,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
       if (second >= 0) {
         setState(() => second++);
       } else if (second > 441) {
@@ -41,7 +45,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -51,7 +55,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
@@ -413,7 +417,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
             ),
             Center(
               child: Text(
-                "Congratulation !!\n\nYou completed\ntoday's workout.\n\nYou burn : 120 cal.",
+                "Congratulation !!\n\nYou completed\ntoday's workout.\n\nYou burn : 104 cal.",
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: superDarkGreen,
@@ -423,60 +427,109 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const BeginnerExercise(),
+            user.emailVerified
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                        onTap: () {
+                          FirebaseFirestore.instance
+                              .collection('UserData')
+                              .doc(user.email)
+                              .update({'absCal': FieldValue.increment(104)});
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BeginnerExercise(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.0625,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'DONE'.toUpperCase(),
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontFamily: 'popBold',
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.0287,
+                                  letterSpacing: 2,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                    );
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) =>
-                    //         const StartPage(burnCalories: 120),
-                    //   ),
-                    // );
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 60),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.0625,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                            color: shadowBlack,
-                            offset: const Offset(0, 0),
-                            blurRadius: 20.0,
-                          ), //BoxShadow
-                        ],
-                      ),
-                      child: Center(
-                        child: Text(
-                          'DONE'.toUpperCase(),
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontFamily: 'popBold',
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.0287,
-                            letterSpacing: 2,
-                            color: primaryGreen,
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                        onTap: () {
+                          FirebaseFirestore.instance
+                              .collection('UserData')
+                              .doc(user.uid)
+                              .update({'absCal': FieldValue.increment(104)});
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BeginnerExercise(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.0625,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'DONE'.toUpperCase(),
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontFamily: 'popBold',
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.0287,
+                                  letterSpacing: 2,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
           ],
         ),
       ),

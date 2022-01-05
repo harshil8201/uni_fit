@@ -144,10 +144,9 @@ class _ProgressPageState extends State<ProgressPage> {
               Padding(
                 padding: const EdgeInsets.only(top: 110),
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                      right: 20, left: 20, top: 5, bottom: 5),
+                  padding: const EdgeInsets.only(right: 20, left: 20, top: 5),
                   child: Container(
-                    height: 300,
+                    height: 280,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: primaryWhite,
@@ -173,12 +172,10 @@ class _ProgressPageState extends State<ProgressPage> {
                                 fontFamily: 'popBold'),
                           ),
                         ),
-
                         Padding(
-                          padding: const EdgeInsets.only(left: 20,right: 20),
+                          padding: const EdgeInsets.only(left: 20, right: 20),
                           child: Column(
                             children: [
-
                               //Abs
                               user.emailVerified
                                   ? StreamBuilder<
@@ -195,7 +192,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Abs ',
+                                              'Abs : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -203,7 +200,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['absCal'].toString(),
+                                              "${document['absCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -228,7 +225,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Abs ',
+                                              'Abs : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -236,7 +233,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['absCal'].toString(),
+                                              "${document['absCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -264,7 +261,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Shoulder ',
+                                              'Shoulder : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -272,7 +269,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['shoulderCal'].toString(),
+                                              "${document['shoulderCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -297,7 +294,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Shoulder ',
+                                              'Shoulder : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -305,7 +302,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['shoulderCal'].toString(),
+                                              "${document['shoulderCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -333,7 +330,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Chest ',
+                                              'Chest : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -341,7 +338,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['chestCal'].toString(),
+                                              "${document['chestCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -366,7 +363,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Chest ',
+                                              'Chest : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -374,7 +371,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['chestCal'].toString(),
+                                              "${document['chestCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -402,7 +399,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Arms ',
+                                              'Arms : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -410,7 +407,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['armsCal'].toString(),
+                                              "${document['armsCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -435,7 +432,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Arms ',
+                                              'Arms : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -443,7 +440,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['armsCal'].toString(),
+                                              "${document['armsCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -471,7 +468,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Legs ',
+                                              'Legs : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -479,7 +476,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['legsCal'].toString(),
+                                              "${document['legsCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -504,7 +501,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Legs ',
+                                              'Legs : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -512,7 +509,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['legsCal'].toString(),
+                                              "${document['legsCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -540,7 +537,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Back ',
+                                              'Back : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -548,7 +545,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['backCal'].toString(),
+                                              "${document['backCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -573,7 +570,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                         return Row(
                                           children: [
                                             Text(
-                                              'Back ',
+                                              'Back : ',
                                               style: TextStyle(
                                                   color: darkGreen,
                                                   fontSize: 20,
@@ -581,7 +578,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   fontFamily: 'popMedium'),
                                             ),
                                             Text(
-                                              document['backCal'].toString(),
+                                              "${document['backCal'].toString()} cal",
                                               style: TextStyle(
                                                   color: primaryBlack,
                                                   fontSize: 20,
@@ -595,6 +592,10 @@ class _ProgressPageState extends State<ProgressPage> {
                             ],
                           ),
                         ),
+                        // Container(
+                        //   height: 300,
+                        //   ch
+                        // ),
                       ],
                     ),
                   ),
