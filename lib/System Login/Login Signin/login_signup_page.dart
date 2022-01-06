@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -18,6 +19,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   TextEditingController name = TextEditingController();
+  final user = FirebaseAuth.instance.currentUser;
+
   String _name;
   String _email, _password;
 
@@ -746,6 +749,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 AuthenticationHelper()
                                     .signUp(email: _email, password: _password)
                                     .then((result) {
+                                  // FirebaseFirestore.instance
+                                  //     .collection('UserData')
+                                  //     .doc(auth.currentUser.uid)
+                                  //     .set({'name': _name});
                                   if (result == null) {
                                     Navigator.pushReplacement(
                                         context,
@@ -753,13 +760,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             builder: (context) =>
                                                 const StartPage()));
                                   }
-                                  // FirebaseFirestore.instance
-                                  //     .collection('UserData')
-                                  //     .doc(result)
-                                  //     .set({
-                                  //   "email": _email,
-                                  //   "uid": FirebaseAuth.instance.currentUser.uid
-                                  // });
                                 });
                               },
                               child: Container(

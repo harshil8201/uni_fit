@@ -23,7 +23,9 @@ dependencies:
   path_provider:
   google_sign_in:
   font_awesome_flutter: ^9.1.0
-  pedometer: ^3.0.0
+  pedometer:
+  decimal: ^0.3.3
+  percent_indicator: ^2.1.1
   tflite: ^1.1.1
   camera: ^0.5.8+11
   numberpicker: ^2.0.1
@@ -33,6 +35,8 @@ dependencies:
   confetti:
   carousel_slider:
   charts_flutter:
+#  google_maps_flutter:
+#  geolocator: ^7.0.3
 
 dev_dependencies:
   flutter_test:

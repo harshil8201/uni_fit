@@ -17,6 +17,7 @@ class AuthenticationHelper {
       await DatabaseService(uid: _googleSignIn.currentUser.email)
           .upDateUserData(
         _googleSignIn.currentUser.email,
+        _googleSignIn.currentUser.displayName,
         _googleSignIn.currentUser.id,
         0,
         0,
@@ -53,6 +54,7 @@ class AuthenticationHelper {
       User user = _auth.currentUser;
       await DatabaseService(uid: user.uid).upDateUserData(
         email,
+        '',
         user.uid,
         0,
         0,

@@ -142,13 +142,14 @@ class _ProgressPageState extends State<ProgressPage> {
                 ),
               ),
 
-              SingleChildScrollView(
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 110),
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 20, left: 20, top: 5),
+              Padding(
+                padding: const EdgeInsets.only(top: 110),
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(right: 20, left: 20, top: 5),
                         child: Container(
                           height: 280,
                           width: double.infinity,
@@ -166,7 +167,8 @@ class _ProgressPageState extends State<ProgressPage> {
                           child: Column(
                             children: [
                               Padding(
-                                padding: const EdgeInsets.only(top: 10, bottom: 15),
+                                padding:
+                                    const EdgeInsets.only(top: 10, bottom: 15),
                                 child: Text(
                                   'Calories Burns'.toUpperCase(),
                                   style: TextStyle(
@@ -177,13 +179,15 @@ class _ProgressPageState extends State<ProgressPage> {
                                 ),
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 20, right: 20),
+                                padding:
+                                    const EdgeInsets.only(left: 20, right: 20),
                                 child: Column(
                                   children: [
                                     //Abs
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -200,23 +204,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['absCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -233,16 +242,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['absCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -252,7 +265,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                     //Shoulder
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -269,23 +283,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['shoulderCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -302,16 +321,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['shoulderCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -321,7 +344,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                     //Chest
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -338,23 +362,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['chestCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -371,16 +400,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['chestCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -390,7 +423,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                     //Arms
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -407,23 +441,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['armsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -440,16 +479,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['armsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -459,7 +502,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                     //Legs
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -476,23 +520,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['legsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -509,16 +558,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['legsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -528,7 +581,8 @@ class _ProgressPageState extends State<ProgressPage> {
                                     //Back
                                     user.emailVerified
                                         ? StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.email)
@@ -545,23 +599,28 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['backCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
                                             },
                                           )
                                         : StreamBuilder<
-                                            DocumentSnapshot<Map<String, dynamic>>>(
+                                            DocumentSnapshot<
+                                                Map<String, dynamic>>>(
                                             stream: FirebaseFirestore.instance
                                                 .collection('UserData')
                                                 .doc(user.uid)
@@ -578,16 +637,20 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     style: TextStyle(
                                                         color: darkGreen,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                   Text(
                                                     "${document['backCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
                                                         fontSize: 20,
-                                                        fontWeight: FontWeight.normal,
-                                                        fontFamily: 'popMedium'),
+                                                        fontWeight:
+                                                            FontWeight.normal,
+                                                        fontFamily:
+                                                            'popMedium'),
                                                   ),
                                                 ],
                                               );
@@ -600,15 +663,15 @@ class _ProgressPageState extends State<ProgressPage> {
                           ),
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10,right: 20, left: 20),
-                      child: SizedBox(
-                          height: 300,
-                          child: SimpleBarChart.withSampleData()
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 10, right: 20, left: 20),
+                        child: SizedBox(
+                            height: 300,
+                            child: SimpleBarChart.withSampleData()),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ],

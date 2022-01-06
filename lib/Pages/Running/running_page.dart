@@ -151,7 +151,7 @@ class _RunningPageState extends State<RunningPage> {
                         context,
                         PageRouteBuilder(
                           transitionDuration: const Duration(milliseconds: 700),
-                          pageBuilder: (_, __, ___) => New(),
+                          pageBuilder: (_, __, ___) => const New(),
                         ),
                       );
                     },

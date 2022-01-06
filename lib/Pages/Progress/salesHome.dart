@@ -57,7 +57,7 @@ class _SimpleBarChartState extends State<SimpleBarChart> {
 
 class OrdinalSales {
   final String year;
-  final int sales;
+  final dynamic sales;
 
   OrdinalSales(this.year, this.sales);
 }
