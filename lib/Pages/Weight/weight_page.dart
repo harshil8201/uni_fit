@@ -158,12 +158,12 @@ class _WeightPageState extends State<WeightPage> {
                         child: InkWell(
                           onTap: () {
                             // want to add navigation here-----------------
-                            Navigator.push(
-                              context,
-                              PageTransition(
-                                  type: PageTransitionType.bottomToTop,
-                                  child: LiveMonitoring(cameras)),
-                            );
+                            // Navigator.push(
+                            //   context,
+                            //   PageTransition(
+                            //       type: PageTransitionType.bottomToTop,
+                            //       child: LiveMonitoring(cameras)),
+                            // );
                           },
                           child: Container(
                             height: MediaQuery.of(context).size.height * 0.1875,

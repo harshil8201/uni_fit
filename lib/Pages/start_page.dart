@@ -16,7 +16,7 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  int currentIndex = 2;
+  int currentIndex = 4;
 
   setBottomBarIndex(index) {
     setState(() {

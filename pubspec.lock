@@ -223,6 +223,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.8"
+  flutter_plugin_android_lifecycle:
+    dependency: transitive
+    description:
+      name: flutter_plugin_android_lifecycle
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.5"
+  flutter_polyline_points:
+    dependency: "direct main"
+    description:
+      name: flutter_polyline_points
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   flutter_svg:
     dependency: transitive
     description:
@@ -254,6 +268,55 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.0"
+  geocoding:
+    dependency: "direct main"
+    description:
+      name: geocoding
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+  geocoding_platform_interface:
+    dependency: transitive
+    description:
+      name: geocoding_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.1"
+  geolocator:
+    dependency: "direct main"
+    description:
+      name: geolocator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "7.7.1"
+  geolocator_android:
+    dependency: transitive
+    description:
+      name: geolocator_android
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.0"
+  geolocator_apple:
+    dependency: transitive
+    description:
+      name: geolocator_apple
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.2.2"
+  geolocator_platform_interface:
+    dependency: transitive
+    description:
+      name: geolocator_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.3.6"
+  geolocator_web:
+    dependency: transitive
+    description:
+      name: geolocator_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.6"
   get:
     dependency: "direct main"
     description:
@@ -261,6 +324,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.1"
+  google_maps_flutter:
+    dependency: "direct main"
+    description:
+      name: google_maps_flutter
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.1"
+  google_maps_flutter_platform_interface:
+    dependency: transitive
+    description:
+      name: google_maps_flutter_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.1.3"
   google_sign_in:
     dependency: "direct main"
     description:
@@ -282,6 +359,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.10.0+3"
+  http:
+    dependency: transitive
+    description:
+      name: http
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.13.4"
   http_parser:
     dependency: transitive
     description:
@@ -518,6 +602,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.0"
   string_scanner:
     dependency: transitive
     description:

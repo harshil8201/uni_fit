@@ -1,14 +1,11 @@
-/// Bar chart example
 import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class SimpleBarChart extends StatefulWidget {
-
   final List<charts.Series> seriesList;
   final bool animate;
-
 
   SimpleBarChart(this.seriesList, {this.animate});
 
@@ -19,18 +16,20 @@ class SimpleBarChart extends StatefulWidget {
     );
   }
 
-
   @override
   State<SimpleBarChart> createState() => _SimpleBarChartState();
+
   static List<charts.Series<OrdinalSales, String>> _createSampleData() {
+    final user = FirebaseAuth.instance.currentUser;
 
-    // int b = FirebaseFirestore.instance.collection('UserData').doc('email').get({})
-
+    var a = 10;
+    // want to make a variable here, which store int value from firebase Firestore(UserData --> document--> absCal).
+    // and want to use tht variable in data[] as int to make dynamic bar chart.
     final data = [
-      OrdinalSales('abs', 10),
+      OrdinalSales('abs', a),
       OrdinalSales('shoulder', 25),
       OrdinalSales('chest', 10),
-      OrdinalSales('back', 75),
+      OrdinalSales('back', 50),
     ];
 
     return [

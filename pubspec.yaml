@@ -35,8 +35,10 @@ dependencies:
   confetti:
   carousel_slider:
   charts_flutter:
-#  google_maps_flutter:
-#  geolocator: ^7.0.3
+  google_maps_flutter: ^2.0.6
+  geolocator: ^7.0.3
+  geocoding: ^2.0.0
+  flutter_polyline_points: ^1.0.0
 
 dev_dependencies:
   flutter_test:
