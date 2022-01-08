@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:uni_fit/Pages/Running/repo.dart';
+import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Running/direction_repo.dart';
 import 'direction_model.dart';
 
 class MapScreen extends StatefulWidget {
+  const MapScreen({Key key}) : super(key: key);
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }
@@ -20,8 +23,10 @@ class _MapScreenState extends State<MapScreen> {
   Marker _destination;
   Directions _info;
 
+  double kmStep = 1312;
+
   Location currentLocation = Location();
-  Set<Marker> _markers = {};
+  final Set<Marker> _markers = {};
 
   void getLocation() async {
     var location = await currentLocation.getLocation();
@@ -62,44 +67,12 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: false,
-        title: const Text('Google Maps'),
-        actions: [
-          if (_origin != null)
-            TextButton(
-              onPressed: () => _googleMapController.animateCamera(
-                CameraUpdate.newCameraPosition(
-                  CameraPosition(
-                    target: _origin.position,
-                    zoom: 14.5,
-                    tilt: 50.0,
-                  ),
-                ),
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.green,
-                textStyle: const TextStyle(fontWeight: FontWeight.w600),
-              ),
-              child: const Text('ORIGIN'),
-            ),
-          if (_destination != null)
-            TextButton(
-              onPressed: () => _googleMapController.animateCamera(
-                CameraUpdate.newCameraPosition(
-                  CameraPosition(
-                    target: _destination.position,
-                    zoom: 14.5,
-                    tilt: 50.0,
-                  ),
-                ),
-              ),
-              style: TextButton.styleFrom(
-                primary: Colors.blue,
-                textStyle: const TextStyle(fontWeight: FontWeight.w600),
-              ),
-              child: const Text('DEST'),
-            )
-        ],
+        backgroundColor: primaryGreen,
+        centerTitle: true,
+        title: const Text('Running Maps'),
+        leading: IconButton(onPressed: () {
+          Navigator.pop(context);
+        }, icon: const Icon(Icons.arrow_back)),
       ),
       body: Stack(
         alignment: Alignment.center,
@@ -136,7 +109,7 @@ class _MapScreenState extends State<MapScreen> {
                   horizontal: 12.0,
                 ),
                 decoration: BoxDecoration(
-                  color: Colors.yellowAccent,
+                  color: Colors.white,
                   borderRadius: BorderRadius.circular(20.0),
                   boxShadow: const [
                     BoxShadow(
@@ -148,27 +121,88 @@ class _MapScreenState extends State<MapScreen> {
                 ),
                 child: Text(
                   '${_info.totalDistance}, ${_info.totalDuration}',
-                  style: const TextStyle(
+                  style: TextStyle(
                     fontSize: 18.0,
+                    color: superDarkGreen,
                     fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
             ),
+          const Padding(
+            padding: EdgeInsets.only(bottom: 8),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                '* Note: please do long press 2 times,\nif you want to create route *',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.red
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 50),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 90),
+                child: InkWell(
+                  onTap: () {
+                    // print(int.parse(_info)*kmStep);
+                  },
+                  child: Container(
+                    height: 60,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: primaryGreen,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Running\nDone'.toUpperCase(),
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: 18,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: Theme.of(context).primaryColor,
-        foregroundColor: Colors.black,
-        onPressed: () {
-          getLocation();
-          _googleMapController.animateCamera(
-            _info != null
-                ? CameraUpdate.newLatLngBounds(_info.bounds, 100.0)
-                : CameraUpdate.newCameraPosition(_initialCameraPosition),
-          );
-        },
-        child: const Icon(Icons.center_focus_strong),
+      floatingActionButton: Padding(
+        padding: const EdgeInsets.only(top: 130),
+        child: Align(
+          alignment: Alignment.topRight,
+          child: FloatingActionButton(
+            backgroundColor: primaryGreen,
+            foregroundColor: primaryWhite,
+            onPressed: () {
+              getLocation();
+              _googleMapController.animateCamera(
+                _info != null
+                    ? CameraUpdate.newLatLngBounds(_info.bounds, 100.0)
+                    : CameraUpdate.newCameraPosition(_initialCameraPosition),
+              );
+            },
+            child: const Icon(Icons.location_on),
+          ),
+        ),
       ),
     );
   }
@@ -182,12 +216,11 @@ class _MapScreenState extends State<MapScreen> {
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
           icon:
-              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+              BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
         // Reset destination
         _destination = null;
-
         // Reset info
         _info = null;
       });
@@ -196,9 +229,9 @@ class _MapScreenState extends State<MapScreen> {
       // Set destination
       setState(() {
         _destination = Marker(
-          markerId: MarkerId('destination'),
-          infoWindow: const InfoWindow(title: 'Destination'),
-          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          markerId: const MarkerId('destination'),
+          infoWindow: const InfoWindow(title: 'Destination',),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueViolet),
           position: pos,
         );
       });

@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Pages/Running/map_screen.dart';
 import 'package:uni_fit/new.dart';
 
 class RunningPage extends StatefulWidget {
@@ -144,18 +145,18 @@ class _RunningPageState extends State<RunningPage> {
                 child: Container(
                   height: 100,
                   width: 100,
-                  color: Colors.blue,
+                  color: Colors.grey,
                   child: InkWell(
                     onTap: () {
-                      // Navigator.push(
-                      //   context,
-                      //   PageRouteBuilder(
-                      //     transitionDuration: const Duration(milliseconds: 700),
-                      //     pageBuilder: (_, __, ___) => const New(),
-                      //   ),
-                      // );
+                      Navigator.push(
+                        context,
+                        PageRouteBuilder(
+                          transitionDuration: const Duration(milliseconds: 700),
+                          pageBuilder: (_, __, ___) => MapScreen(),
+                        ),
+                      );
                     },
-                    child: const Text("hello"),
+                    child: const Text("Go to the running page"),
                   ),
                 ),
               )
