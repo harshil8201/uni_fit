@@ -147,13 +147,13 @@ class _RunningPageState extends State<RunningPage> {
                   color: Colors.blue,
                   child: InkWell(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        PageRouteBuilder(
-                          transitionDuration: const Duration(milliseconds: 700),
-                          pageBuilder: (_, __, ___) => const New(),
-                        ),
-                      );
+                      // Navigator.push(
+                      //   context,
+                      //   PageRouteBuilder(
+                      //     transitionDuration: const Duration(milliseconds: 700),
+                      //     pageBuilder: (_, __, ___) => const New(),
+                      //   ),
+                      // );
                     },
                     child: const Text("hello"),
                   ),

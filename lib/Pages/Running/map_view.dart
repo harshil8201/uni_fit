@@ -1,119 +1,176 @@
-// import 'package:flutter/material.dart';
-// import 'package:geolocator/geolocator.dart';
-// import 'package:google_maps_flutter/google_maps_flutter.dart';
-//
-// class MapView extends StatefulWidget {
-//   const MapView({Key key}) : super(key: key);
-//
-//   @override
-//   _MapViewState createState() => _MapViewState();
-// }
-//
-// class _MapViewState extends State<MapView> {
-//   // Initial location of the Map view
-//   CameraPosition _initialLocation = CameraPosition(target: LatLng(0.0, 0.0));
-//
-// // For controlling the view of the Map
-//   GoogleMapController mapController;
-//
-//   // For storing the current position
-//   Position _currentPosition;
-//
-//   // Method for retrieving the current location
-//
-//   _getCurrentLocation() async {
-//     await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high)
-//         .then((Position position) async {
-//       setState(() {
-//         // Store the position in the variable
-//         _currentPosition = position;
-//
-//         print('CURRENT POS: $_currentPosition');
-//
-//         // For moving the camera to current location
-//         mapController.animateCamera(
-//           CameraUpdate.newCameraPosition(
-//             CameraPosition(
-//               target: LatLng(position.latitude, position.longitude),
-//               zoom: 18.0,
-//             ),
-//           ),
-//         );
-//       });
-//       // await _getCurrentLocation();
-//     }).catchError((e) {
-//       print(e);
-//     });
-//   }
-//
-//   @override
-//   void initState() {
-//     super.initState();
-//     _getCurrentLocation();
-//   }
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     // Determining the screen width & height
-//     var height = MediaQuery.of(context).size.height;
-//     var width = MediaQuery.of(context).size.width;
-//
-//     return Container(
-//       height: height,
-//       width: width,
-//       child: Scaffold(
-//         body: Stack(
-//           children: [
-//             GoogleMap(
-//               initialCameraPosition: _initialLocation,
-//               myLocationEnabled: true,
-//               myLocationButtonEnabled: false,
-//               mapType: MapType.normal,
-//               zoomGesturesEnabled: true,
-//               zoomControlsEnabled: false,
-//               onMapCreated: (GoogleMapController controller) {
-//                 mapController = controller;
-//               },
-//             ),
-//             ClipOval(
-//               child: Material(
-//                 color: Colors.orange.shade100, // button color
-//                 child: InkWell(
-//                   splashColor: Colors.orange, // inkwell color
-//                   child: const SizedBox(
-//                     width: 56,
-//                     height: 56,
-//                     child: Icon(Icons.my_location),
-//                   ),
-//                   onTap: () {
-//                     // Zoom In action
-//                     mapController.animateCamera(
-//                       CameraUpdate.zoomIn(),
-//                     );
-//
-//                     // Zoom Out action
-//                     mapController.animateCamera(
-//                       CameraUpdate.zoomOut(),
-//                     );
-//                     mapController.animateCamera(
-//                       CameraUpdate.newCameraPosition(
-//                         CameraPosition(
-//                           target: LatLng(
-//                             // Will be fetching in the next step
-//                             _currentPosition.latitude,
-//                             _currentPosition.longitude,
-//                           ),
-//                           zoom: 18.0,
-//                         ),
-//                       ),
-//                     );
-//                   },
-//                 ),
-//               ),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:uni_fit/Pages/Running/repo.dart';
+import 'direction_model.dart';
+
+class MapScreen extends StatefulWidget {
+  @override
+  _MapScreenState createState() => _MapScreenState();
+}
+
+class _MapScreenState extends State<MapScreen> {
+
+  static const _initialCameraPosition = CameraPosition(
+    target: LatLng(20.5937, 78.9629),
+    zoom: 3,
+  );
+
+  GoogleMapController _googleMapController;
+  Marker _origin;
+  Marker _destination;
+  Directions _info;
+
+  @override
+  void dispose() {
+    _googleMapController;
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: false,
+        title: const Text('Google Maps'),
+        actions: [
+          if (_origin != null)
+            TextButton(
+              onPressed: () => _googleMapController.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: _origin.position,
+                    zoom: 14.5,
+                    tilt: 50.0,
+                  ),
+                ),
+              ),
+              style: TextButton.styleFrom(
+                primary: Colors.green,
+                textStyle: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+              child: const Text('ORIGIN'),
+            ),
+          if (_destination != null)
+            TextButton(
+              onPressed: () => _googleMapController.animateCamera(
+                CameraUpdate.newCameraPosition(
+                  CameraPosition(
+                    target: _destination.position,
+                    zoom: 14.5,
+                    tilt: 50.0,
+                  ),
+                ),
+              ),
+              style: TextButton.styleFrom(
+                primary: Colors.blue,
+                textStyle: const TextStyle(fontWeight: FontWeight.w600),
+              ),
+              child: const Text('DEST'),
+            )
+        ],
+      ),
+      body: Stack(
+        alignment: Alignment.center,
+        children: [
+          GoogleMap(
+            myLocationButtonEnabled: false,
+            zoomControlsEnabled: false,
+            initialCameraPosition: _initialCameraPosition,
+            onMapCreated: (controller) => _googleMapController = controller,
+            markers: {
+              if (_origin != null) _origin,
+              if (_destination != null) _destination
+            },
+            polylines: {
+              if (_info != null)
+                Polyline(
+                  polylineId: PolylineId('overview_polyline'),
+                  color: Colors.red,
+                  width: 5,
+                  points: _info.polylinePoints
+                      .map((e) => LatLng(e.latitude, e.longitude))
+                      .toList(),
+                ),
+            },
+            onLongPress: _addMarker,
+          ),
+          if (_info != null)
+            Positioned(
+              top: 20.0,
+              child: Container(
+                padding: const EdgeInsets.symmetric(
+                  vertical: 6.0,
+                  horizontal: 12.0,
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.yellowAccent,
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Colors.black26,
+                      offset: Offset(0, 2),
+                      blurRadius: 6.0,
+                    )
+                  ],
+                ),
+                child: Text(
+                  '${_info.totalDistance}, ${_info.totalDuration}',
+                  style: const TextStyle(
+                    fontSize: 18.0,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+            ),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: Theme.of(context).primaryColor,
+        foregroundColor: Colors.black,
+        onPressed: () => _googleMapController.animateCamera(
+          _info != null
+              ? CameraUpdate.newLatLngBounds(_info.bounds, 100.0)
+              : CameraUpdate.newCameraPosition(_initialCameraPosition),
+        ),
+        child: const Icon(Icons.center_focus_strong),
+      ),
+    );
+  }
+
+  void _addMarker(LatLng pos) async {
+    if (_origin == null || (_origin != null && _destination != null)) {
+      // Origin is not set OR Origin/Destination are both set
+      // Set origin
+      setState(() {
+        _origin = Marker(
+          markerId: MarkerId('origin'),
+          infoWindow: const InfoWindow(title: 'Origin'),
+          icon:
+          BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
+          position: pos,
+        );
+        // Reset destination
+        _destination = null;
+
+        // Reset info
+        _info = null;
+      });
+    } else {
+      // Origin is already set
+      // Set destination
+      setState(() {
+        _destination = Marker(
+          markerId: MarkerId('destination'),
+          infoWindow: const InfoWindow(title: 'Destination'),
+          icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
+          position: pos,
+        );
+      });
+
+      // Get directions
+      final directions = await DirectionsRepository()
+          .getDirections(origin: _origin.position, destination: pos);
+      setState(() => _info = directions);
+    }
+  }
+}

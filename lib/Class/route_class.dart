@@ -37,7 +37,7 @@ import '../System Login/Login Signin/login_signup_page.dart';
 import '../new.dart';
 
 var routeClass = <String, WidgetBuilder>{
-  '/New': (context) => const New(),
+  // '/New': (context) => New(),
   '/': (context) => const GooglePageController(),
   '/SignInLoginPage': (context) => const LoginSignupPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),
