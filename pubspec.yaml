@@ -36,12 +36,13 @@ dependencies:
   carousel_slider:
   charts_flutter:
   google_maps_flutter: ^2.0.2
-#  geolocator:
+  geolocator:
 #  geocoding:
   flutter_polyline_points: ^0.2.6
 #  google_map_polyline:
 #  permission:
   dio: ^4.0.0
+  location:
 
 dev_dependencies:
   flutter_test:
