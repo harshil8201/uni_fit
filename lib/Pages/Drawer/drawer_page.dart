@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
+import 'package:uni_fit/Pages/Drawer/settings.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -114,26 +115,38 @@ class _DrawerPageState extends State<DrawerPage> {
                 drawerItems(FontAwesomeIcons.infoCircle, 'Help', null),
               ],
             ),
-            InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: Row(
+            Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).size.height * 0.00625),
+              child: Column(
                 children: [
-                  FaIcon(
-                    Icons.logout,
-                    color: primaryWhite,
-                    size: MediaQuery.of(context).size.height * 0.0313,
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.042,
-                  ),
-                  Text(
-                    'Logout',
-                    style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.018,
-                      color: primaryWhite,
-                      fontFamily: 'popMedium',
+                  drawerItems(
+                      FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
+                  const SizedBox(height: 10),
+                  InkWell(
+                    onTap: () {
+                      showAlertDialog(context);
+                    },
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          Icons.logout,
+                          color: primaryWhite,
+                          size: MediaQuery.of(context).size.height * 0.0313,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.042,
+                        ),
+                        Text(
+                          'Logout',
+                          style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            color: primaryWhite,
+                            fontFamily: 'popMedium',
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],

@@ -150,47 +150,6 @@ class _DietPageState extends State<DietPage> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // Align(
-                      //   alignment: Alignment.topLeft,
-                      //   child: Padding(
-                      //     padding: const EdgeInsets.symmetric(horizontal: 20),
-                      //     child: Column(
-                      //       crossAxisAlignment: CrossAxisAlignment.start,
-                      //       children: [
-                      //         user.emailVerified
-                      //             ? Text(
-                      //                 user.displayName,
-                      //                 style: TextStyle(
-                      //                   color: primaryBlack,
-                      //                   fontFamily: 'popMedium',
-                      //                   fontSize:
-                      //                       MediaQuery.of(context).size.height *
-                      //                           0.038,
-                      //                 ),
-                      //               )
-                      //             : Text(
-                      //                 "Hi Alen",
-                      //                 style: TextStyle(
-                      //                   color: primaryBlack,
-                      //                   fontFamily: 'popMedium',
-                      //                   fontSize:
-                      //                       MediaQuery.of(context).size.height *
-                      //                           0.038,
-                      //                 ),
-                      //               ),
-                      //         Text(
-                      //           'Ready to loose some calories today!!',
-                      //           style: TextStyle(
-                      //             color: primaryBlack,
-                      //             fontFamily: 'popLight',
-                      //             fontSize: MediaQuery.of(context).size.height *
-                      //                 0.015,
-                      //           ),
-                      //         ),
-                      //       ],
-                      //     ),
-                      //   ),
-                      // ),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.018),
                       dietContainer(
