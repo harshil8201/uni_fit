@@ -902,6 +902,7 @@ class _ProgressPageState extends State<ProgressPage> {
                             height: MediaQuery.of(context).size.height * 0.375,
                             child: SimpleBarChart.withSampleData()),
                       ),
+                      const SizedBox(height: 100,)
                     ],
                   ),
                 ),

@@ -6,20 +6,20 @@ class DatabaseService {
   DatabaseService({this.uid});
 
   final CollectionReference userDataCollection =
-  FirebaseFirestore.instance.collection('UserData');
+      FirebaseFirestore.instance.collection('UserData');
 
   Future upDateUserData(
-      String email,
-      String name,
-      String userID,
-      dynamic absCal,
-      dynamic shoulderCal,
-      dynamic chestCal,
-      dynamic armsCal,
-      dynamic legsCal,
-      dynamic backCal,
-      String runningKM
-      ) async {
+    String email,
+    String name,
+    String userID,
+    dynamic absCal,
+    dynamic shoulderCal,
+    dynamic chestCal,
+    dynamic armsCal,
+    dynamic legsCal,
+    dynamic backCal,
+    String runningKM,
+  ) async {
     return await userDataCollection.doc(uid).set({
       'email': email,
       'name': name,
@@ -30,7 +30,7 @@ class DatabaseService {
       'armsCal': armsCal,
       'legsCal': legsCal,
       'backCal': backCal,
-      'runningKM' : runningKM,
+      'runningKM': runningKM,
     });
   }
 }
