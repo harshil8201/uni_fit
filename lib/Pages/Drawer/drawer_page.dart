@@ -182,7 +182,7 @@ class _DrawerPageState extends State<DrawerPage> {
       ),
       onPressed: user.emailVerified
           ? () {
-              AuthenticationHelper().signInwithGoogle();
+              AuthenticationHelper().signOutFromGoogle();
               Navigator.pop(context);
               Navigator.pushAndRemoveUntil(
                   context,
