@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:confetti/confetti.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -15,6 +17,8 @@ class IntermediateChestStart extends StatefulWidget {
 }
 
 class _IntermediateChestStartState extends State<IntermediateChestStart> {
+  final user = FirebaseAuth.instance.currentUser;
+
   static const maxSecond = 0;
   int second = maxSecond;
   Timer timer;
@@ -410,52 +414,111 @@ class _IntermediateChestStartState extends State<IntermediateChestStart> {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 10),
-              child: Align(
-                alignment: Alignment.bottomCenter,
-                child: InkWell(
-                  onTap: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) =>
-                                const IntermediateExercise()));
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 60),
-                    child: Container(
-                      height: MediaQuery.of(context).size.height * 0.0625,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(30),
-                        boxShadow: [
-                          BoxShadow(
-                            color: shadowBlack,
-                            offset: const Offset(0, 0),
-                            blurRadius: 20.0,
-                          ), //BoxShadow
-                        ],
+            user.emailVerified
+                ? Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                        onTap: () {
+                          FirebaseFirestore.instance
+                              .collection('UserData')
+                              .doc(user.email)
+                              .update({'chestCal': FieldValue.increment(117)});
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const IntermediateExercise(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.0625,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'DONE'.toUpperCase(),
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontFamily: 'popBold',
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.0287,
+                                  letterSpacing: 2,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
-                      child: Center(
-                        child: Text(
-                          'DONE'.toUpperCase(),
-                          textAlign: TextAlign.left,
-                          style: TextStyle(
-                            fontFamily: 'popBold',
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.0287,
-                            letterSpacing: 2,
-                            color: primaryGreen,
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Align(
+                      alignment: Alignment.bottomCenter,
+                      child: InkWell(
+                        onTap: () {
+                          FirebaseFirestore.instance
+                              .collection('UserData')
+                              .doc(user.uid)
+                              .update({'chestCal': FieldValue.increment(117)});
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  const IntermediateExercise(),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 60),
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.0625,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(30),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0, 0),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Center(
+                              child: Text(
+                                'DONE'.toUpperCase(),
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontFamily: 'popBold',
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.0287,
+                                  letterSpacing: 2,
+                                  color: primaryGreen,
+                                ),
+                              ),
+                            ),
                           ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ),
-            ),
           ],
         ),
       ),
