@@ -69,7 +69,8 @@ class _IntermediateExerciseState extends State<IntermediateExercise> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(left: 20, right: 20, top: 100, bottom: 90),
+              padding: const EdgeInsets.only(
+                  left: 20, right: 20, top: 100, bottom: 90),
               child: SizedBox(
                 width: double.infinity,
                 child: Text(

@@ -102,10 +102,13 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             Column(
               children: [
-                drawerItems(FontAwesomeIcons.running, 'Running track',const MapScreen()),
-                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator', const BMIPage()),
+                drawerItems(FontAwesomeIcons.running, 'Running track',
+                    const MapScreen()),
+                drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',
+                    const BMIPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
-                drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
+                drawerItems(
+                    FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
                 // drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
                 drawerItems(FontAwesomeIcons.questionCircle, 'About us', null),
                 drawerItems(FontAwesomeIcons.infoCircle, 'Help', null),
@@ -172,9 +175,8 @@ class _DrawerPageState extends State<DrawerPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) => const LoginSignupPage()),
-                      (Route<dynamic> route) => false);
-              print(
-                  '-----------we are sign out using google----------');
+                  (Route<dynamic> route) => false);
+              print('-----------we are sign out using google----------');
             }
           : () {
               AuthenticationHelper().signOut();

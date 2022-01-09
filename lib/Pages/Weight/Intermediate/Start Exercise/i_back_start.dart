@@ -23,8 +23,8 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
   int brSecond = 25;
 
   void resetTimer() => setState(() {
-    second = maxSecond;
-  });
+        second = maxSecond;
+      });
 
   void startTime({bool reset = true}) {
     if (reset) {
@@ -419,7 +419,8 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const IntermediateExercise()));
+                            builder: (context) =>
+                                const IntermediateExercise()));
                   },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 60),
@@ -444,7 +445,7 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
                           style: TextStyle(
                             fontFamily: 'popBold',
                             fontSize:
-                            MediaQuery.of(context).size.height * 0.0287,
+                                MediaQuery.of(context).size.height * 0.0287,
                             letterSpacing: 2,
                             color: primaryGreen,
                           ),
@@ -583,129 +584,129 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
 
     return isRunning
         ? Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        //---------Pause----------
-        // InkWell(
-        //   onTap: () {
-        //     setState(() {
-        //       stopTimer(reset: false);
-        //     });
-        //   },
-        //   child: Container(
-        //     decoration: BoxDecoration(
-        //       boxShadow: [
-        //         BoxShadow(
-        //           color: shadowBlack,
-        //           offset: const Offset(0.5, 0.10),
-        //           blurRadius: 20.0,
-        //         ), //BoxShadow
-        //       ],
-        //       shape: BoxShape.circle,
-        //       color: Colors.white,
-        //     ),
-        //     height: 50,
-        //     width: 50,
-        //     child: const Center(
-        //       child: Padding(
-        //         padding: EdgeInsets.only(left: 5),
-        //         child: FaIcon(
-        //           FontAwesomeIcons.play,
-        //           color: Colors.blue,
-        //           size: 25,
-        //         ),
-        //       ),
-        //     ),
-        //   ),
-        // ),
-        // const SizedBox(
-        //   width: 50,
-        // ),
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              //---------Pause----------
+              // InkWell(
+              //   onTap: () {
+              //     setState(() {
+              //       stopTimer(reset: false);
+              //     });
+              //   },
+              //   child: Container(
+              //     decoration: BoxDecoration(
+              //       boxShadow: [
+              //         BoxShadow(
+              //           color: shadowBlack,
+              //           offset: const Offset(0.5, 0.10),
+              //           blurRadius: 20.0,
+              //         ), //BoxShadow
+              //       ],
+              //       shape: BoxShape.circle,
+              //       color: Colors.white,
+              //     ),
+              //     height: 50,
+              //     width: 50,
+              //     child: const Center(
+              //       child: Padding(
+              //         padding: EdgeInsets.only(left: 5),
+              //         child: FaIcon(
+              //           FontAwesomeIcons.play,
+              //           color: Colors.blue,
+              //           size: 25,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // ),
+              // const SizedBox(
+              //   width: 50,
+              // ),
 
-        //----------cancel-------
-        Padding(
-          padding: const EdgeInsets.only(bottom: 30),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: InkWell(
-              onTap: () {
-                showAlertDialog(context);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: shadowBlack,
-                      offset: const Offset(0.5, 0.10),
-                      blurRadius: 20.0,
-                    ), //BoxShadow
-                  ],
-                  shape: BoxShape.circle,
-                  color: Colors.redAccent,
+              //----------cancel-------
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: InkWell(
+                    onTap: () {
+                      showAlertDialog(context);
+                    },
+                    child: Container(
+                      decoration: BoxDecoration(
+                        boxShadow: [
+                          BoxShadow(
+                            color: shadowBlack,
+                            offset: const Offset(0.5, 0.10),
+                            blurRadius: 20.0,
+                          ), //BoxShadow
+                        ],
+                        shape: BoxShape.circle,
+                        color: Colors.redAccent,
+                      ),
+                      height: MediaQuery.of(context).size.height * 0.0625,
+                      width: MediaQuery.of(context).size.height * 0.139,
+                      child: Center(
+                        child: Transform.rotate(
+                          angle: -math.pi / 4,
+                          child: FaIcon(
+                            FontAwesomeIcons.plus,
+                            color: Colors.white,
+                            size: MediaQuery.of(context).size.height * 0.0313,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                 ),
-                height: MediaQuery.of(context).size.height * 0.0625,
-                width: MediaQuery.of(context).size.height * 0.139,
-                child: Center(
-                  child: Transform.rotate(
-                    angle: -math.pi / 4,
-                    child: FaIcon(
-                      FontAwesomeIcons.plus,
+              ),
+            ],
+          )
+        //----------- start -------------
+        : Padding(
+            padding: const EdgeInsets.only(bottom: 40),
+            child: Align(
+              alignment: Alignment.bottomCenter,
+              child: InkWell(
+                onTap: () {
+                  startTime();
+                  exerciseSecond();
+                  breakSecond();
+                  _celebrationAnimation.play();
+                },
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 100),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.0625,
+                    width: double.infinity,
+                    decoration: BoxDecoration(
                       color: Colors.white,
-                      size: MediaQuery.of(context).size.height * 0.0313,
+                      borderRadius: BorderRadius.circular(30),
+                      boxShadow: [
+                        BoxShadow(
+                          color: shadowBlack,
+                          offset: const Offset(0, 0),
+                          blurRadius: 20.0,
+                        ), //BoxShadow
+                      ],
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Start'.toUpperCase(),
+                        textAlign: TextAlign.left,
+                        style: TextStyle(
+                          fontFamily: 'popBold',
+                          fontSize: MediaQuery.of(context).size.height * 0.0287,
+                          letterSpacing: 2,
+                          color: primaryGreen,
+                        ),
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-          ),
-        ),
-      ],
-    )
-    //----------- start -------------
-        : Padding(
-      padding: const EdgeInsets.only(bottom: 40),
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: InkWell(
-          onTap: () {
-            startTime();
-            exerciseSecond();
-            breakSecond();
-            _celebrationAnimation.play();
-          },
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 100),
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.0625,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(30),
-                boxShadow: [
-                  BoxShadow(
-                    color: shadowBlack,
-                    offset: const Offset(0, 0),
-                    blurRadius: 20.0,
-                  ), //BoxShadow
-                ],
-              ),
-              child: Center(
-                child: Text(
-                  'Start'.toUpperCase(),
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    fontFamily: 'popBold',
-                    fontSize: MediaQuery.of(context).size.height * 0.0287,
-                    letterSpacing: 2,
-                    color: primaryGreen,
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+          );
   }
 
   showAlertDialog(BuildContext context) {
@@ -730,8 +731,10 @@ class _IntermediateBackStartState extends State<IntermediateBackStart> {
         ),
       ),
       onPressed: () {
-        Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => const IntermediateExercise()));
+        Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(
+                builder: (context) => const IntermediateExercise()));
         stopTimer();
       },
     );
