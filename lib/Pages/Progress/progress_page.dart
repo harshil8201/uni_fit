@@ -143,15 +143,16 @@ class _ProgressPageState extends State<ProgressPage> {
               ),
 
               Padding(
-                padding: const EdgeInsets.only(top: 110),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.1375),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
                         padding:
-                            const EdgeInsets.only(right: 20, left: 20, top: 5),
+                            const EdgeInsets.only(right: 20, left: 20, top: 20),
                         child: Container(
-                          height: 280,
+                          height: MediaQuery.of(context).size.height * 0.35,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: primaryWhite,
@@ -173,7 +174,9 @@ class _ProgressPageState extends State<ProgressPage> {
                                   'Calories Burns'.toUpperCase(),
                                   style: TextStyle(
                                       color: darkGreen,
-                                      fontSize: 25,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.03125,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'popBold'),
                                 ),
@@ -203,7 +206,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Abs : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -213,7 +220,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['absCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -241,7 +252,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Abs : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -251,7 +266,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['absCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -282,7 +301,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Shoulder : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -292,7 +315,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['shoulderCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -320,7 +347,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Shoulder : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -330,7 +361,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['shoulderCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -361,7 +396,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Chest : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -371,7 +410,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['chestCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -399,7 +442,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Chest : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -409,7 +456,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['chestCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -440,7 +491,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Arms : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -450,7 +505,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['armsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -478,7 +537,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Arms : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -488,7 +551,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['armsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -519,7 +586,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Legs : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -529,7 +600,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['legsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -557,7 +632,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Legs : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -567,7 +646,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['legsCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -598,7 +681,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Back : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -608,7 +695,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['backCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -636,7 +727,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     'Back : ',
                                                     style: TextStyle(
                                                         color: darkGreen,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -646,7 +741,11 @@ class _ProgressPageState extends State<ProgressPage> {
                                                     "${document['backCal'].toString()} cal",
                                                     style: TextStyle(
                                                         color: primaryBlack,
-                                                        fontSize: 20,
+                                                        fontSize: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
                                                         fontWeight:
                                                             FontWeight.normal,
                                                         fontFamily:
@@ -665,9 +764,142 @@ class _ProgressPageState extends State<ProgressPage> {
                       ),
                       Padding(
                         padding:
+                            const EdgeInsets.only(top: 25, left: 20, right: 20),
+                        child: Container(
+                          height: MediaQuery.of(context).size.height * 0.15,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: primaryWhite,
+                            boxShadow: [
+                              BoxShadow(
+                                color: shadowBlack,
+                                offset: const Offset(0.5, 0.10),
+                                blurRadius: 20.0,
+                              ), //BoxShadow
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 10, bottom: 15),
+                                child: Text(
+                                  'Recent Running'.toUpperCase(),
+                                  style: TextStyle(
+                                      color: darkGreen,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.03125,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'popBold'),
+                                ),
+                              ),
+                              user.emailVerified
+                                  ? StreamBuilder<
+                                      DocumentSnapshot<Map<String, dynamic>>>(
+                                      stream: FirebaseFirestore.instance
+                                          .collection('UserData')
+                                          .doc(user.email)
+                                          .snapshots(),
+                                      builder: (context, snapshot) {
+                                        if (!snapshot.hasData) {
+                                          return const CircularProgressIndicator();
+                                        }
+                                        var document = snapshot.data;
+                                        return Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 20),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                'Kilometer : ',
+                                                style: TextStyle(
+                                                    color: darkGreen,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontFamily: 'popMedium'),
+                                              ),
+                                              Text(
+                                                document['runningKM']
+                                                    .toString(),
+                                                style: TextStyle(
+                                                    color: primaryBlack,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontFamily: 'popMedium'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    )
+                                  : StreamBuilder<
+                                      DocumentSnapshot<Map<String, dynamic>>>(
+                                      stream: FirebaseFirestore.instance
+                                          .collection('UserData')
+                                          .doc(user.uid)
+                                          .snapshots(),
+                                      builder: (context, snapshot) {
+                                        if (!snapshot.hasData) {
+                                          return const CircularProgressIndicator();
+                                        }
+                                        var document = snapshot.data;
+                                        return Padding(
+                                          padding:
+                                              const EdgeInsets.only(left: 20),
+                                          child: Row(
+                                            children: [
+                                              Text(
+                                                'Abs : ',
+                                                style: TextStyle(
+                                                    color: darkGreen,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontFamily: 'popMedium'),
+                                              ),
+                                              Text(
+                                                "${document['absCal'].toString()} cal",
+                                                style: TextStyle(
+                                                    color: primaryBlack,
+                                                    fontSize:
+                                                        MediaQuery.of(context)
+                                                                .size
+                                                                .height *
+                                                            0.025,
+                                                    fontWeight:
+                                                        FontWeight.normal,
+                                                    fontFamily: 'popMedium'),
+                                              ),
+                                            ],
+                                          ),
+                                        );
+                                      },
+                                    ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
                             const EdgeInsets.only(top: 10, right: 20, left: 20),
                         child: SizedBox(
-                            height: 300,
+                            height: MediaQuery.of(context).size.height * 0.375,
                             child: SimpleBarChart.withSampleData()),
                       ),
                     ],

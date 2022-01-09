@@ -35,7 +35,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1,), (_) {
       if (second >= 0) {
         setState(() => second++);
       } else if (second > 441) {
@@ -45,7 +45,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1,), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -55,7 +55,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(const Duration(milliseconds: 100,), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1,), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {

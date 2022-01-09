@@ -5,7 +5,6 @@ import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
 import 'Home/home_page.dart';
 import 'Progress/progress_page.dart';
-import 'Running/running_page.dart';
 import 'Weight/weight_page.dart';
 
 class StartPage extends StatefulWidget {
@@ -16,7 +15,7 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  int currentIndex = 4;
+  int currentIndex = 1;
 
   setBottomBarIndex(index) {
     setState(() {
@@ -26,11 +25,10 @@ class _StartPageState extends State<StartPage> {
 
   // Number of tabs
   final tabs = [
-    const RunningPage(),
-    const WeightPage(),
     const HomePage(),
-    const DietPage(),
     const ProgressPage(),
+    const WeightPage(),
+    const DietPage(),
   ];
 
   @override
@@ -58,72 +56,8 @@ class _StartPageState extends State<StartPage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                //-------Running--------
-                currentIndex == 0
-                    ? Container(
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        width: MediaQuery.of(context).size.width * 0.11,
-                        decoration: BoxDecoration(
-                            color: shadeWhite,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: IconButton(
-                          splashColor: Colors.transparent,
-                          icon: FaIcon(
-                            FontAwesomeIcons.mapMarkedAlt,
-                            color: primaryGreen,
-                            size: MediaQuery.of(context).size.height * 0.023,
-                          ),
-                          onPressed: () {
-                            setBottomBarIndex(0);
-                          },
-                        ),
-                      )
-                    : IconButton(
-                        splashColor: Colors.transparent,
-                        icon: FaIcon(
-                          FontAwesomeIcons.mapMarkedAlt,
-                          color: primaryGreen,
-                          size: MediaQuery.of(context).size.height * 0.023,
-                        ),
-                        onPressed: () {
-                          setBottomBarIndex(0);
-                        },
-                      ),
-
-                //-------WeightPage--------
-                currentIndex == 1
-                    ? Container(
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        width: MediaQuery.of(context).size.width * 0.11,
-                        decoration: BoxDecoration(
-                            color: shadeWhite,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: IconButton(
-                          splashColor: Colors.transparent,
-                          icon: FaIcon(
-                            FontAwesomeIcons.dumbbell,
-                            color: primaryGreen,
-                            size: MediaQuery.of(context).size.height * 0.023,
-                          ),
-                          onPressed: () {
-                            setBottomBarIndex(1);
-                          },
-                        ),
-                      )
-                    : IconButton(
-                        splashColor: Colors.transparent,
-                        icon: FaIcon(
-                          FontAwesomeIcons.dumbbell,
-                          color: primaryGreen,
-                          size: MediaQuery.of(context).size.height * 0.023,
-                        ),
-                        onPressed: () {
-                          setBottomBarIndex(1);
-                        },
-                      ),
-
                 //-------HomePage--------
-                currentIndex == 2
+                currentIndex == 0
                     ? Container(
                         height: MediaQuery.of(context).size.height * 0.05,
                         width: MediaQuery.of(context).size.width * 0.11,
@@ -138,7 +72,7 @@ class _StartPageState extends State<StartPage> {
                             size: MediaQuery.of(context).size.height * 0.023,
                           ),
                           onPressed: () {
-                            setBottomBarIndex(2);
+                            setBottomBarIndex(0);
                           },
                         ),
                       )
@@ -146,6 +80,70 @@ class _StartPageState extends State<StartPage> {
                         splashColor: Colors.transparent,
                         icon: FaIcon(
                           FontAwesomeIcons.home,
+                          color: primaryGreen,
+                          size: MediaQuery.of(context).size.height * 0.023,
+                        ),
+                        onPressed: () {
+                          setBottomBarIndex(0);
+                        },
+                      ),
+
+                //-------Progression--------
+                currentIndex == 1
+                    ? Container(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
+                        decoration: BoxDecoration(
+                            color: shadeWhite,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: IconButton(
+                          splashColor: Colors.transparent,
+                          icon: FaIcon(
+                            FontAwesomeIcons.chartLine,
+                            color: primaryGreen,
+                            size: MediaQuery.of(context).size.height * 0.023,
+                          ),
+                          onPressed: () {
+                            setBottomBarIndex(1);
+                          },
+                        ),
+                      )
+                    : IconButton(
+                        splashColor: Colors.transparent,
+                        icon: FaIcon(
+                          FontAwesomeIcons.chartLine,
+                          color: primaryGreen,
+                          size: MediaQuery.of(context).size.height * 0.023,
+                        ),
+                        onPressed: () {
+                          setBottomBarIndex(1);
+                        },
+                      ),
+
+                //-------WeightPage--------
+                currentIndex == 2
+                    ? Container(
+                        height: MediaQuery.of(context).size.height * 0.05,
+                        width: MediaQuery.of(context).size.width * 0.11,
+                        decoration: BoxDecoration(
+                            color: shadeWhite,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: IconButton(
+                          splashColor: Colors.transparent,
+                          icon: FaIcon(
+                            FontAwesomeIcons.dumbbell,
+                            color: primaryGreen,
+                            size: MediaQuery.of(context).size.height * 0.023,
+                          ),
+                          onPressed: () {
+                            setBottomBarIndex(2);
+                          },
+                        ),
+                      )
+                    : IconButton(
+                        splashColor: Colors.transparent,
+                        icon: FaIcon(
+                          FontAwesomeIcons.dumbbell,
                           color: primaryGreen,
                           size: MediaQuery.of(context).size.height * 0.023,
                         ),
@@ -183,38 +181,6 @@ class _StartPageState extends State<StartPage> {
                         ),
                         onPressed: () {
                           setBottomBarIndex(3);
-                        },
-                      ),
-
-                //-------Progression--------
-                currentIndex == 4
-                    ? Container(
-                        height: MediaQuery.of(context).size.height * 0.05,
-                        width: MediaQuery.of(context).size.width * 0.11,
-                        decoration: BoxDecoration(
-                            color: shadeWhite,
-                            borderRadius: BorderRadius.circular(10)),
-                        child: IconButton(
-                          splashColor: Colors.transparent,
-                          icon: FaIcon(
-                            FontAwesomeIcons.chartLine,
-                            color: primaryGreen,
-                            size: MediaQuery.of(context).size.height * 0.023,
-                          ),
-                          onPressed: () {
-                            setBottomBarIndex(4);
-                          },
-                        ),
-                      )
-                    : IconButton(
-                        splashColor: Colors.transparent,
-                        icon: FaIcon(
-                          FontAwesomeIcons.chartLine,
-                          color: primaryGreen,
-                          size: MediaQuery.of(context).size.height * 0.023,
-                        ),
-                        onPressed: () {
-                          setBottomBarIndex(4);
                         },
                       ),
               ],

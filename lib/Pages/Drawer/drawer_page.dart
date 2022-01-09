@@ -7,6 +7,8 @@ import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
+import 'Running track/map_screen.dart';
+
 class DrawerPage extends StatefulWidget {
   const DrawerPage({Key key}) : super(key: key);
 
@@ -100,12 +102,13 @@ class _DrawerPageState extends State<DrawerPage> {
             ),
             Column(
               children: [
+                drawerItems(FontAwesomeIcons.running, 'Running track',const MapScreen()),
                 drawerItems(FontAwesomeIcons.calculator, 'BMI calculator', const BMIPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
                 drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
-                drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
-                drawerItems(FontAwesomeIcons.infoCircle, 'About us', null),
-                drawerItems(FontAwesomeIcons.cog, 'Help', null),
+                // drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
+                drawerItems(FontAwesomeIcons.questionCircle, 'About us', null),
+                drawerItems(FontAwesomeIcons.infoCircle, 'Help', null),
               ],
             ),
             InkWell(

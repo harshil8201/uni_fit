@@ -8,7 +8,6 @@ import '../Pages/Diet/weight_loss.dart';
 import '../Pages/Drawer/drawer_page.dart';
 import '../Pages/Home/home_page.dart';
 import '../Pages/Progress/progress_page.dart';
-import '../Pages/Running/running_page.dart';
 import '../Pages/Weight/Advance/Exercise/advance_abs.dart';
 import '../Pages/Weight/Advance/Exercise/advance_arms.dart';
 import '../Pages/Weight/Advance/Exercise/advance_back.dart';
@@ -34,10 +33,8 @@ import '../Pages/Weight/weight_page.dart';
 import '../System Login/Google SignIn/google_page_controller.dart';
 import '../System Login/Google SignIn/google_signIn_button.dart';
 import '../System Login/Login Signin/login_signup_page.dart';
-import '../new.dart';
 
 var routeClass = <String, WidgetBuilder>{
-  // '/New': (context) => New(),
   '/': (context) => const GooglePageController(),
   '/SignInLoginPage': (context) => const LoginSignupPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),
@@ -50,7 +47,6 @@ var routeClass = <String, WidgetBuilder>{
   '/HighCalories': (context) => const HighCalories(),
   '/HomePage': (context) => const HomePage(),
   '/ProgressPage': (context) => const ProgressPage(),
-  '/RunningPage': (context) => const RunningPage(),
   '/WeightPage': (context) => const WeightPage(),
   '/BeginnerExercise': (context) => const BeginnerExercise(),
   '/BeginnerAbs': (context) => const BeginnerAbs(),

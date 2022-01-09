@@ -661,12 +661,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             builder: (context) =>
                                                 const StartPage()));
                                   }
-                                  // FirebaseFirestore.instance
-                                  //     .collection('UserData')
-                                  //     .doc(result)
-                                  //     .set({
-                                  //   "cal": 0,
-                                  // });
                                 });
                               },
                               child: Container(

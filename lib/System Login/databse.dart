@@ -17,7 +17,9 @@ class DatabaseService {
       dynamic chestCal,
       dynamic armsCal,
       dynamic legsCal,
-      dynamic backCal,) async {
+      dynamic backCal,
+      String runningKM
+      ) async {
     return await userDataCollection.doc(uid).set({
       'email': email,
       'name': name,
@@ -28,6 +30,7 @@ class DatabaseService {
       'armsCal': armsCal,
       'legsCal': legsCal,
       'backCal': backCal,
+      'runningKM' : runningKM,
     });
   }
 }

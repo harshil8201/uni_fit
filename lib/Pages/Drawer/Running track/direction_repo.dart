@@ -1,8 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:uni_fit/Pages/Running/.env.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-
+import 'package:uni_fit/Pages/Drawer/Running track/.env.dart';
 import 'direction_model.dart';
 
 class DirectionsRepository {

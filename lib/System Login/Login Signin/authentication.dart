@@ -25,6 +25,7 @@ class AuthenticationHelper {
         0,
         0,
         0,
+        '',
       );
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
@@ -62,6 +63,7 @@ class AuthenticationHelper {
         0,
         0,
         0,
+        '',
       );
 
       return null;
