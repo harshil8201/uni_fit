@@ -11,5 +11,6 @@ Color shadeWhite = const Color(0xffC4C4C4);
 Color darkWhite = const Color(0xff8D8D8D);
 Color semiBlack = const Color(0xff5F5F5F);
 Color lightBlack = const Color(0xff665B5B);
-Color primaryBlack = const Color(0xff000000);
 Color shadowBlack = const Color(0x59000000);
+Color primaryBlack = const Color(0xff000000);
+

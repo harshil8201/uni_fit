@@ -35,10 +35,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
     if (reset) {
       resetTimer();
     }
-    timer = Timer.periodic(
-        const Duration(
-          seconds: 1
-        ), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (second >= 0) {
         setState(() => second++);
       } else if (second > 441) {
@@ -48,10 +45,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void exerciseSecond() {
-    timer = Timer.periodic(
-        const Duration(
-          seconds: 1
-        ), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (erSecond > 0) {
         setState(() => erSecond--);
       } else if (erSecond == 0) {
@@ -61,10 +55,7 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
   }
 
   void breakSecond() {
-    timer = Timer.periodic(
-        const Duration(
-          seconds: 1
-        ), (_) {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
       if (brSecond > 0) {
         setState(() => brSecond--);
       } else if (brSecond == 0) {
@@ -425,15 +416,40 @@ class _BeginnerAbsStartState extends State<BeginnerAbsStart> {
               ),
             ),
             Center(
-              child: Text(
-                "Congratulation !!\n\nYou completed\ntoday's workout.\n\nYou burn : 104 cal.",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: superDarkGreen,
-                  fontSize: MediaQuery.of(context).size.height * 0.033,
-                  fontFamily: 'popBold',
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Well Done!\n",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: superDarkGreen,
+                      fontSize: 35,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "You completed\ntoday's workout.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.green[800],
+                      fontSize: 20,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "\nYou burn : 104 cal.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: primaryBlack,
+                      fontSize: 20,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
             user.emailVerified

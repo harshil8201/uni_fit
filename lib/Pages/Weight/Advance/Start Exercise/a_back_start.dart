@@ -403,15 +403,40 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
               ),
             ),
             Center(
-              child: Text(
-                "Congratulation !!\n\nYou completed\ntoday's workout",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  color: superDarkGreen,
-                  fontSize: MediaQuery.of(context).size.height * 0.033,
-                  fontFamily: 'popBold',
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "Well Done!\n",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: superDarkGreen,
+                      fontSize: 35,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "You completed\ntoday's workout.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Colors.green[800],
+                      fontSize: 20,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "\nYou burn : 145 cal.",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: primaryBlack,
+                      fontSize: 20,
+                      fontFamily: 'popBold',
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
               ),
             ),
             user.emailVerified

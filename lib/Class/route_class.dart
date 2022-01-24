@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import '../Pages/Diet/diet_page.dart';
-import '../Pages/Diet/high_calories.dart';
 import '../Pages/Diet/low_calories.dart';
 import '../Pages/Diet/muscle_gain.dart';
 import '../Pages/Diet/normal_diet.dart';
@@ -39,12 +37,12 @@ var routeClass = <String, WidgetBuilder>{
   '/SignInLoginPage': (context) => const LoginSignupPage(),
   '/GoogleSignInButton': (context) => const GoogleSignInButton(),
   '/DrawerPage': (context) => const DrawerPage(),
-  '/DietPage': (context) => const DietPage(),
+  // '/DietPage': (context) => const DietPage(),
   '/MuscleGainDiet': (context) => const MuscleGainDiet(),
   '/WeightLoss': (context) => const WeightLoss(),
   '/NormalDiet': (context) => const NormalDiet(),
   '/LowCalories': (context) => const LowCalories(),
-  '/HighCalories': (context) => const HighCalories(),
+  // '/HighCalories': (context) => const HighCalories(),
   '/HomePage': (context) => const HomePage(),
   '/ProgressPage': (context) => const ProgressPage(),
   '/WeightPage': (context) => const WeightPage(),
