@@ -19,16 +19,14 @@ class _MapScreenState extends State<MapScreen> {
   final user = FirebaseAuth.instance.currentUser;
 
   static const _initialCameraPosition = CameraPosition(
-    target: LatLng(20.5937, 78.9629),
-    zoom: 10,
+    target: LatLng(0,0),
+    zoom: 8,
   );
 
   GoogleMapController _googleMapController;
   Marker _origin;
   Marker _destination;
   Directions _info;
-
-  double kmStep = 1312;
 
   Location currentLocation = Location();
   final Set<Marker> _markers = {};
@@ -43,14 +41,14 @@ class _MapScreenState extends State<MapScreen> {
       )));
       print(loc.latitude);
       print(loc.longitude);
-      setState(() {
-        location;
-        _markers.add(Marker(
-            icon:
-                BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-            markerId: const MarkerId('Home'),
-            position: LatLng(loc.latitude ?? 0.0, loc.longitude ?? 0.0)));
-      });
+      // setState(() {
+      //   location;
+      //   _markers.add(Marker(
+      //       icon:
+      //           BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
+      //       markerId: const MarkerId('Home'),
+      //       position: LatLng(loc.latitude ?? 0.0, loc.longitude ?? 0.0)));
+      // });
     });
   }
 
@@ -87,13 +85,16 @@ class _MapScreenState extends State<MapScreen> {
           GoogleMap(
             myLocationButtonEnabled: false,
             zoomControlsEnabled: false,
+            mapType: MapType.hybrid,
+            buildingsEnabled: true,
+            myLocationEnabled: true,
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (controller) => _googleMapController = controller,
-            markers: _markers,
-            // {
-            //   if (_origin != null) _origin,
-            //   if (_destination != null) _destination,
-            // },
+            markers:
+            {
+              if (_origin != null) _origin,
+              if (_destination != null) _destination,
+            },
             polylines: {
               if (_info != null)
                 Polyline(
@@ -142,11 +143,12 @@ class _MapScreenState extends State<MapScreen> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '* Note: please do long press 2 times,\nif you want to create route *',
+                '* Note: Please long-press 2 times for route\n( For Starting to Destination ) *',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: MediaQuery.of(context).size.height * 0.015,
-                  color: Colors.red,
+                  color: Colors.redAccent,
+                  fontFamily: 'popBold'
                 ),
               ),
             ),

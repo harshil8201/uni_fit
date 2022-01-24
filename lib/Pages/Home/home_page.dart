@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
@@ -152,10 +153,75 @@ class _HomePageState extends State<HomePage> {
               ),
 
               Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(
-                        top: MediaQuery.of(context).size.height * 0.125),
+                    padding: const EdgeInsets.only(top: 115, left: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Hi, ',
+                              style: TextStyle(
+                                  color: primaryBlack,
+                                  fontSize: 23,
+                                  fontFamily: 'popMedium'),
+                            ),
+                            user.emailVerified ? StreamBuilder<
+                                DocumentSnapshot<Map<String, dynamic>>>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('UserData')
+                                  .doc(user.email)
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return const CircularProgressIndicator();
+                                }
+                                var document = snapshot.data;
+                                return Text(
+                                  document['name'],
+                                  style: TextStyle(
+                                      color: primaryBlack,
+                                      fontSize: 23,
+                                      fontFamily: 'popMedium'),
+                                );
+                              },
+                            ) : StreamBuilder<
+                                DocumentSnapshot<Map<String, dynamic>>>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('UserData')
+                                  .doc(user.uid)
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return const CircularProgressIndicator();
+                                }
+                                var document = snapshot.data;
+                                return Text(
+                                  document['name'],
+                                  style: TextStyle(
+                                      color: primaryBlack,
+                                      fontSize: 23,
+                                      fontFamily: 'popMedium'),
+                                );
+                              },
+                            )
+                          ],
+                        ),
+                        Text(
+                          "Ready for today's workout?",
+                          style: TextStyle(
+                              color: Colors.grey[600],
+                              fontSize: 15,
+                              fontFamily: 'popLight'),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10),
                     child: CarouselSlider(
                       items: [
                         erContainer(

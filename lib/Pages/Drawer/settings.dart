@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -81,7 +82,10 @@ class _SettingsPageState extends State<SettingsPage> {
 
             //-----------email-------------
             Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.15, right: 20, left: 20),
+              padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.15,
+                  right: 20,
+                  left: 20),
               child: Column(
                 children: [
                   user.emailVerified
@@ -117,23 +121,37 @@ class _SettingsPageState extends State<SettingsPage> {
                       ),
                       user.emailVerified
                           ? Text(
-                        user.displayName,
-                        style: TextStyle(
-                          color: primaryBlack,
-                          fontSize:
-                          MediaQuery.of(context).size.height * 0.0187,
-                          fontFamily: 'popMedium',
-                        ),
-                      )
-                          : Text(
-                        '',
-                        style: TextStyle(
-                          color: primaryBlack,
-                          fontSize:
-                          MediaQuery.of(context).size.height * 0.0187,
-                          fontFamily: 'popMedium',
-                        ),
-                      ),
+                              user.displayName,
+                              style: TextStyle(
+                                color: primaryBlack,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.0187,
+                                fontFamily: 'popMedium',
+                              ),
+                            )
+                          : StreamBuilder<
+                              DocumentSnapshot<Map<String, dynamic>>>(
+                              stream: FirebaseFirestore.instance
+                                  .collection('UserData')
+                                  .doc(user.uid)
+                                  .snapshots(),
+                              builder: (context, snapshot) {
+                                if (!snapshot.hasData) {
+                                  return const CircularProgressIndicator();
+                                }
+                                var document = snapshot.data;
+                                return Text(
+                                  document['name'],
+                                  style: TextStyle(
+                                    color: primaryBlack,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.0187,
+                                    fontFamily: 'popMedium',
+                                  ),
+                                );
+                              },
+                            ),
                     ],
                   ),
                   const SizedBox(height: 20),

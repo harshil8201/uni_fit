@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -66,21 +67,45 @@ class _DrawerPageState extends State<DrawerPage> {
                   height: 5,
                 ),
                 user.emailVerified
-                    ? Text(
-                        user.displayName,
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0287,
-                          color: primaryWhite,
-                          fontFamily: 'popBold',
-                        ),
+                    ? StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                        stream: FirebaseFirestore.instance
+                            .collection('UserData')
+                            .doc(user.email)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return const CircularProgressIndicator();
+                          }
+                          var document = snapshot.data;
+                          return Text(
+                            document['name'],
+                            style: TextStyle(
+                                color: primaryWhite,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.0287,
+                                fontFamily: 'popBold'),
+                          );
+                        },
                       )
-                    : Text(
-                        greeting(),
-                        style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0287,
-                          color: primaryWhite,
-                          fontFamily: 'popBold',
-                        ),
+                    : StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+                        stream: FirebaseFirestore.instance
+                            .collection('UserData')
+                            .doc(user.uid)
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (!snapshot.hasData) {
+                            return const CircularProgressIndicator();
+                          }
+                          var document = snapshot.data;
+                          return Text(
+                            document['name'],
+                            style: TextStyle(
+                                color: primaryWhite,
+                                fontSize:
+                                    MediaQuery.of(context).size.height * 0.0287,
+                                fontFamily: 'popBold'),
+                          );
+                        },
                       ),
                 user.emailVerified
                     ? Text(

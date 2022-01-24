@@ -857,33 +857,34 @@ class _ProgressPageState extends State<ProgressPage> {
                                         var document = snapshot.data;
                                         return Padding(
                                           padding:
-                                              const EdgeInsets.only(left: 20),
+                                          const EdgeInsets.only(left: 20),
                                           child: Row(
                                             children: [
                                               Text(
-                                                'Abs : ',
+                                                'Kilometer : ',
                                                 style: TextStyle(
                                                     color: darkGreen,
                                                     fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
+                                                    MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                        0.025,
                                                     fontWeight:
-                                                        FontWeight.normal,
+                                                    FontWeight.normal,
                                                     fontFamily: 'popMedium'),
                                               ),
                                               Text(
-                                                "${document['absCal'].toString()} cal",
+                                                document['runningKM']
+                                                    .toString(),
                                                 style: TextStyle(
                                                     color: primaryBlack,
                                                     fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
+                                                    MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                        0.025,
                                                     fontWeight:
-                                                        FontWeight.normal,
+                                                    FontWeight.normal,
                                                     fontFamily: 'popMedium'),
                                               ),
                                             ],

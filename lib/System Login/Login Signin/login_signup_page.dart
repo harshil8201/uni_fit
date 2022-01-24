@@ -743,10 +743,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 AuthenticationHelper()
                                     .signUp(email: _email, password: _password)
                                     .then((result) {
-                                  // FirebaseFirestore.instance
-                                  //     .collection('UserData')
-                                  //     .doc(auth.currentUser.uid)
-                                  //     .set({'name': _name});
+                                  FirebaseFirestore.instance
+                                      .collection('UserData')
+                                      .doc(auth.currentUser.uid)
+                                      .update({'name': _name});
                                   if (result == null) {
                                     Navigator.pushReplacement(
                                         context,
