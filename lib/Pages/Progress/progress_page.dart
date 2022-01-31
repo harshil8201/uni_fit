@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_fit/Pages/Drawer/Running%20track/map_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ProgressPage extends StatefulWidget {
   const ProgressPage({Key key}) : super(key: key);
@@ -317,6 +318,88 @@ class _ProgressPageState extends State<ProgressPage> {
                                         'Kilometer', 'runningKM')
                                     : runningNotVerifiedContainer(
                                         'Kilometer', 'runningKM')
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 25, left: 20, right: 20),
+                        child: InkWell(
+                          onTap: () {},
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: primaryWhite,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0.5, 0.10),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 10, bottom: 15),
+                                  child: Text(
+                                    'Pre - Post Workout',
+                                    style: TextStyle(
+                                      color: darkGreen,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.03125,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'popBold',
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      const url = 'https://www.youtube.com/watch?v=ir2xV8iX38k';
+                                      if (await canLaunch(url)) {
+                                        await launch(url,
+                                            forceSafariVC: false);
+                                      }
+                                    },
+                                    child: Text(
+                                      '1) What To Eat Before & After EVERY Workout',
+                                      style: TextStyle(
+                                        color: Colors.blue[600],
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'popBold',
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
+                                  child: InkWell(
+                                    onTap: () async {
+                                      const url = 'https://www.youtube.com/watch?v=nrQ1CQ2HRYk';
+                                      if (await canLaunch(url)) {
+                                        await launch(url,
+                                            forceSafariVC: false);
+                                      }
+                                    },
+                                    child: Text(
+                                      '2) 8 Best Things to do After a Workout',
+                                      style: TextStyle(
+                                        color: Colors.blue[600],
+                                        fontSize: 15,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: 'popBold',
+                                      ),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
