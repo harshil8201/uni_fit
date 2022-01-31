@@ -1,4 +1,4 @@
-class Sales {
+class Progress {
   final int absCal;
   final int shoulderCal;
   final int chestCal;
@@ -6,10 +6,10 @@ class Sales {
   final int legsCal;
   final int backCal;
 
-  Sales(this.absCal, this.shoulderCal, this.chestCal, this.armsCal,
+  Progress(this.absCal, this.shoulderCal, this.chestCal, this.armsCal,
       this.legsCal, this.backCal);
 
-  Sales.fromMap(Map<String, dynamic> map)
+  Progress.fromMap(Map<String, dynamic> map)
       : assert(map['absCal'] != null),
         assert(map['chestCal'] != null),
         assert(map['shoulderCal'] != null),

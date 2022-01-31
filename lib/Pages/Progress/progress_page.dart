@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:uni_fit/Pages/Progress/salesHome.dart';
+import 'package:uni_fit/Pages/Drawer/Running%20track/map_screen.dart';
 
 class ProgressPage extends StatefulWidget {
   const ProgressPage({Key key}) : super(key: key);
@@ -17,6 +17,17 @@ class _ProgressPageState extends State<ProgressPage> {
   double yOffset = 0;
   double scaleFactor = 1;
   bool isDrawerOpen = false;
+
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Good Morning,';
+    }
+    if (hour < 17) {
+      return 'Good Afternoon,';
+    }
+    return 'Good Evening,';
+  }
 
   final user = FirebaseAuth.instance.currentUser;
 
@@ -149,6 +160,32 @@ class _ProgressPageState extends State<ProgressPage> {
                   child: Column(
                     children: [
                       Padding(
+                        padding: const EdgeInsets.only(
+                          right: 20,
+                          left: 20,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              greeting(),
+                              style: TextStyle(
+                                color: primaryBlack,
+                                fontSize: 23,
+                                fontFamily: 'popMedium',
+                              ),
+                            ),
+                            Text(
+                              'Burn calories and try to archive your goal...',
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15,
+                                  fontFamily: 'popLight'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
                         padding:
                             const EdgeInsets.only(right: 20, left: 20, top: 20),
                         child: Container(
@@ -188,573 +225,45 @@ class _ProgressPageState extends State<ProgressPage> {
                                   children: [
                                     //Abs
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Abs : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['absCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Abs : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['absCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Abs', 'absCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Abs', 'absCal'),
 
                                     //Shoulder
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Shoulder : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['shoulderCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Shoulder : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['shoulderCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Shoulder', 'shoulderCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Shoulder', 'shoulderCal'),
 
                                     //Chest
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Chest : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['chestCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Chest : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['chestCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Chest', 'chestCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Chest', 'chestCal'),
 
                                     //Arms
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Arms : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['armsCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Arms : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['armsCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Arms', 'armsCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Arms', 'armsCal'),
 
                                     //Legs
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Legs : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['legsCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Legs : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['legsCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Legs', 'legsCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Legs', 'legsCal'),
 
                                     //Back
                                     user.emailVerified
-                                        ? StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.email)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Back : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['backCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          )
-                                        : StreamBuilder<
-                                            DocumentSnapshot<
-                                                Map<String, dynamic>>>(
-                                            stream: FirebaseFirestore.instance
-                                                .collection('UserData')
-                                                .doc(user.uid)
-                                                .snapshots(),
-                                            builder: (context, snapshot) {
-                                              if (!snapshot.hasData) {
-                                                return const CircularProgressIndicator();
-                                              }
-                                              var document = snapshot.data;
-                                              return Row(
-                                                children: [
-                                                  Text(
-                                                    'Back : ',
-                                                    style: TextStyle(
-                                                        color: darkGreen,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                  Text(
-                                                    "${document['backCal'].toString()} cal",
-                                                    style: TextStyle(
-                                                        color: primaryBlack,
-                                                        fontSize: MediaQuery.of(
-                                                                    context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                        fontWeight:
-                                                            FontWeight.normal,
-                                                        fontFamily:
-                                                            'popMedium'),
-                                                  ),
-                                                ],
-                                              );
-                                            },
-                                          ),
+                                        ? erVerifiedDataContainer(
+                                            'Back', 'backCal')
+                                        : erNotVerifiedDataContainer(
+                                            'Back', 'backCal'),
                                   ],
                                 ),
                               ),
@@ -765,144 +274,55 @@ class _ProgressPageState extends State<ProgressPage> {
                       Padding(
                         padding:
                             const EdgeInsets.only(top: 25, left: 20, right: 20),
-                        child: Container(
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(20),
-                            color: primaryWhite,
-                            boxShadow: [
-                              BoxShadow(
-                                color: shadowBlack,
-                                offset: const Offset(0.5, 0.10),
-                                blurRadius: 20.0,
-                              ), //BoxShadow
-                            ],
-                          ),
-                          child: Column(
-                            children: [
-                              Padding(
-                                padding:
-                                    const EdgeInsets.only(top: 10, bottom: 15),
-                                child: Text(
-                                  'Recent Running'.toUpperCase(),
-                                  style: TextStyle(
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const MapScreen()));
+                          },
+                          child: Container(
+                            height: MediaQuery.of(context).size.height * 0.15,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: primaryWhite,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: shadowBlack,
+                                  offset: const Offset(0.5, 0.10),
+                                  blurRadius: 20.0,
+                                ), //BoxShadow
+                              ],
+                            ),
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      top: 10, bottom: 15),
+                                  child: Text(
+                                    'Recent Running'.toUpperCase(),
+                                    style: TextStyle(
                                       color: darkGreen,
                                       fontSize:
                                           MediaQuery.of(context).size.height *
                                               0.03125,
                                       fontWeight: FontWeight.bold,
-                                      fontFamily: 'popBold'),
-                                ),
-                              ),
-                              user.emailVerified
-                                  ? StreamBuilder<
-                                      DocumentSnapshot<Map<String, dynamic>>>(
-                                      stream: FirebaseFirestore.instance
-                                          .collection('UserData')
-                                          .doc(user.email)
-                                          .snapshots(),
-                                      builder: (context, snapshot) {
-                                        if (!snapshot.hasData) {
-                                          return const CircularProgressIndicator();
-                                        }
-                                        var document = snapshot.data;
-                                        return Padding(
-                                          padding:
-                                              const EdgeInsets.only(left: 20),
-                                          child: Row(
-                                            children: [
-                                              Text(
-                                                'Kilometer : ',
-                                                style: TextStyle(
-                                                    color: darkGreen,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    fontFamily: 'popMedium'),
-                                              ),
-                                              Text(
-                                                document['runningKM']
-                                                    .toString(),
-                                                style: TextStyle(
-                                                    color: primaryBlack,
-                                                    fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.025,
-                                                    fontWeight:
-                                                        FontWeight.normal,
-                                                    fontFamily: 'popMedium'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
-                                    )
-                                  : StreamBuilder<
-                                      DocumentSnapshot<Map<String, dynamic>>>(
-                                      stream: FirebaseFirestore.instance
-                                          .collection('UserData')
-                                          .doc(user.uid)
-                                          .snapshots(),
-                                      builder: (context, snapshot) {
-                                        if (!snapshot.hasData) {
-                                          return const CircularProgressIndicator();
-                                        }
-                                        var document = snapshot.data;
-                                        return Padding(
-                                          padding:
-                                          const EdgeInsets.only(left: 20),
-                                          child: Row(
-                                            children: [
-                                              Text(
-                                                'Kilometer : ',
-                                                style: TextStyle(
-                                                    color: darkGreen,
-                                                    fontSize:
-                                                    MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                        0.025,
-                                                    fontWeight:
-                                                    FontWeight.normal,
-                                                    fontFamily: 'popMedium'),
-                                              ),
-                                              Text(
-                                                document['runningKM']
-                                                    .toString(),
-                                                style: TextStyle(
-                                                    color: primaryBlack,
-                                                    fontSize:
-                                                    MediaQuery.of(context)
-                                                        .size
-                                                        .height *
-                                                        0.025,
-                                                    fontWeight:
-                                                    FontWeight.normal,
-                                                    fontFamily: 'popMedium'),
-                                              ),
-                                            ],
-                                          ),
-                                        );
-                                      },
+                                      fontFamily: 'popBold',
                                     ),
-                            ],
+                                  ),
+                                ),
+                                user.emailVerified
+                                    ? runningVerifiedContainer(
+                                        'Kilometer', 'runningKM')
+                                    : runningNotVerifiedContainer(
+                                        'Kilometer', 'runningKM')
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                      Padding(
-                        padding:
-                            const EdgeInsets.only(top: 10, right: 20, left: 20),
-                        child: SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.375,
-                            child: SimpleBarChart.withSampleData()),
-                      ),
+                      // ProgressBarCharts.withSampleData(),
                       const SizedBox(
                         height: 100,
                       )
@@ -914,6 +334,156 @@ class _ProgressPageState extends State<ProgressPage> {
           ),
         ),
       ),
+    );
+  }
+
+  Widget erVerifiedDataContainer(String erCategories, String erModel) {
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('UserData')
+          .doc(user.email)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
+        }
+        var document = snapshot.data;
+        return Row(
+          children: [
+            Text(
+              '$erCategories : ',
+              style: TextStyle(
+                color: darkGreen,
+                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontWeight: FontWeight.normal,
+                fontFamily: 'popMedium',
+              ),
+            ),
+            Text(
+              "${document[erModel]} cal",
+              style: TextStyle(
+                color: primaryBlack,
+                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontWeight: FontWeight.normal,
+                fontFamily: 'popMedium',
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget erNotVerifiedDataContainer(String erCategories, String erModel) {
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('UserData')
+          .doc(user.email)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
+        }
+        var document = snapshot.data;
+        return Row(
+          children: [
+            Text(
+              '$erCategories : ',
+              style: TextStyle(
+                color: darkGreen,
+                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontWeight: FontWeight.normal,
+                fontFamily: 'popMedium',
+              ),
+            ),
+            Text(
+              "${document[erModel]} cal",
+              style: TextStyle(
+                color: primaryBlack,
+                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontWeight: FontWeight.normal,
+                fontFamily: 'popMedium',
+              ),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget runningVerifiedContainer(String text, String documentType) {
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('UserData')
+          .doc(user.email)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
+        }
+        var document = snapshot.data;
+        return Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Row(
+            children: [
+              Text(
+                '$text : ',
+                style: TextStyle(
+                    color: darkGreen,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'popMedium'),
+              ),
+              Text(
+                document[documentType].toString(),
+                style: TextStyle(
+                    color: primaryBlack,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'popMedium'),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
+  Widget runningNotVerifiedContainer(String text, String documentType) {
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('UserData')
+          .doc(user.uid)
+          .snapshots(),
+      builder: (context, snapshot) {
+        if (!snapshot.hasData) {
+          return const CircularProgressIndicator();
+        }
+        var document = snapshot.data;
+        return Padding(
+          padding: const EdgeInsets.only(left: 20),
+          child: Row(
+            children: [
+              Text(
+                '$text : ',
+                style: TextStyle(
+                    color: darkGreen,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'popMedium'),
+              ),
+              Text(
+                document[documentType].toString(),
+                style: TextStyle(
+                    color: primaryBlack,
+                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontWeight: FontWeight.normal,
+                    fontFamily: 'popMedium'),
+              ),
+            ],
+          ),
+        );
+      },
     );
   }
 }

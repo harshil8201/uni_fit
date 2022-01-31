@@ -223,6 +223,11 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: CarouselSlider(
+                      options: CarouselOptions(
+                        autoPlay: false,
+                        autoPlayInterval: const Duration(seconds: 2),
+                        height: MediaQuery.of(context).size.height * 0.29375,
+                      ),
                       items: [
                         erContainer(
                           'Push Ups',
@@ -260,16 +265,17 @@ class _HomePageState extends State<HomePage> {
                           const BeginnerAbs(),
                         ),
                       ],
-                      options: CarouselOptions(
-                        autoPlay: true,
-                        autoPlayInterval: const Duration(seconds: 2),
-                        height: MediaQuery.of(context).size.height * 0.29375,
-                      ),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),
                     child: CarouselSlider(
+                      options: CarouselOptions(
+                        // reverse: true,
+                        autoPlay: false,
+                        autoPlayInterval: const Duration(seconds: 2),
+                        height: MediaQuery.of(context).size.height * 0.25,
+                      ),
                       items: [
                         dietContainer(
                           'avocado',
@@ -307,12 +313,6 @@ class _HomePageState extends State<HomePage> {
                           const WeightLoss(),
                         ),
                       ],
-                      options: CarouselOptions(
-                        reverse: true,
-                        autoPlay: true,
-                        autoPlayInterval: const Duration(seconds: 2),
-                        height: MediaQuery.of(context).size.height * 0.25,
-                      ),
                     ),
                   ),
                 ],

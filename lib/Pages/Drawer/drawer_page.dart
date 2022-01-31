@@ -21,17 +21,6 @@ class DrawerPage extends StatefulWidget {
 class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
 
-  String greeting() {
-    var hour = DateTime.now().hour;
-    if (hour < 12) {
-      return 'Good Morning';
-    }
-    if (hour < 17) {
-      return 'Good Afternoon';
-    }
-    return 'Good Evening';
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -132,49 +121,43 @@ class _DrawerPageState extends State<DrawerPage> {
                     const MapScreen()),
                 drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',
                     const BMIPage()),
-                // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
-                drawerItems(
-                    FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
-                // drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
-                drawerItems(FontAwesomeIcons.questionCircle, 'About us', null),
                 drawerItems(FontAwesomeIcons.infoCircle, 'Help', null),
+                drawerItems(FontAwesomeIcons.questionCircle, 'About us', null),
+                drawerItems(
+                    FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
+                // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
+                // drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
+                // drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
               ],
             ),
             Padding(
               padding: EdgeInsets.only(
                   bottom: MediaQuery.of(context).size.height * 0.00625),
-              child: Column(
-                children: [
-                  drawerItems(
-                      FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
-                  const SizedBox(height: 10),
-                  InkWell(
-                    onTap: () {
-                      showAlertDialog(context);
-                    },
-                    child: Row(
-                      children: [
-                        FaIcon(
-                          Icons.logout,
-                          color: primaryWhite,
-                          size: MediaQuery.of(context).size.height * 0.0313,
-                        ),
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.042,
-                        ),
-                        Text(
-                          'Logout',
-                          style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
-                            color: primaryWhite,
-                            fontFamily: 'popMedium',
-                          ),
-                        ),
-                      ],
+              child: InkWell(
+                onTap: () {
+                  showAlertDialog(context);
+                },
+                child: Row(
+                  children: [
+                    FaIcon(
+                      Icons.logout,
+                      color: primaryWhite,
+                      size: MediaQuery.of(context).size.height * 0.0313,
                     ),
-                  ),
-                ],
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.042,
+                    ),
+                    Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontSize:
+                            MediaQuery.of(context).size.height * 0.018,
+                        color: primaryWhite,
+                        fontFamily: 'popMedium',
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
