@@ -153,244 +153,247 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
 
-              SingleChildScrollView(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 115, left: 20),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Row(
-                            children: [
-                              Text(
-                                'Hi, ',
-                                style: TextStyle(
-                                    color: primaryBlack,
-                                    fontSize: 23,
-                                    fontFamily: 'popMedium'),
-                              ),
-                              user.emailVerified
-                                  ? StreamBuilder<
-                                      DocumentSnapshot<Map<String, dynamic>>>(
-                                      stream: FirebaseFirestore.instance
-                                          .collection('UserData')
-                                          .doc(user.email)
-                                          .snapshots(),
-                                      builder: (context, snapshot) {
-                                        if (!snapshot.hasData) {
-                                          return const CircularProgressIndicator();
-                                        }
-                                        var document = snapshot.data;
-                                        return Text(
-                                          document['name'],
-                                          style: TextStyle(
-                                              color: primaryBlack,
-                                              fontSize: 23,
-                                              fontFamily: 'popMedium'),
-                                        );
-                                      },
-                                    )
-                                  : StreamBuilder<
-                                      DocumentSnapshot<Map<String, dynamic>>>(
-                                      stream: FirebaseFirestore.instance
-                                          .collection('UserData')
-                                          .doc(user.uid)
-                                          .snapshots(),
-                                      builder: (context, snapshot) {
-                                        if (!snapshot.hasData) {
-                                          return const CircularProgressIndicator();
-                                        }
-                                        var document = snapshot.data;
-                                        return Text(
-                                          document['name'],
-                                          style: TextStyle(
-                                              color: primaryBlack,
-                                              fontSize: 23,
-                                              fontFamily: 'popMedium'),
-                                        );
-                                      },
-                                    )
-                            ],
-                          ),
-                          Text(
-                            "Ready for today's workout?",
-                            style: TextStyle(
-                                color: Colors.grey[600],
-                                fontSize: 15,
-                                fontFamily: 'popLight'),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CarouselSlider(
-                        options: CarouselOptions(
-                          autoPlay: false,
-                          autoPlayInterval: const Duration(seconds: 2),
-                          height: MediaQuery.of(context).size.height * 0.29375,
-                        ),
-                        items: [
-                          erContainer(
-                            'Push Ups',
-                            '15 X 3',
-                            'push ups',
-                            'Literally every major\nmuscle in your body\nis called upon\nto execute the\nmovement.',
-                            const BeginnerChest(),
-                          ),
-                          erContainer(
-                            'Jumping Jacks',
-                            '30 Sec',
-                            'jumping jacks',
-                            'It increases your\nheart rate,which\npromotes the flow\nof blood and oxygen\nto your brain.',
-                            const BeginnerShoulder(),
-                          ),
-                          erContainer(
-                            'Squats',
-                            '10 X 3',
-                            'squats',
-                            'It is help to \nStrengthens core,\nreduces risk of\ninjury, Strengthens\nmuscles of lower\nbody',
-                            const IntermediateLegs(),
-                          ),
-                          erContainer(
-                            'Abdominal Crunch',
-                            '30 X 2',
-                            'abdominals crunch',
-                            'Helps people\nsuffering from\nregular constipation\nby inducing\ntriggering the\nbowel movement.',
-                            const IntermediateAbs(),
-                          ),
-                          erContainer(
-                            'Plank',
-                            '30 sec X 2',
-                            'plank',
-                            'The plank position\nhelps target core\nmuscles & give \nthem a good burn\nto build muscle\nstrength.',
-                            const BeginnerAbs(),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10),
-                      child: CarouselSlider(
-                        options: CarouselOptions(
-                          // reverse: true,
-                          autoPlay: false,
-                          autoPlayInterval: const Duration(seconds: 2),
-                          height: MediaQuery.of(context).size.height * 0.25,
-                        ),
-                        items: [
-                          dietContainer(
-                            'avocado',
-                            'Avocado',
-                            '738',
-                            'Lunch',
-                            const HighCalories(),
-                          ),
-                          dietContainer(
-                            'berries',
-                            'Berries',
-                            '96',
-                            'Breakfast',
-                            const LowCalories(),
-                          ),
-                          dietContainer(
-                            'pancake',
-                            'Pancake',
-                            '680',
-                            'Breakfast',
-                            const MuscleGainDiet(),
-                          ),
-                          dietContainer(
-                            'oats',
-                            'Oats',
-                            '150',
-                            'Breakfast',
-                            const NormalDiet(),
-                          ),
-                          dietContainer(
-                            'raspberry',
-                            'Raspberry',
-                            '352',
-                            'Breakfast',
-                            const WeightLoss(),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          const EdgeInsets.only(top: 20, left: 20, right: 20,),
-                      child: Container(
-                        width: double.infinity,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: primaryWhite,
-                          boxShadow: [
-                            BoxShadow(
-                              color: shadowBlack,
-                              offset: const Offset(0.5, 0.10),
-                              blurRadius: 20.0,
-                            ), //BoxShadow
-                          ],
-                        ),
+              Padding(
+                padding: const EdgeInsets.only(top: 100),
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 15, left: 20),
                         child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Padding(
-                              padding:
-                                  const EdgeInsets.only(top: 10, bottom: 15),
-                              child: Text(
-                                'Videos'.toUpperCase(),
-                                style: TextStyle(
-                                  color: darkGreen,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.03125,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: 'popBold',
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            Row(
                               children: [
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=8PwoytUU06g',
-                                  '1. complete abs workout 20 min ',
+                                Text(
+                                  'Hi, ',
+                                  style: TextStyle(
+                                      color: primaryBlack,
+                                      fontSize: 23,
+                                      fontFamily: 'popMedium'),
                                 ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=GkZGLpJVC0Y',
-                                  '2. Full Shoulder Workout',
-                                ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=n69-eVLtevc',
-                                  '3. Chest workout at home routine',
-                                ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=BEj_IB9kreE',
-                                  '4. Home arms workout',
-                                ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=rLOaX9pp7xM',
-                                  '5. Back workout at home',
-                                ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=q7rCeOa_m58',
-                                  '6. Complete 20 min legs workout',
-                                ),
-                                videoContainer(
-                                  'https://www.youtube.com/watch?v=xRRS5eJLET4',
-                                  '7. Full body home workout',
-                                ),
-                                const SizedBox(height: 10,),
+                                user.emailVerified
+                                    ? StreamBuilder<
+                                        DocumentSnapshot<Map<String, dynamic>>>(
+                                        stream: FirebaseFirestore.instance
+                                            .collection('UserData')
+                                            .doc(user.email)
+                                            .snapshots(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return const CircularProgressIndicator();
+                                          }
+                                          var document = snapshot.data;
+                                          return Text(
+                                            document['name'],
+                                            style: TextStyle(
+                                                color: primaryBlack,
+                                                fontSize: 23,
+                                                fontFamily: 'popMedium'),
+                                          );
+                                        },
+                                      )
+                                    : StreamBuilder<
+                                        DocumentSnapshot<Map<String, dynamic>>>(
+                                        stream: FirebaseFirestore.instance
+                                            .collection('UserData')
+                                            .doc(user.uid)
+                                            .snapshots(),
+                                        builder: (context, snapshot) {
+                                          if (!snapshot.hasData) {
+                                            return const CircularProgressIndicator();
+                                          }
+                                          var document = snapshot.data;
+                                          return Text(
+                                            document['name'],
+                                            style: TextStyle(
+                                                color: primaryBlack,
+                                                fontSize: 23,
+                                                fontFamily: 'popMedium'),
+                                          );
+                                        },
+                                      )
                               ],
                             ),
+                            Text(
+                              "Ready for today's workout?",
+                              style: TextStyle(
+                                  color: Colors.grey[600],
+                                  fontSize: 15,
+                                  fontFamily: 'popLight'),
+                            ),
                           ],
                         ),
                       ),
-                    ),
-                    const SizedBox(height: 100,)
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            autoPlay: false,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            height: MediaQuery.of(context).size.height * 0.29375,
+                          ),
+                          items: [
+                            erContainer(
+                              'Push Ups',
+                              '15 X 3',
+                              'push ups',
+                              'Literally every major\nmuscle in your body\nis called upon\nto execute the\nmovement.',
+                              const BeginnerChest(),
+                            ),
+                            erContainer(
+                              'Jumping Jacks',
+                              '30 Sec',
+                              'jumping jacks',
+                              'It increases your\nheart rate,which\npromotes the flow\nof blood and oxygen\nto your brain.',
+                              const BeginnerShoulder(),
+                            ),
+                            erContainer(
+                              'Squats',
+                              '10 X 3',
+                              'squats',
+                              'It is help to \nStrengthens core,\nreduces risk of\ninjury, Strengthens\nmuscles of lower\nbody',
+                              const IntermediateLegs(),
+                            ),
+                            erContainer(
+                              'Abdominal Crunch',
+                              '30 X 2',
+                              'abdominals crunch',
+                              'Helps people\nsuffering from\nregular constipation\nby inducing\ntriggering the\nbowel movement.',
+                              const IntermediateAbs(),
+                            ),
+                            erContainer(
+                              'Plank',
+                              '30 sec X 2',
+                              'plank',
+                              'The plank position\nhelps target core\nmuscles & give \nthem a good burn\nto build muscle\nstrength.',
+                              const BeginnerAbs(),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: CarouselSlider(
+                          options: CarouselOptions(
+                            // reverse: true,
+                            autoPlay: false,
+                            autoPlayInterval: const Duration(seconds: 2),
+                            height: MediaQuery.of(context).size.height * 0.25,
+                          ),
+                          items: [
+                            dietContainer(
+                              'avocado',
+                              'Avocado',
+                              '738',
+                              'Lunch',
+                              const HighCalories(),
+                            ),
+                            dietContainer(
+                              'berries',
+                              'Berries',
+                              '96',
+                              'Breakfast',
+                              const LowCalories(),
+                            ),
+                            dietContainer(
+                              'pancake',
+                              'Pancake',
+                              '680',
+                              'Breakfast',
+                              const MuscleGainDiet(),
+                            ),
+                            dietContainer(
+                              'oats',
+                              'Oats',
+                              '150',
+                              'Breakfast',
+                              const NormalDiet(),
+                            ),
+                            dietContainer(
+                              'raspberry',
+                              'Raspberry',
+                              '352',
+                              'Breakfast',
+                              const WeightLoss(),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding:
+                            const EdgeInsets.only(top: 20, left: 20, right: 20,),
+                        child: Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: primaryWhite,
+                            boxShadow: [
+                              BoxShadow(
+                                color: shadowBlack,
+                                offset: const Offset(0.5, 0.10),
+                                blurRadius: 20.0,
+                              ), //BoxShadow
+                            ],
+                          ),
+                          child: Column(
+                            children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.only(top: 10, bottom: 15),
+                                child: Text(
+                                  'Videos'.toUpperCase(),
+                                  style: TextStyle(
+                                    color: darkGreen,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.03125,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'popBold',
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=8PwoytUU06g',
+                                    '1. complete abs workout 20 min ',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=GkZGLpJVC0Y',
+                                    '2. Full Shoulder Workout',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=n69-eVLtevc',
+                                    '3. Chest workout at home routine',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=BEj_IB9kreE',
+                                    '4. Home arms workout',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=rLOaX9pp7xM',
+                                    '5. Back workout at home',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=q7rCeOa_m58',
+                                    '6. Complete 20 min legs workout',
+                                  ),
+                                  videoContainer(
+                                    'https://www.youtube.com/watch?v=xRRS5eJLET4',
+                                    '7. Full body home workout',
+                                  ),
+                                  const SizedBox(height: 10,),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 100,)
+                    ],
+                  ),
                 ),
               ),
             ],

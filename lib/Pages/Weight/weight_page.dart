@@ -145,118 +145,121 @@ class _WeightPageState extends State<WeightPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 90),
+                padding: const EdgeInsets.only(top: 100),
                 child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      //----------live monitoring-----
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: InkWell(
-                          onTap: () {
-                            // want to add navigation here-----------------
-                            // Navigator.push(
-                            //   context,
-                            //   PageTransition(
-                            //       type: PageTransitionType.bottomToTop,
-                            //       child: LiveMonitoring(cameras)),
-                            // );
-                          },
-                          child: Container(
-                            height: MediaQuery.of(context).size.height * 0.1875,
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              color: primaryWhite,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: shadowBlack,
-                                  offset: const Offset(0.5, 0.10),
-                                  blurRadius: 20.0,
-                                ), //BoxShadow
-                              ],
-                              borderRadius: BorderRadius.circular(20),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Text(
-                                      'LIVE',
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                        fontFamily: 'popBold',
-                                        color: primaryGreen,
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 90),
+                    child: Column(
+                      children: [
+                        //----------live monitoring-----
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.025,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20),
+                          child: InkWell(
+                            onTap: () {
+                              // want to add navigation here-----------------
+                              // Navigator.push(
+                              //   context,
+                              //   PageTransition(
+                              //       type: PageTransitionType.bottomToTop,
+                              //       child: LiveMonitoring(cameras)),
+                              // );
+                            },
+                            child: Container(
+                              height: MediaQuery.of(context).size.height * 0.1875,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: primaryWhite,
+                                boxShadow: [
+                                  BoxShadow(
+                                    color: shadowBlack,
+                                    offset: const Offset(0.5, 0.10),
+                                    blurRadius: 20.0,
+                                  ), //BoxShadow
+                                ],
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      Text(
+                                        'LIVE',
+                                        style: TextStyle(
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.04,
+                                          fontFamily: 'popBold',
+                                          color: primaryGreen,
+                                        ),
                                       ),
-                                    ),
-                                    Text(
-                                      'WARM UP',
-                                      style: TextStyle(
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.04,
-                                        fontFamily: 'popBold',
-                                        color: primaryGreen,
+                                      Text(
+                                        'WARM UP',
+                                        style: TextStyle(
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.04,
+                                          fontFamily: 'popBold',
+                                          color: primaryGreen,
+                                        ),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: MediaQuery.of(context).size.height *
-                                      0.025,
-                                ),
-                                Icon(
-                                  Icons.camera_alt,
-                                  color: primaryGreen,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.0625,
-                                )
-                              ],
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    width: MediaQuery.of(context).size.height *
+                                        0.025,
+                                  ),
+                                  Icon(
+                                    Icons.camera_alt,
+                                    color: primaryGreen,
+                                    size: MediaQuery.of(context).size.height *
+                                        0.0625,
+                                  )
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
 
-                      //----------beginner---------
-                      exerciseCategoriesContainer(
-                          'beginner',
-                          Icons.offline_bolt,
-                          Icons.offline_bolt_outlined,
-                          Icons.offline_bolt_outlined,
-                          '10-13 min',
-                          '130-180 cal',
-                          const BeginnerExercise()),
+                        //----------beginner---------
+                        exerciseCategoriesContainer(
+                            'beginner',
+                            Icons.offline_bolt,
+                            Icons.offline_bolt_outlined,
+                            Icons.offline_bolt_outlined,
+                            '10-13 min',
+                            '130-180 cal',
+                            const BeginnerExercise()),
 
-                      //---------intermediate---------
-                      exerciseCategoriesContainer(
-                          'intermediate',
-                          Icons.offline_bolt,
-                          Icons.offline_bolt,
-                          Icons.offline_bolt_outlined,
-                          '12-16 min',
-                          '210-250 cal',
-                          const IntermediateExercise()),
+                        //---------intermediate---------
+                        exerciseCategoriesContainer(
+                            'intermediate',
+                            Icons.offline_bolt,
+                            Icons.offline_bolt,
+                            Icons.offline_bolt_outlined,
+                            '12-16 min',
+                            '210-250 cal',
+                            const IntermediateExercise()),
 
-                      //--------advance-------------
-                      exerciseCategoriesContainer(
-                          'advance',
-                          Icons.offline_bolt,
-                          Icons.offline_bolt,
-                          Icons.offline_bolt,
-                          '15-20 min',
-                          '330-380 cal',
-                          const AdvanceExercise()),
+                        //--------advance-------------
+                        exerciseCategoriesContainer(
+                            'advance',
+                            Icons.offline_bolt,
+                            Icons.offline_bolt,
+                            Icons.offline_bolt,
+                            '15-20 min',
+                            '330-380 cal',
+                            const AdvanceExercise()),
 
-                      SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025,
-                      ),
-                    ],
+                        SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.025,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
               ),

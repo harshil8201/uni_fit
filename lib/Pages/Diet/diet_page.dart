@@ -145,47 +145,50 @@ class _DietPageState extends State<DietPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(top: 100, bottom: 90),
+                padding: const EdgeInsets.only(top: 100),
                 child: SingleChildScrollView(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.018),
-                      dietContainer(
-                        '500-722 cal',
-                        'Muscle\nGain',
-                        'assets/images/diet/diet1.jpg',
-                        const MuscleGainDiet(),
-                      ),
-                      dietContainer(
-                        '180-300 cal',
-                        'Weight\nloss',
-                        'assets/images/diet/diet2.jpg',
-                        const WeightLoss(),
-                      ),
-                      dietContainer(
-                        '500-800 cal',
-                        'High\ncalories',
-                        'assets/images/diet/diet3.jpg',
-                        const HighCalories(),
-                      ),
-                      dietContainer(
-                        '80-200 cal',
-                        'Low\ncalories',
-                        'assets/images/diet/diet4.jpg',
-                        const LowCalories(),
-                      ),
-                      dietContainer(
-                        '200-350 cal',
-                        'Normal\ndiet',
-                        'assets/images/diet/diet5.jpg',
-                        const NormalDiet(),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      )
-                    ],
+                  child: Padding(
+                    padding: const EdgeInsets.only(bottom: 90),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.018),
+                        dietContainer(
+                          '500-722 cal',
+                          'Muscle\nGain',
+                          'assets/images/diet/diet1.jpg',
+                          const MuscleGainDiet(),
+                        ),
+                        dietContainer(
+                          '180-300 cal',
+                          'Weight\nloss',
+                          'assets/images/diet/diet2.jpg',
+                          const WeightLoss(),
+                        ),
+                        dietContainer(
+                          '500-800 cal',
+                          'High\ncalories',
+                          'assets/images/diet/diet3.jpg',
+                          const HighCalories(),
+                        ),
+                        dietContainer(
+                          '80-200 cal',
+                          'Low\ncalories',
+                          'assets/images/diet/diet4.jpg',
+                          const LowCalories(),
+                        ),
+                        dietContainer(
+                          '200-350 cal',
+                          'Normal\ndiet',
+                          'assets/images/diet/diet5.jpg',
+                          const NormalDiet(),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
