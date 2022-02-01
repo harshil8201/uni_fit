@@ -60,33 +60,25 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                             Stack(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(
-                                    top: MediaQuery.of(context).size.height *
-                                        0.0625,
-                                    right: MediaQuery.of(context).size.width *
-                                        0.02778,
-                                  ),
+                                  padding: const EdgeInsets.only(top: 70),
                                   child: Align(
-                                    alignment: Alignment.topRight,
+                                    alignment: Alignment.topCenter,
                                     child: SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.3125,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.6944,
+                                      height: 180,
+                                      width: 180,
                                       child: Image.asset(
-                                        'assets/images/1.png',
+                                        'assets/images/US.png',
                                         fit: BoxFit.contain,
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 230),
+                                  padding: const EdgeInsets.only(top: 250),
                                   child: Align(
                                     alignment: Alignment.topLeft,
                                     child: Text(
-                                      'Hey,\nWelcome!',
+                                      'Hey\nWelcome !',
                                       style: TextStyle(
                                         color: primaryGreen,
                                         fontSize:
@@ -318,29 +310,27 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                             Stack(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 10),
+                                  padding: const EdgeInsets.only(top: 70),
                                   child: Align(
-                                    alignment: Alignment.topRight,
+                                    alignment: Alignment.topCenter,
                                     child: SizedBox(
                                       //color: Colors.blue,
                                       height:
-                                          MediaQuery.of(context).size.height *
-                                              0.3125,
-                                      width: MediaQuery.of(context).size.width *
-                                          0.6944,
+                                          180,
+                                      width: 180,
                                       child: Image.asset(
-                                        'assets/images/2.png',
+                                        'assets/images/US.png',
                                         fit: BoxFit.contain,
                                       ),
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(top: 210),
+                                  padding: const EdgeInsets.only(top: 250),
                                   child: Align(
                                     alignment: Alignment.topLeft,
                                     child: Text(
-                                      'Hello,\nSign up!',
+                                      'Hello,\nJoin us !',
                                       style: TextStyle(
                                         color: primaryGreen,
                                         fontSize:
@@ -353,10 +343,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 ),
                               ],
                             ),
-                            SizedBox(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.025,
-                            ),
+                            // SizedBox(
+                            //   height:
+                            //       MediaQuery.of(context).size.height * 0.025,
+                            // ),
 
                             //------------Name-------------
                             Padding(
@@ -480,12 +470,13 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                               _email = value.trim();
                                             });
                                           },
-                                          validator: (String value){
-                                            if(value.isEmpty)
-                                            {
+                                          validator: (String value) {
+                                            if (value.isEmpty) {
                                               return 'Please entered email';
                                             }
-                                            if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                                            if (!RegExp(
+                                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                                .hasMatch(value)) {
                                               return 'Please entered valid Email';
                                             }
                                             return null;
@@ -640,14 +631,15 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   // If the form is valid, display a snackbar. In the real world,
                                   // you'd often call a server or save the information in a database.
                                   return AuthenticationHelper()
-                                      .signIn(email: _email, password: _password)
+                                      .signIn(
+                                          email: _email, password: _password)
                                       .then((result) {
                                     if (result == null) {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                              const StartPage()));
+                                                  const StartPage()));
                                     }
                                   });
                                 }
@@ -718,17 +710,16 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                           //----------signup button----------
                           Padding(
                             padding: EdgeInsets.only(
-                                bottom:
-                                    MediaQuery.of(context).size.height * 0.1125,
+                                bottom: 80,
                                 left: 70,
                                 right: 70),
                             child: InkWell(
                               onTap: () {
-                                if(formKey.currentState.validate())
-                                {
+                                if (formKey.currentState.validate()) {
                                   print("successful");
                                   return AuthenticationHelper()
-                                      .signUp(email: _email, password: _password)
+                                      .signUp(
+                                          email: _email, password: _password)
                                       .then((result) {
                                     FirebaseFirestore.instance
                                         .collection('UserData')
@@ -739,10 +730,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                           context,
                                           MaterialPageRoute(
                                               builder: (context) =>
-                                              const StartPage()));
+                                                  const StartPage()));
                                     }
                                   });
-                                }else{
+                                } else {
                                   print("Unsuccessful");
                                 }
                               },
