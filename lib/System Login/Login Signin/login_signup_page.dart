@@ -29,20 +29,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
   bool isVisible = true;
   bool _isObscure = true;
 
-  // DatabaseReference _ref;
-  // @override
-  // void initState() {
-  //   super.initState();
-  //   _ref = FirebaseDatabase.instance.ref().child(FirebaseAuth.instance.currentUser.uid);
-  // }
-  //
-  // void saveInfo(){
-  //   Map<String, String> data ={
-  //     'email': _email
-  //   };
-  //   _ref.push().set(data);
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -151,16 +137,16 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                                 0.0625,
                                         width: double.infinity,
                                         child: TextFormField(
+                                          validator: (value) {
+                                            if (value.isEmpty) {
+                                              return 'Please enter email';
+                                            }
+                                            return null;
+                                          },
                                           onChanged: (value) {
                                             setState(() {
                                               _email = value.trim();
                                             });
-                                          },
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return "Please enter email";
-                                            }
-                                            return null;
                                           },
                                           keyboardType:
                                               TextInputType.emailAddress,
@@ -231,16 +217,16 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                               0.0625,
                                           width: double.infinity,
                                           child: TextFormField(
-                                            onChanged: (value) {
-                                              setState(() {
-                                                _password = value.trim();
-                                              });
-                                            },
                                             validator: (value) {
                                               if (value.isEmpty) {
                                                 return "Please enter password";
                                               }
                                               return null;
+                                            },
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _password = value.trim();
+                                              });
                                             },
                                             obscureText: _isObscure,
                                             textInputAction:
@@ -494,9 +480,13 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                               _email = value.trim();
                                             });
                                           },
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return "Please enter email";
+                                          validator: (String value){
+                                            if(value.isEmpty)
+                                            {
+                                              return 'Please entered email';
+                                            }
+                                            if(!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]").hasMatch(value)){
+                                              return 'Please entered valid Email';
                                             }
                                             return null;
                                           },
@@ -646,22 +636,21 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 right: 70),
                             child: InkWell(
                               onTap: () {
-                                // if (formKey.currentState.validate()) {
-                                //   return;
-                                // } else {
-                                //   print(" login data not entered");
-                                // }
-                                AuthenticationHelper()
-                                    .signIn(email: _email, password: _password)
-                                    .then((result) {
-                                  if (result == null) {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const StartPage()));
-                                  }
-                                });
+                                if (formKey.currentState.validate()) {
+                                  // If the form is valid, display a snackbar. In the real world,
+                                  // you'd often call a server or save the information in a database.
+                                  return AuthenticationHelper()
+                                      .signIn(email: _email, password: _password)
+                                      .then((result) {
+                                    if (result == null) {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                              const StartPage()));
+                                    }
+                                  });
+                                }
                               },
                               child: Container(
                                 width: double.infinity,
@@ -735,26 +724,27 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 right: 70),
                             child: InkWell(
                               onTap: () {
-                                // if (formKey.currentState.validate()) {
-                                //   return;
-                                // } else {
-                                //   print(" sign-up data not entered");
-                                // }
-                                AuthenticationHelper()
-                                    .signUp(email: _email, password: _password)
-                                    .then((result) {
-                                  FirebaseFirestore.instance
-                                      .collection('UserData')
-                                      .doc(auth.currentUser.uid)
-                                      .update({'name': _name});
-                                  if (result == null) {
-                                    Navigator.pushReplacement(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                const StartPage()));
-                                  }
-                                });
+                                if(formKey.currentState.validate())
+                                {
+                                  print("successful");
+                                  return AuthenticationHelper()
+                                      .signUp(email: _email, password: _password)
+                                      .then((result) {
+                                    FirebaseFirestore.instance
+                                        .collection('UserData')
+                                        .doc(auth.currentUser.uid)
+                                        .update({'name': _name});
+                                    if (result == null) {
+                                      Navigator.pushReplacement(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) =>
+                                              const StartPage()));
+                                    }
+                                  });
+                                }else{
+                                  print("Unsuccessful");
+                                }
                               },
                               child: Container(
                                 width: double.infinity,
