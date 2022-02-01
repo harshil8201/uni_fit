@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   final user = FirebaseAuth.instance.currentUser;
 
   static const _initialCameraPosition = CameraPosition(
-    target: LatLng(0,0),
+    target: LatLng(0, 0),
     zoom: 8,
   );
 
@@ -29,10 +29,9 @@ class _MapScreenState extends State<MapScreen> {
   Directions _info;
 
   Location currentLocation = Location();
-  final Set<Marker> _markers = {};
 
   void getLocation() async {
-    var location = await currentLocation.getLocation();
+    // var location = await currentLocation.getLocation();
     currentLocation.onLocationChanged.listen((LocationData loc) {
       _googleMapController
           ?.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
@@ -90,8 +89,7 @@ class _MapScreenState extends State<MapScreen> {
             myLocationEnabled: true,
             initialCameraPosition: _initialCameraPosition,
             onMapCreated: (controller) => _googleMapController = controller,
-            markers:
-            {
+            markers: {
               if (_origin != null) _origin,
               if (_destination != null) _destination,
             },
@@ -146,10 +144,9 @@ class _MapScreenState extends State<MapScreen> {
                 '* Note: Please long-press 2 times for route\n( For Starting to Destination ) *',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.015,
-                  color: Colors.redAccent,
-                  fontFamily: 'popBold'
-                ),
+                    fontSize: MediaQuery.of(context).size.height * 0.015,
+                    color: Colors.redAccent,
+                    fontFamily: 'popBold'),
               ),
             ),
           ),

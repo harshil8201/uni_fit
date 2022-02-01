@@ -13,4 +13,3 @@ Color semiBlack = const Color(0xff5F5F5F);
 Color lightBlack = const Color(0xff665B5B);
 Color shadowBlack = const Color(0x59000000);
 Color primaryBlack = const Color(0xff000000);
-

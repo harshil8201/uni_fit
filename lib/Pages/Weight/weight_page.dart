@@ -160,15 +160,16 @@ class _WeightPageState extends State<WeightPage> {
                           child: InkWell(
                             onTap: () {
                               // want to add navigation here-----------------
-                              // Navigator.push(
-                              //   context,
-                              //   PageTransition(
-                              //       type: PageTransitionType.bottomToTop,
-                              //       child: LiveMonitoring(cameras)),
-                              // );
+                              Navigator.push(
+                                context,
+                                PageTransition(
+                                    type: PageTransitionType.bottomToTop,
+                                    child: LiveMonitoring(cameras)),
+                              );
                             },
                             child: Container(
-                              height: MediaQuery.of(context).size.height * 0.1875,
+                              height:
+                                  MediaQuery.of(context).size.height * 0.1875,
                               width: double.infinity,
                               decoration: BoxDecoration(
                                 color: primaryWhite,
@@ -190,9 +191,10 @@ class _WeightPageState extends State<WeightPage> {
                                       Text(
                                         'LIVE',
                                         style: TextStyle(
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.04,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.04,
                                           fontFamily: 'popBold',
                                           color: primaryGreen,
                                         ),
@@ -200,9 +202,10 @@ class _WeightPageState extends State<WeightPage> {
                                       Text(
                                         'WARM UP',
                                         style: TextStyle(
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.04,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.04,
                                           fontFamily: 'popBold',
                                           color: primaryGreen,
                                         ),

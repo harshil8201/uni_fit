@@ -150,8 +150,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     Text(
                       'Logout',
                       style: TextStyle(
-                        fontSize:
-                            MediaQuery.of(context).size.height * 0.018,
+                        fontSize: MediaQuery.of(context).size.height * 0.018,
                         color: primaryWhite,
                         fontFamily: 'popMedium',
                       ),

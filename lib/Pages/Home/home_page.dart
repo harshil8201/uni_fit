@@ -232,7 +232,8 @@ class _HomePageState extends State<HomePage> {
                           options: CarouselOptions(
                             autoPlay: false,
                             autoPlayInterval: const Duration(seconds: 2),
-                            height: MediaQuery.of(context).size.height * 0.29375,
+                            height:
+                                MediaQuery.of(context).size.height * 0.29375,
                           ),
                           items: [
                             erContainer(
@@ -322,8 +323,11 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       Padding(
-                        padding:
-                            const EdgeInsets.only(top: 20, left: 20, right: 20,),
+                        padding: const EdgeInsets.only(
+                          top: 20,
+                          left: 20,
+                          right: 20,
+                        ),
                         child: Container(
                           width: double.infinity,
                           decoration: BoxDecoration(
@@ -346,8 +350,9 @@ class _HomePageState extends State<HomePage> {
                                   'Videos'.toUpperCase(),
                                   style: TextStyle(
                                     color: darkGreen,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.03125,
+                                    fontSize:
+                                        MediaQuery.of(context).size.height *
+                                            0.03125,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: 'popBold',
                                   ),
@@ -384,14 +389,18 @@ class _HomePageState extends State<HomePage> {
                                     'https://www.youtube.com/watch?v=xRRS5eJLET4',
                                     '7. Full body home workout',
                                   ),
-                                  const SizedBox(height: 10,),
+                                  const SizedBox(
+                                    height: 10,
+                                  ),
                                 ],
                               ),
                             ],
                           ),
                         ),
                       ),
-                      const SizedBox(height: 100,)
+                      const SizedBox(
+                        height: 100,
+                      )
                     ],
                   ),
                 ),

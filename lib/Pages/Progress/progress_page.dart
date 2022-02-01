@@ -359,13 +359,14 @@ class _ProgressPageState extends State<ProgressPage> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, right: 20, left: 20),
                                   child: InkWell(
                                     onTap: () async {
-                                      const url = 'https://www.youtube.com/watch?v=ir2xV8iX38k';
+                                      const url =
+                                          'https://www.youtube.com/watch?v=ir2xV8iX38k';
                                       if (await canLaunch(url)) {
-                                        await launch(url,
-                                            forceSafariVC: false);
+                                        await launch(url, forceSafariVC: false);
                                       }
                                     },
                                     child: Text(
@@ -380,13 +381,14 @@ class _ProgressPageState extends State<ProgressPage> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(bottom: 15, right: 20, left: 20),
+                                  padding: const EdgeInsets.only(
+                                      bottom: 15, right: 20, left: 20),
                                   child: InkWell(
                                     onTap: () async {
-                                      const url = 'https://www.youtube.com/watch?v=nrQ1CQ2HRYk';
+                                      const url =
+                                          'https://www.youtube.com/watch?v=nrQ1CQ2HRYk';
                                       if (await canLaunch(url)) {
-                                        await launch(url,
-                                            forceSafariVC: false);
+                                        await launch(url, forceSafariVC: false);
                                       }
                                     },
                                     child: Text(

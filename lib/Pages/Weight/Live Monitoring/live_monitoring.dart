@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-
 import 'Exercise/arm_raise.dart';
 import 'Exercise/squat.dart';
 import 'Exercise/warrior_pose.dart';
@@ -111,6 +110,7 @@ class _LiveMonitoringState extends State<LiveMonitoring> {
                           erName: 'Warrior pose',
                           context: context),
                     ),
+                    const SizedBox(height: 10,)
                   ],
                 ),
               ),
