@@ -33,6 +33,18 @@ class _DrawerPageState extends State<DrawerPage> {
     }
   }
 
+  _openGooglePlay() async {
+    // Android and iOS
+    const uri =
+        'https://play.google.com/store/apps/developer?id=Union+Software+IT';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -161,7 +173,34 @@ class _DrawerPageState extends State<DrawerPage> {
                     ),
                   ),
                 ),
-                drawerItems(FontAwesomeIcons.infoCircle, 'About us', null),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: InkWell(
+                    onTap: () {
+                      _sendMail();
+                    },
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.plus,
+                          color: primaryWhite,
+                          size: MediaQuery.of(context).size.height * 0.0313,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.042,
+                        ),
+                        Text(
+                          'More',
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.018,
+                            color: primaryWhite,
+                            fontFamily: 'popMedium',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
                 drawerItems(
                     FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),

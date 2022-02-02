@@ -463,7 +463,7 @@ class _ProgressPageState extends State<ProgressPage> {
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance
           .collection('UserData')
-          .doc(user.email)
+          .doc(user.uid)
           .snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) {
