@@ -63,12 +63,24 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   padding: const EdgeInsets.only(top: 70),
                                   child: Align(
                                     alignment: Alignment.topCenter,
-                                    child: SizedBox(
-                                      height: 180,
-                                      width: 180,
-                                      child: Image.asset(
-                                        'assets/images/US.png',
-                                        fit: BoxFit.contain,
+                                    child: Container(
+                                      height: 170,
+                                      width: 170,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: shadowBlack,
+                                            offset: const Offset(0.0, 0.10),
+                                            blurRadius: 20.0,
+                                          ), //BoxShadow
+                                        ],
+                                      ),
+                                      child: ClipOval(
+                                        child: Image.asset(
+                                          'assets/images/logo.png',
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
                                   ),
@@ -313,14 +325,24 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                   padding: const EdgeInsets.only(top: 70),
                                   child: Align(
                                     alignment: Alignment.topCenter,
-                                    child: SizedBox(
-                                      //color: Colors.blue,
-                                      height:
-                                          180,
-                                      width: 180,
-                                      child: Image.asset(
-                                        'assets/images/US.png',
-                                        fit: BoxFit.contain,
+                                    child: Container(
+                                      height: 170,
+                                      width: 170,
+                                      decoration: BoxDecoration(
+                                        shape: BoxShape.circle,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: shadowBlack,
+                                            offset: const Offset(0.0, 0.10),
+                                            blurRadius: 20.0,
+                                          ), //BoxShadow
+                                        ],
+                                      ),
+                                      child: ClipOval(
+                                        child: Image.asset(
+                                          'assets/images/logo.png',
+                                          fit: BoxFit.contain,
+                                        ),
                                       ),
                                     ),
                                   ),

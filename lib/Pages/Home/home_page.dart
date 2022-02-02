@@ -330,6 +330,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Container(
                           width: double.infinity,
+                          // height: 100,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: primaryWhite,
@@ -358,6 +359,65 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
+                              // StreamBuilder(
+                              //   stream: FirebaseFirestore.instance
+                              //       .collection('homeVideoLink')
+                              //       .snapshots(),
+                              //   builder: (BuildContext context,
+                              //       AsyncSnapshot<QuerySnapshot> snapshot) {
+                              //     if (!snapshot.hasData) {
+                              //       return const Center(
+                              //         child: CircularProgressIndicator(),
+                              //       );
+                              //     }
+                              //     return ListView.builder(
+                              //       itemCount: snapshot.data.docs.length,
+                              //       itemBuilder: (context, index) {
+                              //         DocumentSnapshot data = snapshot.data.docs[index];
+                              //         return Padding(
+                              //           padding: const EdgeInsets.only(bottom: 15),
+                              //           child: InkWell(
+                              //             onTap: () async {
+                              //               if (await canLaunch('https://www.youtube.com/watch?v=8PwoytUU06g')) {
+                              //                 await launch('https://www.youtube.com/watch?v=8PwoytUU06g',
+                              //                     forceSafariVC: false);
+                              //               }
+                              //             },
+                              //             child: Text(
+                              //               data['title'],
+                              //               style: TextStyle(
+                              //                 color: Colors.blue[600],
+                              //                 fontSize: 15,
+                              //                 fontWeight: FontWeight.bold,
+                              //                 fontFamily: 'popBold',
+                              //               ),
+                              //             ),
+                              //           ),
+                              //         );
+                              //       },
+                              //     );
+                              //   },
+                              // ),
+                              // Padding(
+                              //   padding: const EdgeInsets.only(bottom: 15),
+                              //   child: InkWell(
+                              //     onTap: () async {
+                              //       if (await canLaunch('https://www.youtube.com/watch?v=8PwoytUU06g')) {
+                              //         await launch('https://www.youtube.com/watch?v=8PwoytUU06g',
+                              //             forceSafariVC: false);
+                              //       }
+                              //     },
+                              //     child: Text(
+                              //       'hello',
+                              //       style: TextStyle(
+                              //         color: Colors.blue[600],
+                              //         fontSize: 15,
+                              //         fontWeight: FontWeight.bold,
+                              //         fontFamily: 'popBold',
+                              //       ),
+                              //     ),
+                              //   ),
+                              // ),
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [

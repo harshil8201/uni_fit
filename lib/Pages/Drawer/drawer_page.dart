@@ -8,6 +8,7 @@ import 'package:uni_fit/Pages/Drawer/settings.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'Running track/map_screen.dart';
 
@@ -20,6 +21,17 @@ class DrawerPage extends StatefulWidget {
 
 class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
+
+  _sendMail() async {
+    // Android and iOS
+    const uri =
+        'mailto:unionsoftware.itbusiness@gmail.com?subject=Greetings&body=Hello%20World';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,8 +133,35 @@ class _DrawerPageState extends State<DrawerPage> {
                     const MapScreen()),
                 drawerItems(FontAwesomeIcons.calculator, 'BMI calculator',
                     const BMIPage()),
-                drawerItems(FontAwesomeIcons.infoCircle, 'Help', null),
-                drawerItems(FontAwesomeIcons.questionCircle, 'About us', null),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: InkWell(
+                    onTap: () {
+                      _sendMail();
+                    },
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.questionCircle,
+                          color: primaryWhite,
+                          size: MediaQuery.of(context).size.height * 0.0313,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.042,
+                        ),
+                        Text(
+                          'Contact us',
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.height * 0.018,
+                            color: primaryWhite,
+                            fontFamily: 'popMedium',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                drawerItems(FontAwesomeIcons.infoCircle, 'About us', null),
                 drawerItems(
                     FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
                 // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
