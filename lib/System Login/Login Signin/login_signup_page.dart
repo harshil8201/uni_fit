@@ -654,13 +654,11 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 print(
                                     "Device Width: ${MediaQuery.of(context).size.width}");
                                 if (formKey.currentState.validate()) {
-                                  // If the form is valid, display a snackbar. In the real world,
-                                  // you'd often call a server or save the information in a database.
                                   return AuthenticationHelper()
                                       .signIn(
                                           email: _email, password: _password)
                                       .then((result) {
-                                    if (result == null) {
+                                    if (result != null) {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
@@ -751,7 +749,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                         .collection('UserData')
                                         .doc(auth.currentUser.uid)
                                         .update({'name': _name});
-                                    if (result == null) {
+                                    if (result != null) {
                                       Navigator.pushReplacement(
                                           context,
                                           MaterialPageRoute(
