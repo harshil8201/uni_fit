@@ -170,7 +170,7 @@ class _HomePageState extends State<HomePage> {
                                   'Hi, ',
                                   style: TextStyle(
                                       color: primaryBlack,
-                                      fontSize: 23,
+                                      fontSize: MediaQuery.of(context).size.height * 0.02875,
                                       fontFamily: 'popMedium'),
                                 ),
                                 user.emailVerified
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: 23,
+                                                fontSize: MediaQuery.of(context).size.height * 0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
                                         },
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: 23,
+                                                fontSize: MediaQuery.of(context).size.height * 0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
                                         },
@@ -220,7 +220,7 @@ class _HomePageState extends State<HomePage> {
                               "Ready for today's workout?",
                               style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
                                   fontFamily: 'popLight'),
                             ),
                           ],
@@ -485,7 +485,7 @@ class _HomePageState extends State<HomePage> {
           videoTitle,
           style: TextStyle(
             color: Colors.blue[600],
-            fontSize: 15,
+            fontSize: MediaQuery.of(context).size.height * 0.01875,
             fontWeight: FontWeight.bold,
             fontFamily: 'popBold',
           ),

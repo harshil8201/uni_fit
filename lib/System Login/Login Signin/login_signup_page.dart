@@ -649,6 +649,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 right: 70),
                             child: InkWell(
                               onTap: () {
+                                print(
+                                    "Device Height: ${MediaQuery.of(context).size.height}");
+                                print(
+                                    "Device Width: ${MediaQuery.of(context).size.width}");
                                 if (formKey.currentState.validate()) {
                                   // If the form is valid, display a snackbar. In the real world,
                                   // you'd often call a server or save the information in a database.
@@ -731,12 +735,12 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                         children: [
                           //----------signup button----------
                           Padding(
-                            padding: EdgeInsets.only(
-                                bottom: 80,
-                                left: 70,
-                                right: 70),
+                            padding: const EdgeInsets.only(
+                                bottom: 80, left: 70, right: 70),
                             child: InkWell(
                               onTap: () {
+                                print("Device Height: ${MediaQuery.of(context).size.height}");
+                                print("Device Width: ${MediaQuery.of(context).size.width}");
                                 if (formKey.currentState.validate()) {
                                   print("successful");
                                   return AuthenticationHelper()

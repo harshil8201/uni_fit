@@ -172,7 +172,7 @@ class _ProgressPageState extends State<ProgressPage> {
                               greeting(),
                               style: TextStyle(
                                 color: primaryBlack,
-                                fontSize: 23,
+                                fontSize: MediaQuery.of(context).size.height * 0.02875,
                                 fontFamily: 'popMedium',
                               ),
                             ),
@@ -180,7 +180,7 @@ class _ProgressPageState extends State<ProgressPage> {
                               'Burn calories and try to archive your goal...',
                               style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: 15,
+                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
                                   fontFamily: 'popLight'),
                             ),
                           ],
@@ -373,7 +373,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                       '1) What To Eat Before & After EVERY Workout',
                                       style: TextStyle(
                                         color: Colors.blue[600],
-                                        fontSize: 15,
+                                        fontSize: MediaQuery.of(context).size.height * 0.01875,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'popBold',
                                       ),
@@ -395,7 +395,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                       '2) 8 Best Things to do After a Workout',
                                       style: TextStyle(
                                         color: Colors.blue[600],
-                                        fontSize: 15,
+                                        fontSize: MediaQuery.of(context).size.height * 0.01875,
                                         fontWeight: FontWeight.bold,
                                         fontFamily: 'popBold',
                                       ),

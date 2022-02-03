@@ -13,34 +13,20 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
-  provider: ^5.0.0
-  get: ^4.1.4
   firebase_auth:
   firebase_core:
   cloud_firestore:
   firebase_database:
-  path:
-  path_provider:
   google_sign_in:
   font_awesome_flutter: ^9.1.0
-#  pedometer:
-#  decimal: ^0.3.3
-  percent_indicator: ^2.1.1
   tflite: ^1.1.1
   camera: ^0.5.8+11
-  numberpicker: ^2.0.1
-  flutter_number_picker: ^0.0.8
   page_transition: ^1.1.7+6
-  form_field_validator:
   confetti:
   carousel_slider:
-  charts_flutter:
   google_maps_flutter: ^2.0.2
   geolocator:
-#  geocoding:
   flutter_polyline_points: ^0.2.6
-#  google_map_polyline:
-#  permission:
   dio: ^4.0.0
   location:
   url_launcher:
@@ -50,6 +36,17 @@ dev_dependencies:
     sdk: flutter
 
   flutter_lints: ^1.0.0
+
+  flutter_native_splash: ^2.0.1+1
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splash_screen_logo.png
+  branding: assets/images/branding.png
+  branding_mode: bottom
+  android: true
+  ios: true
+
   flutter_launcher_icons:
 
 flutter_icons:
@@ -63,10 +60,10 @@ flutter:
 
   assets:
     - assets/posenet_mv1_075_float_from_checkpoints.tflite
+    - assets/images/logo.png
     - assets/images/
     - assets/images/diet/
     - assets/exercises/
-    - assets/images/1.png
     - assets/images/advance/
     - assets/images/beginner/
     - assets/images/intermediate/

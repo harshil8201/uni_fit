@@ -17,6 +17,8 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 5),
       child: InkWell(
         onTap: () {
+          print("Device Height: ${MediaQuery.of(context).size.height}");
+          print("Device Width: ${MediaQuery.of(context).size.width}");
           AuthenticationHelper().signInwithGoogle().whenComplete(
                 () => Navigator.pushReplacement(
                   context,

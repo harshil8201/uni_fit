@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:uni_fit/System%20Login/Google%20SignIn/google_page_controller.dart';
-import 'package:uni_fit/System%20Login/splash_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
       navigatorKey: navigatorKey,
       title: 'Uni Fit',
       debugShowCheckedModeBanner: false,
-      home: const SplashScreen(),
+      home: const GooglePageController(),
       // initialRoute: '/',
       // routes: routeClass,
     );
