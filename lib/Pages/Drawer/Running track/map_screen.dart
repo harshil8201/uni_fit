@@ -19,7 +19,7 @@ class _MapScreenState extends State<MapScreen> {
   final user = FirebaseAuth.instance.currentUser;
 
   static const _initialCameraPosition = CameraPosition(
-    target: LatLng(0, 0),
+    target: LatLng(20.5937, 78.9629),
     zoom: 8,
   );
 
@@ -35,7 +35,7 @@ class _MapScreenState extends State<MapScreen> {
     currentLocation.onLocationChanged.listen((LocationData loc) {
       _googleMapController
           ?.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(loc.latitude ?? 0.0, loc.longitude ?? 0.0),
+        target: LatLng(loc.latitude  ?? currentLocation, loc.longitude ?? currentLocation ),
         zoom: 19.0,
       )));
       print(loc.latitude);

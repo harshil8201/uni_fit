@@ -190,7 +190,7 @@ class _ProgressPageState extends State<ProgressPage> {
                         padding:
                             const EdgeInsets.only(right: 20, left: 20, top: 20),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.35,
+                          height: MediaQuery.of(context).size.height * 0.36875,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: primaryWhite,

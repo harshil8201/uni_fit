@@ -554,7 +554,7 @@ class _HomePageState extends State<HomePage> {
                     erName,
                     style: TextStyle(
                       color: primaryBlack,
-                      fontSize: MediaQuery.of(context).size.height * 0.03125,
+                      fontSize: MediaQuery.of(context).size.height * 0.02775,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'popBold',
                     ),

@@ -18,14 +18,13 @@ dependencies:
   cloud_firestore:
   firebase_database:
   google_sign_in:
-  font_awesome_flutter: ^9.1.0
+  font_awesome_flutter:
   tflite: ^1.1.1
   camera: ^0.5.8+11
-  page_transition: ^1.1.7+6
+  page_transition:
   confetti:
   carousel_slider:
   google_maps_flutter: ^2.0.2
-  geolocator:
   flutter_polyline_points: ^0.2.6
   dio: ^4.0.0
   location:
