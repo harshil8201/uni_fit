@@ -25,7 +25,7 @@ class _DrawerPageState extends State<DrawerPage> {
   _sendMail() async {
     // Android and iOS
     const uri =
-        'mailto:unionsoftware.itbusiness@gmail.com?subject=Greetings&body=Hello%20World';
+        'mailto:unionsoftware.itbusiness@gmail.com?subject=&body=';
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
@@ -177,7 +177,7 @@ class _DrawerPageState extends State<DrawerPage> {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   child: InkWell(
                     onTap: () {
-                      _sendMail();
+                      _openGooglePlay();
                     },
                     child: Row(
                       children: [

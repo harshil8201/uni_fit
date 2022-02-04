@@ -30,6 +30,7 @@ dependencies:
   dio: ^4.0.0
   location:
   url_launcher:
+  new_version:
 
 dev_dependencies:
   flutter_test:

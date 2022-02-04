@@ -345,7 +345,7 @@ class _ProgressPageState extends State<ProgressPage> {
                               children: [
                                 Padding(
                                   padding: const EdgeInsets.only(
-                                      top: 10, bottom: 15),
+                                      top: 20),
                                   child: Text(
                                     'Pre - Post Workout',
                                     style: TextStyle(
@@ -358,47 +358,63 @@ class _ProgressPageState extends State<ProgressPage> {
                                     ),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 15, right: 20, left: 20),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      const url =
-                                          'https://www.youtube.com/watch?v=ir2xV8iX38k';
-                                      if (await canLaunch(url)) {
-                                        await launch(url, forceSafariVC: false);
-                                      }
-                                    },
-                                    child: Text(
-                                      '1) What To Eat Before & After EVERY Workout',
-                                      style: TextStyle(
-                                        color: Colors.blue[600],
-                                        fontSize: MediaQuery.of(context).size.height * 0.01875,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'popBold',
+                                StreamBuilder(
+                                  stream: FirebaseFirestore.instance
+                                      .collection('progressionVideo')
+                                      .orderBy('title',descending: false)
+                                      .snapshots(),
+                                  builder: (BuildContext context,
+                                      AsyncSnapshot<QuerySnapshot> snapshot) {
+                                    if (!snapshot.hasData) {
+                                      return const Center(
+                                        child: CircularProgressIndicator(),
+                                      );
+                                    }
+                                    return Padding(
+                                      padding: const EdgeInsets.only(left: 25,right: 25,),
+                                      child: SizedBox(
+                                        height: 150,
+                                        child: ListView.builder(
+                                          itemCount: snapshot.data.docs.length,
+                                          itemBuilder: (context, index) {
+                                            DocumentSnapshot data =
+                                            snapshot.data.docs[index];
+                                            return Padding(
+                                              padding: const EdgeInsets.only(bottom: 15),
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  if (await canLaunch(data['url'])) {
+                                                    await launch(data['url'],
+                                                        forceSafariVC: false);
+                                                  }
+                                                },
+                                                child: Text(
+                                                  data['title'],
+                                                  style: TextStyle(
+                                                    color: Colors.blue[600],
+                                                    fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontFamily: 'popBold',
+                                                  ),
+                                                ),
+                                              ),
+                                            );
+                                          },
+                                        ),
                                       ),
-                                    ),
-                                  ),
+                                    );
+                                  },
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      bottom: 15, right: 20, left: 20),
-                                  child: InkWell(
-                                    onTap: () async {
-                                      const url =
-                                          'https://www.youtube.com/watch?v=nrQ1CQ2HRYk';
-                                      if (await canLaunch(url)) {
-                                        await launch(url, forceSafariVC: false);
-                                      }
-                                    },
-                                    child: Text(
-                                      '2) 8 Best Things to do After a Workout',
-                                      style: TextStyle(
-                                        color: Colors.blue[600],
-                                        fontSize: MediaQuery.of(context).size.height * 0.01875,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'popBold',
-                                      ),
+                                  padding:
+                                  const EdgeInsets.only(top: 10, bottom: 10),
+                                  child: Text(
+                                    'scroll down',
+                                    style: TextStyle(
+                                      color: Colors.grey[400],
+                                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: 'popBold',
                                     ),
                                   ),
                                 ),

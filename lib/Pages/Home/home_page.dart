@@ -170,7 +170,9 @@ class _HomePageState extends State<HomePage> {
                                   'Hi, ',
                                   style: TextStyle(
                                       color: primaryBlack,
-                                      fontSize: MediaQuery.of(context).size.height * 0.02875,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.02875,
                                       fontFamily: 'popMedium'),
                                 ),
                                 user.emailVerified
@@ -189,7 +191,10 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: MediaQuery.of(context).size.height * 0.02875,
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
                                         },
@@ -209,7 +214,10 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: MediaQuery.of(context).size.height * 0.02875,
+                                                fontSize: MediaQuery.of(context)
+                                                        .size
+                                                        .height *
+                                                    0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
                                         },
@@ -220,7 +228,8 @@ class _HomePageState extends State<HomePage> {
                               "Ready for today's workout?",
                               style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                  fontSize: MediaQuery.of(context).size.height *
+                                      0.01875,
                                   fontFamily: 'popLight'),
                             ),
                           ],
@@ -230,8 +239,8 @@ class _HomePageState extends State<HomePage> {
                         padding: const EdgeInsets.only(top: 10),
                         child: CarouselSlider(
                           options: CarouselOptions(
-                            autoPlay: false,
-                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 4),
                             height:
                                 MediaQuery.of(context).size.height * 0.29375,
                           ),
@@ -279,8 +288,8 @@ class _HomePageState extends State<HomePage> {
                         child: CarouselSlider(
                           options: CarouselOptions(
                             // reverse: true,
-                            autoPlay: false,
-                            autoPlayInterval: const Duration(seconds: 2),
+                            autoPlay: true,
+                            autoPlayInterval: const Duration(seconds: 5),
                             height: MediaQuery.of(context).size.height * 0.25,
                           ),
                           items: [
@@ -330,7 +339,6 @@ class _HomePageState extends State<HomePage> {
                         ),
                         child: Container(
                           width: double.infinity,
-                          // height: 100,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(20),
                             color: primaryWhite,
@@ -346,7 +354,7 @@ class _HomePageState extends State<HomePage> {
                             children: [
                               Padding(
                                 padding:
-                                    const EdgeInsets.only(top: 10, bottom: 15),
+                                    const EdgeInsets.only(top: 30,),
                                 child: Text(
                                   'Videos'.toUpperCase(),
                                   style: TextStyle(
@@ -359,100 +367,65 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                 ),
                               ),
-                              // StreamBuilder(
-                              //   stream: FirebaseFirestore.instance
-                              //       .collection('homeVideoLink')
-                              //       .snapshots(),
-                              //   builder: (BuildContext context,
-                              //       AsyncSnapshot<QuerySnapshot> snapshot) {
-                              //     if (!snapshot.hasData) {
-                              //       return const Center(
-                              //         child: CircularProgressIndicator(),
-                              //       );
-                              //     }
-                              //     return ListView.builder(
-                              //       itemCount: snapshot.data.docs.length,
-                              //       itemBuilder: (context, index) {
-                              //         DocumentSnapshot data = snapshot.data.docs[index];
-                              //         return Padding(
-                              //           padding: const EdgeInsets.only(bottom: 15),
-                              //           child: InkWell(
-                              //             onTap: () async {
-                              //               if (await canLaunch('https://www.youtube.com/watch?v=8PwoytUU06g')) {
-                              //                 await launch('https://www.youtube.com/watch?v=8PwoytUU06g',
-                              //                     forceSafariVC: false);
-                              //               }
-                              //             },
-                              //             child: Text(
-                              //               data['title'],
-                              //               style: TextStyle(
-                              //                 color: Colors.blue[600],
-                              //                 fontSize: 15,
-                              //                 fontWeight: FontWeight.bold,
-                              //                 fontFamily: 'popBold',
-                              //               ),
-                              //             ),
-                              //           ),
-                              //         );
-                              //       },
-                              //     );
-                              //   },
-                              // ),
-                              // Padding(
-                              //   padding: const EdgeInsets.only(bottom: 15),
-                              //   child: InkWell(
-                              //     onTap: () async {
-                              //       if (await canLaunch('https://www.youtube.com/watch?v=8PwoytUU06g')) {
-                              //         await launch('https://www.youtube.com/watch?v=8PwoytUU06g',
-                              //             forceSafariVC: false);
-                              //       }
-                              //     },
-                              //     child: Text(
-                              //       'hello',
-                              //       style: TextStyle(
-                              //         color: Colors.blue[600],
-                              //         fontSize: 15,
-                              //         fontWeight: FontWeight.bold,
-                              //         fontFamily: 'popBold',
-                              //       ),
-                              //     ),
-                              //   ),
-                              // ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=8PwoytUU06g',
-                                    '1. complete abs workout 20 min ',
+                              StreamBuilder(
+                                stream: FirebaseFirestore.instance
+                                    .collection('homeVideoLink')
+                                    .orderBy('title',descending: false)
+                                    .snapshots(),
+                                builder: (BuildContext context,
+                                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                                  if (!snapshot.hasData) {
+                                    return const Center(
+                                      child: CircularProgressIndicator(),
+                                    );
+                                  }
+                                  return Padding(
+                                    padding: const EdgeInsets.only(left: 25,right: 25,),
+                                    child: SizedBox(
+                                      height: 200,
+                                      child: ListView.builder(
+                                        itemCount: snapshot.data.docs.length,
+                                        itemBuilder: (context, index) {
+                                          DocumentSnapshot data =
+                                              snapshot.data.docs[index];
+                                          return Padding(
+                                            padding: const EdgeInsets.only(bottom: 15),
+                                            child: InkWell(
+                                              onTap: () async {
+                                                if (await canLaunch(data['url'])) {
+                                                  await launch(data['url'],
+                                                      forceSafariVC: false);
+                                                }
+                                              },
+                                              child: Text(
+                                                data['title'],
+                                                style: TextStyle(
+                                                  color: Colors.blue[600],
+                                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                                  fontWeight: FontWeight.bold,
+                                                  fontFamily: 'popBold',
+                                                ),
+                                              ),
+                                            ),
+                                          );
+                                        },
+                                      ),
+                                    ),
+                                  );
+                                },
+                              ),
+                              Padding(
+                                padding:
+                                const EdgeInsets.only(top: 10, bottom: 10),
+                                child: Text(
+                                  'scroll down',
+                                  style: TextStyle(
+                                    color: Colors.grey[400],
+                                    fontSize: MediaQuery.of(context).size.height * 0.015,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'popBold',
                                   ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=GkZGLpJVC0Y',
-                                    '2. Full Shoulder Workout',
-                                  ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=n69-eVLtevc',
-                                    '3. Chest workout at home routine',
-                                  ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=BEj_IB9kreE',
-                                    '4. Home arms workout',
-                                  ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=rLOaX9pp7xM',
-                                    '5. Back workout at home',
-                                  ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=q7rCeOa_m58',
-                                    '6. Complete 20 min legs workout',
-                                  ),
-                                  videoContainer(
-                                    'https://www.youtube.com/watch?v=xRRS5eJLET4',
-                                    '7. Full body home workout',
-                                  ),
-                                  const SizedBox(
-                                    height: 10,
-                                  ),
-                                ],
+                                ),
                               ),
                             ],
                           ),
@@ -472,27 +445,27 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget videoContainer(String youtubeURL, String videoTitle) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 15),
-      child: InkWell(
-        onTap: () async {
-          if (await canLaunch(youtubeURL)) {
-            await launch(youtubeURL, forceSafariVC: false);
-          }
-        },
-        child: Text(
-          videoTitle,
-          style: TextStyle(
-            color: Colors.blue[600],
-            fontSize: MediaQuery.of(context).size.height * 0.01875,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'popBold',
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget videoContainer(String youtubeURL, String videoTitle) {
+  //   return Padding(
+  //     padding: const EdgeInsets.only(bottom: 15),
+  //     child: InkWell(
+  //       onTap: () async {
+  //         if (await canLaunch(youtubeURL)) {
+  //           await launch(youtubeURL, forceSafariVC: false);
+  //         }
+  //       },
+  //       child: Text(
+  //         videoTitle,
+  //         style: TextStyle(
+  //           color: Colors.blue[600],
+  //           fontSize: MediaQuery.of(context).size.height * 0.01875,
+  //           fontWeight: FontWeight.bold,
+  //           fontFamily: 'popBold',
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   Widget erContainer(
     String erName,
