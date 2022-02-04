@@ -164,8 +164,6 @@ class _ResultScreenState extends State<ResultScreen> {
                       ),
                       onPressed: () {
                         Navigator.pop(context);
-                        // Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => SelectorPage()));
                       },
                     ),
                   ),

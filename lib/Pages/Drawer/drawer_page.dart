@@ -23,7 +23,6 @@ class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
 
   _sendMail() async {
-    // Android and iOS
     const uri =
         'mailto:unionsoftware.itbusiness@gmail.com?subject=&body=';
     if (await canLaunch(uri)) {
@@ -34,7 +33,6 @@ class _DrawerPageState extends State<DrawerPage> {
   }
 
   _openGooglePlay() async {
-    // Android and iOS
     const uri =
         'https://play.google.com/store/apps/developer?id=Union+Software+IT';
     if (await canLaunch(uri)) {
@@ -57,7 +55,6 @@ class _DrawerPageState extends State<DrawerPage> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Column(
-              // crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 user.emailVerified
                     ? ClipOval(
@@ -203,9 +200,6 @@ class _DrawerPageState extends State<DrawerPage> {
                 ),
                 drawerItems(
                     FontAwesomeIcons.cog, 'Settings', const SettingsPage()),
-                // drawerItems(FontAwesomeIcons.fire, 'Calories burner',null),
-                // drawerItems(FontAwesomeIcons.glassWhiskey, 'Water reminder', null),
-                // drawerItems(FontAwesomeIcons.clock, 'Daily reminder', null),
               ],
             ),
             Padding(

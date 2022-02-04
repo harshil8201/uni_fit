@@ -24,8 +24,6 @@ class DirectionsRepository {
         'key': googleAPIKey,
       },
     );
-
-    // Check if response is successful
     if (response.statusCode == 200) {
       return Directions.fromMap(response.data);
     }

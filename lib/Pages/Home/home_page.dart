@@ -445,28 +445,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  // Widget videoContainer(String youtubeURL, String videoTitle) {
-  //   return Padding(
-  //     padding: const EdgeInsets.only(bottom: 15),
-  //     child: InkWell(
-  //       onTap: () async {
-  //         if (await canLaunch(youtubeURL)) {
-  //           await launch(youtubeURL, forceSafariVC: false);
-  //         }
-  //       },
-  //       child: Text(
-  //         videoTitle,
-  //         style: TextStyle(
-  //           color: Colors.blue[600],
-  //           fontSize: MediaQuery.of(context).size.height * 0.01875,
-  //           fontWeight: FontWeight.bold,
-  //           fontFamily: 'popBold',
-  //         ),
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Widget erContainer(
     String erName,
     String erSet,

@@ -40,14 +40,6 @@ class _MapScreenState extends State<MapScreen> {
       )));
       print(loc.latitude);
       print(loc.longitude);
-      // setState(() {
-      //   location;
-      //   _markers.add(Marker(
-      //       icon:
-      //           BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
-      //       markerId: const MarkerId('Home'),
-      //       position: LatLng(loc.latitude ?? 0.0, loc.longitude ?? 0.0)));
-      // });
     });
   }
 
@@ -286,23 +278,17 @@ class _MapScreenState extends State<MapScreen> {
 
   void _addMarker(LatLng pos) async {
     if (_origin == null || (_origin != null && _destination != null)) {
-      // Origin is not set OR Origin/Destination are both set
-      // Set origin
-      setState(() {
+     setState(() {
         _origin = Marker(
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
-        // Reset destination
         _destination = null;
-        // Reset info
         _info = null;
       });
     } else {
-      // Origin is already set
-      // Set destination
       setState(() {
         _destination = Marker(
           markerId: const MarkerId('destination'),
@@ -314,8 +300,6 @@ class _MapScreenState extends State<MapScreen> {
           position: pos,
         );
       });
-
-      // Get directions
       final directions = await DirectionsRepository()
           .getDirections(origin: _origin.position, destination: pos);
       setState(() => _info = directions);

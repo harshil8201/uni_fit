@@ -63,7 +63,6 @@ flutter:
     - assets/images/logo.png
     - assets/images/
     - assets/images/diet/
-    - assets/exercises/
     - assets/images/advance/
     - assets/images/beginner/
     - assets/images/intermediate/
