@@ -1,14 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/System%20Login/databse.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  final user = FirebaseAuth.instance.currentUser;
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
   //sign up with google
-  Future<String> signInwithGoogle() async {
+  Future<LoginSignupPage> signInwithGoogle() async {
     try {
       final GoogleSignInAccount googleSignInAccount =
           await _googleSignIn.signIn();
@@ -34,7 +37,7 @@ class AuthenticationHelper {
       await _auth.signInWithCredential(credential);
     } on FirebaseAuthException catch (e) {
       print(e.message);
-      throw e;
+      rethrow;
     }
   }
 
