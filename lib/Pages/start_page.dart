@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:new_version/new_version.dart';
+// import 'package:new_version/new_version.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
@@ -19,33 +19,33 @@ class StartPage extends StatefulWidget {
 class _StartPageState extends State<StartPage> {
   int currentIndex = 0;
 
-  @override
-  void initState() {
-    super.initState();
-
-    _checkVersion();
-  }
-
-  void _checkVersion() async {
-    final newVersion = NewVersion(
-      androidId: "com.unionsoftwareit.uni_fit",
-      iOSId: "com.unionsoftwareit.uni_fit",
-    );
-    final status = await newVersion.getVersionStatus();
-    newVersion.showUpdateDialog(
-      context: context,
-      versionStatus: status,
-      dialogTitle: "UPDATE AVAILABLE",
-      dismissButtonText: "No",
-      dialogText: "Please update the app from " + "${status.localVersion}" + " to " + "${status.storeVersion}",
-      dismissAction: () {
-        SystemNavigator.pop();
-      },
-      updateButtonText: "Update",
-    );
-    print("DEVICE : " + status.localVersion);
-    print("STORE : " + status.storeVersion);
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //
+  //   _checkVersion();
+  // }
+  //
+  // void _checkVersion() async {
+  //   final newVersion = NewVersion(
+  //     androidId: "com.unionsoftwareit.uni_fit",
+  //     iOSId: "com.unionsoftwareit.uni_fit",
+  //   );
+  //   final status = await newVersion.getVersionStatus();
+  //   newVersion.showUpdateDialog(
+  //     context: context,
+  //     versionStatus: status,
+  //     dialogTitle: "UPDATE AVAILABLE",
+  //     dismissButtonText: "No",
+  //     dialogText: "Please update the app from " + "${status.localVersion}" + " to " + "${status.storeVersion}",
+  //     dismissAction: () {
+  //       SystemNavigator.pop();
+  //     },
+  //     updateButtonText: "Update",
+  //   );
+  //   print("DEVICE : " + status.localVersion);
+  //   print("STORE : " + status.storeVersion);
+  // }
 
   setBottomBarIndex(index) {
     setState(() {

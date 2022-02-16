@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none'
 
-version: 1.0.1+2
+version: 1.0.3+4
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -29,7 +29,6 @@ dependencies:
   dio: ^4.0.0
   location:
   url_launcher:
-  new_version:
 
 dev_dependencies:
   flutter_test:
@@ -40,7 +39,7 @@ dev_dependencies:
   flutter_native_splash: ^2.0.1+1
 
 flutter_native_splash:
-  color: "#ffffff"
+  color: "#000000"
   image: assets/images/splash_screen_logo.png
   branding: assets/images/branding.png
   branding_mode: bottom
