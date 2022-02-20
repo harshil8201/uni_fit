@@ -53,190 +53,113 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                       padding: const EdgeInsets.only(left: 10),
                       child: Form(
                         key: formKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //---------upper part---------
-                            Stack(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 70),
-                                  child: Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Container(
-                                      height: 170,
-                                      width: 170,
-                                      decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: shadowBlack,
-                                            offset: const Offset(0.0, 0.10),
-                                            blurRadius: 20.0,
-                                          ), //BoxShadow
-                                        ],
-                                      ),
-                                      child: ClipOval(
-                                        child: Image.asset(
-                                          'assets/images/logo.png',
-                                          fit: BoxFit.contain,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //---------upper part---------
+                              Stack(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 70),
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                        height: 170,
+                                        width: 170,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: shadowBlack,
+                                              offset: const Offset(0.0, 0.10),
+                                              blurRadius: 20.0,
+                                            ), //BoxShadow
+                                          ],
+                                        ),
+                                        child: ClipOval(
+                                          child: Image.asset(
+                                            'assets/images/logo.png',
+                                            fit: BoxFit.contain,
+                                          ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 250),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Text(
-                                      'Hey\nWelcome !',
-                                      style: TextStyle(
-                                        color: primaryGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05,
-                                        fontFamily: 'popBold',
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-
-                            //-----------email-------------
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5, right: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
                                   Padding(
-                                    padding: const EdgeInsets.only(top: 15),
-                                    child: Text(
-                                      'Email :',
-                                      style: TextStyle(
-                                        color: superDarkGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.0187,
-                                        fontFamily: 'popBold',
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                      height:
-                                          MediaQuery.of(context).size.height *
-                                              0.00625),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: shadeWhite.withOpacity(0.60),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 15, right: 10),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.0625,
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return 'Please enter email';
-                                            }
-                                            return null;
-                                          },
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _email = value.trim();
-                                            });
-                                          },
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            icon: Icon(
-                                                Icons.mail_outline_outlined,
-                                                color: darkWhite),
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.never,
-                                            enabledBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            focusedBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            hintText: 'Enter your email',
-                                            hintStyle:
-                                                TextStyle(color: darkWhite),
-                                          ),
+                                    padding: const EdgeInsets.only(top: 250),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        'Hey\nWelcome !',
+                                        style: TextStyle(
+                                          color: primaryGreen,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.05,
+                                          fontFamily: 'popBold',
                                         ),
                                       ),
                                     ),
                                   ),
                                 ],
                               ),
-                            ),
 
-                            //-----------password-----------
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 15),
-                                    child: Text(
-                                      'Password :',
-                                      style: TextStyle(
-                                        color: superDarkGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.01875,
-                                        fontFamily: 'popBold',
+                              //-----------email-------------
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5, right: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 15),
+                                      child: Text(
+                                        'Email :',
+                                        style: TextStyle(
+                                          color: superDarkGreen,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.0187,
+                                          fontFamily: 'popBold',
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                        top: 5, right: 10),
-                                    child: Container(
+                                    SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.00625),
+                                    Container(
                                       decoration: BoxDecoration(
                                         color: shadeWhite.withOpacity(0.60),
                                         borderRadius: BorderRadius.circular(30),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.only(
-                                            right: 8, left: 15),
+                                            left: 15, right: 10),
                                         child: SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.0625,
+                                          height:
+                                              MediaQuery.of(context).size.height *
+                                                  0.0625,
                                           width: double.infinity,
                                           child: TextFormField(
                                             validator: (value) {
                                               if (value.isEmpty) {
-                                                return "Please enter password";
+                                                return 'Please enter email';
                                               }
                                               return null;
                                             },
                                             onChanged: (value) {
                                               setState(() {
-                                                _password = value.trim();
+                                                _email = value.trim();
                                               });
                                             },
-                                            obscureText: _isObscure,
-                                            textInputAction:
-                                                TextInputAction.done,
+                                            keyboardType:
+                                                TextInputType.emailAddress,
+                                            textInputAction: TextInputAction.next,
+                                            obscureText: false,
                                             decoration: InputDecoration(
-                                              icon: Icon(Icons.vpn_key_rounded,
+                                              icon: Icon(
+                                                  Icons.mail_outline_outlined,
                                                   color: darkWhite),
                                               floatingLabelBehavior:
                                                   FloatingLabelBehavior.never,
@@ -250,58 +173,137 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                                       borderSide: BorderSide(
                                                           color: Colors
                                                               .transparent)),
-                                              hintText: 'Enter your password',
+                                              hintText: 'Enter your email',
                                               hintStyle:
                                                   TextStyle(color: darkWhite),
-                                              suffixIcon: IconButton(
-                                                color: darkWhite,
-                                                icon: Icon(
-                                                  _isObscure
-                                                      ? Icons.visibility
-                                                      : Icons.visibility_off,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              //-----------password-----------
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 15),
+                                      child: Text(
+                                        'Password :',
+                                        style: TextStyle(
+                                          color: superDarkGreen,
+                                          fontSize:
+                                              MediaQuery.of(context).size.height *
+                                                  0.01875,
+                                          fontFamily: 'popBold',
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 10),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: shadeWhite.withOpacity(0.60),
+                                          borderRadius: BorderRadius.circular(30),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 8, left: 15),
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0625,
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              validator: (value) {
+                                                if (value.isEmpty) {
+                                                  return "Please enter password";
+                                                }
+                                                return null;
+                                              },
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  _password = value.trim();
+                                                });
+                                              },
+                                              obscureText: _isObscure,
+                                              textInputAction:
+                                                  TextInputAction.done,
+                                              decoration: InputDecoration(
+                                                icon: Icon(Icons.vpn_key_rounded,
+                                                    color: darkWhite),
+                                                floatingLabelBehavior:
+                                                    FloatingLabelBehavior.never,
+                                                enabledBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                focusedBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                hintText: 'Enter your password',
+                                                hintStyle:
+                                                    TextStyle(color: darkWhite),
+                                                suffixIcon: IconButton(
+                                                  color: darkWhite,
+                                                  icon: Icon(
+                                                    _isObscure
+                                                        ? Icons.visibility
+                                                        : Icons.visibility_off,
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(
+                                                      () {
+                                                        _isObscure = !_isObscure;
+                                                      },
+                                                    );
+                                                  },
                                                 ),
-                                                onPressed: () {
-                                                  setState(
-                                                    () {
-                                                      _isObscure = !_isObscure;
-                                                    },
-                                                  );
-                                                },
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
 
-                                  //---------------forget button----------------
-                                  Padding(
-                                    padding: const EdgeInsets.only(right: 10),
-                                    child: Align(
-                                      alignment: Alignment.centerRight,
-                                      child: TextButton(
-                                        onPressed: () {
-                                          Navigator.push(
-                                            context,
-                                            PageTransition(
-                                              type: PageTransitionType
-                                                  .rightToLeftWithFade,
-                                              child: const ForgetPasswordPage(),
-                                            ),
-                                          );
-                                        },
-                                        child: const Text(
-                                          'Forget Password?',
-                                          style: TextStyle(color: Colors.blue),
+                                    //---------------forget button----------------
+                                    Padding(
+                                      padding: const EdgeInsets.only(right: 10),
+                                      child: Align(
+                                        alignment: Alignment.centerRight,
+                                        child: TextButton(
+                                          onPressed: () {
+                                            Navigator.push(
+                                              context,
+                                              PageTransition(
+                                                type: PageTransitionType
+                                                    .rightToLeftWithFade,
+                                                child: const ForgetPasswordPage(),
+                                              ),
+                                            );
+                                          },
+                                          child: const Text(
+                                            'Forget Password?',
+                                            style: TextStyle(color: Colors.blue),
+                                          ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
@@ -315,316 +317,318 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                       padding: const EdgeInsets.only(left: 10),
                       child: Form(
                         key: formKey,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            //---------upper part---------
-                            Stack(
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 70),
-                                  child: Align(
-                                    alignment: Alignment.topCenter,
-                                    child: Container(
-                                      height: 170,
-                                      width: 170,
+                        child: SingleChildScrollView(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              //---------upper part---------
+                              Stack(
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 70),
+                                    child: Align(
+                                      alignment: Alignment.topCenter,
+                                      child: Container(
+                                        height: 170,
+                                        width: 170,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          boxShadow: [
+                                            BoxShadow(
+                                              color: shadowBlack,
+                                              offset: const Offset(0.0, 0.10),
+                                              blurRadius: 20.0,
+                                            ), //BoxShadow
+                                          ],
+                                        ),
+                                        child: ClipOval(
+                                          child: Image.asset(
+                                            'assets/images/logo.png',
+                                            fit: BoxFit.contain,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(top: 250),
+                                    child: Align(
+                                      alignment: Alignment.topLeft,
+                                      child: Text(
+                                        'Hello,\nJoin us !',
+                                        style: TextStyle(
+                                          color: primaryGreen,
+                                          fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.05,
+                                          fontFamily: 'popBold',
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              // SizedBox(
+                              //   height:
+                              //       MediaQuery.of(context).size.height * 0.025,
+                              // ),
+
+                              //------------Name-------------
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5, right: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 15),
+                                      child: Text(
+                                        'Name :',
+                                        style: TextStyle(
+                                          color: superDarkGreen,
+                                          fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.01875,
+                                          fontFamily: 'popBold',
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: MediaQuery.of(context).size.height *
+                                          0.00625,
+                                    ),
+                                    Container(
                                       decoration: BoxDecoration(
-                                        shape: BoxShape.circle,
-                                        boxShadow: [
-                                          BoxShadow(
-                                            color: shadowBlack,
-                                            offset: const Offset(0.0, 0.10),
-                                            blurRadius: 20.0,
-                                          ), //BoxShadow
-                                        ],
+                                        color: shadeWhite.withOpacity(0.60),
+                                        borderRadius: BorderRadius.circular(30),
                                       ),
-                                      child: ClipOval(
-                                        child: Image.asset(
-                                          'assets/images/logo.png',
-                                          fit: BoxFit.contain,
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 250),
-                                  child: Align(
-                                    alignment: Alignment.topLeft,
-                                    child: Text(
-                                      'Hello,\nJoin us !',
-                                      style: TextStyle(
-                                        color: primaryGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.05,
-                                        fontFamily: 'popBold',
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            // SizedBox(
-                            //   height:
-                            //       MediaQuery.of(context).size.height * 0.025,
-                            // ),
-
-                            //------------Name-------------
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5, right: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 15),
-                                    child: Text(
-                                      'Name :',
-                                      style: TextStyle(
-                                        color: superDarkGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.01875,
-                                        fontFamily: 'popBold',
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.00625,
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: shadeWhite.withOpacity(0.60),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 15, right: 10),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.0625,
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          controller: name,
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _name = value.trim();
-                                            });
-                                          },
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return "Please enter your Name";
-                                            }
-                                            return null;
-                                          },
-                                          keyboardType: TextInputType.text,
-                                          textInputAction: TextInputAction.next,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            icon: Icon(Icons.person,
-                                                color: darkWhite),
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.never,
-                                            enabledBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            focusedBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            hintText: 'Enter your Name',
-                                            hintStyle: TextStyle(
-                                              color: darkWhite,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                            //-----------email-------------
-                            Padding(
-                              padding: const EdgeInsets.only(top: 5, right: 10),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 10),
-                                    child: Text(
-                                      'Email :',
-                                      style: TextStyle(
-                                        color: superDarkGreen,
-                                        fontSize:
-                                            MediaQuery.of(context).size.height *
-                                                0.01875,
-                                        fontFamily: 'popBold',
-                                      ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: MediaQuery.of(context).size.height *
-                                        0.00625,
-                                  ),
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      color: shadeWhite.withOpacity(0.60),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          left: 15, right: 10),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.0625,
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _email = value.trim();
-                                            });
-                                          },
-                                          validator: (String value) {
-                                            if (value.isEmpty) {
-                                              return 'Please entered email';
-                                            }
-                                            if (!RegExp(
-                                                    "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                                .hasMatch(value)) {
-                                              return 'Please entered valid Email';
-                                            }
-                                            return null;
-                                          },
-                                          keyboardType:
-                                              TextInputType.emailAddress,
-                                          textInputAction: TextInputAction.next,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            icon: Icon(
-                                                Icons.mail_outline_outlined,
-                                                color: darkWhite),
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.never,
-                                            enabledBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            focusedBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            hintText: 'Create your email',
-                                            hintStyle: TextStyle(
-                                              color: darkWhite,
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-
-                            //-----------password-----------
-                            Padding(
-                              padding: const EdgeInsets.only(top: 15),
-                              child: Text(
-                                'Password :',
-                                style: TextStyle(
-                                  color: superDarkGreen,
-                                  fontSize: MediaQuery.of(context).size.height *
-                                      0.01875,
-                                  fontFamily: 'popBold',
-                                ),
-                              ),
-                            ),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Padding(
-                                  padding:
-                                      const EdgeInsets.only(top: 5, right: 10),
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      color: shadeWhite.withOpacity(0.60),
-                                      borderRadius: BorderRadius.circular(30),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.only(
-                                          right: 8, left: 15),
-                                      child: SizedBox(
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.0625,
-                                        width: double.infinity,
-                                        child: TextFormField(
-                                          onChanged: (value) {
-                                            setState(() {
-                                              _password = value.trim();
-                                            });
-                                          },
-                                          validator: (value) {
-                                            if (value.isEmpty) {
-                                              return "Please enter password";
-                                            }
-                                            return null;
-                                          },
-                                          obscureText: _isObscure,
-                                          textInputAction: TextInputAction.next,
-                                          decoration: InputDecoration(
-                                            icon: Icon(Icons.vpn_key_rounded,
-                                                color: darkWhite),
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.never,
-                                            enabledBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            focusedBorder:
-                                                const UnderlineInputBorder(
-                                                    borderSide: BorderSide(
-                                                        color: Colors
-                                                            .transparent)),
-                                            hintText: 'Create new password',
-                                            hintStyle:
-                                                TextStyle(color: darkWhite),
-                                            suffixIcon: IconButton(
-                                              color: darkWhite,
-                                              icon: Icon(
-                                                _isObscure
-                                                    ? Icons.visibility
-                                                    : Icons.visibility_off,
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 15, right: 10),
+                                        child: SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.0625,
+                                          width: double.infinity,
+                                          child: TextFormField(
+                                            controller: name,
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _name = value.trim();
+                                              });
+                                            },
+                                            validator: (value) {
+                                              if (value.isEmpty) {
+                                                return "Please enter your Name";
+                                              }
+                                              return null;
+                                            },
+                                            keyboardType: TextInputType.text,
+                                            textInputAction: TextInputAction.next,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              icon: Icon(Icons.person,
+                                                  color: darkWhite),
+                                              floatingLabelBehavior:
+                                              FloatingLabelBehavior.never,
+                                              enabledBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              focusedBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              hintText: 'Enter your Name',
+                                              hintStyle: TextStyle(
+                                                color: darkWhite,
                                               ),
-                                              onPressed: () {
-                                                setState(
-                                                  () {
-                                                    _isObscure = !_isObscure;
-                                                  },
-                                                );
-                                              },
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              //-----------email-------------
+                              Padding(
+                                padding: const EdgeInsets.only(top: 5, right: 10),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 10),
+                                      child: Text(
+                                        'Email :',
+                                        style: TextStyle(
+                                          color: superDarkGreen,
+                                          fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.01875,
+                                          fontFamily: 'popBold',
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: MediaQuery.of(context).size.height *
+                                          0.00625,
+                                    ),
+                                    Container(
+                                      decoration: BoxDecoration(
+                                        color: shadeWhite.withOpacity(0.60),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            left: 15, right: 10),
+                                        child: SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.0625,
+                                          width: double.infinity,
+                                          child: TextFormField(
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _email = value.trim();
+                                              });
+                                            },
+                                            validator: (String value) {
+                                              if (value.isEmpty) {
+                                                return 'Please entered email';
+                                              }
+                                              if (!RegExp(
+                                                  "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                                  .hasMatch(value)) {
+                                                return 'Please entered valid Email';
+                                              }
+                                              return null;
+                                            },
+                                            keyboardType:
+                                            TextInputType.emailAddress,
+                                            textInputAction: TextInputAction.next,
+                                            obscureText: false,
+                                            decoration: InputDecoration(
+                                              icon: Icon(
+                                                  Icons.mail_outline_outlined,
+                                                  color: darkWhite),
+                                              floatingLabelBehavior:
+                                              FloatingLabelBehavior.never,
+                                              enabledBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              focusedBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              hintText: 'Create your email',
+                                              hintStyle: TextStyle(
+                                                color: darkWhite,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+
+                              //-----------password-----------
+                              Padding(
+                                padding: const EdgeInsets.only(top: 15),
+                                child: Text(
+                                  'Password :',
+                                  style: TextStyle(
+                                    color: superDarkGreen,
+                                    fontSize: MediaQuery.of(context).size.height *
+                                        0.01875,
+                                    fontFamily: 'popBold',
+                                  ),
+                                ),
+                              ),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding:
+                                    const EdgeInsets.only(top: 5, right: 10),
+                                    child: Container(
+                                      decoration: BoxDecoration(
+                                        color: shadeWhite.withOpacity(0.60),
+                                        borderRadius: BorderRadius.circular(30),
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(
+                                            right: 8, left: 15),
+                                        child: SizedBox(
+                                          height:
+                                          MediaQuery.of(context).size.height *
+                                              0.0625,
+                                          width: double.infinity,
+                                          child: TextFormField(
+                                            onChanged: (value) {
+                                              setState(() {
+                                                _password = value.trim();
+                                              });
+                                            },
+                                            validator: (value) {
+                                              if (value.isEmpty) {
+                                                return "Please enter password";
+                                              }
+                                              return null;
+                                            },
+                                            obscureText: _isObscure,
+                                            textInputAction: TextInputAction.next,
+                                            decoration: InputDecoration(
+                                              icon: Icon(Icons.vpn_key_rounded,
+                                                  color: darkWhite),
+                                              floatingLabelBehavior:
+                                              FloatingLabelBehavior.never,
+                                              enabledBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              focusedBorder:
+                                              const UnderlineInputBorder(
+                                                  borderSide: BorderSide(
+                                                      color: Colors
+                                                          .transparent)),
+                                              hintText: 'Create new password',
+                                              hintStyle:
+                                              TextStyle(color: darkWhite),
+                                              suffixIcon: IconButton(
+                                                color: darkWhite,
+                                                icon: Icon(
+                                                  _isObscure
+                                                      ? Icons.visibility
+                                                      : Icons.visibility_off,
+                                                ),
+                                                onPressed: () {
+                                                  setState(
+                                                        () {
+                                                      _isObscure = !_isObscure;
+                                                    },
+                                                  );
+                                                },
+                                              ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        )
                       ),
                     ),
                   ),

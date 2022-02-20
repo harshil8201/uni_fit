@@ -22,15 +22,15 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
           print("Device Width: ${MediaQuery.of(context).size.width}");
           AuthenticationHelper()
               .signInwithGoogle()
+              .onError((error, stackTrace) => const LoginSignupPage())
               .whenComplete(
                 () => Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const StartPage(),
-                      ),
-                    ),
-              )
-              .onError((error, stackTrace) => const LoginSignupPage());
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const StartPage(),
+                  ),
+                ),
+              );
         },
         child: Container(
           width: double.infinity,

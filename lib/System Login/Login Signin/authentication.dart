@@ -1,40 +1,42 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:uni_fit/Pages/start_page.dart';
 import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
 import 'package:uni_fit/System%20Login/databse.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;
-
   final user = FirebaseAuth.instance.currentUser;
-
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  //sign up with google
   Future<LoginSignupPage> signInwithGoogle() async {
     try {
       final GoogleSignInAccount googleSignInAccount =
           await _googleSignIn.signIn();
       final GoogleSignInAuthentication googleSignInAuthentication =
           await googleSignInAccount.authentication;
-      await DatabaseService(uid: _googleSignIn.currentUser.email)
-          .upDateUserData(
-        _googleSignIn.currentUser.email,
-        _googleSignIn.currentUser.displayName,
-        _googleSignIn.currentUser.id,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        '0 km',
-      );
       final AuthCredential credential = GoogleAuthProvider.credential(
         accessToken: googleSignInAuthentication.accessToken,
         idToken: googleSignInAuthentication.idToken,
       );
-      await _auth.signInWithCredential(credential);
+      UserCredential authResult = await _auth.signInWithCredential(credential);
+      if (authResult.additionalUserInfo.isNewUser) {
+        await DatabaseService(uid: _googleSignIn.currentUser.email)
+            .upDateUserData(
+          _googleSignIn.currentUser.email,
+          _googleSignIn.currentUser.displayName,
+          _googleSignIn.currentUser.id,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          '0 km',
+        );
+      } else {
+        const StartPage();
+      }
     } on FirebaseAuthException catch (e) {
       print(e.message);
       rethrow;
