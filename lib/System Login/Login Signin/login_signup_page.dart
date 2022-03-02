@@ -56,7 +56,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              
                               //---------upper part---------
                               Stack(
                                 children: [
