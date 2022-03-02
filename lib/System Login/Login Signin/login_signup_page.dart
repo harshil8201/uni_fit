@@ -767,34 +767,19 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 ),
                                 child: SizedBox(
                                   width: double.infinity,
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'Signup with',
-                                        style: TextStyle(
-                                          color: primaryBlack,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.0187,
-                                          fontFamily: 'popMedium',
-                                          letterSpacing: 2,
-                                        ),
+                                  child: Center(
+                                    child: Text(
+                                      'Register',
+                                      style: TextStyle(
+                                        color: primaryBlack,
+                                        fontSize: MediaQuery.of(context)
+                                                .size
+                                                .height *
+                                            0.0187,
+                                        fontFamily: 'popMedium',
+                                        letterSpacing: 2,
                                       ),
-                                      const SizedBox(
-                                        width: 10,
-                                      ),
-                                      Image.asset(
-                                        'assets/images/gmail.png',
-                                        height:
-                                            MediaQuery.of(context).size.height *
-                                                0.03125,
-                                        width:
-                                            MediaQuery.of(context).size.width *
-                                                0.06944,
-                                      ),
-                                    ],
+                                    ),
                                   ),
                                 ),
                               ),
