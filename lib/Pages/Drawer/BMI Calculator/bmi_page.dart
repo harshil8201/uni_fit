@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/result_screen.dart';
@@ -225,8 +227,8 @@ class _BMIPageState extends State<BMIPage> {
                                       comments: "You are Obese");
                                 }
                                 print("Height = $_heightOfUser");
-                                print("Weight = ${_weightOfUser}");
-                                print("BMI = ${_bmi}");
+                                print("Weight = $_weightOfUser");
+                                print("BMI = $_bmi");
                               }
                             });
 

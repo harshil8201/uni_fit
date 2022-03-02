@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_typing_uninitialized_variables, use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
