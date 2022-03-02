@@ -9,6 +9,7 @@ class AuthenticationHelper {
   final user = FirebaseAuth.instance.currentUser;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+// sign in using gmail
   Future<LoginSignupPage> signInwithGoogle() async {
     try {
       final GoogleSignInAccount googleSignInAccount =

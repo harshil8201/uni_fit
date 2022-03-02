@@ -45,7 +45,6 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
         child: Stack(
           children: [
             //--------------------------Login-------------------------
-
             isVisible
                 ? Visibility(
                     visible: isVisible,
@@ -57,6 +56,7 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              
                               //---------upper part---------
                               Stack(
                                 children: [
