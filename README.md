@@ -1,7 +1,7 @@
 # uni_fit
 
 A new Flutter project.
-
+ https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
 ## Getting Started
 
 This project is a starting point for a Flutter application.
