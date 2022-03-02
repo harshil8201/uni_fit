@@ -224,7 +224,7 @@ class _BMIPageState extends State<BMIPage> {
                                       isNormal: false,
                                       comments: "You are Obese");
                                 }
-                                print("Height = ${_heightOfUser}");
+                                print("Height = $_heightOfUser");
                                 print("Weight = ${_weightOfUser}");
                                 print("BMI = ${_bmi}");
                               }
