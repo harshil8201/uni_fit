@@ -41,6 +41,7 @@ class _DietPageState extends State<DietPage> {
                   fit: BoxFit.cover)),
           child: Stack(
             children: [
+              
               //---------appbar----------
               Padding(
                 padding: const EdgeInsets.only(top: 50, right: 20, left: 20),

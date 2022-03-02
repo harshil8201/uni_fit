@@ -10,6 +10,7 @@ class ForgetPasswordPage extends StatefulWidget {
 }
 
 class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
+
   String _email;
 
   @override
@@ -27,7 +28,9 @@ class _ForgetPasswordPageState extends State<ForgetPasswordPage> {
         ),
         child: Stack(
           children: [
+
             //-------appbar------
+            
             Padding(
               padding: const EdgeInsets.only(top: 50, right: 20, left: 10),
               child: Row(
