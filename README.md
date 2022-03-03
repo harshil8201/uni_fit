@@ -1,16 +1,15 @@
-# uni_fit
+# Uni Fit
 
-A new Flutter project.
- https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
-## Getting Started
+"Uni Fit : The Fitness App" is a project by Union Software IT.
 
-This project is a starting point for a Flutter application.
+Members: HARSHIL PATEL (Team Leader),
+         KAVAN PATEL, 
+         GAURANG PATEL, 
+         FRENS PATEL
 
-A few resources to get you started if this is your first Flutter project:
+"Uni Fit" is created on Flutter(front-end), Firebase(back-end), TensorFlow Lite(posture detection).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+To download the app, Visit : https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Team,
+Union SOftware IT
