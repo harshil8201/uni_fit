@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, prefer_collection_literals, missing_return, avoid_renaming_method_parameters
+
 import 'package:flutter/material.dart';
 
 class RenderData extends StatefulWidget {
@@ -7,7 +9,7 @@ class RenderData extends StatefulWidget {
   final double screenH;
   final double screenW;
 
-  RenderData(
+  const RenderData(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
 
   @override
@@ -210,10 +212,11 @@ class _RenderDataState extends State<RenderData> {
 
     List<Widget> _renderKeypoints() {
       var lists = <Widget>[];
-      widget.data.forEach((re) {
+      for (var re in widget.data) {
         var list = re["keypoints"].values.map<Widget>((k) {
           var _x = k["x"];
           var _y = k["y"];
+          // ignore: prefer_typing_uninitialized_variables
           var scaleW, scaleH, x, y;
 
           if (widget.screenH / widget.screenW >
@@ -270,8 +273,8 @@ class _RenderDataState extends State<RenderData> {
         _countingLogic(inputArr);
         inputArr.clear();
 
-        lists..addAll(list);
-      });
+        lists.addAll(list);
+      }
       //lists.clear();
 
       return lists;

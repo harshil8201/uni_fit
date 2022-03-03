@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, file_names
+
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:uni_fit/Pages/start_page.dart';

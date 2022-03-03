@@ -1,5 +1,12 @@
 name: uni_fit
-description: A new Flutter project.
+description: '"Uni Fit : The Fitness App" is a project by Union Software IT.
+Members : HARSHIL PATEL (Team Leader), KAVAN PATEL, GAURANG PATEL, FRENS PATEL
+"Uni Fit" is created on Flutter(front-end), Firebase(back-end), TensorFlow Lite(posture detection).
+to download the app, Visit : https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
+
+
+Team,
+Union SOftware IT'
 
 publish_to: 'none'
 
@@ -13,31 +20,50 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+
+  # Firebse (Back-end)
   firebase_auth:
   firebase_core:
   cloud_firestore:
   firebase_database:
+
+  # Google Authentication
   google_sign_in:
+
+  # Font Style
   font_awesome_flutter:
+
+  # Posture Detecting
   tflite: ^1.1.1
+
+  # Camera (live-monitoring)
   camera: ^0.5.8+11
+
+  # Page transition animation
   page_transition:
+
+  # Celebration animation (end-exercise)
   confetti:
+
+  # Auto slider Container (Home-Page)
   carousel_slider:
+
+  # Running Track
   google_maps_flutter: ^2.0.2
   flutter_polyline_points: ^0.2.6
   dio: ^4.0.0
   location:
+
+  # Video (Exercise-Diet)
   url_launcher:
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^1.0.0
 
+# Splash Screen
   flutter_native_splash: ^2.0.1+1
-
 flutter_native_splash:
   color: "#000000"
   image: assets/images/splash_screen_logo.png
@@ -46,17 +72,17 @@ flutter_native_splash:
   android: true
   ios: true
 
+# Icon Luncher
   flutter_launcher_icons:
-
 flutter_icons:
   android: true
   ios: true
   image_path: "assets/images/logo.png"
 
 flutter:
-
   uses-material-design: true
 
+  # Images
   assets:
     - assets/posenet_mv1_075_float_from_checkpoints.tflite
     - assets/images/logo.png
@@ -68,14 +94,17 @@ flutter:
     - assets/images/gif/
 
   fonts:
+      # Bold Font
     - family: popBold
       fonts:
         - asset: assets/font/poppins_bold.otf
 
+      # Light Font
     - family: popLight
       fonts:
         - asset: assets/font/poppins_light.otf
 
+      # Medium Font
     - family: popMedium
       fonts:
         - asset: assets/font/poppins_medium.otf

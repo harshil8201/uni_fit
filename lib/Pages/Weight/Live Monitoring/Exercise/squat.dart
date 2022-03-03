@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, avoid_print, prefer_if_null_operators
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';

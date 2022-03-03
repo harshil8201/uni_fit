@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_generic_function_type_aliases, use_key_in_widget_constructors, prefer_is_empty, avoid_print
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:tflite/tflite.dart';
@@ -9,10 +11,10 @@ class Camera extends StatefulWidget {
   final List<CameraDescription> cameras;
   final Callback setRecognitions;
 
-  Camera({this.cameras, this.setRecognitions});
+  const Camera({this.cameras, this.setRecognitions});
 
   @override
-  _CameraState createState() => new _CameraState();
+  _CameraState createState() => _CameraState();
 }
 
 class _CameraState extends State<Camera> {

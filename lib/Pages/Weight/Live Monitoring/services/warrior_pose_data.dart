@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_renaming_method_parameters, use_key_in_widget_constructors, prefer_collection_literals
+
 import 'package:flutter/material.dart';
 
 class RenderDataYoga extends StatefulWidget {
@@ -7,7 +9,7 @@ class RenderDataYoga extends StatefulWidget {
   final double screenH;
   final double screenW;
 
-  RenderDataYoga(
+  const RenderDataYoga(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
 
   @override
@@ -52,7 +54,7 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
 
   @override
   void initState() {
-    inputArr = new Map();
+    inputArr = Map();
     correctColor = Colors.red;
     wristAlignment = false;
     shoulderAlignment = false;
@@ -194,10 +196,11 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
 
     List<Widget> _renderKeypoints() {
       var lists = <Widget>[];
-      widget.data.forEach((re) {
+      for (var re in widget.data) {
         var list = re["keypoints"].values.map<Widget>((k) {
           var _x = k["x"];
           var _y = k["y"];
+          // ignore: prefer_typing_uninitialized_variables
           var scaleW, scaleH, x, y;
 
           if (widget.screenH / widget.screenW >
@@ -254,8 +257,8 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
         _postureAccordingToExercise(inputArr);
         inputArr.clear();
 
-        lists..addAll(list);
-      });
+        lists.addAll(list);
+      }
       //lists.clear();
 
       return lists;

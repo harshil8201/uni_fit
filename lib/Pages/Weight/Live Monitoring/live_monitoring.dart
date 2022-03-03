@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:uni_fit/Class/color_class.dart';
@@ -9,7 +11,7 @@ import 'Exercise/warrior_pose.dart';
 class LiveMonitoring extends StatefulWidget {
   final List<CameraDescription> cameras;
 
-  LiveMonitoring(this.cameras);
+  const LiveMonitoring(this.cameras);
 
   @override
   State<LiveMonitoring> createState() => _LiveMonitoringState();

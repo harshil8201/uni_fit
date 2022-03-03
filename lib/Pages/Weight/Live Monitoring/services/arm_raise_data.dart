@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, missing_return, avoid_function_literals_in_foreach_calls, prefer_collection_literals, avoid_renaming_method_parameters
+
 import 'package:flutter/material.dart';
 
 class RenderDataArmPress extends StatefulWidget {
@@ -7,7 +9,7 @@ class RenderDataArmPress extends StatefulWidget {
   final double screenH;
   final double screenW;
 
-  RenderDataArmPress(
+  const RenderDataArmPress(
       {this.data, this.previewH, this.previewW, this.screenH, this.screenW});
 
   @override
@@ -220,6 +222,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
         var list = re["keypoints"].values.map<Widget>((k) {
           var _x = k["x"];
           var _y = k["y"];
+          // ignore: prefer_typing_uninitialized_variables
           var scaleW, scaleH, x, y;
 
           if (widget.screenH / widget.screenW >
@@ -276,7 +279,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
         _countingLogic(inputArr);
         inputArr.clear();
 
-        lists..addAll(list);
+        lists.addAll(list);
       });
       //lists.clear();
 
