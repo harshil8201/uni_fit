@@ -1,4 +1,4 @@
-# Uni Fit
+# Uni Fit : The Fitness App
 
 "Uni Fit : The Fitness App" is a project by Union Software IT.
 
