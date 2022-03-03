@@ -31,8 +31,6 @@ class MyApp extends StatelessWidget {
       title: 'Uni Fit',
       debugShowCheckedModeBanner: false,
       home: const GooglePageController(),
-      // initialRoute: '/',
-      // routes: routeClass,
     );
   }
 }
