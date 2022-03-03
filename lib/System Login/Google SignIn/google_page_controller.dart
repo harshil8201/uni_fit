@@ -13,7 +13,6 @@ class GooglePageController extends StatefulWidget {
 class _GooglePageControllerState extends State<GooglePageController> {
   @override
   Widget build(BuildContext context) {
-    
     // final user = FirebaseAuth.instance.currentUser;
     return Scaffold(
       resizeToAvoidBottomInset: false,
