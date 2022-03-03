@@ -30,7 +30,7 @@ dependencies:
   tflite: ^1.1.1
 
   # Camera (live-monitoring)
-  camera: ^0.5.8+11
+  camera: ^0.9.4+14 
 
   # Page transition animation
   page_transition:
