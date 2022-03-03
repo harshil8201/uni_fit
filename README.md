@@ -7,9 +7,9 @@ Members: HARSHIL PATEL (Team Leader),
          GAURANG PATEL, 
          FRENS PATEL
 
-"Uni Fit" is created on Flutter(front-end), Firebase(back-end), TensorFlow Lite(posture detection).
+"Uni Fit" is created on Flutter(front-end), Firebase(back-end), TensorFlow Lite(posture detection) and Figma(Graphic design).
 
 To download the app, Visit : https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
 
 Team,
-Union SOftware IT
+Union Software IT
