@@ -3,7 +3,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
+import 'package:uni_fit/Authentication/Login Register/login_signup_page.dart';
 
 class GooglePageController extends StatefulWidget {
   const GooglePageController({Key key}) : super(key: key);

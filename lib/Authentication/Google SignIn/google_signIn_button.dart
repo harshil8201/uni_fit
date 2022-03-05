@@ -3,8 +3,8 @@
 import 'package:flutter/material.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
+import 'package:uni_fit/Authentication/Login Register/authentication.dart';
+import 'package:uni_fit/Authentication/Login Register/login_signup_page.dart';
 
 class GoogleSignInButton extends StatefulWidget {
   const GoogleSignInButton({Key key}) : super(key: key);

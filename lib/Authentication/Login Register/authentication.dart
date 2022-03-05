@@ -3,8 +3,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
-import 'package:uni_fit/System%20Login/databse.dart';
+import 'package:uni_fit/Authentication/Login Register/login_signup_page.dart';
+import 'package:uni_fit/Authentication/databse.dart';
 
 class AuthenticationHelper {
   final FirebaseAuth _auth = FirebaseAuth.instance;

@@ -7,8 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/Pages/Drawer/settings.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/authentication.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/login_signup_page.dart';
+import 'package:uni_fit/Authentication/Login Register/authentication.dart';
+import 'package:uni_fit/Authentication/Login Register/login_signup_page.dart';
 import 'package:uni_fit/Class/color_class.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -25,8 +25,7 @@ class _DrawerPageState extends State<DrawerPage> {
   final user = FirebaseAuth.instance.currentUser;
 
   _sendMail() async {
-    const uri =
-        'mailto:unionsoftware.itbusiness@gmail.com?subject=&body=';
+    const uri = 'mailto:unionsoftware.itbusiness@gmail.com?subject=&body=';
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
@@ -35,8 +34,7 @@ class _DrawerPageState extends State<DrawerPage> {
   }
 
   _openGooglePlay() async {
-    const uri =
-        'https://play.google.com/store/apps/developer?id=Union+Software+IT';
+    const uri = 'https://play.google.com/store/apps/dev?id=8432020958886864336';
     if (await canLaunch(uri)) {
       await launch(uri);
     } else {
@@ -44,7 +42,17 @@ class _DrawerPageState extends State<DrawerPage> {
     }
   }
 
+  _ratingsApp() async {
+    const uri =
+        'https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      throw 'Could not launch $uri';
+    }
+  }
 
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -163,7 +171,8 @@ class _DrawerPageState extends State<DrawerPage> {
                         Text(
                           'Contact us',
                           style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.height * 0.018,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
                             color: primaryWhite,
                             fontFamily: 'popMedium',
                           ),
@@ -189,9 +198,39 @@ class _DrawerPageState extends State<DrawerPage> {
                           width: MediaQuery.of(context).size.width * 0.042,
                         ),
                         Text(
-                          'More',
+                          ' More',
                           style: TextStyle(
-                            fontSize: MediaQuery.of(context).size.height * 0.018,
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
+                            color: primaryWhite,
+                            fontFamily: 'popMedium',
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: InkWell(
+                    onTap: () {
+                      _ratingsApp();
+                    },
+                    child: Row(
+                      children: [
+                        FaIcon(
+                          FontAwesomeIcons.star,
+                          color: primaryWhite,
+                          size: MediaQuery.of(context).size.height * 0.0313,
+                        ),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.042,
+                        ),
+                        Text(
+                          'Ratings',
+                          style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.height * 0.018,
                             color: primaryWhite,
                             fontFamily: 'popMedium',
                           ),

@@ -5,9 +5,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/start_page.dart';
-import 'package:uni_fit/System%20Login/Google%20SignIn/google_signIn_button.dart';
+import 'package:uni_fit/Authentication/Google SignIn/google_signIn_button.dart';
 import 'package:uni_fit/Class/color_class.dart';
-import 'package:uni_fit/System%20Login/Login%20Signin/forget_password.dart';
+import 'package:uni_fit/Authentication/Login Register/forget_password.dart';
 import 'authentication.dart';
 
 class LoginSignupPage extends StatefulWidget {
@@ -95,9 +95,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                         'Hey\nWelcome !',
                                         style: TextStyle(
                                           color: primaryGreen,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.05,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.05,
                                           fontFamily: 'popBold',
                                         ),
                                       ),
@@ -108,7 +109,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
 
                               //-----------email-------------
                               Padding(
-                                padding: const EdgeInsets.only(top: 5, right: 10),
+                                padding:
+                                    const EdgeInsets.only(top: 5, right: 10),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -118,9 +120,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                         'Email :',
                                         style: TextStyle(
                                           color: superDarkGreen,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.0187,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0187,
                                           fontFamily: 'popBold',
                                         ),
                                       ),
@@ -138,9 +141,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                         padding: const EdgeInsets.only(
                                             left: 15, right: 10),
                                         child: SizedBox(
-                                          height:
-                                              MediaQuery.of(context).size.height *
-                                                  0.0625,
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.0625,
                                           width: double.infinity,
                                           child: TextFormField(
                                             validator: (value) {
@@ -156,7 +160,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             },
                                             keyboardType:
                                                 TextInputType.emailAddress,
-                                            textInputAction: TextInputAction.next,
+                                            textInputAction:
+                                                TextInputAction.next,
                                             obscureText: false,
                                             decoration: InputDecoration(
                                               icon: Icon(
@@ -198,9 +203,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                         'Password :',
                                         style: TextStyle(
                                           color: superDarkGreen,
-                                          fontSize:
-                                              MediaQuery.of(context).size.height *
-                                                  0.01875,
+                                          fontSize: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              0.01875,
                                           fontFamily: 'popBold',
                                         ),
                                       ),
@@ -211,7 +217,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                       child: Container(
                                         decoration: BoxDecoration(
                                           color: shadeWhite.withOpacity(0.60),
-                                          borderRadius: BorderRadius.circular(30),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
                                         child: Padding(
                                           padding: const EdgeInsets.only(
@@ -238,7 +245,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                               textInputAction:
                                                   TextInputAction.done,
                                               decoration: InputDecoration(
-                                                icon: Icon(Icons.vpn_key_rounded,
+                                                icon: Icon(
+                                                    Icons.vpn_key_rounded,
                                                     color: darkWhite),
                                                 floatingLabelBehavior:
                                                     FloatingLabelBehavior.never,
@@ -265,7 +273,8 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                                   onPressed: () {
                                                     setState(
                                                       () {
-                                                        _isObscure = !_isObscure;
+                                                        _isObscure =
+                                                            !_isObscure;
                                                       },
                                                     );
                                                   },
@@ -289,13 +298,15 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                               PageTransition(
                                                 type: PageTransitionType
                                                     .rightToLeftWithFade,
-                                                child: const ForgetPasswordPage(),
+                                                child:
+                                                    const ForgetPasswordPage(),
                                               ),
                                             );
                                           },
                                           child: const Text(
                                             'Forget Password?',
-                                            style: TextStyle(color: Colors.blue),
+                                            style:
+                                                TextStyle(color: Colors.blue),
                                           ),
                                         ),
                                       ),
@@ -317,320 +328,340 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                     child: Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: Form(
-                        key: formKey,
-                        child: SingleChildScrollView(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              //---------upper part---------
-                              Stack(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 70),
-                                    child: Align(
-                                      alignment: Alignment.topCenter,
-                                      child: Container(
-                                        height: 170,
-                                        width: 170,
+                          key: formKey,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                //---------upper part---------
+                                Stack(
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 70),
+                                      child: Align(
+                                        alignment: Alignment.topCenter,
+                                        child: Container(
+                                          height: 170,
+                                          width: 170,
+                                          decoration: BoxDecoration(
+                                            shape: BoxShape.circle,
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: shadowBlack,
+                                                offset: const Offset(0.0, 0.10),
+                                                blurRadius: 20.0,
+                                              ), //BoxShadow
+                                            ],
+                                          ),
+                                          child: ClipOval(
+                                            child: Image.asset(
+                                              'assets/images/logo.png',
+                                              fit: BoxFit.contain,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: const EdgeInsets.only(top: 250),
+                                      child: Align(
+                                        alignment: Alignment.topLeft,
+                                        child: Text(
+                                          'Register\nhere!',
+                                          style: TextStyle(
+                                            color: primaryGreen,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.05,
+                                            fontFamily: 'popBold',
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                // SizedBox(
+                                //   height:
+                                //       MediaQuery.of(context).size.height * 0.025,
+                                // ),
+
+                                //------------Name-------------
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 5, right: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 15),
+                                        child: Text(
+                                          'Name :',
+                                          style: TextStyle(
+                                            color: superDarkGreen,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.01875,
+                                            fontFamily: 'popBold',
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.00625,
+                                      ),
+                                      Container(
                                         decoration: BoxDecoration(
-                                          shape: BoxShape.circle,
-                                          boxShadow: [
-                                            BoxShadow(
-                                              color: shadowBlack,
-                                              offset: const Offset(0.0, 0.10),
-                                              blurRadius: 20.0,
-                                            ), //BoxShadow
-                                          ],
+                                          color: shadeWhite.withOpacity(0.60),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
                                         ),
-                                        child: ClipOval(
-                                          child: Image.asset(
-                                            'assets/images/logo.png',
-                                            fit: BoxFit.contain,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(top: 250),
-                                    child: Align(
-                                      alignment: Alignment.topLeft,
-                                      child: Text(
-                                        'Hello,\nJoin us !',
-                                        style: TextStyle(
-                                          color: primaryGreen,
-                                          fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.05,
-                                          fontFamily: 'popBold',
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              // SizedBox(
-                              //   height:
-                              //       MediaQuery.of(context).size.height * 0.025,
-                              // ),
-
-                              //------------Name-------------
-                              Padding(
-                                padding: const EdgeInsets.only(top: 5, right: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 15),
-                                      child: Text(
-                                        'Name :',
-                                        style: TextStyle(
-                                          color: superDarkGreen,
-                                          fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.01875,
-                                          fontFamily: 'popBold',
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: MediaQuery.of(context).size.height *
-                                          0.00625,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: shadeWhite.withOpacity(0.60),
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 15, right: 10),
-                                        child: SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
-                                              0.0625,
-                                          width: double.infinity,
-                                          child: TextFormField(
-                                            controller: name,
-                                            onChanged: (value) {
-                                              setState(() {
-                                                _name = value.trim();
-                                              });
-                                            },
-                                            validator: (value) {
-                                              if (value.isEmpty) {
-                                                return "Please enter your Name";
-                                              }
-                                              return null;
-                                            },
-                                            keyboardType: TextInputType.text,
-                                            textInputAction: TextInputAction.next,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              icon: Icon(Icons.person,
-                                                  color: darkWhite),
-                                              floatingLabelBehavior:
-                                              FloatingLabelBehavior.never,
-                                              enabledBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              focusedBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              hintText: 'Enter your Name',
-                                              hintStyle: TextStyle(
-                                                color: darkWhite,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              //-----------email-------------
-                              Padding(
-                                padding: const EdgeInsets.only(top: 5, right: 10),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsets.only(top: 10),
-                                      child: Text(
-                                        'Email :',
-                                        style: TextStyle(
-                                          color: superDarkGreen,
-                                          fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.01875,
-                                          fontFamily: 'popBold',
-                                        ),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: MediaQuery.of(context).size.height *
-                                          0.00625,
-                                    ),
-                                    Container(
-                                      decoration: BoxDecoration(
-                                        color: shadeWhite.withOpacity(0.60),
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            left: 15, right: 10),
-                                        child: SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
-                                              0.0625,
-                                          width: double.infinity,
-                                          child: TextFormField(
-                                            onChanged: (value) {
-                                              setState(() {
-                                                _email = value.trim();
-                                              });
-                                            },
-                                            validator: (String value) {
-                                              if (value.isEmpty) {
-                                                return 'Please entered email';
-                                              }
-                                              if (!RegExp(
-                                                  "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                                                  .hasMatch(value)) {
-                                                return 'Please entered valid Email';
-                                              }
-                                              return null;
-                                            },
-                                            keyboardType:
-                                            TextInputType.emailAddress,
-                                            textInputAction: TextInputAction.next,
-                                            obscureText: false,
-                                            decoration: InputDecoration(
-                                              icon: Icon(
-                                                  Icons.mail_outline_outlined,
-                                                  color: darkWhite),
-                                              floatingLabelBehavior:
-                                              FloatingLabelBehavior.never,
-                                              enabledBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              focusedBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              hintText: 'Create your email',
-                                              hintStyle: TextStyle(
-                                                color: darkWhite,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-
-                              //-----------password-----------
-                              Padding(
-                                padding: const EdgeInsets.only(top: 15),
-                                child: Text(
-                                  'Password :',
-                                  style: TextStyle(
-                                    color: superDarkGreen,
-                                    fontSize: MediaQuery.of(context).size.height *
-                                        0.01875,
-                                    fontFamily: 'popBold',
-                                  ),
-                                ),
-                              ),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Padding(
-                                    padding:
-                                    const EdgeInsets.only(top: 5, right: 10),
-                                    child: Container(
-                                      decoration: BoxDecoration(
-                                        color: shadeWhite.withOpacity(0.60),
-                                        borderRadius: BorderRadius.circular(30),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                            right: 8, left: 15),
-                                        child: SizedBox(
-                                          height:
-                                          MediaQuery.of(context).size.height *
-                                              0.0625,
-                                          width: double.infinity,
-                                          child: TextFormField(
-                                            onChanged: (value) {
-                                              setState(() {
-                                                _password = value.trim();
-                                              });
-                                            },
-                                            validator: (value) {
-                                              if (value.isEmpty) {
-                                                return "Please enter password";
-                                              }
-                                              return null;
-                                            },
-                                            obscureText: _isObscure,
-                                            textInputAction: TextInputAction.next,
-                                            decoration: InputDecoration(
-                                              icon: Icon(Icons.vpn_key_rounded,
-                                                  color: darkWhite),
-                                              floatingLabelBehavior:
-                                              FloatingLabelBehavior.never,
-                                              enabledBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              focusedBorder:
-                                              const UnderlineInputBorder(
-                                                  borderSide: BorderSide(
-                                                      color: Colors
-                                                          .transparent)),
-                                              hintText: 'Create new password',
-                                              hintStyle:
-                                              TextStyle(color: darkWhite),
-                                              suffixIcon: IconButton(
-                                                color: darkWhite,
-                                                icon: Icon(
-                                                  _isObscure
-                                                      ? Icons.visibility
-                                                      : Icons.visibility_off,
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 15, right: 10),
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0625,
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              controller: name,
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  _name = value.trim();
+                                                });
+                                              },
+                                              validator: (value) {
+                                                if (value.isEmpty) {
+                                                  return "Please enter your Name";
+                                                }
+                                                return null;
+                                              },
+                                              keyboardType: TextInputType.text,
+                                              textInputAction:
+                                                  TextInputAction.next,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                icon: Icon(Icons.person,
+                                                    color: darkWhite),
+                                                floatingLabelBehavior:
+                                                    FloatingLabelBehavior.never,
+                                                enabledBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                focusedBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                hintText: 'Enter your Name',
+                                                hintStyle: TextStyle(
+                                                  color: darkWhite,
                                                 ),
-                                                onPressed: () {
-                                                  setState(
-                                                        () {
-                                                      _isObscure = !_isObscure;
-                                                    },
-                                                  );
-                                                },
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                //-----------email-------------
+                                Padding(
+                                  padding:
+                                      const EdgeInsets.only(top: 5, right: 10),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 10),
+                                        child: Text(
+                                          'Email :',
+                                          style: TextStyle(
+                                            color: superDarkGreen,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.01875,
+                                            fontFamily: 'popBold',
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height:
+                                            MediaQuery.of(context).size.height *
+                                                0.00625,
+                                      ),
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          color: shadeWhite.withOpacity(0.60),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              left: 15, right: 10),
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0625,
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  _email = value.trim();
+                                                });
+                                              },
+                                              validator: (String value) {
+                                                if (value.isEmpty) {
+                                                  return 'Please entered email';
+                                                }
+                                                if (!RegExp(
+                                                        "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                                                    .hasMatch(value)) {
+                                                  return 'Please entered valid Email';
+                                                }
+                                                return null;
+                                              },
+                                              keyboardType:
+                                                  TextInputType.emailAddress,
+                                              textInputAction:
+                                                  TextInputAction.next,
+                                              obscureText: false,
+                                              decoration: InputDecoration(
+                                                icon: Icon(
+                                                    Icons.mail_outline_outlined,
+                                                    color: darkWhite),
+                                                floatingLabelBehavior:
+                                                    FloatingLabelBehavior.never,
+                                                enabledBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                focusedBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                hintText: 'Create your email',
+                                                hintStyle: TextStyle(
+                                                  color: darkWhite,
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                                //-----------password-----------
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 15),
+                                  child: Text(
+                                    'Password :',
+                                    style: TextStyle(
+                                      color: superDarkGreen,
+                                      fontSize:
+                                          MediaQuery.of(context).size.height *
+                                              0.01875,
+                                      fontFamily: 'popBold',
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.only(
+                                          top: 5, right: 10),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          color: shadeWhite.withOpacity(0.60),
+                                          borderRadius:
+                                              BorderRadius.circular(30),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.only(
+                                              right: 8, left: 15),
+                                          child: SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.0625,
+                                            width: double.infinity,
+                                            child: TextFormField(
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  _password = value.trim();
+                                                });
+                                              },
+                                              validator: (value) {
+                                                if (value.isEmpty) {
+                                                  return "Please enter password";
+                                                }
+                                                return null;
+                                              },
+                                              obscureText: _isObscure,
+                                              textInputAction:
+                                                  TextInputAction.next,
+                                              decoration: InputDecoration(
+                                                icon: Icon(
+                                                    Icons.vpn_key_rounded,
+                                                    color: darkWhite),
+                                                floatingLabelBehavior:
+                                                    FloatingLabelBehavior.never,
+                                                enabledBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                focusedBorder:
+                                                    const UnderlineInputBorder(
+                                                        borderSide: BorderSide(
+                                                            color: Colors
+                                                                .transparent)),
+                                                hintText: 'Create new password',
+                                                hintStyle:
+                                                    TextStyle(color: darkWhite),
+                                                suffixIcon: IconButton(
+                                                  color: darkWhite,
+                                                  icon: Icon(
+                                                    _isObscure
+                                                        ? Icons.visibility
+                                                        : Icons.visibility_off,
+                                                  ),
+                                                  onPressed: () {
+                                                    setState(
+                                                      () {
+                                                        _isObscure =
+                                                            !_isObscure;
+                                                      },
+                                                    );
+                                                  },
+                                                ),
                                               ),
                                             ),
                                           ),
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )
-                      ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          )),
                     ),
                   ),
 
@@ -695,10 +726,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                       'LOGIN',
                                       style: TextStyle(
                                         color: primaryBlack,
-                                        fontSize: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            0.0187,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.0187,
                                         fontFamily: 'popMedium',
                                         letterSpacing: 2,
                                       ),
@@ -727,8 +757,10 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                 bottom: 80, left: 70, right: 70),
                             child: InkWell(
                               onTap: () {
-                                print("Device Height: ${MediaQuery.of(context).size.height}");
-                                print("Device Width: ${MediaQuery.of(context).size.width}");
+                                print(
+                                    "Device Height: ${MediaQuery.of(context).size.height}");
+                                print(
+                                    "Device Width: ${MediaQuery.of(context).size.width}");
                                 if (formKey.currentState.validate()) {
                                   print("successful");
                                   return AuthenticationHelper()
@@ -773,10 +805,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                       'Register',
                                       style: TextStyle(
                                         color: primaryBlack,
-                                        fontSize: MediaQuery.of(context)
-                                                .size
-                                                .height *
-                                            0.0187,
+                                        fontSize:
+                                            MediaQuery.of(context).size.height *
+                                                0.0187,
                                         fontFamily: 'popMedium',
                                         letterSpacing: 2,
                                       ),
