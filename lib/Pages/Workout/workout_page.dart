@@ -9,14 +9,14 @@ import 'Beginner/beginner_exercise.dart';
 import 'Intermediate/intermediate_exercise.dart';
 import 'package:uni_fit/Class/color_class.dart';
 
-class WeightPage extends StatefulWidget {
-  const WeightPage({Key key}) : super(key: key);
+class WorkoutPage extends StatefulWidget {
+  const WorkoutPage({Key key}) : super(key: key);
 
   @override
-  _WeightPageState createState() => _WeightPageState();
+  _WorkoutPageState createState() => _WorkoutPageState();
 }
 
-class _WeightPageState extends State<WeightPage> {
+class _WorkoutPageState extends State<WorkoutPage> {
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;

@@ -7,7 +7,7 @@ import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
 import 'Home/home_page.dart';
 import 'Progress/progress_page.dart';
-import 'workout/weight_page.dart';
+import 'Workout/workout_page.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key key}) : super(key: key);
@@ -57,7 +57,7 @@ class _StartPageState extends State<StartPage> {
   final tabs = [
     const HomePage(),
     const ProgressPage(),
-    const WeightPage(),
+    const WorkoutPage(),
     const DietPage(),
   ];
 
