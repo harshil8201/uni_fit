@@ -10,11 +10,11 @@ import 'package:uni_fit/Pages/Diet/low_calories.dart';
 import 'package:uni_fit/Pages/Diet/muscle_gain.dart';
 import 'package:uni_fit/Pages/Diet/normal_diet.dart';
 import 'package:uni_fit/Pages/Diet/weight_loss.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_abs.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_chest.dart';
-import 'package:uni_fit/Pages/Weight/Beginner/Exercise/beginner_shoulder.dart';
-import 'package:uni_fit/Pages/Weight/Intermediate/Exercise/intermediate_abs.dart';
-import 'package:uni_fit/Pages/Weight/Intermediate/Exercise/intermediate_legs.dart';
+import 'package:uni_fit/Pages/workout/Beginner/Exercise/beginner_abs.dart';
+import 'package:uni_fit/Pages/workout/Beginner/Exercise/beginner_chest.dart';
+import 'package:uni_fit/Pages/workout/Beginner/Exercise/beginner_shoulder.dart';
+import 'package:uni_fit/Pages/workout/Intermediate/Exercise/intermediate_abs.dart';
+import 'package:uni_fit/Pages/workout/Intermediate/Exercise/intermediate_legs.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {

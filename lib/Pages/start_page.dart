@@ -7,7 +7,7 @@ import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
 import 'Home/home_page.dart';
 import 'Progress/progress_page.dart';
-import 'Weight/weight_page.dart';
+import 'workout/weight_page.dart';
 
 class StartPage extends StatefulWidget {
   const StartPage({Key key}) : super(key: key);
