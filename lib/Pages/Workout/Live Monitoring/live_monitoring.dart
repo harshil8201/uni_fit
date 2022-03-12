@@ -10,7 +10,7 @@ import 'Exercise/warrior_pose.dart';
 
 class LiveMonitoring extends StatefulWidget {
   final List<CameraDescription> cameras;
-
+  
   const LiveMonitoring(this.cameras);
 
   @override
