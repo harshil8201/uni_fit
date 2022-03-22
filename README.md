@@ -14,4 +14,8 @@ To download the app,<br />
 Visit : https://play.google.com/store/apps/details?id=com.unionsoftwareit.uni_fit
 
 Team,<br />
-Union Software IT
+Union Software IT.
+<br/>
+<br/>
+<br/>
+For more app visit, <br/> Union Software IT (Play Store): https://play.google.com/store/apps/dev?id=8432020958886864336
