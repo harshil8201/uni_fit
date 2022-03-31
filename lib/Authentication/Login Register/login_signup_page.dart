@@ -3,6 +3,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'package:uni_fit/Authentication/Google SignIn/google_signIn_button.dart';
@@ -79,10 +80,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                           ],
                                         ),
                                         child: ClipOval(
-                                          child: Image.asset(
-                                            'assets/images/logo.png',
-                                            fit: BoxFit.contain,
-                                          ),
+                                          child: SvgPicture.asset(
+                                              'assets/svg/uni_logo.svg',
+                                              fit: BoxFit.fitHeight),
                                         ),
                                       ),
                                     ),
@@ -354,10 +354,9 @@ class _LoginSignupPageState extends State<LoginSignupPage> {
                                             ],
                                           ),
                                           child: ClipOval(
-                                            child: Image.asset(
-                                              'assets/images/logo.png',
-                                              fit: BoxFit.contain,
-                                            ),
+                                            child: SvgPicture.asset(
+                                                'assets/svg/uni_logo.svg',
+                                                fit: BoxFit.fitHeight),
                                           ),
                                         ),
                                       ),

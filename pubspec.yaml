@@ -1,7 +1,7 @@
 name: uni_fit
-description: 
+description:
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.6+7
 
@@ -30,7 +30,7 @@ dependencies:
   tflite: ^1.1.1
 
   # Camera (live-monitoring)
-  camera: ^0.9.4+14 
+  camera: ^0.9.4+14
 
   # Page transition animation
   page_transition:
@@ -50,12 +50,15 @@ dependencies:
   # Video (Exercise-Diet)
   url_launcher:
 
+  # svg images
+  flutter_svg:
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^1.0.0
 
-# Splash Screen
+  # Splash Screen
   flutter_native_splash: ^2.0.1+1
 flutter_native_splash:
   color: "#000000"
@@ -65,7 +68,7 @@ flutter_native_splash:
   android: true
   ios: true
 
-# Icon Luncher
+  # Icon Luncher
   flutter_launcher_icons:
 flutter_icons:
   android: true
@@ -78,6 +81,8 @@ flutter:
   # Images
   assets:
     - assets/posenet_mv1_075_float_from_checkpoints.tflite
+    - assets/svg/
+    - assets/svg/uni_logo.svg
     - assets/images/logo.png
     - assets/images/
     - assets/images/diet/
@@ -87,7 +92,7 @@ flutter:
     - assets/images/gif/
 
   fonts:
-      # Bold Font
+    # Bold Font
     - family: popBold
       fonts:
         - asset: assets/font/poppins_bold.otf
