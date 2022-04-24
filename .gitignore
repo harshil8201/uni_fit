@@ -30,8 +30,7 @@
 .pub-cache/
 .pub/
 /build/
-.env.dart
-*.Running track
+.\lib\Pages\Drawer\Running track
 
 # Web related
 lib/generated_plugin_registrant.dart
