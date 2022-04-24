@@ -30,11 +30,10 @@
 .pub-cache/
 .pub/
 /build/
+.env.dart
 
 # Web related
 lib/generated_plugin_registrant.dart
-
-lib/Pages/Drawer/Running track/.env.dart
 
 # Symbolication related
 app.*.symbols
