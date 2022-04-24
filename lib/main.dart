@@ -10,6 +10,9 @@ List<CameraDescription> cameras;
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  // SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
+  //   statusBarColor: Colors.black,
+  // ));
   cameras = await availableCameras();
   await Firebase.initializeApp();
   runApp(const MyApp());

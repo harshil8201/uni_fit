@@ -61,12 +61,13 @@ dev_dependencies:
   # Splash Screen
   flutter_native_splash: ^2.0.1+1
 flutter_native_splash:
-  color: "#000000"
+  color: "#ffffff"
   image: assets/images/splash_screen_logo.png
   branding: assets/images/branding.png
   branding_mode: bottom
   android: true
   ios: true
+  fullscreen: true
 
   # Icon Luncher
   flutter_launcher_icons:
