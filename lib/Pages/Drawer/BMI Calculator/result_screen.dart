@@ -141,7 +141,7 @@ class _ResultScreenState extends State<ResultScreen> {
                       borderRadius: BorderRadius.circular(10),
                     ),
                     // ignore: deprecated_member_use
-                    child: FlatButton(
+                    child: ElevatedButton(
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

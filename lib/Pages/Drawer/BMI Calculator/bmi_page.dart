@@ -188,7 +188,7 @@ class _BMIPageState extends State<BMIPage> {
                         width: MediaQuery.of(context).size.width * 0.555,
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         // ignore: deprecated_member_use
-                        child: FlatButton.icon(
+                        child: ElevatedButton.icon(
                           onPressed: () {
                             setState(() {
                               if ((_heightOfUser == 0 && _weightOfUser == 0) ||
@@ -252,9 +252,9 @@ class _BMIPageState extends State<BMIPage> {
                               fontSize:
                                   MediaQuery.of(context).size.height * 0.02,
                               letterSpacing: 2,
+                              color:  Colors.white
                             ),
                           ),
-                          textColor: Colors.white,
                         ),
                       ),
                     ],
