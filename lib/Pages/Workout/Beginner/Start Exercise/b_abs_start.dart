@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:uni_fit/Pages/workout/Beginner/beginner_exercise.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'dart:math' as math;
 
 class BeginnerAbsStart extends StatefulWidget {

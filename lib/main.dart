@@ -2,7 +2,7 @@ import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:uni_fit/Authentication/Google SignIn/google_page_controller.dart';
+import 'package:uni_fit/Services/Google%20SignIn/google_page_controller.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

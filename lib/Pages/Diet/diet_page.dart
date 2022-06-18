@@ -7,7 +7,7 @@ import 'package:uni_fit/Pages/Diet/low_calories.dart';
 import 'package:uni_fit/Pages/Diet/muscle_gain.dart';
 import 'package:uni_fit/Pages/Diet/normal_diet.dart';
 import 'package:uni_fit/Pages/Diet/weight_loss.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 
 class DietPage extends StatefulWidget {
   const DietPage({Key key}) : super(key: key);

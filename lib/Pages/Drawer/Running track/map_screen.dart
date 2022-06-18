@@ -5,7 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:uni_fit/Pages/start_page.dart';
 import 'direction_model.dart';
 import 'direction_repo.dart';

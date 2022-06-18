@@ -7,7 +7,7 @@ import 'package:uni_fit/main.dart';
 import 'Advance/advance_exercise.dart';
 import 'Beginner/beginner_exercise.dart';
 import 'Intermediate/intermediate_exercise.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 
 class WorkoutPage extends StatefulWidget {
   const WorkoutPage({Key key}) : super(key: key);

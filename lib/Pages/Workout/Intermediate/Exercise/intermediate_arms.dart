@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/workout/Intermediate/Start%20Exercise/i_arms_start.dart';
 

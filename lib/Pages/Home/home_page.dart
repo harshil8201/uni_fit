@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_fit/Pages/Diet/high_calories.dart';
 import 'package:uni_fit/Pages/Diet/low_calories.dart';

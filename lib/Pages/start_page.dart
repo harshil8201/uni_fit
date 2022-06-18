@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 // import 'package:new_version/new_version.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'Diet/diet_page.dart';
 import 'Drawer/drawer_page.dart';
 import 'Home/home_page.dart';

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:uni_fit/Pages/Workout/Advance/Exercise/advance_abs.dart';
 import 'package:uni_fit/Pages/Workout/Advance/Exercise/advance_arms.dart';
 import 'package:uni_fit/Pages/Workout/Advance/Exercise/advance_back.dart';

@@ -7,9 +7,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/bmi_page.dart';
 import 'package:uni_fit/Pages/Drawer/settings.dart';
-import 'package:uni_fit/Authentication/Login Register/authentication.dart';
-import 'package:uni_fit/Authentication/Login Register/login_signup_page.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Classes/authentication.dart';
+import 'package:uni_fit/Services/Login%20Register/login_signup_page.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'Running track/map_screen.dart';

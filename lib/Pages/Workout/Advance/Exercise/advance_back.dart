@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/Class/color_class.dart';
+import 'package:uni_fit/Constants/color.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:uni_fit/Pages/Workout/Advance/Start%20Exercise/a_back_start.dart';
 
