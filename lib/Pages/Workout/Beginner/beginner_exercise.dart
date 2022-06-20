@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'package:uni_fit/Pages/workout/Beginner/Exercise/beginner_abs.dart';
 import 'package:uni_fit/Constants/color.dart';
 import 'package:uni_fit/Pages/start_page.dart';
@@ -18,14 +19,11 @@ class BeginnerExercise extends StatefulWidget {
 class _BeginnerExerciseState extends State<BeginnerExercise> {
   @override
   Widget build(BuildContext context) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
-        child: Stack(
+      body: bgContainer(
+        Stack(
           children: [
             //-------appbar--------
             Padding(
@@ -41,12 +39,12 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                               builder: (context) => const StartPage()));
                     },
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.0563,
-                      width: MediaQuery.of(context).size.width * 0.125,
+                      height: height * 0.0563,
+                      width: width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: MediaQuery.of(context).size.height * 0.0375,
+                        size: height * 0.0375,
                       ),
                     ),
                   ),
@@ -54,14 +52,14 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     'BEGINNER',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: MediaQuery.of(context).size.height * 0.0375,
+                      fontSize: height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0563,
-                    width: MediaQuery.of(context).size.width * 0.125,
+                    height: height * 0.0563,
+                    width: width * 0.125,
                   ),
                 ],
               ),
@@ -75,7 +73,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                 child: Text(
                   '"Your Body can stand almost anything, its your mind that you have to convince."',
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.0188,
+                    fontSize: height * 0.0188,
                     fontFamily: 'popLight',
                     color: darkGreen,
                   ),
@@ -85,8 +83,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
             ),
 
             Padding(
-              padding: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.188),
+              padding: EdgeInsets.only(top: height * 0.188),
               child: SingleChildScrollView(
                 child: Column(
                   children: [
@@ -145,7 +142,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                     ),
 
                     SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.0312,
+                      height: height * 0.0312,
                     ),
                   ],
                 ),
@@ -164,6 +161,8 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
     int listImage,
     dynamic routeName,
   ) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(left: 25, right: 25, top: 15),
       child: InkWell(
@@ -179,7 +178,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
         },
         child: Container(
           //color: Colors.blue,
-          height: MediaQuery.of(context).size.height * 0.15,
+          height: height * 0.15,
           width: double.infinity,
           decoration: BoxDecoration(
             boxShadow: [
@@ -196,8 +195,8 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.528,
+                height: height * 0.15,
+                width: width * 0.528,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                 ),
@@ -209,7 +208,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       Text(
                         erName,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0375,
+                          fontSize: height * 0.0375,
                           color: primaryGreen,
                           fontFamily: 'popBold',
                         ),
@@ -217,7 +216,7 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                       Text(
                         erDescription,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.0125,
+                          fontSize: height * 0.0125,
                           color: primaryGreen,
                           fontFamily: 'popLight',
                         ),
@@ -227,8 +226,8 @@ class _BeginnerExerciseState extends State<BeginnerExercise> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.333,
+                height: height * 0.15,
+                width: width * 0.333,
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(20),
                   child: Hero(

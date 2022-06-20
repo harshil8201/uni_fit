@@ -52,9 +52,10 @@ class _DrawerPageState extends State<DrawerPage> {
     }
   }
 
-  
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: primaryGreen,
@@ -71,16 +72,16 @@ class _DrawerPageState extends State<DrawerPage> {
                         child: Image.network(
                           user.photoURL,
                           fit: BoxFit.cover,
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: MediaQuery.of(context).size.height * 0.15,
+                          height: height * 0.15,
+                          width: height * 0.15,
                         ),
                       )
                     : ClipOval(
                         child: Image.asset(
                           'assets/images/user.jpg',
                           fit: BoxFit.cover,
-                          height: MediaQuery.of(context).size.height * 0.15,
-                          width: MediaQuery.of(context).size.height * 0.15,
+                          height: height * 0.15,
+                          width: height * 0.15,
                         ),
                       ),
                 const SizedBox(
@@ -101,8 +102,7 @@ class _DrawerPageState extends State<DrawerPage> {
                             document['name'],
                             style: TextStyle(
                                 color: primaryWhite,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * 0.0287,
+                                fontSize: height * 0.0287,
                                 fontFamily: 'popBold'),
                           );
                         },
@@ -121,8 +121,7 @@ class _DrawerPageState extends State<DrawerPage> {
                             document['name'],
                             style: TextStyle(
                                 color: primaryWhite,
-                                fontSize:
-                                    MediaQuery.of(context).size.height * 0.0287,
+                                fontSize: height * 0.0287,
                                 fontFamily: 'popBold'),
                           );
                         },
@@ -131,7 +130,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     ? Text(
                         user.email,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.015,
+                          fontSize: height * 0.015,
                           color: primaryWhite,
                           fontFamily: 'popLight',
                         ),
@@ -139,7 +138,7 @@ class _DrawerPageState extends State<DrawerPage> {
                     : Text(
                         user.email,
                         style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height * 0.015,
+                          fontSize: height * 0.015,
                           color: primaryWhite,
                           fontFamily: 'popLight',
                         ),
@@ -163,16 +162,15 @@ class _DrawerPageState extends State<DrawerPage> {
                         FaIcon(
                           FontAwesomeIcons.questionCircle,
                           color: primaryWhite,
-                          size: MediaQuery.of(context).size.height * 0.0313,
+                          size: height * 0.0313,
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.042,
+                          width: width * 0.042,
                         ),
                         Text(
                           'Contact us',
                           style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: height * 0.018,
                             color: primaryWhite,
                             fontFamily: 'popMedium',
                           ),
@@ -192,16 +190,15 @@ class _DrawerPageState extends State<DrawerPage> {
                         FaIcon(
                           FontAwesomeIcons.plus,
                           color: primaryWhite,
-                          size: MediaQuery.of(context).size.height * 0.0313,
+                          size: height * 0.0313,
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.042,
+                          width: width * 0.042,
                         ),
                         Text(
                           ' More',
                           style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: height * 0.018,
                             color: primaryWhite,
                             fontFamily: 'popMedium',
                           ),
@@ -221,16 +218,15 @@ class _DrawerPageState extends State<DrawerPage> {
                         FaIcon(
                           FontAwesomeIcons.star,
                           color: primaryWhite,
-                          size: MediaQuery.of(context).size.height * 0.0313,
+                          size: height * 0.0313,
                         ),
                         SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.042,
+                          width: width * 0.042,
                         ),
                         Text(
                           'Ratings',
                           style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.height * 0.018,
+                            fontSize: height * 0.018,
                             color: primaryWhite,
                             fontFamily: 'popMedium',
                           ),
@@ -244,8 +240,7 @@ class _DrawerPageState extends State<DrawerPage> {
               ],
             ),
             Padding(
-              padding: EdgeInsets.only(
-                  bottom: MediaQuery.of(context).size.height * 0.00625),
+              padding: EdgeInsets.only(bottom: height * 0.00625),
               child: InkWell(
                 onTap: () {
                   showAlertDialog(context);
@@ -255,15 +250,15 @@ class _DrawerPageState extends State<DrawerPage> {
                     FaIcon(
                       Icons.logout,
                       color: primaryWhite,
-                      size: MediaQuery.of(context).size.height * 0.0313,
+                      size: height * 0.0313,
                     ),
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.042,
+                      width: width * 0.042,
                     ),
                     Text(
                       'Logout',
                       style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.018,
+                        fontSize: height * 0.018,
                         color: primaryWhite,
                         fontFamily: 'popMedium',
                       ),
@@ -359,6 +354,8 @@ class _DrawerPageState extends State<DrawerPage> {
   }
 
   Widget drawerItems(IconData icons, String listName, dynamic routeName) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: InkWell(
@@ -376,15 +373,15 @@ class _DrawerPageState extends State<DrawerPage> {
             FaIcon(
               icons,
               color: primaryWhite,
-              size: MediaQuery.of(context).size.height * 0.0313,
+              size: height * 0.0313,
             ),
             SizedBox(
-              width: MediaQuery.of(context).size.width * 0.042,
+              width: width * 0.042,
             ),
             Text(
               listName,
               style: TextStyle(
-                fontSize: MediaQuery.of(context).size.height * 0.019,
+                fontSize: height * 0.019,
                 color: primaryWhite,
                 fontFamily: 'popMedium',
               ),

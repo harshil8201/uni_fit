@@ -1,6 +1,10 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:uni_fit/Constants/animated_drawer.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'package:uni_fit/Constants/color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_fit/Pages/Drawer/Running%20track/map_screen.dart';
@@ -34,6 +38,8 @@ class _ProgressPageState extends State<ProgressPage> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
@@ -41,14 +47,8 @@ class _ProgressPageState extends State<ProgressPage> {
       duration: const Duration(milliseconds: 250),
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/bg.png'),
-                  fit: BoxFit.cover)),
-          child: Stack(
+        body: bgContainer(
+          Stack(
             children: [
               //-------appbar------
               Padding(
@@ -68,8 +68,8 @@ class _ProgressPageState extends State<ProgressPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -84,8 +84,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.038,
+                                  size: height * 0.038,
                                 ),
                               )
                             : InkWell(
@@ -100,8 +99,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.028,
+                                  size: height * 0.028,
                                 ),
                               ),
                       ),
@@ -110,7 +108,7 @@ class _ProgressPageState extends State<ProgressPage> {
                       'PROGRESS',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                        fontSize: height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -126,27 +124,23 @@ class _ProgressPageState extends State<ProgressPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             ),
                     ),
@@ -155,8 +149,7 @@ class _ProgressPageState extends State<ProgressPage> {
               ),
 
               Padding(
-                padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.1375),
+                padding: EdgeInsets.only(top: height * 0.1375),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -172,7 +165,7 @@ class _ProgressPageState extends State<ProgressPage> {
                               greeting(),
                               style: TextStyle(
                                 color: primaryBlack,
-                                fontSize: MediaQuery.of(context).size.height * 0.02875,
+                                fontSize: height * 0.02875,
                                 fontFamily: 'popMedium',
                               ),
                             ),
@@ -180,7 +173,7 @@ class _ProgressPageState extends State<ProgressPage> {
                               'Burn calories and try to archive your goal...',
                               style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                  fontSize: height * 0.01875,
                                   fontFamily: 'popLight'),
                             ),
                           ],
@@ -190,7 +183,7 @@ class _ProgressPageState extends State<ProgressPage> {
                         padding:
                             const EdgeInsets.only(right: 20, left: 20, top: 20),
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.36875,
+                          height: height * 0.36875,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: primaryWhite,
@@ -212,9 +205,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                   'Calories Burns'.toUpperCase(),
                                   style: TextStyle(
                                       color: darkGreen,
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.03125,
+                                      fontSize: height * 0.03125,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'popBold'),
                                 ),
@@ -283,7 +274,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                     builder: (context) => const MapScreen()));
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.15,
+                            height: height * 0.15,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
@@ -305,9 +296,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                     'Recent Running'.toUpperCase(),
                                     style: TextStyle(
                                       color: darkGreen,
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.03125,
+                                      fontSize: height * 0.03125,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'popBold',
                                     ),
@@ -344,15 +333,12 @@ class _ProgressPageState extends State<ProgressPage> {
                             child: Column(
                               children: [
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      top: 20),
+                                  padding: const EdgeInsets.only(top: 20),
                                   child: Text(
                                     'Pre - Post Workout',
                                     style: TextStyle(
                                       color: darkGreen,
-                                      fontSize:
-                                          MediaQuery.of(context).size.height *
-                                              0.03125,
+                                      fontSize: height * 0.03125,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'popBold',
                                     ),
@@ -361,7 +347,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                 StreamBuilder(
                                   stream: FirebaseFirestore.instance
                                       .collection('progressionVideo')
-                                      .orderBy('title',descending: false)
+                                      .orderBy('title', descending: false)
                                       .snapshots(),
                                   builder: (BuildContext context,
                                       AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -371,19 +357,24 @@ class _ProgressPageState extends State<ProgressPage> {
                                       );
                                     }
                                     return Padding(
-                                      padding: const EdgeInsets.only(left: 25,right: 25,),
+                                      padding: const EdgeInsets.only(
+                                        left: 25,
+                                        right: 25,
+                                      ),
                                       child: SizedBox(
                                         height: 150,
                                         child: ListView.builder(
                                           itemCount: snapshot.data.docs.length,
                                           itemBuilder: (context, index) {
                                             DocumentSnapshot data =
-                                            snapshot.data.docs[index];
+                                                snapshot.data.docs[index];
                                             return Padding(
-                                              padding: const EdgeInsets.only(bottom: 15),
+                                              padding: const EdgeInsets.only(
+                                                  bottom: 15),
                                               child: InkWell(
                                                 onTap: () async {
-                                                  if (await canLaunch(data['url'])) {
+                                                  if (await canLaunch(
+                                                      data['url'])) {
                                                     await launch(data['url'],
                                                         forceSafariVC: false);
                                                   }
@@ -392,7 +383,7 @@ class _ProgressPageState extends State<ProgressPage> {
                                                   data['title'],
                                                   style: TextStyle(
                                                     color: Colors.blue[600],
-                                                    fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                                    fontSize: height * 0.01875,
                                                     fontWeight: FontWeight.bold,
                                                     fontFamily: 'popBold',
                                                   ),
@@ -406,13 +397,13 @@ class _ProgressPageState extends State<ProgressPage> {
                                   },
                                 ),
                                 Padding(
-                                  padding:
-                                  const EdgeInsets.only(top: 10, bottom: 10),
+                                  padding: const EdgeInsets.only(
+                                      top: 10, bottom: 10),
                                   child: Text(
                                     'scroll down',
                                     style: TextStyle(
                                       color: Colors.grey[400],
-                                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                                      fontSize: height * 0.015,
                                       fontWeight: FontWeight.bold,
                                       fontFamily: 'popBold',
                                     ),
@@ -439,6 +430,8 @@ class _ProgressPageState extends State<ProgressPage> {
   }
 
   Widget erVerifiedDataContainer(String erCategories, String erModel) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance
           .collection('UserData')
@@ -455,7 +448,7 @@ class _ProgressPageState extends State<ProgressPage> {
               '$erCategories : ',
               style: TextStyle(
                 color: darkGreen,
-                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontSize: height * 0.025,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'popMedium',
               ),
@@ -464,7 +457,7 @@ class _ProgressPageState extends State<ProgressPage> {
               "${document[erModel]} cal",
               style: TextStyle(
                 color: primaryBlack,
-                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontSize: height * 0.025,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'popMedium',
               ),
@@ -476,6 +469,8 @@ class _ProgressPageState extends State<ProgressPage> {
   }
 
   Widget erNotVerifiedDataContainer(String erCategories, String erModel) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance
           .collection('UserData')
@@ -492,7 +487,7 @@ class _ProgressPageState extends State<ProgressPage> {
               '$erCategories : ',
               style: TextStyle(
                 color: darkGreen,
-                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontSize: height * 0.025,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'popMedium',
               ),
@@ -501,7 +496,7 @@ class _ProgressPageState extends State<ProgressPage> {
               "${document[erModel]} cal",
               style: TextStyle(
                 color: primaryBlack,
-                fontSize: MediaQuery.of(context).size.height * 0.025,
+                fontSize: height * 0.025,
                 fontWeight: FontWeight.normal,
                 fontFamily: 'popMedium',
               ),
@@ -513,6 +508,8 @@ class _ProgressPageState extends State<ProgressPage> {
   }
 
   Widget runningVerifiedContainer(String text, String documentType) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance
           .collection('UserData')
@@ -531,7 +528,7 @@ class _ProgressPageState extends State<ProgressPage> {
                 '$text : ',
                 style: TextStyle(
                     color: darkGreen,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontSize: height * 0.025,
                     fontWeight: FontWeight.normal,
                     fontFamily: 'popMedium'),
               ),
@@ -539,7 +536,7 @@ class _ProgressPageState extends State<ProgressPage> {
                 document[documentType].toString(),
                 style: TextStyle(
                     color: primaryBlack,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontSize: height * 0.025,
                     fontWeight: FontWeight.normal,
                     fontFamily: 'popMedium'),
               ),
@@ -551,6 +548,8 @@ class _ProgressPageState extends State<ProgressPage> {
   }
 
   Widget runningNotVerifiedContainer(String text, String documentType) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
       stream: FirebaseFirestore.instance
           .collection('UserData')
@@ -569,7 +568,7 @@ class _ProgressPageState extends State<ProgressPage> {
                 '$text : ',
                 style: TextStyle(
                     color: darkGreen,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontSize: height * 0.025,
                     fontWeight: FontWeight.normal,
                     fontFamily: 'popMedium'),
               ),
@@ -577,7 +576,7 @@ class _ProgressPageState extends State<ProgressPage> {
                 document[documentType].toString(),
                 style: TextStyle(
                     color: primaryBlack,
-                    fontSize: MediaQuery.of(context).size.height * 0.025,
+                    fontSize: height * 0.025,
                     fontWeight: FontWeight.normal,
                     fontFamily: 'popMedium'),
               ),

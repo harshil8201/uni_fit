@@ -1,3 +1,5 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:async';
 import 'dart:math';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -89,6 +91,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
 
   @override
   Widget build(BuildContext context) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: Container(
@@ -119,7 +123,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                     'Back Exercise',
                     style: TextStyle(
                       color: primaryWhite,
-                      fontSize: MediaQuery.of(context).size.height * 0.0375,
+                      fontSize:  height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
@@ -187,6 +191,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
   }
 
   Widget readyContainer() {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -215,7 +221,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                   icon: Icon(
                     Icons.arrow_back_rounded,
                     color: primaryWhite,
-                    size: MediaQuery.of(context).size.height * 0.0438,
+                    size:  height * 0.0438,
                   )),
             ),
           ),
@@ -226,7 +232,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,
-                fontSize: MediaQuery.of(context).size.height * 0.04,
+                fontSize:  height * 0.04,
                 fontFamily: 'popMedium',
                 fontWeight: FontWeight.bold,
               ),
@@ -241,7 +247,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   color: Colors.grey.shade700,
-                  fontSize: MediaQuery.of(context).size.height * 0.0187,
+                  fontSize:  height * 0.0187,
                   fontFamily: 'popMedium',
                   fontWeight: FontWeight.bold,
                 ),
@@ -254,6 +260,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
   }
 
   Widget breakTime(String erName) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 120),
       child: Container(
@@ -271,13 +279,13 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: superDarkGreen,
-                fontSize: MediaQuery.of(context).size.height * 0.0375,
+                fontSize:  height * 0.0375,
                 fontFamily: 'popMedium',
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.025,
+              height:  height * 0.025,
             ),
             Column(
               children: [
@@ -299,8 +307,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                       topRight: Radius.circular(20),
                     ),
                     child: FadeInImage(
-                      width: MediaQuery.of(context).size.width * 0.833,
-                      height: MediaQuery.of(context).size.height * 0.375,
+                      width:  width * 0.833,
+                      height:  height * 0.375,
                       image: AssetImage(
                         'assets/images/gif/$erName.gif',
                       ),
@@ -312,7 +320,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.025,
+                  height:  height * 0.025,
                 ),
                 Text(
                   erName.toUpperCase(),
@@ -323,7 +331,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                       fontFamily: 'popBold'),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.025,
+                  height:  height * 0.025,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -332,7 +340,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                       'Start in ',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.0275,
+                        fontSize:  height * 0.0275,
                         color: primaryWhite,
                         fontWeight: FontWeight.bold,
                       ),
@@ -345,7 +353,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                       ' : $brSecond sec',
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.0275,
+                        fontSize:  height * 0.0275,
                         color: primaryWhite,
                         fontWeight: FontWeight.bold,
                       ),
@@ -361,6 +369,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
   }
 
   Widget endWorkout() {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(
         left: 20,
@@ -460,7 +470,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 60),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.0625,
+                            height:  height * 0.0625,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -479,7 +489,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontFamily: 'popBold',
-                                  fontSize: MediaQuery.of(context).size.height *
+                                  fontSize:  height *
                                       0.0287,
                                   letterSpacing: 2,
                                   color: primaryGreen,
@@ -511,7 +521,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 60),
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.0625,
+                            height:  height * 0.0625,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: Colors.white,
@@ -530,7 +540,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                                 textAlign: TextAlign.left,
                                 style: TextStyle(
                                   fontFamily: 'popBold',
-                                  fontSize: MediaQuery.of(context).size.height *
+                                  fontSize:  height *
                                       0.0287,
                                   letterSpacing: 2,
                                   color: primaryGreen,
@@ -549,6 +559,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
   }
 
   Widget erContainer(String erName, String erSet) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 120),
       child: Container(
@@ -566,13 +578,13 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: superDarkGreen,
-                fontSize: MediaQuery.of(context).size.height * 0.0375,
+                fontSize:  height * 0.0375,
                 fontFamily: 'popMedium',
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.025,
+              height:  height * 0.025,
             ),
             Container(
               decoration: BoxDecoration(
@@ -592,8 +604,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                   topRight: Radius.circular(20),
                 ),
                 child: FadeInImage(
-                  width: MediaQuery.of(context).size.width * 0.833,
-                  height: MediaQuery.of(context).size.height * 0.375,
+                  width:  width * 0.833,
+                  height:  height * 0.375,
                   image: AssetImage(
                     'assets/images/gif/$erName.gif',
                   ),
@@ -605,33 +617,33 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.0125,
+              height:  height * 0.0125,
             ),
             Text(
               erName.toUpperCase(),
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: superDarkGreen,
-                fontSize: MediaQuery.of(context).size.height * 0.0313,
+                fontSize:  height * 0.0313,
                 fontFamily: 'popBold',
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.00625,
+              height:  height * 0.00625,
             ),
             Text(
               erSet,
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: primaryWhite,
-                fontSize: MediaQuery.of(context).size.height * 0.0225,
+                fontSize:  height * 0.0225,
                 fontFamily: 'popBold',
                 fontWeight: FontWeight.bold,
               ),
             ),
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.00625,
+              height:  height * 0.00625,
             ),
             Stack(
               alignment: Alignment.center,
@@ -640,15 +652,15 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                   '$erSecond',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.0375,
+                    fontSize:  height * 0.0375,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(10),
                   child: SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.11875,
-                    width: MediaQuery.of(context).size.height * 0.11875,
+                    height:  height * 0.11875,
+                    width:  height * 0.11875,
                     child: CircularProgressIndicator(
                       value: 1 - erSecond / erMaxSecond,
                       valueColor: AlwaysStoppedAnimation(semiWhite),
@@ -666,6 +678,8 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
   }
 
   Widget realButton() {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     final isRunning = timer == null ? false : timer.isActive;
 
     return isRunning
@@ -730,15 +744,15 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                         shape: BoxShape.circle,
                         color: Colors.redAccent,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.0625,
-                      width: MediaQuery.of(context).size.height * 0.139,
+                      height:  height * 0.0625,
+                      width:  height * 0.139,
                       child: Center(
                         child: Transform.rotate(
                           angle: -math.pi / 4,
                           child: FaIcon(
                             FontAwesomeIcons.plus,
                             color: Colors.white,
-                            size: MediaQuery.of(context).size.height * 0.0313,
+                            size:  height * 0.0313,
                           ),
                         ),
                       ),
@@ -763,7 +777,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 100),
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.0625,
+                    height:  height * 0.0625,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -782,7 +796,7 @@ class _AdvanceBackStartState extends State<AdvanceBackStart> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: 'popBold',
-                          fontSize: MediaQuery.of(context).size.height * 0.0287,
+                          fontSize:  height * 0.0287,
                           letterSpacing: 2,
                           color: primaryGreen,
                         ),

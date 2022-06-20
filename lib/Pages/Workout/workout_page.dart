@@ -2,8 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
-import 'package:uni_fit/Pages/workout/Live%20Monitoring/live_monitoring.dart';
-import 'package:uni_fit/main.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'Advance/advance_exercise.dart';
 import 'Beginner/beginner_exercise.dart';
 import 'Intermediate/intermediate_exercise.dart';
@@ -26,20 +25,15 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       duration: const Duration(milliseconds: 250),
       child: Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/bg.png'),
-                  fit: BoxFit.cover)),
-          child: Stack(
+        body: bgContainer(
+          Stack(
             children: [
               //--------appbar-------
               Padding(
@@ -59,8 +53,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -75,8 +69,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.038,
+                                  size: height * 0.038,
                                 ),
                               )
                             : InkWell(
@@ -91,8 +84,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.028,
+                                  size: height * 0.028,
                                 ),
                               ),
                       ),
@@ -101,7 +93,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                       'WORKOUT',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                        fontSize: height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -117,27 +109,23 @@ class _WorkoutPageState extends State<WorkoutPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             ),
                     ),
@@ -151,81 +139,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                     padding: const EdgeInsets.only(bottom: 90),
                     child: Column(
                       children: [
-                        //----------live monitoring-----
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.025,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20),
-                          child: InkWell(
-                            onTap: () {
-                              // want to add navigation here-----------------
-                              Navigator.push(
-                                context,
-                                PageTransition(
-                                    type: PageTransitionType.bottomToTop,
-                                    child: LiveMonitoring(cameras)),
-                              );
-                            },
-                            child: Container(
-                              height:
-                                  MediaQuery.of(context).size.height * 0.1875,
-                              width: double.infinity,
-                              decoration: BoxDecoration(
-                                color: primaryWhite,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: shadowBlack,
-                                    offset: const Offset(0.5, 0.10),
-                                    blurRadius: 20.0,
-                                  ), //BoxShadow
-                                ],
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Text(
-                                        'LIVE',
-                                        style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.04,
-                                          fontFamily: 'popBold',
-                                          color: primaryGreen,
-                                        ),
-                                      ),
-                                      Text(
-                                        'WARM UP',
-                                        style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              0.04,
-                                          fontFamily: 'popBold',
-                                          color: primaryGreen,
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                  SizedBox(
-                                    width: MediaQuery.of(context).size.height *
-                                        0.025,
-                                  ),
-                                  Icon(
-                                    Icons.camera_alt,
-                                    color: primaryGreen,
-                                    size: MediaQuery.of(context).size.height *
-                                        0.0625,
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
+                          height: height * 0.025,
                         ),
 
                         //----------beginner---------
@@ -259,7 +174,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                             const AdvanceExercise()),
 
                         SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.025,
+                          height: height * 0.025,
                         ),
                       ],
                     ),
@@ -282,6 +197,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
     String erBurnCalories,
     dynamic routeName,
   ) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
       child: InkWell(
@@ -293,7 +210,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
           );
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.1875,
+          height: height * 0.2125,
           width: double.infinity,
           decoration: BoxDecoration(
             color: primaryWhite,
@@ -312,7 +229,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               Text(
                 erName.toUpperCase(),
                 style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.04,
+                  fontSize: height * 0.04,
                   fontFamily: 'popBold',
                   color: primaryGreen,
                 ),
@@ -323,22 +240,22 @@ class _WorkoutPageState extends State<WorkoutPage> {
                   Icon(
                     firstIcon,
                     color: primaryGreen,
-                    size: MediaQuery.of(context).size.height * 0.05,
+                    size: height * 0.05,
                   ),
                   Icon(
                     secondIcon,
                     color: primaryGreen,
-                    size: MediaQuery.of(context).size.height * 0.05,
+                    size: height * 0.05,
                   ),
                   Icon(
                     thirdIcon,
                     color: primaryGreen,
-                    size: MediaQuery.of(context).size.height * 0.05,
+                    size: height * 0.05,
                   ),
                 ],
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.0125,
+                height: height * 0.0125,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -346,28 +263,28 @@ class _WorkoutPageState extends State<WorkoutPage> {
                   FaIcon(
                     FontAwesomeIcons.clock,
                     color: Colors.grey.shade400,
-                    size: MediaQuery.of(context).size.height * 0.015,
+                    size: height * 0.015,
                   ),
                   Text(
                     ' ($erMinutes)',
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: height * 0.015,
                       fontFamily: 'popBold',
                       color: Colors.grey.shade400,
                     ),
                   ),
                   SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.0277,
+                    width: width * 0.0277,
                   ),
                   FaIcon(
                     FontAwesomeIcons.fire,
                     color: Colors.grey.shade400,
-                    size: MediaQuery.of(context).size.height * 0.015,
+                    size: height * 0.015,
                   ),
                   Text(
                     ' ($erBurnCalories)',
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.015,
+                      fontSize: height * 0.015,
                       fontFamily: 'popBold',
                       color: Colors.grey.shade400,
                     ),

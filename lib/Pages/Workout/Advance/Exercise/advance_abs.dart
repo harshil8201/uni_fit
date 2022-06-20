@@ -14,12 +14,14 @@ class AdvanceAbs extends StatefulWidget {
 class _AdvanceAbsState extends State<AdvanceAbs> {
   @override
   Widget build(BuildContext context) {
+     var height =  MediaQuery.of(context).size.height;
+    var width =  MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
         children: [
           Container(
-            height: MediaQuery.of(context).size.height * 0.29,
+            height:  height * 0.29,
             color: Colors.black12,
             child: Hero(
               tag: 'advance-image-1',
@@ -27,7 +29,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                 'assets/images/advance/absA.jpg',
                 fit: BoxFit.cover,
                 width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.29,
+                height:  height * 0.29,
               ),
             ),
           ),
@@ -83,20 +85,11 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                                   CrossAxisAlignment.center,
                                               children: [
                                                 SizedBox(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.025,
+                                                  height: height * 0.025,
                                                 ),
                                                 Container(
-                                                  height: MediaQuery.of(context)
-                                                          .size
-                                                          .height *
-                                                      0.29,
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.639,
+                                                  height: height * 0.29,
+                                                  width: width * 0.639,
                                                   color: shadeWhite
                                                       .withOpacity(0.25),
                                                   child: FadeInImage(
@@ -119,9 +112,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                                         .toUpperCase(),
                                                     style: TextStyle(
                                                       fontSize:
-                                                          MediaQuery.of(context)
-                                                                  .size
-                                                                  .height *
+                                                          height *
                                                               0.025,
                                                       fontFamily: 'popBold',
                                                       color: Colors.black,
@@ -132,9 +123,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                                   "Sets : " + data['seta'],
                                                   style: TextStyle(
                                                     fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
+                                                        height *
                                                             0.0225,
                                                     fontFamily: 'popMedium',
                                                     color: primaryGreen,
@@ -159,10 +148,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                                         textAlign:
                                                             TextAlign.start,
                                                         style: TextStyle(
-                                                          fontSize: MediaQuery.of(
-                                                                      context)
-                                                                  .size
-                                                                  .height *
+                                                          fontSize: height *
                                                               0.019,
                                                           fontFamily:
                                                               'popLight',
@@ -183,9 +169,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                               Navigator.pop(context);
                                             },
                                             child: Container(
-                                              height: MediaQuery.of(context)
-                                                      .size
-                                                      .height *
+                                              height: height *
                                                   0.0625,
                                               width: double.infinity,
                                               color: primaryWhite,
@@ -194,9 +178,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                                   'Okay',
                                                   style: TextStyle(
                                                     fontSize:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
+                                                        height *
                                                             0.025,
                                                     fontFamily: 'popBold',
                                                     color: primaryGreen,
@@ -214,7 +196,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                             );
                           },
                           child: Container(
-                            height: MediaQuery.of(context).size.height * 0.15,
+                            height:  height * 0.15,
                             width: double.infinity,
                             decoration: BoxDecoration(
                               color: primaryWhite,
@@ -232,9 +214,9 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                 Padding(
                                   padding: const EdgeInsets.all(10),
                                   child: Container(
-                                    height: MediaQuery.of(context).size.height *
+                                    height:  height *
                                         0.14,
-                                    width: MediaQuery.of(context).size.width *
+                                    width:  width *
                                         0.306,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(5),
@@ -263,9 +245,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                             .toUpperCase()
                                             .replaceAll(" ", '\n'),
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
+                                          fontSize: height *
                                               0.021,
                                           fontFamily: 'popBold',
                                           color: Colors.black,
@@ -273,15 +253,13 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                                       ),
                                       SizedBox(
                                         height:
-                                            MediaQuery.of(context).size.height *
+                                             height *
                                                 0.00625,
                                       ),
                                       Text(
                                         "Sets : " + data['seta'],
                                         style: TextStyle(
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
+                                          fontSize: height *
                                               0.019,
                                           fontFamily: 'popMedium',
                                           color: primaryGreen,
@@ -307,7 +285,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
               icon: Icon(
                 Icons.arrow_back,
                 color: Colors.white,
-                size: MediaQuery.of(context).size.height * 0.0375,
+                size:  height * 0.0375,
               ),
               onPressed: () {
                 Navigator.pop(context);
@@ -321,7 +299,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontFamily: 'popBold',
-                fontSize: MediaQuery.of(context).size.height * 0.03125,
+                fontSize:  height * 0.03125,
                 color: Colors.white,
               ),
             ),
@@ -342,7 +320,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                         ));
                   },
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.0625,
+                    height:  height * 0.0625,
                     width: double.infinity,
                     decoration: BoxDecoration(
                       color: primaryGreen,
@@ -361,7 +339,7 @@ class _AdvanceAbsState extends State<AdvanceAbs> {
                         textAlign: TextAlign.left,
                         style: TextStyle(
                           fontFamily: 'popBold',
-                          fontSize: MediaQuery.of(context).size.height * 0.0288,
+                          fontSize:  height * 0.0288,
                           letterSpacing: 2,
                           color: Colors.white,
                         ),

@@ -1,8 +1,12 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/Constants/animated_drawer.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'package:uni_fit/Constants/color.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:uni_fit/Pages/Diet/high_calories.dart';
@@ -34,20 +38,16 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       duration: const Duration(milliseconds: 250),
       child: Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/bg.png'),
-                  fit: BoxFit.cover)),
-          child: Stack(
+        body: bgContainer(
+          Stack(
             children: [
               //-------appbar------
               Padding(
@@ -67,8 +67,8 @@ class _HomePageState extends State<HomePage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height:  height * 0.056,
+                      width:  height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
+                                  size:  height *
                                       0.038,
                                 ),
                               )
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
+                                  size:  height *
                                       0.028,
                                 ),
                               ),
@@ -109,7 +109,7 @@ class _HomePageState extends State<HomePage> {
                       'UNI FIT',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                        fontSize:  height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -125,17 +125,17 @@ class _HomePageState extends State<HomePage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height:  height * 0.056,
+                      width:  height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                     height * 0.15,
                                 width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                     height * 0.15,
                               ),
                             )
                           : ClipOval(
@@ -143,9 +143,9 @@ class _HomePageState extends State<HomePage> {
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
                                 height:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                     height * 0.15,
                                 width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                     height * 0.15,
                               ),
                             ),
                     ),
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(
                                       color: primaryBlack,
                                       fontSize:
-                                          MediaQuery.of(context).size.height *
+                                           height *
                                               0.02875,
                                       fontFamily: 'popMedium'),
                                 ),
@@ -191,9 +191,7 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
+                                                fontSize: height *
                                                     0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
@@ -214,9 +212,7 @@ class _HomePageState extends State<HomePage> {
                                             document['name'],
                                             style: TextStyle(
                                                 color: primaryBlack,
-                                                fontSize: MediaQuery.of(context)
-                                                        .size
-                                                        .height *
+                                                fontSize: height *
                                                     0.02875,
                                                 fontFamily: 'popMedium'),
                                           );
@@ -228,7 +224,7 @@ class _HomePageState extends State<HomePage> {
                               "Ready for today's workout?",
                               style: TextStyle(
                                   color: Colors.grey[600],
-                                  fontSize: MediaQuery.of(context).size.height *
+                                  fontSize:  height *
                                       0.01875,
                                   fontFamily: 'popLight'),
                             ),
@@ -242,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                             autoPlay: true,
                             autoPlayInterval: const Duration(seconds: 4),
                             height:
-                                MediaQuery.of(context).size.height * 0.29375,
+                                 height * 0.29375,
                           ),
                           items: [
                             erContainer(
@@ -290,7 +286,7 @@ class _HomePageState extends State<HomePage> {
                             // reverse: true,
                             autoPlay: true,
                             autoPlayInterval: const Duration(seconds: 5),
-                            height: MediaQuery.of(context).size.height * 0.25,
+                            height:  height * 0.25,
                           ),
                           items: [
                             dietContainer(
@@ -360,7 +356,7 @@ class _HomePageState extends State<HomePage> {
                                   style: TextStyle(
                                     color: darkGreen,
                                     fontSize:
-                                        MediaQuery.of(context).size.height *
+                                         height *
                                             0.03125,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: 'popBold',
@@ -401,7 +397,7 @@ class _HomePageState extends State<HomePage> {
                                                 data['title'],
                                                 style: TextStyle(
                                                   color: Colors.blue[600],
-                                                  fontSize: MediaQuery.of(context).size.height * 0.01875,
+                                                  fontSize:  height * 0.01875,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily: 'popBold',
                                                 ),
@@ -421,7 +417,7 @@ class _HomePageState extends State<HomePage> {
                                   'scroll down',
                                   style: TextStyle(
                                     color: Colors.grey[400],
-                                    fontSize: MediaQuery.of(context).size.height * 0.015,
+                                    fontSize:  height * 0.015,
                                     fontWeight: FontWeight.bold,
                                     fontFamily: 'popBold',
                                   ),
@@ -452,6 +448,8 @@ class _HomePageState extends State<HomePage> {
     String erDescription,
     dynamic erRoute,
   ) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 15, bottom: 15, right: 7, left: 7),
       child: InkWell(
@@ -464,8 +462,8 @@ class _HomePageState extends State<HomePage> {
               ));
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.25,
-          width: MediaQuery.of(context).size.width * 0.8333,
+          height:  height * 0.25,
+          width:  width * 0.8333,
           decoration: BoxDecoration(
             color: primaryWhite,
             borderRadius: BorderRadius.circular(15),
@@ -487,12 +485,12 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     ClipRRect(
                       borderRadius: BorderRadius.circular(15),
-                      child: Image.asset(
-                        'assets/images/gif/$erImage.gif',
-                        height: MediaQuery.of(context).size.height * 0.15,
-                        width: MediaQuery.of(context).size.width * 0.3333,
-                        fit: BoxFit.cover,
-                      ),
+                      // child: Image.asset(
+                      //   'assets/images/gif/$erImage.gif',
+                      //   height:  height * 0.15,
+                      //   width:  width * 0.3333,
+                      //   fit: BoxFit.cover,
+                      // ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
@@ -504,19 +502,19 @@ class _HomePageState extends State<HomePage> {
                             style: TextStyle(
                                 color: primaryGreen,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.015,
+                                     height * 0.015,
                                 fontFamily: 'popLight'),
                           ),
                           SizedBox(
                             height:
-                                MediaQuery.of(context).size.height * 0.00625,
+                                 height * 0.00625,
                           ),
                           Text(
                             'Set: $erSet',
                             style: TextStyle(
                               color: primaryGreen,
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02125,
+                                   height * 0.02125,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'popLight',
                             ),
@@ -532,7 +530,7 @@ class _HomePageState extends State<HomePage> {
                     erName,
                     style: TextStyle(
                       color: primaryBlack,
-                      fontSize: MediaQuery.of(context).size.height * 0.02775,
+                      fontSize:  height * 0.02775,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'popBold',
                     ),
@@ -553,6 +551,8 @@ class _HomePageState extends State<HomePage> {
     String dietType,
     dynamic dietRoute,
   ) {
+     var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 10, bottom: 15, right: 7, left: 7),
       child: InkWell(
@@ -565,8 +565,8 @@ class _HomePageState extends State<HomePage> {
               ));
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.25,
-          width: MediaQuery.of(context).size.width * 0.8333,
+          height:  height * 0.25,
+          width:  width * 0.8333,
           decoration: BoxDecoration(
             color: primaryGreen,
             image: DecorationImage(
@@ -591,13 +591,13 @@ class _HomePageState extends State<HomePage> {
                   dietName,
                   style: TextStyle(
                     color: primaryWhite,
-                    fontSize: MediaQuery.of(context).size.height * 0.04375,
+                    fontSize:  height * 0.04375,
                     fontFamily: 'popBold',
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.025,
+                  height:  height * 0.025,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -606,7 +606,7 @@ class _HomePageState extends State<HomePage> {
                       "Calories : " + dietCalories + "cal",
                       style: TextStyle(
                         color: primaryWhite,
-                        fontSize: MediaQuery.of(context).size.height * 0.0188,
+                        fontSize:  height * 0.0188,
                         fontFamily: 'popLight',
                         fontWeight: FontWeight.bold,
                       ),
@@ -615,7 +615,7 @@ class _HomePageState extends State<HomePage> {
                       "Type : " + dietType,
                       style: TextStyle(
                         color: primaryWhite,
-                        fontSize: MediaQuery.of(context).size.height * 0.0188,
+                        fontSize:  height * 0.0188,
                         fontFamily: 'popLight',
                         fontWeight: FontWeight.bold,
                       ),

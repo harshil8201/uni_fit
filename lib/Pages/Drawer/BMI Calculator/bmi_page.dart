@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'package:uni_fit/Pages/Drawer/BMI%20Calculator/result_screen.dart';
 import 'package:uni_fit/Constants/color.dart';
 import 'bmi_model.dart';
@@ -21,15 +22,12 @@ class _BMIPageState extends State<BMIPage> {
 
   @override
   Widget build(BuildContext context) {
+      var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      body: Container(
-        height: double.infinity,
-        width: double.infinity,
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('assets/images/bg.png'), fit: BoxFit.cover)),
-        child: Stack(
+      body: bgContainer(
+        Stack(
           children: [
             //-------appbar--------
             Padding(
@@ -42,12 +40,12 @@ class _BMIPageState extends State<BMIPage> {
                       Navigator.pop(context);
                     },
                     child: SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.width * 0.125,
+                      height:  height * 0.056,
+                      width:  width * 0.125,
                       child: Icon(
                         Icons.arrow_back_rounded,
                         color: superDarkGreen,
-                        size: MediaQuery.of(context).size.height * 0.0375,
+                        size:  height * 0.0375,
                       ),
                     ),
                   ),
@@ -55,14 +53,14 @@ class _BMIPageState extends State<BMIPage> {
                     'BMI Calculator',
                     style: TextStyle(
                       color: superDarkGreen,
-                      fontSize: MediaQuery.of(context).size.height * 0.0375,
+                      fontSize:  height * 0.0375,
                       fontFamily: 'popBold',
                       //fontWeight: FontWeight.bold,
                     ),
                   ),
                   SizedBox(
-                    height: MediaQuery.of(context).size.height * 0.0562,
-                    width: MediaQuery.of(context).size.width * 0.125,
+                    height:  height * 0.0562,
+                    width:  width * 0.125,
                   ),
                 ],
               ),
@@ -96,13 +94,13 @@ class _BMIPageState extends State<BMIPage> {
                               "HEIGHT (Cm):",
                               style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: MediaQuery.of(context).size.height *
+                                  fontSize:  height *
                                       0.0375,
                                   fontWeight: FontWeight.w900),
                             ),
                             SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height * 0.0187,
+                                   height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -124,7 +122,7 @@ class _BMIPageState extends State<BMIPage> {
                             ),
                             SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height * 0.0125,
+                                   height * 0.0125,
                             ),
                             const Divider(
                               color: Colors.black,
@@ -132,20 +130,20 @@ class _BMIPageState extends State<BMIPage> {
                             ),
                             SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height * 0.0125,
+                                   height * 0.0125,
                             ),
                             Text(
                               "WEIGHT (Kg):",
                               style: TextStyle(
                                 color: Colors.white,
                                 fontSize:
-                                    MediaQuery.of(context).size.height * 0.0375,
+                                     height * 0.0375,
                                 fontWeight: FontWeight.w900,
                               ),
                             ),
                             SizedBox(
                               height:
-                                  MediaQuery.of(context).size.height * 0.0187,
+                                   height * 0.0187,
                             ),
                             TextFormField(
                               onChanged: (value) {
@@ -171,7 +169,7 @@ class _BMIPageState extends State<BMIPage> {
                         ),
                       ),
                       SizedBox(
-                        height: MediaQuery.of(context).size.height * 0.025,
+                        height:  height * 0.025,
                       ),
                       Container(
                         decoration: BoxDecoration(
@@ -185,7 +183,7 @@ class _BMIPageState extends State<BMIPage> {
                           ),
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        width: MediaQuery.of(context).size.width * 0.555,
+                        width:  width * 0.555,
                         padding: const EdgeInsets.only(left: 16, right: 16),
                         // ignore: deprecated_member_use
                         child: ElevatedButton.icon(
@@ -250,7 +248,7 @@ class _BMIPageState extends State<BMIPage> {
                             "CALCULATE",
                             style: TextStyle(
                               fontSize:
-                                  MediaQuery.of(context).size.height * 0.02,
+                                   height * 0.02,
                               letterSpacing: 2,
                               color:  Colors.white
                             ),

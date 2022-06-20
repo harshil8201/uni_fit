@@ -16,12 +16,14 @@ class GoogleSignInButton extends StatefulWidget {
 class _GoogleSignInButtonState extends State<GoogleSignInButton> {
   @override
   Widget build(BuildContext context) {
+       var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 70, vertical: 5),
       child: InkWell(
         onTap: () {
-          print("Device Height: ${MediaQuery.of(context).size.height}");
-          print("Device Width: ${MediaQuery.of(context).size.width}");
+          print("Device Height: $height");
+          print("Device Width: $width");
           AuthenticationHelper()
               .signInwithGoogle()
               .onError((error, stackTrace) => const LoginSignupPage())
@@ -36,7 +38,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
         },
         child: Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height * 0.057,
+          height: height* 0.057,
           decoration: BoxDecoration(
             color: primaryWhite,
             borderRadius: BorderRadius.circular(25),
@@ -55,14 +57,14 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
               children: [
                 Image.asset(
                   'assets/images/google.png',
-                  height: MediaQuery.of(context).size.height * 0.0375,
-                  width: MediaQuery.of(context).size.width * 0.1071,
+                  height: height* 0.0375,
+                  width:  width * 0.1071,
                 ),
                 Text(
                   'Google',
                   style: TextStyle(
                     color: primaryBlack,
-                    fontSize: MediaQuery.of(context).size.height * 0.0187,
+                    fontSize: height* 0.0187,
                     fontFamily: 'popMedium',
                     letterSpacing: 2,
                   ),

@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print
+// ignore_for_file: avoid_print, unused_local_variable
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -37,7 +37,8 @@ class _MapScreenState extends State<MapScreen> {
     currentLocation.onLocationChanged.listen((LocationData loc) {
       _googleMapController
           ?.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
-        target: LatLng(loc.latitude  ?? currentLocation, loc.longitude ?? currentLocation ),
+        target: LatLng(
+            loc.latitude ?? currentLocation, loc.longitude ?? currentLocation),
         zoom: 19.0,
       )));
       print(loc.latitude);
@@ -61,6 +62,8 @@ class _MapScreenState extends State<MapScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: primaryGreen,
@@ -102,7 +105,7 @@ class _MapScreenState extends State<MapScreen> {
           ),
           if (_info != null)
             Positioned(
-              top: MediaQuery.of(context).size.height * 0.025,
+              top: height * 0.025,
               child: Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 6.0,
@@ -122,7 +125,7 @@ class _MapScreenState extends State<MapScreen> {
                 child: Text(
                   '${_info.totalDistance}, ${_info.totalDuration}',
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.0225,
+                    fontSize: height * 0.0225,
                     color: superDarkGreen,
                     fontWeight: FontWeight.w600,
                   ),
@@ -130,15 +133,14 @@ class _MapScreenState extends State<MapScreen> {
               ),
             ),
           Padding(
-            padding: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height * 0.01),
+            padding: EdgeInsets.only(bottom: height * 0.01),
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Text(
                 '* Note: Please long-press 2 times for route\n( For Starting to Destination ) *',
                 textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.015,
+                    fontSize: height * 0.015,
                     color: Colors.redAccent,
                     fontFamily: 'popBold'),
               ),
@@ -146,14 +148,12 @@ class _MapScreenState extends State<MapScreen> {
           ),
           user.emailVerified
               ? Padding(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).size.height * 0.0625),
+                  padding: EdgeInsets.only(bottom: height * 0.0625),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal:
-                              MediaQuery.of(context).size.height * 0.1125),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: height * 0.1125),
                       child: InkWell(
                         onTap: () {
                           print(_info.totalDistance);
@@ -169,7 +169,7 @@ class _MapScreenState extends State<MapScreen> {
                           );
                         },
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.075,
+                          height: height * 0.075,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: primaryGreen,
@@ -188,8 +188,7 @@ class _MapScreenState extends State<MapScreen> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'popBold',
-                                fontSize:
-                                    MediaQuery.of(context).size.height * 0.0225,
+                                fontSize: height * 0.0225,
                                 color: Colors.white,
                               ),
                             ),
@@ -200,14 +199,12 @@ class _MapScreenState extends State<MapScreen> {
                   ),
                 )
               : Padding(
-                  padding: EdgeInsets.only(
-                      bottom: MediaQuery.of(context).size.height * 0.0625),
+                  padding: EdgeInsets.only(bottom: height * 0.0625),
                   child: Align(
                     alignment: Alignment.bottomCenter,
                     child: Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal:
-                              MediaQuery.of(context).size.height * 0.1125),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: height * 0.1125),
                       child: InkWell(
                         onTap: () {
                           print(_info.totalDistance);
@@ -223,7 +220,7 @@ class _MapScreenState extends State<MapScreen> {
                           );
                         },
                         child: Container(
-                          height: MediaQuery.of(context).size.height * 0.075,
+                          height: height * 0.075,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: primaryGreen,
@@ -242,8 +239,7 @@ class _MapScreenState extends State<MapScreen> {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 fontFamily: 'popBold',
-                                fontSize:
-                                    MediaQuery.of(context).size.height * 0.0225,
+                                fontSize: height * 0.0225,
                                 color: Colors.white,
                               ),
                             ),
@@ -256,8 +252,7 @@ class _MapScreenState extends State<MapScreen> {
         ],
       ),
       floatingActionButton: Padding(
-        padding:
-            EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.1625),
+        padding: EdgeInsets.only(top: height * 0.1625),
         child: Align(
           alignment: Alignment.topRight,
           child: FloatingActionButton(
@@ -280,7 +275,7 @@ class _MapScreenState extends State<MapScreen> {
 
   void _addMarker(LatLng pos) async {
     if (_origin == null || (_origin != null && _destination != null)) {
-     setState(() {
+      setState(() {
         _origin = Marker(
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),

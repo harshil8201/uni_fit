@@ -1,7 +1,10 @@
+// ignore_for_file: unused_local_variable
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:page_transition/page_transition.dart';
+import 'package:uni_fit/Constants/img_design.dart';
 import 'package:uni_fit/Pages/Diet/high_calories.dart';
 import 'package:uni_fit/Pages/Diet/low_calories.dart';
 import 'package:uni_fit/Pages/Diet/muscle_gain.dart';
@@ -26,20 +29,17 @@ class _DietPageState extends State<DietPage> {
 
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
+
     return AnimatedContainer(
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
       duration: const Duration(milliseconds: 250),
       child: Scaffold(
-        body: Container(
-          height: double.infinity,
-          width: double.infinity,
-          decoration: const BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage('assets/images/bg.png'),
-                  fit: BoxFit.cover)),
-          child: Stack(
+        body: bgContainer(
+          Stack(
             children: [
               //---------appbar----------
               Padding(
@@ -59,8 +59,8 @@ class _DietPageState extends State<DietPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: Center(
                         child: isDrawerOpen
                             ? InkWell(
@@ -75,8 +75,7 @@ class _DietPageState extends State<DietPage> {
                                 child: Icon(
                                   Icons.arrow_back,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.038,
+                                  size: height * 0.038,
                                 ),
                               )
                             : InkWell(
@@ -91,8 +90,7 @@ class _DietPageState extends State<DietPage> {
                                 child: FaIcon(
                                   FontAwesomeIcons.listUl,
                                   color: primaryWhite,
-                                  size: MediaQuery.of(context).size.height *
-                                      0.028,
+                                  size: height * 0.028,
                                 ),
                               ),
                       ),
@@ -101,7 +99,7 @@ class _DietPageState extends State<DietPage> {
                       'DIET',
                       style: TextStyle(
                         color: superDarkGreen,
-                        fontSize: MediaQuery.of(context).size.height * 0.038,
+                        fontSize: height * 0.038,
                         fontFamily: 'popBold',
                       ),
                     ),
@@ -117,27 +115,23 @@ class _DietPageState extends State<DietPage> {
                         shape: BoxShape.circle,
                         color: primaryGreen,
                       ),
-                      height: MediaQuery.of(context).size.height * 0.056,
-                      width: MediaQuery.of(context).size.height * 0.056,
+                      height: height * 0.056,
+                      width: height * 0.056,
                       child: user.emailVerified
                           ? ClipOval(
                               child: Image.network(
                                 user.photoURL,
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             )
                           : ClipOval(
                               child: Image.asset(
                                 'assets/images/user.jpg',
                                 fit: BoxFit.cover,
-                                height:
-                                    MediaQuery.of(context).size.height * 0.15,
-                                width:
-                                    MediaQuery.of(context).size.height * 0.15,
+                                height: height * 0.15,
+                                width: height * 0.15,
                               ),
                             ),
                     ),
@@ -152,8 +146,7 @@ class _DietPageState extends State<DietPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.018),
+                        SizedBox(height: height * 0.018),
                         dietContainer(
                           '500-722 cal',
                           'Muscle\nGain',
@@ -205,6 +198,8 @@ class _DietPageState extends State<DietPage> {
     String dietImage,
     dynamic routeName,
   ) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(right: 20, top: 15, left: 20),
       child: InkWell(
@@ -217,7 +212,7 @@ class _DietPageState extends State<DietPage> {
           );
         },
         child: Container(
-          height: MediaQuery.of(context).size.height * 0.14,
+          height: height * 0.14,
           width: double.infinity,
           decoration: BoxDecoration(
             boxShadow: [
@@ -242,7 +237,7 @@ class _DietPageState extends State<DietPage> {
                     Text(
                       dietCalories,
                       style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.0125,
+                        fontSize: height * 0.0125,
                         color: semiBlack,
                         fontFamily: 'popLight',
                       ),
@@ -250,7 +245,7 @@ class _DietPageState extends State<DietPage> {
                     Text(
                       dietType.toUpperCase(),
                       style: TextStyle(
-                        fontSize: MediaQuery.of(context).size.height * 0.0312,
+                        fontSize: height * 0.0312,
                         color: primaryGreen,
                         fontFamily: 'popBold',
                       ),
@@ -259,8 +254,8 @@ class _DietPageState extends State<DietPage> {
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.137,
-                width: MediaQuery.of(context).size.width * 0.417,
+                height: height * 0.137,
+                width: width * 0.417,
                 child: ClipRRect(
                   borderRadius: const BorderRadius.only(
                     bottomLeft: Radius.circular(50),
@@ -291,11 +286,13 @@ class _DietPageState extends State<DietPage> {
     String dietName,
     String dietImage,
   ) {
+    var height = MediaQuery.of(context).size.height;
+    var width = MediaQuery.of(context).size.width;
     return Padding(
       padding: const EdgeInsets.only(top: 15, left: 20, bottom: 20),
       child: Container(
-        height: MediaQuery.of(context).size.height * 0.269,
-        width: MediaQuery.of(context).size.width * 0.361,
+        height: height * 0.269,
+        width: width * 0.361,
         decoration: BoxDecoration(
           boxShadow: [
             BoxShadow(
@@ -311,8 +308,8 @@ class _DietPageState extends State<DietPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * 0.269,
-              width: MediaQuery.of(context).size.width * 0.362,
+              height: height * 0.269,
+              width: width * 0.362,
               child: ClipRRect(
                 borderRadius: const BorderRadius.only(
                   bottomLeft: Radius.circular(0),
@@ -330,12 +327,12 @@ class _DietPageState extends State<DietPage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.0062,
+                  height: height * 0.0062,
                 ),
                 Text(
                   dietCalories,
                   style: TextStyle(
-                    fontSize: MediaQuery.of(context).size.height * 0.0125,
+                    fontSize: height * 0.0125,
                     color: semiBlack,
                     fontFamily: 'popLight',
                   ),
@@ -345,7 +342,7 @@ class _DietPageState extends State<DietPage> {
                   child: Text(
                     dietName,
                     style: TextStyle(
-                      fontSize: MediaQuery.of(context).size.height * 0.0187,
+                      fontSize: height * 0.0187,
                       color: primaryBlack,
                       fontFamily: 'popMedium',
                     ),

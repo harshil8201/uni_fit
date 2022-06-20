@@ -26,11 +26,11 @@ dependencies:
   # Font Style
   font_awesome_flutter:
 
-  # Posture Detecting
-  tflite: ^1.1.1
+  # # Posture Detecting
+  # tflite: ^1.1.2
 
-  # Camera (live-monitoring)
-  camera: ^0.9.4+14
+  # # Camera (live-monitoring)
+  # camera: ^0.9.4+14
 
   # Page transition animation
   page_transition:
@@ -42,10 +42,10 @@ dependencies:
   carousel_slider:
 
   # Running Track
-  google_maps_flutter: ^2.0.2
+  location: ^4.4.0
+  google_maps_flutter: 
   flutter_polyline_points: ^0.2.6
   dio: ^4.0.0
-  location:
 
   # Video (Exercise-Diet)
   url_launcher:
@@ -93,7 +93,7 @@ flutter:
     - assets/images/gif/
 
   fonts:
-    # Bold Font
+      # Bold Font
     - family: popBold
       fonts:
         - asset: assets/font/poppins_bold.otf
