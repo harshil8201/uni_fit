@@ -107,6 +107,7 @@ class AuthenticationHelper {
     }
   }
 
+  // RESET PASSWORD
   Future resetPassword({String email}) async {
     try {
       await _auth.sendPasswordResetEmail(email: email);
